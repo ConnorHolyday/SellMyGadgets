@@ -1,0 +1,10 @@
+$pad: 20px;
+
+@mixin breakpoint($point) {
+	@if $point == med {
+		@media(max-width: 46em) { @content; }
+	}
+	@if $point == sml {
+		@media(max-width: 30em) { @content; }
+	}
+}
