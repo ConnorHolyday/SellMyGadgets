@@ -1,0 +1,29 @@
+
+Welcome to Grunt!
+
+
+
+Don't worry, it's all very easy.
+
+
+First of all make sure you have installed node.js - http://nodejs.org/
+Next install grunt - http://gruntjs.com/getting-started
+
+
+That's the setup! Everything you need is now installed, piece of cake.
+
+
+In order to get it to work for this project you just have to open the "Sell My Gadgets" folder in terminal (or command prompt I guess).
+
+Got that?
+
+Then type: grunt
+
+Boom.
+
+
+If you'd like it to do all the tasks automatically just type: grunt auto
+
+While running grunt auto it also sets up live reload, all you need is the browser extension from - http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-
+
+Install that and just click the button to enable it.
