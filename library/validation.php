@@ -1,6 +1,14 @@
 <?php 
 
 class validation {
+	
+	public static $regexes = Array(
+    		'date' => "^[0-3][0-9][-/][0-1][0-9][-/][0-9]{4}\$",
+    		'phone' => "^[0-9]{10,11}\$",
+    		'postcode' => "^[1-9][0-9]{3}[a-zA-Z]{2}\$",
+			'email' => " ^[0-9a-zA-Z]{}[-@][0-9a-zA-Z][.]",
+    );
+	
 	//strip a string of its tags
 	function strip($string) {
 	

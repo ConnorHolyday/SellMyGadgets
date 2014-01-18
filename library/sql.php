@@ -1,13 +1,9 @@
 <?php // database conection script;
-class DB {
-	public $host = 'localhost';
-	public	$user = 'user';
-	public	$pass = '';
-	public	$db = 'sellmygadgets';
+class DB {	
 	
 	//construct the connection
 	public function __construct() {		
-		$this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db);	
+		$this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);	
 		if ($this->conn->connect_errno){
 			echo "Failed To Connect to MySQLi: " . $conn->connect_error;
 		}
@@ -19,7 +15,7 @@ class DB {
 		return $res;		
 	}
 	
-	//used to insert multiple querys
+	//used to insert multiple querys does not out put hence no return statement
 	public function doQueryX(){
 		$querys = func_get_args();
 		
@@ -42,5 +38,6 @@ class DB {
 	
 }
 
-
+echo "->database connection established ";
 ?>
+
