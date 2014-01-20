@@ -133,6 +133,13 @@ $Querys = array (
 								delivery_date datetime NOT NULL,
 								delivery_cost decimal(4,2) NOT NULL,
 								PRIMARY KEY (id)
+							);",
+	"product_comments"=>"CREATE TABLE product_comments(
+								id bigint NOT NULL AUTO_INCREMENT,
+								product_id bigint NOT NULL,
+								user_id bigint NOT NULL,
+								comment text NOT NULL,
+								PRIMARY KEY (id)
 							);"
 	);
 	
@@ -149,7 +156,8 @@ $tables = array(
 "product_media",
 "product_categories",
 "product_condition",
-"product_delivery"
+"product_delivery",
+"product_comments"
 	 );
 
 //fetch all tables in the database to check if they already exsist if they dont exsist create them.

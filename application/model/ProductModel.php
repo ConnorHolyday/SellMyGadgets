@@ -43,11 +43,13 @@
 			
 			$Images = 			'SELECT id, title
 								FROM product_media
-								WHERE product_id =`' . $id . '`'; 
+								WHERE product_id =' . $id; 
 								
-			return $this->db->doQuery($products);
-			
-			
+			$Comments= 		'SELECT * 
+								FROM product_comments
+								WHERE product_id = ' . $id;
+								
+			return array($this->db->doQuery($products),	$this->db->doQuery($Images),$this->db->doQuery($Comments));				
 		}
 	}
 	

@@ -42,12 +42,11 @@
 		function view($id) {
 			require "application/model/ProductModel.php";
 			$this->model = new ProductModel();
-			$products = $this->model->getProductById($id);
+			list($products, $images, $comments) = $this->model->getProductById($id);
 
 			//loop throgh query results (should only be 1) store each column data into its own varible for access from the view
-			$productLine = array();
+			$allMedia = array();
 			foreach ($products as $product){
-				echo 'product name = ' . $product['name'];
 				$this->view->productId = $product['id'];
 				$this->view->productName = $product['name'];
 				$this->view->productPrice = $product['price'];
@@ -58,10 +57,24 @@
 				$this->view->productDeliveryCost = $product['delivery_cost'];
 				$this->view->productCondition = $product['condition_name'];
 				$this->view->productSeller = $product['username'];	
-				$this->view->productDescription = $product['description'];	
+				$this->view->productDescription = $product['description'];
+				
+				
+				//images and comments to be updated still
+				foreach ($images as $media){
+					array_push ($allMedia, '<img src="' . $media['id'] . '" alt="' . $media['title'] . '" >')	;		
 				}
+				
+				$this->view->productMedia = $allMedia;
+				
+				foreach ($comments as $comment){
+					array_push ($allCommetns, '' . $comments['id'] . $comments['comment']);
+				}
+				
+				$this->view->productComments = $allComments;
 					
-				echo $this->view->productName;				
+			}
+					
 			//render the view page							
 			$this->view->render('Product/view');
 		}
