@@ -1,0 +1,248 @@
+/* ============================ *\
+ //
+ //  Mixins
+ //
+\* ============================ */
+
+
+
+/* ==========================================
+    Font Mixins
+============================================*/
+
+
+@mixin heading-font {
+    //font-family: "", "";
+    //font-weight: 400;
+}
+@mixin body-font($type: regular, $style: normal) {
+    $value: 0;
+    @if $style == italic {
+        $value: 'i';
+    } @else {
+        $value: 'n';
+}
+@if $type == thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+} @else if $type == regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+} @else if $type == bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+    font-style: $style;
+}
+
+
+/* ==========================================
+    Type and List Based Mixins
+============================================*/
+
+
+@mixin font-size($size: 16) {
+  font-size: $size + px;
+  font-size: $size / 16 + rem;
+}
+
+// Mixins for list style types
+@mixin unordered {
+    list-style-position: outside;
+    list-style-type: disc;
+}
+
+@mixin unordered-inside {
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+@mixin ordered {
+    list-style-position: outside;
+    list-style-type: decimal;
+}
+
+@mixin ordered-inside {
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+
+@mixin nobullet {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin list-reset-keep-bl{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+@mixin list-reset{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+    Style Mixins
+============================================*/
+
+
+@mixin rounded($value: 1) {
+    border-radius: $value + px;
+}
+
+@mixin box-shadow($x: 3, $y: 3, $blur: 5, $spread: 6, $r: 0, $g: 0, $b: 0, $a: 0.5) {
+    -webkit-box-shadow: $x + px $y + px $blur + px $spread + px rgba($r, $g, $b, $a);
+    -moz-box-shadow: $x + px $y + px $blur + px $spread + px rgba($r, $g, $b, $a);
+    box-shadow: $x + px $y + px $blur + px $spread + px rgba($r, $g, $b, $a);
+}
+
+@mixin transition ($prop: all, $time: 1, $ease: linear) {
+    -webkit-transition: $prop $time + s $ease;
+    -moz-transition: $prop $time + s $ease;
+    -o-transition: $prop $time + s $ease;
+    -ms-transition: $prop $time + s $ease;
+    transition: $prop $time + s $ease;
+}
+
+@mixin rotate ($rotate: 90) {
+    -webkit-transform: rotate($rotate + deg);
+    -moz-transform: rotate($rotate + deg);
+    -o-transform: rotate($rotate + deg);
+    -ms-transform: rotate($rotate + deg);
+    transform: rotate($rotate + deg);
+}
+
+@mixin scale ($scale: 1) {
+    -webkit-transform: scale($scale);
+    -moz-transform: scale($scale);
+    -o-transform: scale($scale);
+    -ms-transform: scale($scale);
+    transform: scale($scale);
+}
+
+@mixin skew ($skew: 1) {
+    -webkit-transform: skew($skew + deg);
+    -moz-transform: skew($skew + deg);
+    -o-transform: skew($skew + deg);
+    -ms-transform: skew($skew + deg);
+    transform: skew($skew + deg);
+}
+
+@mixin translate ($translate: 10) {
+    -webkit-transform: translate($translate + px);
+    -moz-transform: translate($translate + px);
+    -o-transform: translate($translate + px);
+    -ms-transform: translate($translate + px);
+    transform: translate($translate + px);
+}
+
+
+/* ==========================================
+    Color Based Mixins
+============================================*/
+
+
+@mixin back-color($color, $value: 1) {
+    background-color: $color;
+    @if $value < 1 {
+        background-color: rgba($color, $value);
+    }
+}
+
+@mixin font-color($color, $value: 1) {
+    color: $color;
+    @if $value < 1 {
+        color: rgba($color, $value);
+    }
+}
+
+@mixin gradient ($origin: left, $start: #ffffff, $stop: #000000) {
+    background-color: $start;
+    background-image: -webkit-linear-gradient($origin, $start, $stop);
+    background-image: -moz-linear-gradient($origin, $start, $stop);
+    background-image: -o-linear-gradient($origin, $start, $stop);
+    background-image: -ms-linear-gradient($origin, $start, $stop);
+    background-image: linear-gradient($origin, $start, $stop);
+}
+
+
+/* ==========================================
+    Baseline focused Mixins
+============================================*/
+
+
+/**
+ * Use this with type based elements. Whatever the target font-size is, parse that size  (in px) through this mixin.
+ * The mixin will output the correct margin-bottom and line-height based on the agreed baseline
+ */
+
+
+@mixin baseline-mb($size: 16, $trim: full) {
+
+       @if $trim == half {
+
+        margin-bottom: (($size * $baseline) / 2 ) / $size + em;
+
+    } @else {
+
+        margin-bottom: ($size * $baseline) / $size + em;
+
+    }
+}
+
+@mixin baseline-lh($size: 16) {
+    line-height: ($size * $baseline) / $size + em;
+}
+
+
+/* ==========================================
+    Media Queries
+============================================*/
+
+
+/**
+ * Popular breakpoints (taken from the grid)
+ */
+
+
+$tablet: 321;
+$desktop: 769;
+
+@mixin mq($point, $query1: min, $query2: width, $IE9: false) {
+
+@if $IE9 == true{
+    // if true then give an IE conditional class 'fallback' for oldIE
+    .lt-ie9 & {
+      @content;
+    }
+   @media screen and (#{$query1}-#{$query2}: $point / $basefont +em) {
+      @content;
+    }
+  }
+  @else {
+    // if not true (suggest writing - false - for clarity no 'fallback'
+    @media screen and (#{$query1}-#{$query2}: $point / $basefont +em) {
+      @content;
+    }
+  }
+}
+
+/**
+ * Example of use
+ *
+
+    P{
+        font-size: 12px;
+        @include mq($tablet){
+            font-size 20px;
+        }
+    }
+
+ *
+ */

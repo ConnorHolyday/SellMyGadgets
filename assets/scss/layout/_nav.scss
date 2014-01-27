@@ -1,0 +1,31 @@
+/* ============================ *\
+//
+//	Navigation
+//
+\* ============================ */
+
+
+
+.nav--main {
+    float: right;
+    padding-right: 4em;
+    margin-top: 2.5em;
+    @include font-size(20);
+}
+
+    .nav--main__li {
+        @include nobullet;
+        float: left;
+        margin-right: 1.2em;
+    }
+
+    .nav--main__a {
+        color: $copy;
+        letter-spacing: .1em;
+        padding-bottom: .3125em;
+        border-bottom: 2px solid transparent;
+
+        &.selected {
+            border-bottom: 2px solid $copy;
+        }
+    }

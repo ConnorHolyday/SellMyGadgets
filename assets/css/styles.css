@@ -1,0 +1,672 @@
+/* ============================ *\
+ //
+ // Imports
+ //
+\* ============================ */
+
+/* Tools */
+
+/*
+ * THE IDEA BUREAU - GRID
+ * https://github.com/theideabureau/grid
+ */
+
+.row:before,
+.row:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.row:after {
+	clear: both;
+}
+
+.row {
+	*zoom: 1;
+}
+
+.row {
+	margin-left: -20px;
+}
+
+.col {
+	border: 0px solid transparent;
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-clip: padding-box !important;
+	border-left-width: 20px;
+	margin-left: 0;
+	padding: 0 0px;
+}
+
+/* m-grid */
+
+.m-hide {
+	display: none;
+}
+
+.m-1 {
+	display: block;
+	width: 50%;
+}
+
+.m-all {
+	display: block;
+	margin-left: 0;
+	width: 100%;
+}
+
+/* t-grid */
+
+/* d-grid */
+
+/* ============================ *\
+ //
+ //  Mixins
+ //
+\* ============================ */
+
+/* ==========================================
+    Font Mixins
+============================================*/
+
+/* ==========================================
+    Type and List Based Mixins
+============================================*/
+
+/* ==========================================
+    Style Mixins
+============================================*/
+
+/* ==========================================
+    Color Based Mixins
+============================================*/
+
+/* ==========================================
+    Baseline focused Mixins
+============================================*/
+
+/**
+ * Use this with type based elements. Whatever the target font-size is, parse that size  (in px) through this mixin.
+ * The mixin will output the correct margin-bottom and line-height based on the agreed baseline
+ */
+
+/* ==========================================
+    Media Queries
+============================================*/
+
+/**
+ * Popular breakpoints (taken from the grid)
+ */
+
+/**
+ * Example of use
+ *
+
+    P{
+        font-size: 12px;
+        @include mq($tablet){
+            font-size 20px;
+        }
+    }
+
+ *
+ */
+
+/* ============================ *\
+ //
+ //	Settings
+ //
+\* ============================ */
+
+/* ==========================================
+	Colors
+============================================*/
+
+/* ==========================================
+	Variables
+============================================*/
+
+/* ============================ *\
+ //
+ // Helpers
+ //
+\* ============================ */
+
+/**
+ * As per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ */
+
+.media {
+	display: block;
+}
+
+.img {
+	float: left;
+}
+
+/* Reversed image location (right instead of left). */
+
+.img-rev {
+	float: right;
+}
+
+.img img {
+	display: block;
+}
+
+.body {
+	overflow: hidden;
+}
+
+.body > :last-child {
+	margin-bottom: 0;
+}
+
+.center {
+	text-align: center;
+}
+
+/**
+* Simple floats
+*/
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+/**
+* Basic Image replacement
+*/
+
+.ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden; /* IE 6/7 fallback */
+	*text-indent: -9999px;
+}
+
+.ir:before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 100%;
+}
+
+/**
+* Big up @necolas: nicolasgallagher.com/micro-clearfix-hack
+*/
+
+.media:before,
+.media:after,
+.cf:before,
+.cf:after {
+	content: "";
+	display: table;
+}
+
+.media:after,
+.cf:after {
+	clear: both;
+}
+
+.media,
+.cf {
+	zoom: 1;
+}
+
+.top-border {
+	border-top: 1px solid grey;
+}
+
+/*
+* Hide from both screenreaders and browsers: h5bp.com/u
+*/
+
+.hidden {
+	display: none !important;
+	visibility: hidden;
+}
+
+/*
+* Hide only visually, but have it available for screenreaders: h5bp.com/v
+*/
+
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/*
+* Extends the .visuallyhidden class to allow the element to be focusable
+* when navigated to via the keyboard: h5bp.com/p
+*/
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+
+.chromeframe {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: black;
+	padding: 0.2em 0;
+}
+
+.browsehappy {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+/* Base */
+
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+video {
+	display: inline-block;
+}
+
+a {
+	background: transparent;
+	text-decoration: none;
+	color: #355899;
+	border-bottom: 1px solid #355899;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	font-weight: normal;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+
+hr {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	height: 0;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+q {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+img {
+	border: 0;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 0;
+}
+
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+	border: 0;
+	padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	margin: 0;
+}
+
+button,
+input {
+	line-height: normal;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+input[type="search"] {
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ============================ *\
+ //
+ //	Type
+ //
+\* ============================ */
+
+/* ==========================================
+    Large Heading Styles
+============================================*/
+
+/* ==========================================
+    Headings Detail
+============================================*/
+
+/* ==========================================
+    Micro Copy
+============================================*/
+
+/* ============================ *\
+ //
+ // Forms
+ //
+\* ============================ */
+
+/* Layout */
+
+.header--main {
+	background-color: #f0f0f0;
+}
+
+.top-bar {
+	background-color: #30303e;
+	text-align: right;
+	padding: 1em 0;
+}
+
+.top-bar__a {
+	color: #666f7c;
+	margin-right: 1.25em;
+	letter-spacing: .05em;
+	border: none;
+}
+
+.main-logo {
+	float: left;
+	padding: 1em 0 1em 4em;
+}
+
+.site__footer {
+	margin-top: 4em;
+}
+
+.nav--main {
+	float: right;
+	padding-right: 4em;
+	margin-top: 2.5em;
+	font-size: 20px;
+	font-size: 1.25rem;
+}
+
+.nav--main__li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+	margin-right: 1.2em;
+}
+
+.nav--main__a {
+	color: #303030;
+	letter-spacing: .1em;
+	padding-bottom: .3125em;
+	border-bottom: 2px solid transparent;
+}
+
+.nav--main__a.selected {
+	border-bottom: 2px solid #303030;
+}
+
+/* ============================ *\
+ //
+ // Wrappers
+ //
+\* ============================ */
+
+.wrapper {
+	max-width: 61.875em;
+	margin: 0 auto;
+}
+
+.wrapper.relative {
+	position: relative;
+}
+
+/* Modular */
+
+.search--top {
+	background-color: #676a80;
+	color: white;
+}
+
+/* Non-Modular */
+
+/* ============================ *\
+ //
+ // Images
+ //
+\* ============================ */
+
+/*# sourceMappingURL=styles.css.map */
+
+@media screen and (min-width: 20.0625em) {
+
+.t-hide {
+	display: none;
+}
+
+.t-1 {
+	display: block;
+	width: 25%;
+}
+
+.t-2 {
+	display: block;
+	width: 50%;
+}
+
+.t-3 {
+	display: block;
+	width: 75%;
+}
+
+.t-all {
+	display: block;
+	margin-left: 0;
+	width: 100%;
+}
+
+}
+
+@media screen and (min-width: 48.0625em) {
+
+.d-hide {
+	display: none;
+}
+
+.d-1 {
+	display: block;
+	width: 12.5%;
+}
+
+.d-2 {
+	display: block;
+	width: 25%;
+}
+
+.d-3 {
+	display: block;
+	width: 37.5%;
+}
+
+.d-4 {
+	display: block;
+	width: 50%;
+}
+
+.d-5 {
+	display: block;
+	width: 62.5%;
+}
+
+.d-6 {
+	display: block;
+	width: 75%;
+}
+
+.d-7 {
+	display: block;
+	width: 87.5%;
+}
+
+.d-all {
+	display: block;
+	margin-left: 0;
+	width: 100%;
+}
+
+}
+

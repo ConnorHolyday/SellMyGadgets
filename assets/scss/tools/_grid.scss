@@ -1,0 +1,138 @@
+/*
+ * THE IDEA BUREAU - GRID
+ * https://github.com/theideabureau/grid
+ */
+
+
+ //************
+// GRID CONFIG
+
+$padding: 0 0px;
+$gutter_px: 20px;
+$gutter_pc: 0;
+
+// format: (prefix, columns, [breakpoint])
+
+$grids: (
+	(m, 2),
+	(t, 4, 321),
+	(d, 8, 769)
+);
+
+// media query variables
+$doc_font_size: 16;
+$old_ie_support: false;
+
+
+ //****************
+// HERE BE DRAGONS
+
+%cf:before,
+%cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+%cf:after {
+    clear: both;
+}
+
+%cf {
+    *zoom: 1;
+}
+
+.row {
+	margin-left: -$gutter_px;
+	@extend %cf;
+}
+
+.col {
+
+	border: 0px solid transparent;
+	float: left;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-moz-background-clip: padding-box !important;
+	-webkit-background-clip: padding-box !important;
+	background-clip: padding-box !important;
+
+	border-left-width: $gutter_px;
+	margin-left: $gutter_pc;
+	padding: $padding;
+
+}
+
+@mixin span($num, $gutter_pc, $max_columns) {
+	display: block;
+	$one_col: (100% - ($gutter_pc * ($max_columns - 1))) / $max_columns;
+	width:($one_col * $num) + ($gutter_pc * ($num - 1));
+}
+
+@mixin span_first {
+	display: block;
+	margin-left: 0;
+}
+
+// props to Stu Robson for the mq mixin, modified slightly
+// http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
+
+@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
+
+    @if $IE9 == true{
+
+        .lt-ie9 {
+            @content;
+        }
+
+        @media screen and (#{$query1}-#{$query2}: $point / $doc_font_size +em) {
+            @content;
+        }
+
+    } @else {
+
+        @media screen and (#{$query1}-#{$query2}: $point / $doc_font_size +em) {
+            @content;
+        }
+
+    }
+
+}
+
+@mixin grid($prefix, $columns) {
+
+	.#{$prefix}-hide { display: none; }
+
+	@for $i from 1 through $columns - 1 {
+
+		.#{$prefix}-#{$i} {
+			@include span($i, $gutter_pc, $columns);
+		}
+
+	}
+
+	.#{$prefix}-all {
+		@include span_first;
+		width:100%;
+	}
+
+}
+
+@each $grid in $grids {
+
+	/* #{nth($grid, 1)}-grid */
+
+	// have we got a prefix *and* a mq breakpoint?
+	@if length($grid) > 2 {
+
+		@include mq(nth($grid, 3), $old_ie_support) {
+			@include grid(nth($grid, 1), nth($grid, 2));
+		}
+
+	} @else {
+		@include grid(nth($grid, 1), nth($grid, 2));
+	}
+
+}

@@ -1,0 +1,30 @@
+/* ============================ *\
+//
+//	Header
+//
+\* ============================ */
+
+
+
+
+.header--main {
+    background-color: $light-bg;
+}
+
+    .top-bar {
+        background-color: $dark-blue-bg;
+        text-align: right;
+        padding: 1em 0;
+    }
+
+    .top-bar__a {
+        color: $light-copy;
+        margin-right: 1.25em;
+        letter-spacing: .05em;
+        border: none;
+    }
+
+    .main-logo {
+        float: left;
+        padding: 1em 0 1em 4em;
+    }
