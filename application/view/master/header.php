@@ -9,9 +9,9 @@
 
 		<!-- Favicons -->
 
-		<link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
-		<link rel="stylesheet" href="/assets/css/global.css" />
+		<link rel="stylesheet" href="/assets/css/styles.css" />
 
 		<!--[if lt IE 9]>
 			<script type="text/javascript" src="/assets/js/libs/selectivizr-min.js"></script>
@@ -33,7 +33,7 @@
 
 		</script> -->
 
-		<script type="text/javascript" src="/assets/scripts/vendor/modernizr.js"></script>
+		<script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
 
 	</head>
 	<?php flush(); ?>
