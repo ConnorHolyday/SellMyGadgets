@@ -1,9 +1,33 @@
-bower_components
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
 
-node_modules
-.tmp
-.sass-cache
-test/bower_components
+# OS or Editor folders
 .DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+#Various settings and files
+migrate.php
+.htaccess
+xmlrpc.php
+*.log
+/codekit-config.json
+
+/error_log
+
+node_modules/
 npm-debug.log
-codekit-config.json
+.tmp
