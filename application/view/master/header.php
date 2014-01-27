@@ -38,3 +38,32 @@
 	</head>
 	<?php flush(); ?>
 	<body>
+
+	<header class="header header--main cf">
+		<div class="top-bar">
+			<a href="#" class="top-bar__a">dashboard</a>
+			<a href="#" class="top-bar__a">account</a>
+		</div>
+
+		<div class="main-logo">
+			<img src="../assets/img/svg/logo.svg">
+		</div>
+
+		<nav class="nav nav--main">
+			<ul class="nav--main__ul">
+				<li class="nav--main__li"><a href="#" class="nav--main__a selected">home</a></li>
+				<li class="nav--main__li"><a href="#" class="nav--main__a">buy</a></li>
+				<li class="nav--main__li"><a href="#" class="nav--main__a">sell</a></li>
+				<li class="nav--main__li"><a href="#" class="nav--main__a">about</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<section class="search search--top">
+		<h1>Quo adipisci inventore nemo blanditiis facere?</h1>
+
+		<div class="symbol--search">
+			<!-- <input type="search" placeholder="Search" name="s" results="5" autosave="topSearchAutosave"> -->
+			<input type="search" placeholder="Search" name="s" class="search--top__input">
+		</div>
+	</section>
