@@ -5,8 +5,10 @@
 			parent::__construct();
 		}
 				
-		/* Querys all products to display within the products page
-		this function is accsed via the site_directory/product/all */
+		/* 
+		Querys all products to display within the products page
+		this function is accsed via the site_directory/product/all 
+		*/
 		function all() {	
 			//call the model functions to send and recieve querys
 			require "application/model/ProductModel.php";
@@ -15,6 +17,7 @@
 			
 			//loop throug the array and push html out put string to new array to tidy out puts
 			$productLine = array();
+
 			foreach ($products as $product){
 				array_push ($productLine , 
 								$product['id'] . " " .
@@ -32,14 +35,18 @@
 				}
 			
 			//store the array in global varible and render the veiw
-			$this->view->products =  $productLine;		
+			$this->view->products = $productLine;		
 			$this->view->render('Product/index');
 	
 		}
 		
-		//Querys all products by an id and will only return a single product information
-		//this function is accsed via the site_diretory/product/single
+		/*
+		Querys all products by an id and will only return a single product information
+		this function is accsed via the site_diretory/product/single
+		*/
 		function view($id) {
+			echo '->Product view';
+
 			require "application/model/ProductModel.php";
 			$this->model = new ProductModel();
 			list($products, $images, $comments) = $this->model->getProductById($id);
@@ -62,7 +69,9 @@
 				
 				//images and comments to be updated still
 				foreach ($images as $media){
-					array_push ($allMedia, '<img src="' . $media['id'] . '" alt="' . $media['title'] . '" >')	;		
+					array_push ($allMedia, '<img src="' . $media['id'] . '" alt="' . $media['title'] . '" >')	;	
+
+					
 				}
 				
 				$this->view->productMedia = $allMedia;
@@ -78,34 +87,30 @@
 			//render the view page							
 			$this->view->render('Product/view');
 		}
-		
-		function Search($type, $filter){
-			echo "->Search Products Via filter<br>";
+	
+		/* 
+		Function to select all products in a catagory
+		 - Need to add string and integer detect to select by catagory id or catagory name
+		*/
+		function catagory($catagory){
+			require "application/model/ProductModel.php";
+			$this->model = new ProductModel();
+			$products = $this->model->getProductByCatagory($catagory);
+
+			//loop throgh query results (should only be 1) store each column data into its own varible for access from the view
+			$allMedia = array();
+			foreach ($products as $product){
+				$this->view->productId = $product['id'];
+				$this->view->productName = $product['name'];
+				$this->view->productPrice = $product['price'];
+				$this->view->productImage = '<img src="' . $product['primary_image'] . '" alt="' . $product['title'] . '">';
+				$this->view->productImageName = $product['title'];
+				$this->view->productCatagory = $product['category_name'];
+				$this->view->productDescription = $product['description'];
+					
+			//render the view page							
+			$this->view->render('Product/catagory');
 			
-			switch($type) {
-				case "Name":
-					break;
-				case "Price":
-					break;
-				case "Location":
-					break;
-				case "KeyWord":
-					break;
-			};	
-		}
-		
-		function catagory($cat) {
-
-			$this->view->render('Product/index');
-		}
-		
-		function Create() {		
-
-			$this->view->render('Product/create');		
-		}
-		
-		function Edit($id){
-		
-		}
-		
+		}		
 	}
+}
