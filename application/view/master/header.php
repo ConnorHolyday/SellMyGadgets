@@ -59,11 +59,15 @@
 		</nav>
 	</header>
 
-	<section class="search search--top">
-		<h1>Quo adipisci inventore nemo blanditiis facere?</h1>
+	<section class="search search--top cf">
+		<div class="wrapper">
+			<h1 class="search--top__h1">Hey, you there. Would you like to buy gadgets at low prices?</h1>
 
-		<div class="symbol--search">
-			<!-- <input type="search" placeholder="Search" name="s" results="5" autosave="topSearchAutosave"> -->
-			<input type="search" placeholder="Search" name="s" class="search--top__input">
+			<p class="search--top__p gamma">I'm sure you could find something you need by searching below.</p>
+
+			<div class="symbol--search">
+				<!-- <input type="search" placeholder="Search" name="s" results="5" autosave="topSearchAutosave"> -->
+				<input type="search" placeholder="E.g. iPhone" name="s" class="search--top__input">
+			</div>
 		</div>
 	</section>

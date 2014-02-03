@@ -6,3 +6,47 @@
 
 
 
+
+::-webkit-input-placeholder {
+   color: lighten($light-copy, 30%);
+   letter-spacing: 2px;
+   @include body-font;
+   transition: opacity .3s ease;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: lighten($light-copy, 30%);
+   letter-spacing: 2px;
+   @include body-font;
+   transition: opacity .3s ease;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: lighten($light-copy, 30%);
+   letter-spacing: 2px;
+   @include body-font;
+   transition: opacity .3s ease;
+}
+
+:-ms-input-placeholder {
+   color: lighten($light-copy, 30%);
+   letter-spacing: 2px;
+   @include body-font;
+   transition: opacity .3s ease;
+}
+
+:focus::-webkit-input-placeholder {
+   opacity: 0;
+}
+
+:focus:-moz-placeholder { /* Firefox 18- */
+   opacity: 0;
+}
+
+:focus::-moz-placeholder {  /* Firefox 19+ */
+   opacity: 0;
+}
+
+:focus:-ms-input-placeholder {
+   opacity: 0;
+}

@@ -37,7 +37,7 @@ h2, .beta {
 
 }
 h3, .gamma {
-
+	@include font-size(24);
 }
 h4, .delta {
 

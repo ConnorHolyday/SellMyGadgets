@@ -11,10 +11,6 @@
 ============================================*/
 
 
-@mixin heading-font {
-    //font-family: "", "";
-    //font-weight: 400;
-}
 @mixin body-font($type: regular, $style: normal) {
     $value: 0;
     @if $style == italic {
@@ -33,6 +29,10 @@
     font-weight: 400;
 }
     font-style: $style;
+}
+
+@mixin heading-font {
+    @include body-font(regular);
 }
 
 

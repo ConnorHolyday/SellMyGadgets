@@ -134,11 +134,11 @@ module.exports = function(grunt) {
 
 
         watch: {
-            html: {
-                files: ['index.html'],
-                tasks: ['htmlhint'],
+            livereload: {
+                files: ['*.html', '*.php', 'components/*.php', 'assets/js/**/*.{js,json}', 'assets/css/*.css', 'assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}', 'assets/img/*.{png,jpg,jpeg,gif,webp,svg}'],
                 options: {
                     spawn: false,
+                    livereload: true,
                 },
             },
             images: {
@@ -146,6 +146,7 @@ module.exports = function(grunt) {
                 tasks: ['newer:imagemin'],
                 options: {
                     spawn: false,
+                    livereload: true,
                 },
             },
             scripts: {
@@ -153,6 +154,7 @@ module.exports = function(grunt) {
                 tasks: ['modernizr', 'newer:jshint', 'uglify'],
                 options: {
                     spawn: false,
+                    livereload: true,
                 },
             },
             css: {
@@ -160,13 +162,8 @@ module.exports = function(grunt) {
                 tasks: ['modernizr', 'sass:styles', 'newer:autoprefixer', 'cmq', 'csslint', 'concat:css', 'cssmin'],
                 options: {
                     spawn: false,
-                }
-            },
-            livereload: {
-                options: {
                     livereload: true,
-                },
-                files: ['*.html', '*.php', 'js/**/*.{js,json}', 'assets/css/*.css', 'assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}', 'assets/img/*.{png,jpg,jpeg,gif,webp,svg}'],
+                }
             }
         }
 

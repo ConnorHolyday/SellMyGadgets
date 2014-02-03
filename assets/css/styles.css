@@ -346,7 +346,9 @@ h5,
 .h5,
 h6,
 .h6 {
-	font-weight: normal;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-style: normal;
 }
 
 b,
@@ -495,6 +497,12 @@ table {
     Headings Detail
 ============================================*/
 
+h3,
+.gamma {
+	font-size: 24px;
+	font-size: 1.5rem;
+}
+
 /* ==========================================
     Micro Copy
 ============================================*/
@@ -504,6 +512,59 @@ table {
  // Forms
  //
 \* ============================ */
+
+::-webkit-input-placeholder {
+	color: #b7bcc4;
+	letter-spacing: 2px;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	-webkit-transition: opacity .3s ease;
+	transition: opacity .3s ease;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	color: #b7bcc4;
+	letter-spacing: 2px;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	transition: opacity .3s ease;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+	color: #b7bcc4;
+	letter-spacing: 2px;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	transition: opacity .3s ease;
+}
+
+:-ms-input-placeholder {
+	color: #b7bcc4;
+	letter-spacing: 2px;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	transition: opacity .3s ease;
+}
+
+:focus::-webkit-input-placeholder {
+	opacity: 0;
+}
+
+:focus:-moz-placeholder { /* Firefox 18- */
+	opacity: 0;
+}
+
+:focus::-moz-placeholder { /* Firefox 19+ */
+	opacity: 0;
+}
+
+:focus:-ms-input-placeholder {
+	opacity: 0;
+}
 
 /* Layout */
 
@@ -556,6 +617,9 @@ table {
 	border-bottom: 2px solid transparent;
 }
 
+.nav--main__a:hover,
+.nav--main__a:focus,
+.nav--main__a:active,
 .nav--main__a.selected {
 	border-bottom: 2px solid #303030;
 }
@@ -580,6 +644,62 @@ table {
 .search--top {
 	background-color: #676a80;
 	color: white;
+	text-align: center;
+}
+
+.search--top__h1 {
+	margin: 4.6875rem 0;
+	font-size: 52px;
+	font-size: 3.25rem;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+.search--top__p {
+	max-width: 55%;
+	letter-spacing: 1px;
+	margin: 0 auto;
+}
+
+.search--top__input {
+	border: none;
+	width: 50%;
+	height: 3em;
+	padding: 0 1em;
+	margin: 4.6875rem 0;
+}
+
+.list-block h1 {
+	margin: 2.5rem 0;
+}
+
+.list-block__wrap {
+	background-color: #F0F0F0;
+	border: 1px solid #dfdfdf;
+	padding: 1.25em;
+}
+
+.list-block__wrap:first-child {
+	float: left;
+}
+
+.list-block__wrap:last-child {
+	float: right;
+}
+
+.list-block__title {
+	letter-spacing: 5px;
+	margin-bottom: .625em;
+}
+
+.list-block__list {
+	list-style-position: inside;
+	line-height: 1.5;
+}
+
+.list-block__list a {
+	padding-bottom: 3px;
 }
 
 /* Non-Modular */

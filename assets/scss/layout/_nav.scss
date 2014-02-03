@@ -25,6 +25,9 @@
         padding-bottom: .3125em;
         border-bottom: 2px solid transparent;
 
+        &:hover,
+        &:focus,
+        &:active,
         &.selected {
             border-bottom: 2px solid $copy;
         }
