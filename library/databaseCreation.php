@@ -79,7 +79,7 @@ $Querys = array (
 								contact_email varchar(100) NOT NULL,
 								PRIMARY KEY (user_id)
 							);",
-	"site_content"=>"CREATE TABLE site_content(
+	"Site_Content"=>"CREATE TABLE Site_Content(
 								id bigint NOT NULL AUTO_INCREMENT,
 								page varchar(20) NOT NULL,
 								content text NOT NULL,
@@ -149,7 +149,7 @@ $tables = array(
 "user_type",
 "user_products",
 "user_details",
-"site_content",
+"Site_Content",
 "products",
 "products_status",
 "product_details",

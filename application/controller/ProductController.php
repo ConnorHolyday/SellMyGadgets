@@ -2,7 +2,11 @@
 	class ProductController extends BaseController {
 		
 		function __construct() {	
-			parent::__construct();
+			parent::__construct();	
+
+			//call the model functions to send and recieve querys
+			require "application/model/ProductModel.php";
+			$this->model = new ProductModel();
 		}
 				
 		/* 
@@ -10,9 +14,6 @@
 		this function is accsed via the site_directory/product/all 
 		*/
 		function all() {	
-			//call the model functions to send and recieve querys
-			require "application/model/ProductModel.php";
-			$this->model = new ProductModel();
 			$products = $this->model->loadAllProducts();
 			
 			//loop throug the array and push html out put string to new array to tidy out puts
@@ -45,10 +46,6 @@
 		this function is accsed via the site_diretory/product/single
 		*/
 		function view($id) {
-			echo '->Product view';
-
-			require "application/model/ProductModel.php";
-			$this->model = new ProductModel();
 			list($products, $images, $comments) = $this->model->getProductById($id);
 
 			//loop throgh query results (should only be 1) store each column data into its own varible for access from the view
@@ -93,8 +90,6 @@
 		 - Need to add string and integer detect to select by catagory id or catagory name
 		*/
 		function catagory($catagory){
-			require "application/model/ProductModel.php";
-			$this->model = new ProductModel();
 			$products = $this->model->getProductByCatagory($catagory);
 
 			//loop throgh query results (should only be 1) store each column data into its own varible for access from the view

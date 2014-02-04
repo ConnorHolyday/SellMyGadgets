@@ -38,6 +38,5 @@ class DB {
 	
 }
 
-echo "->database connection established ";
 ?>
 
