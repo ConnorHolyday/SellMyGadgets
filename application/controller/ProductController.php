@@ -26,7 +26,7 @@
 								$product['price'] . " " .
 								$product['primary_image'] . " " .
 								$product['title'] . " " .
-								$product['catagory_name'] . " " .
+								//$product['catagory_name'] . " " .
 								$product['delivery_date'] . " " .
 								$product['delivery_cost'] . " " .
 								$product['condition_name'] . " " .
@@ -37,7 +37,7 @@
 			
 			//store the array in global varible and render the veiw
 			$this->view->products = $productLine;		
-			$this->view->render('Product/index');
+			$this->view->render('Product/all');
 	
 		}
 		
@@ -56,7 +56,7 @@
 				$this->view->productPrice = $product['price'];
 				$this->view->productImage = $product['primary_image'];
 				$this->view->productImageName = $product['title'];
-				$this->view->productCatagory = $product['catagory_name'];
+				//$this->view->productCatagory = $product['catagory_name'];
 				$this->view->productDeliveryDate = $product['delivery_date'];
 				$this->view->productDeliveryCost = $product['delivery_cost'];
 				$this->view->productCondition = $product['condition_name'];
@@ -66,19 +66,16 @@
 				
 				//images and comments to be updated still
 				foreach ($images as $media){
-					array_push ($allMedia, '<img src="' . $media['id'] . '" alt="' . $media['title'] . '" >')	;	
-
-					
+					array_push ($allMedia, '<img src="' . $media['id'] . '" alt="' . $media['title'] . '" >');	
 				}
 				
 				$this->view->productMedia = $allMedia;
 				
 				foreach ($comments as $comment){
-					array_push ($allCommetns, '' . $comments['id'] . $comments['comment']);
+					array_push ($allComments, '' . $comments['id'] . $comments['comment']);
 				}
-				
-				$this->view->productComments = $allComments;
 					
+				$this->view->productComments = $allComments;		
 			}
 					
 			//render the view page							
