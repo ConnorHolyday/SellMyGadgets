@@ -80,9 +80,9 @@
 		</div>
 	</section>
 
-	<section class="wrapper social--strip center">
+	<section class="wrapper cta social--strip center">
 		<h1 class="left">Don't forget to check us out on these social networks and tell your friends about your new gadgets.</h1>
-		<a href="#" class="icon icon--facebook"></a>
-		<a href="#" class="icon icon--google-plus"></a>
-		<a href="#" class="icon icon--twitter"></a>
+		<a href="#" title="Facebook Link" class="icon icon--facebook"></a>
+		<a href="#" title="Google Plus Link" class="icon icon--google-plus"></a>
+		<a href="#" title="Twitter Link" class="icon icon--twitter"></a>
 	</section>
