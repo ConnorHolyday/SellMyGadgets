@@ -7,7 +7,7 @@
 <body>
 
 	<section class="form form--login">
-		<form action="/account/processlogin" method="post">
+		<form action="/account/login" method="post">
 
 			<h1>
 				Please Login to continue

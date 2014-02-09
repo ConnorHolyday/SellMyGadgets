@@ -13,19 +13,6 @@
 		}
 
 		function login() {
-			$this->view->render('account/login', 'Please login to continue', false);
-		}
-
-		function logout() {
-			session_destroy();
-			header('Location: /');
-		}
-
-		function dashboard() {
-			$this->view->render('account/dashboard', 'Welcome to your personal dashboard', false);
-		}
-
-		function processLogin() {
 
 			if(isset($_POST['username']) && isset($_POST['password'])) {
 
@@ -43,10 +30,22 @@
 					echo '<p style="color:red;">invalid credentials, please try again.</p>';
 				}
 
-			} else {
-				header('Location: /account/');
 			}
+
+			$this->view->render('account/login', 'Please login to continue', false);
 		}
 
+		function logout() {
+			session_destroy();
+			header('Location: /');
+		}
+
+		function dashboard() {
+			$this->view->render('account/dashboard', 'Welcome to your personal dashboard', false);
+		}
+
+		function signup() {
+			$this->view->render('account/signup', 'Sign up for an account today', false);
+		}
 
 	}

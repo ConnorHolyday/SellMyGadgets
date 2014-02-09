@@ -7,10 +7,14 @@
 			$this->db = new Database();
 		}
 
-		function login($username, $password) {
+		function processLogin($username, $password) {
 			$qry = "SELECT user_id FROM users WHERE username = '{$username}' AND password = '{$password}'";
 
-			return $this->db->execute_query($qry);
+			return $this->db->doQuery($qry);
+		}
+
+		function processSignup() {
+
 		}
 
 	}
