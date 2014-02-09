@@ -627,9 +627,14 @@ h3,
 }
 
 .footer__main {
-	margin-top: 4em;
 	padding: 2.5em 0;
 	color: #666f7c;
+}
+
+.footer__main h1,
+.footer__main p {
+	margin-bottom: 20px;
+	margin-bottom: 1.25rem;
 }
 
 .footer__main h1 {
@@ -863,11 +868,7 @@ h3,
 	padding: 3rem 0;
 }
 
-.cta--sell {
-	text-align: center;
-}
-
-.cta--sell h1 {
+.cta h1 {
 	text-align: left;
 	margin-bottom: 3rem;
 }
