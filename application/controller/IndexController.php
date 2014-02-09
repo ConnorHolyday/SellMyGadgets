@@ -7,4 +7,7 @@
 			
 			$this->view->render('index/index');
 		}
+
+		function index() {			
+		}
 	}

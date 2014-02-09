@@ -6,9 +6,6 @@
 		}
 		
 		function loadAllProducts() {
-
-			echo '->products by alls';
-
 			$query = 			'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 								FROM products
 								INNER JOIN product_details 
@@ -28,9 +25,6 @@
 		}
 		
 		function getProductById($id){
-
-			echo '->product by id';
-
 			$products = 		'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 								FROM products
 								INNER JOIN product_details 
@@ -59,9 +53,6 @@
 		}
 
 		function getProductByCatagory($catagory){
-
-			echo '->product by catagory';	
-
 			$products = 		'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 								FROM products
 								INNER JOIN product_details 
