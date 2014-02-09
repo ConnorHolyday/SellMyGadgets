@@ -135,7 +135,7 @@ module.exports = function(grunt) {
 
         watch: {
             livereload: {
-                files: ['*.html', '*.php', 'components/*.php', 'assets/js/**/*.{js,json}', 'assets/css/*.css', 'assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}', 'assets/img/*.{png,jpg,jpeg,gif,webp,svg}'],
+                files: ['*.html', '*.php', 'assets/js/**/*.{js,json}', 'assets/css/*.css', 'assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}', 'assets/img/*.{png,jpg,jpeg,gif,webp,svg}'],
                 options: {
                     spawn: false,
                     livereload: true,
