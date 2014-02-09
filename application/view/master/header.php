@@ -39,8 +39,8 @@
 	<?php flush(); ?>
 	<body>
 
-	<header class="header header--main cf">
-		<div class="top-bar">
+	<header class="header header--main bg--light cf">
+		<div class="top-bar bg--dark">
 			<a href="#" class="top-bar__a">dashboard</a>
 			<a href="#" class="top-bar__a">account</a>
 		</div>
