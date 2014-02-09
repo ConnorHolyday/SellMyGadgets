@@ -1,35 +1,16 @@
-<?php	
-	class AccountController extends BaseController {
+<?php 	
+	
+	class AccountModel extends BaseModel {
 		
-		function __construct() {	
-			parent::__construct();
-		}
-				
-		/* Querys all products to display within the products page
-		this function is accsed via the site_directory/product/all */
-		function Login (){
-
-
-
+		function __construct() {
+			require 'library/database.php';
+			$this->db = new Database();
 		}
 
-		function new (){
+		function login($username, $password) {
+			$qry = "SELECT user_id FROM users WHERE username = '{$username}' AND password = '{$password}'";
 
-
-
-
-		}
-
-		function edit () {
-
-
-
-		}
-
-		function dashboard () {
-
-
-
+			return $this->db->execute_query($qry);
 		}
 
 	}
