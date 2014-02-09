@@ -8,7 +8,7 @@
 
 		//Upon construction create new databass object
 		function __construct() {	
-			$this->db = new DB();
+			parent::__construct();
 		}
 				
 		function about(){

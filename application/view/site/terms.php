@@ -1,1 +1,1 @@
-<h1>terms and conditions</h1>
+<h1>Terms &amp; Conditions</h1>

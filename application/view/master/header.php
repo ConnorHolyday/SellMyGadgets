@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sell My Gadger's</title>
+        <title><?php echo $this->title; ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,10 +51,10 @@
 
 		<nav class="nav nav--main">
 			<ul class="nav--main__ul">
-				<li class="nav--main__li"><a href="#" class="nav--main__a selected">home</a></li>
-				<li class="nav--main__li"><a href="#" class="nav--main__a">buy</a></li>
-				<li class="nav--main__li"><a href="#" class="nav--main__a">sell</a></li>
-				<li class="nav--main__li"><a href="#" class="nav--main__a">about</a></li>
+				<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
+				<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
+				<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
+				<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
 			</ul>
 		</nav>
 	</header>

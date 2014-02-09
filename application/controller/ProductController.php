@@ -21,24 +21,23 @@
 
 			foreach ($products as $product){
 				array_push ($productLine , 
-								$product['id'] . " " .
-								$product['name'] . " " .
-								$product['price'] . " " .
-								$product['primary_image'] . " " .
-								$product['title'] . " " .
-								//$product['catagory_name'] . " " .
-								$product['delivery_date'] . " " .
-								$product['delivery_cost'] . " " .
-								$product['condition_name'] . " " .
-								$product['username'] . " " .
-								$product['description'] .	"<br>"
-							);
+						$product['id'] . " " .
+						$product['name'] . " " .
+						$product['price'] . " " .
+						$product['primary_image'] . " " .
+						$product['title'] . " " .
+						//$product['catagory_name'] . " " .
+						$product['delivery_date'] . " " .
+						$product['delivery_cost'] . " " .
+						$product['condition_name'] . " " .
+						$product['username'] . " " .
+						$product['description'] .	"<br>"
+					);
 				}
 			
 			//store the array in global varible and render the veiw
-			$this->view->products = $productLine;		
-			$this->view->render('Product/all');
-	
+			$this->view->products = $productLine;
+			$this->view->render('Product/all', 'View all products', true);
 		}
 		
 		/*
@@ -79,7 +78,7 @@
 			}
 					
 			//render the view page							
-			$this->view->render('Product/view');
+			$this->view->render('Product/view', 'View product', true);
 		}
 	
 		/* 
@@ -101,7 +100,7 @@
 				$this->view->productDescription = $product['description'];
 					
 			//render the view page							
-			$this->view->render('Product/catagory');
+			$this->view->render('Product/catagory', 'View product by category', true);
 			
 		}		
 	}

@@ -1,1 +1,1 @@
-<h1>Privacy agrement</h2>
+<h1>Privacy Policy</h1>
