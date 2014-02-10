@@ -1,4 +1,3 @@
-
 <section class="wrapper row list-block">
 	<h1>Site map</h1>
 

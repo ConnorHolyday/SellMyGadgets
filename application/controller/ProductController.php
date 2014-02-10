@@ -23,24 +23,23 @@
 
 			foreach ($products as $product){
 				array_push ($productLine , 
-								$product['id'] . " " .
-								$product['name'] . " " .
-								$product['price'] . " " .
-								$product['primary_image'] . " " .
-								$product['title'] . " " .
-								//$product['catagory_name'] . " " .
-								$product['delivery_date'] . " " .
-								$product['delivery_cost'] . " " .
-								$product['condition_name'] . " " .
-								$product['username'] . " " .
-								$product['description'] .	"<br>"
-							);
+						$product['id'] . " " .
+						$product['name'] . " " .
+						$product['price'] . " " .
+						$product['primary_image'] . " " .
+						$product['title'] . " " .
+						//$product['catagory_name'] . " " .
+						$product['delivery_date'] . " " .
+						$product['delivery_cost'] . " " .
+						$product['condition_name'] . " " .
+						$product['username'] . " " .
+						$product['description'] .	"<br>"
+					);
 				}
 			
 			//store the array in global varible and render the veiw
-			$this->view->products = $productLine;		
-			$this->view->render('Product/all');
-	
+			$this->view->products = $productLine;
+			$this->view->render('Product/all', 'View all products', true);
 		}
 		
 		/*
@@ -81,7 +80,7 @@
 			}
 					
 			//render the view page							
-			$this->view->render('Product/view');
+			$this->view->render('Product/view', 'View product', true);
 		}
 	
 		/* 
@@ -90,6 +89,24 @@
 		 - Domain/catagory/page/query/page
 		*/
 		function catagory($catagory){
+<<<<<<< HEAD
+=======
+			$products = $this->model->getProductByCatagory($catagory);
+
+			//loop throgh query results (should only be 1) store each column data into its own varible for access from the view
+			$allMedia = array();
+			foreach ($products as $product){
+				$this->view->productId = $product['id'];
+				$this->view->productName = $product['name'];
+				$this->view->productPrice = $product['price'];
+				$this->view->productImage = '<img src="' . $product['primary_image'] . '" alt="' . $product['title'] . '">';
+				$this->view->productImageName = $product['title'];
+				$this->view->productCatagory = $product['category_name'];
+				$this->view->productDescription = $product['description'];
+					
+			//render the view page							
+			$this->view->render('Product/catagory', 'View product by category', true);
+>>>>>>> 055b48e7636d0f20db0ffbe966e11fd90c55ec27
 			
 			if(is_numeric($catagory)){
 				$products = $this->model->getProductByCatagoryId($catagory);

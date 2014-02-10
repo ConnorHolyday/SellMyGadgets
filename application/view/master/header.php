@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sell My Gadger's</title>
+        <title><?php echo $this->title; ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -34,15 +34,20 @@
 		</script> -->
 
 		<script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
-
 	</head>
 	<?php flush(); ?>
 	<body>
 
-	<header class="header header--main cf">
-		<div class="top-bar">
-			<a href="#" class="top-bar__a">dashboard</a>
-			<a href="#" class="top-bar__a">account</a>
+	<header class="header header--main bg--light cf">
+		<div class="top-bar bg--dark">
+		<?php if (isset($_SESSION['LOGIN'])): ?>
+			<a href="/account/dashboard" class="top-bar__a">dashboard</a>
+			<a href="/account" class="top-bar__a">account</a>
+			<a href="/account/logout" class="top-bar__a">logout</a>
+		<?php else: ?>
+			<a href="/account/signup" class="top-bar__a">signup</a>
+			<a href="/account/login" class="top-bar__a">login</a>
+		<?php endif ?>
 		</div>
 
 		<div class="main-logo">
@@ -51,10 +56,10 @@
 
 		<nav class="nav nav--main">
 			<ul class="nav--main__ul">
-				<li class="nav--main__li"><a href="#" class="nav--main__a selected">home</a></li>
-				<li class="nav--main__li"><a href="#" class="nav--main__a">buy</a></li>
-				<li class="nav--main__li"><a href="#" class="nav--main__a">sell</a></li>
-				<li class="nav--main__li"><a href="#" class="nav--main__a">about</a></li>
+				<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
+				<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
+				<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
+				<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
 			</ul>
 		</nav>
 	</header>

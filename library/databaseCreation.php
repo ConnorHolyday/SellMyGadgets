@@ -11,7 +11,7 @@ echo "<h1> Creating DataBase </h1>";
 
 class DB {
 	public $host = 'localhost';
-	public	$user = 'user';
+	public	$user = '';
 	public	$pass = '';
 	public	$db = 'smg';
 	
@@ -70,8 +70,8 @@ $Querys = array (
 								user_id bigint NOT NULL,
 								first_name varchar(50) NOT NULL,
 								surname varchar(50) NOT NULL,
-								adress_1 varchar(255) NOT NULL,
-								adress_2 varchar(255),
+								address_1 varchar(255) NOT NULL,
+								address_2 varchar(255),
 								town_city varchar(50)NOT NULL,
 								county varchar(50) NOT NULL,
 								postcode varchar(10) NOT NULL,
@@ -79,7 +79,7 @@ $Querys = array (
 								contact_email varchar(100) NOT NULL,
 								PRIMARY KEY (user_id)
 							);",
-	"Site_Content"=>"CREATE TABLE Site_Content(
+	"site_content"=>"CREATE TABLE site_content(
 								id bigint NOT NULL AUTO_INCREMENT,
 								page varchar(20) NOT NULL,
 								content text NOT NULL,
