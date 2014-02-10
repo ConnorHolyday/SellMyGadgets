@@ -1,6 +1,7 @@
 <?php
 
 	ob_start(); 
+	session_start();
 
 	require_once('config/config.php');
 	require_once('library/application.php');

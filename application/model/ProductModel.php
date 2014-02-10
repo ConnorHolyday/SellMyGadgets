@@ -21,7 +21,7 @@
 					INNER JOIN users
 					ON product_details.created_by = users.id;';
 														
-			return $this->db->doQuery($query);
+			return $this->db->execute_query($query);
 		}
 		
 		function getProductById($id) {
@@ -49,7 +49,7 @@
 						FROM product_comments
 						WHERE product_id = ' . $id;
 								
-			return array($this->db->doQuery($products),	$this->db->doQuery($Images),$this->db->doQuery($Comments));				
+			return array($this->db->execute_query($products), $this->db->execute_query($Images), $this->db->execute_query($Comments));				
 		}
 
 		function getProductByCatagory($catagory){
@@ -69,9 +69,8 @@
 						ON product_details.created_by = users.id
 						WHERE product_categories.id = ' . $catagory;
 								
-			return $this->db->doQuery($products);				
+			return $this->db->execute_query($products);
 		}
-
 	}
 	
 	
