@@ -1,0 +1,192 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"prod",
+				"products"
+			],
+			[
+				"di",
+				"directorys"
+			],
+			[
+				"privacy",
+				"privacy"
+			],
+			[
+				"con",
+				"contact"
+			],
+			[
+				"ad",
+				"advertising"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/ProductController.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/model/ProductModel.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/model/IndexModel.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/view/site/map.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/view/product/view.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/SiteController.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/model/SiteModel.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/IndexController.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/contact.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/map.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/help.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/cookies.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/advertising.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/privacy.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/terms.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/view/site/about.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/library/databaseCreation.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/view/product/index.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/Cast/castAdmin.php",
+		"/Applications/MAMP/htdocs/wordpress/wp-content/plugins/cast/index.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/library/sql.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/view/master/header.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/view/BaseView.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/index.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/library/product.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/SearchController.php",
+		"/Applications/MAMP/htdocs/SellMyGadgets/application/controller/AccountController.php"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			");			"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.486744260204,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true
+}
