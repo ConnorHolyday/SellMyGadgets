@@ -3,7 +3,7 @@
 	ob_start(); 
 	session_start();
 
-	require_once('config/config.php');
+	require_once('library/configuration.php');
 	require_once('library/application.php');
 	require_once('application/controller/BaseController.php');
 	require_once('application/model/BaseModel.php');
