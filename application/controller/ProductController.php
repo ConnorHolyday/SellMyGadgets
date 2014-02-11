@@ -21,21 +21,20 @@
 			//loop throug the array and push html out put string to new array to tidy out puts
 			$productLine = array();
 
-			foreach ($products as $product){
-				array_push ($productLine , 
-						$product['id'] . " " .
-						$product['name'] . " " .
-						$product['price'] . " " .
-						$product['primary_image'] . " " .
-						$product['title'] . " " .
-						//$product['catagory_name'] . " " .
-						$product['delivery_date'] . " " .
-						$product['delivery_cost'] . " " .
-						$product['condition_name'] . " " .
-						$product['username'] . " " .
-						$product['description'] .	"<br>"
-					);
-				}
+			foreach ($products as $product) {
+				array_push ($productLine, 
+					$product['id'] . ' ' .
+					$product['name'] . ' ' .
+					$product['price'] . ' ' .
+					$product['primary_image'] . ' ' .
+					$product['title'] . ' ' .
+					$product['delivery_date'] .  ' ' .
+					$product['delivery_cost'] . ' ' .
+					$product['condition_name'] . ' ' .
+					$product['username'] . ' ' .
+					$product['description'] . '<br>'
+				);
+			}
 			
 			//store the array in global varible and render the veiw
 			$this->view->products = $productLine;
@@ -57,13 +56,11 @@
 				$this->view->productPrice = $product['price'];
 				$this->view->productImage = $product['primary_image'];
 				$this->view->productImageName = $product['title'];
-				//$this->view->productCatagory = $product['catagory_name'];
 				$this->view->productDeliveryDate = $product['delivery_date'];
 				$this->view->productDeliveryCost = $product['delivery_cost'];
 				$this->view->productCondition = $product['condition_name'];
 				$this->view->productSeller = $product['username'];	
 				$this->view->productDescription = $product['description'];
-				
 				
 				//images and comments to be updated still
 				foreach ($images as $media){
@@ -80,7 +77,7 @@
 			}
 					
 			//render the view page							
-			$this->view->render('Product/view', 'View product', true);
+			$this->view->render('product/view', 'View product', true);
 		}
 	
 		/* 
@@ -88,9 +85,9 @@
 		 - Need to add a new paramter for page number so the model can update query
 		 - Domain/catagory/page/query/page
 		*/
-		function category($catagory) {
+		function category($category) {
 
-			$products = $this->model->getProductByCatagory($catagory);
+			$products = $this->model->getProductByCategory($category);
 
 			//loop throgh query results (should only be 1) store each column data into its own varible for access from the view
 			$allMedia = array();
@@ -105,12 +102,12 @@
 			}
 
 			//render the view page							
-			$this->view->render('Product/catagory', 'View product by category', true);
+			$this->view->render('product/category', 'View product by category', true);
 			
-			if(is_numeric($catagory)){
-				$products = $this->model->getProductByCatagoryId($catagory);
+			if(is_numeric($category)){
+				$products = $this->model->getProductByCategoryId($category);
 			} else {
-				$products = $this->model->getProductByCatagory($catagory);
+				$products = $this->model->getProductByCategory($category);
 			}
 
 			//Check to see if the query retruend any results by counting number of rows
@@ -124,7 +121,7 @@
 					$this->view->productPrice = $product['price'];
 					$this->view->productImage = '<img src="' . $product['primary_image'] . '" alt="' . $product['title'] . '">';
 					$this->view->productImageName = $product['title'];
-					$this->view->productCatagory = $product['category_name'];	
+					$this->view->productCategory = $product['category_name'];	
 					$this->view->productDescription = $product['description'];
 				}	
 				//render the view page							
@@ -132,8 +129,8 @@
 			//if returned no results render appology page
 			} else {
 				//render the view page							
-				$this->view->
-				$this->view->render('Product/catagory');
+				//$this->view->
+				$this->view->render('product/category');
 			}			
 		}
 	}

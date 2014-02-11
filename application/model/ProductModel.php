@@ -69,7 +69,7 @@
 			return $this->db->execute_query($products);
 		}
 
-		function getProductByCatagoryId($catagory){
+		function getProductByCategoryId($category){
 			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 				FROM products
 				INNER JOIN product_details 
@@ -84,7 +84,7 @@
 				ON product_details.delivery_id = product_delivery.id
 				INNER JOIN users
 				ON product_details.created_by = users.id
-				WHERE product_categories.id = ' . $catagory;
+				WHERE product_categories.id = ' . $category;
 
 			return $this->db->execute_query($products);
 		}

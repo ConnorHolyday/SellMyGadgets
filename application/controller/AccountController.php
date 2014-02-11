@@ -3,10 +3,7 @@
 	class AccountController extends BaseController {
 
 		function __construct() {
-
 			parent::__construct();
-			
-			require 'application/model/AccountModel.php';
 			$this->model = new AccountModel();
 		}
 

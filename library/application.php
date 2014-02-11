@@ -8,14 +8,14 @@
 			$url = explode('/', $url);
 
 			if(empty($url[0])) {
-				require 'application/controller/IndexController.php';
+				//require 'application/controller/IndexController.php';
 				$controller = new IndexController();
 				return false;
 			} else {
 				$controllerName = $url[0] . 'Controller';
 			}
 
-			$file = 'application/controller/' . $controllerName . '.php';
+			/*$file = 'application/controller/' . $controllerName . '.php';
 
 			if(file_exists($file)) {
 				require $file;
@@ -23,7 +23,7 @@
 				require 'application/controller/ErrorController.php';
 				$controller = new ErrorController();
 				return false;
-			}
+			}*/
 
 			$controller = new $controllerName;
 
@@ -32,7 +32,5 @@
 			else
 				if(isset($url[1]))
 					$controller->{$url[1]}();
-				
 		}
-
 	}
