@@ -6,47 +6,36 @@
 		public	$links = array();
 		public	$dirs = array();
 
-		//Upon construction create new databass object
 		function __construct() {	
 			parent::__construct();
 		}
 				
 		function about() {
-			$about = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "about" ';
+			$about = $this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'about\'');
 
 			return $this->db->execute_query($about);
 		}
 
 		function terms() {
-			$terms = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "terms" ';
+			$terms = $this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'terms\'');
 
 			return $this->db->execute_query($terms);
 		}
 
 		function privacy() {
-			$privacy = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "privacy" ';
+			$privacy = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'privacy\'');
 
 			return $this->db->execute_query($privacy);
 		}
 
 		function advertising() {
-			$advertising = 		'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "advertising" ';
+			$advertising = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'advertising\'');
 
 			return $this->db->execute_query($advertising);
 		}
 
 		function cookies() {
-			$cookies = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "cookies" ';
+			$cookies = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'cookies\'');
 
 			return $this->db->execute_query($cookies);
 		}

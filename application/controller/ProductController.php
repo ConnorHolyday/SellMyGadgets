@@ -15,7 +15,7 @@
 		 - Need to add a new paramter for page number so the model can update query
 		 - Domain/catagory/page/query/page
 		*/
-		function all() {	
+		function all() {
 			$products = $this->model->loadAllProducts();
 			
 			//loop throug the array and push html out put string to new array to tidy out puts
@@ -88,14 +88,13 @@
 		 - Need to add a new paramter for page number so the model can update query
 		 - Domain/catagory/page/query/page
 		*/
-		function catagory($catagory){
-<<<<<<< HEAD
-=======
+		function category($catagory) {
+
 			$products = $this->model->getProductByCatagory($catagory);
 
 			//loop throgh query results (should only be 1) store each column data into its own varible for access from the view
 			$allMedia = array();
-			foreach ($products as $product){
+			foreach ($products as $product) {
 				$this->view->productId = $product['id'];
 				$this->view->productName = $product['name'];
 				$this->view->productPrice = $product['price'];
@@ -103,10 +102,10 @@
 				$this->view->productImageName = $product['title'];
 				$this->view->productCatagory = $product['category_name'];
 				$this->view->productDescription = $product['description'];
-					
+			}
+
 			//render the view page							
 			$this->view->render('Product/catagory', 'View product by category', true);
->>>>>>> 055b48e7636d0f20db0ffbe966e11fd90c55ec27
 			
 			if(is_numeric($catagory)){
 				$products = $this->model->getProductByCatagoryId($catagory);
@@ -138,4 +137,3 @@
 			}			
 		}
 	}
-?>
