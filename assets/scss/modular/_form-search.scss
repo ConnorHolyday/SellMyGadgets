@@ -6,28 +6,54 @@
 
 
 
-
 .search--top {
 	background-color: $light-blue-bg;
 	color: white;
-	text-align: center;
-}
-.search--top__h1 {
-	margin: 4.6875rem 0;
-	@include font-size(52);
-	@include body-font(regular);
 }
 
 .search--top__p {
-	max-width: 55%;
 	letter-spacing: 1px;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .search--top__input {
 	border: none;
-	width: 60%;
 	height: 3em;
 	padding: 0 1em;
-	margin: 4.6875rem 0;
+}
+
+.index {
+	.search--index__h2 {
+		margin: 4.6875rem 0;
+		@include font-size(52);
+		@include body-font(regular);
+		text-align: center;
+	}
+
+	.search--top__p {
+		max-width: 55%;
+	}
+
+	.search--top__input {
+		width: 60%;
+		margin: 4.6875rem 0;
+	}
+}
+
+.product {
+	.search--top__h2 {
+		width: 100%;
+		margin: 2em 0;
+		text-align: left;
+	}
+
+	.search--top__input {
+		width: 100%;
+		margin-bottom: 2em;
+	}
+
+	.index-only {
+		display: none;
+	}
 }
