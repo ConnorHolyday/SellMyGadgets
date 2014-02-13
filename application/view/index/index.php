@@ -70,7 +70,7 @@
 			</ul>
 		</div>
 
-		<a href="#" class="pull-right / btn btn--round btn--dark list-block__button">View all Categories</a>
+		<a href="/product/all/" class="pull-right / btn btn--round btn--dark list-block__button">View all Categories</a>
 	</section>
 
 	<section class="cta cta--sell bg--dark center">
