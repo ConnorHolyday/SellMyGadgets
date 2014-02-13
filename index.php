@@ -19,25 +19,27 @@
 	ob_end_flush();
 
 	function autoload_controller_class($class_name) {
-		$file = APP_DIR . 'controller/' . $class_name. '.php';
-	    if (file_exists($file))
-	        require($file);
+		autloadAppClass(APP_DIR . 'controller/', $class_name, 'page-cannot-be-found');
 	}
 
 	function autoload_model_class($class_name) {
-		$file = APP_DIR . 'model/' . $class_name. '.php';
-	    if (file_exists($file))
-	        require($file);
+		autloadAppClass(APP_DIR . 'model/', $class_name, 'internal-server-error');
 	}
 
 	function autoload_lib_class($class_name) {
-		$file = LIB_DIR . $class_name. '.php';
-	    if (file_exists($file))
-	        require($file);
+		autloadAppClass(LIB_DIR, $class_name, 'internal-server-error');
 	}
 
 	function autoload_service_class($class_name) {
-		$file = APP_DIR . 'services/' . $class_name. '.php';
-	    if (file_exists($file))
-	        require($file);
+		autloadAppClass(APP_DIR . 'services/', $class_name, 'internal-server-error');
 	}
+
+	function autloadAppClass($dir, $class_name, $error_location) {
+        $file = $dir . $class_name. '.php';
+        if (file_exists($file)) {
+            require($file);
+        } else {
+            header('Location: /error/' . $error_location);
+        }
+    }
+

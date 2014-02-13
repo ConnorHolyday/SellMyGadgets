@@ -1,13 +1,13 @@
 <?php
 
-	class AccountService {
+    class AccountService {
 
         public $currentAccount;
 
-		function __construct() {
+        function __construct() {
 
             $this->currentAccount = $this->checkAuth();
-		}
+        }
 
         function isLoggedIn() {
             return $this->currentAccount != null ? true : false;
@@ -17,4 +17,4 @@
             return isset($_SESSION['LOGIN']) ? $_SESSION['LOGIN'] : null;
         }
 
-	}
+    }
