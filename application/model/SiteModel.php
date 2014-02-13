@@ -6,62 +6,51 @@
 		public	$links = array();
 		public	$dirs = array();
 
-		//Upon construction create new databass object
 		function __construct() {	
 			parent::__construct();
 		}
 				
-		function about(){
-			$about = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "about" ';
+		function about() {
+			$about = $this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'about\'');
 
-			return $this->db->doQuery($about);
+			return $this->db->execute_query($about);
 		}
 
-		function terms(){
-			$terms = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "terms" ';
+		function terms() {
+			$terms = $this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'terms\'');
 
-			return $this->db->doQuery($terms);
+			return $this->db->execute_query($terms);
 		}
 
-		function privacy(){
-			$privacy = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "privacy" ';
+		function privacy() {
+			$privacy = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'privacy\'');
 
-			return $this->db->doQuery($privacy);
+			return $this->db->execute_query($privacy);
 		}
 
-		function advertising(){
-			$advertising = 		'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "advertising" ';
+		function advertising() {
+			$advertising = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'advertising\'');
 
-			return $this->db->doQuery($advertising);
+			return $this->db->execute_query($advertising);
 		}
 
-		function cookies(){
-			$cookies = 			'SELECT content 
-								FROM site_content 
-								WHERE active = 1 & page = "cookies" ';
+		function cookies() {
+			$cookies = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'cookies\'');
 
-			return $this->db->doQuery($cookies);
+			return $this->db->execute_query($cookies);
 		}
 
-		function help(){
+		function help() {
 			$help = '';
 
 			//contact forms and details etc
 
-			return $this->db->doQuery($help);
+			return $this->db->execute_query($help);
 		} 
 
 		//detect all files in given directory and store in array
 		//filter via an array filled with strings	
-		function map($dir, $filter){
+		function map($dir, $filter) {
 			$links = array();
 			$dirs = array();
 

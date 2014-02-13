@@ -9,6 +9,8 @@
 
 		<!-- Favicons -->
 
+		<link rel="shortcut icon" href="favicon.ico">
+
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
 		<link rel="stylesheet" href="/assets/css/styles.css" />
@@ -34,15 +36,20 @@
 		</script> -->
 
 		<script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
-
 	</head>
 	<?php flush(); ?>
 	<body class="product">
 
 	<header class="header header--main bg--light cf">
 		<div class="top-bar bg--dark">
-			<a href="#" class="top-bar__a">dashboard</a>
-			<a href="#" class="top-bar__a">account</a>
+		<?php if (isset($_SESSION['LOGIN'])): ?>
+			<a href="/account/dashboard" class="top-bar__a">dashboard</a>
+			<a href="/account" class="top-bar__a">account</a>
+			<a href="/account/logout" class="top-bar__a">logout</a>
+		<?php else: ?>
+			<a href="/account/signup" class="top-bar__a">signup</a>
+			<a href="/account/login" class="top-bar__a">login</a>
+		<?php endif ?>
 		</div>
 
 		<div class="main-logo">
