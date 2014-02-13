@@ -1,0 +1,53 @@
+/* ============================ *\
+//
+//	Breadcrumb
+//
+\* ============================ */
+
+
+
+.breadcrumb {
+	@extend .cf;
+	border-radius: 7px;
+	width: 100%;
+	display: block;
+	background-color: $dark-bg;
+	border: 1px solid $breadcrumb;
+	overflow: hidden;
+
+	a {
+		float: left;
+		padding: 0.5em;
+		padding-left: 0;
+		border: 0;
+		color: $breadcrumb;
+		background: $module-bg;
+
+		&:before {
+			content: " ";
+			width: 0;
+			height: 0;
+			display: block;
+			border: solid transparent;
+			border-width: 30px;
+			border-color: black;
+			border-left-color: $module-bg;
+			margin-right: 0.5em;
+		}
+
+		&:first-child:before {
+			content: "";
+			border: none;
+		}
+
+		&:last-child {
+			background: transparent;
+			color: $light-blue-bg;
+
+			&:before {
+				border-color: $light-blue-bg;
+				border-left-color: $module-bg;
+			}
+		}
+	}
+}

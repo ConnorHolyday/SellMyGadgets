@@ -237,18 +237,22 @@
 .media:before,
 .media:after,
 .cf:before,
-.cf:after {
+.breadcrumb:before,
+.cf:after,
+.breadcrumb:after {
 	content: "";
 	display: table;
 }
 
 .media:after,
-.cf:after {
+.cf:after,
+.breadcrumb:after {
 	clear: both;
 }
 
 .media,
-.cf {
+.cf,
+.breadcrumb {
 	zoom: 1;
 }
 
@@ -798,30 +802,52 @@ h3,
 .search--top {
 	background-color: #66697f;
 	color: white;
+}
+
+.search--top__p {
+	letter-spacing: 1px;
+	margin: 0 auto;
 	text-align: center;
 }
 
-.search--top__h1 {
+.search--top__input {
+	border: none;
+	height: 3em;
+	padding: 0 1em;
+}
+
+.index .search--index__h2 {
 	margin: 4.6875rem 0;
 	font-size: 52px;
 	font-size: 3.25rem;
 	font-family: "Lato", sans-serif;
 	font-weight: 300;
 	font-style: normal;
+	text-align: center;
 }
 
-.search--top__p {
+.index .search--top__p {
 	max-width: 55%;
-	letter-spacing: 1px;
-	margin: 0 auto;
 }
 
-.search--top__input {
-	border: none;
+.index .search--top__input {
 	width: 60%;
-	height: 3em;
-	padding: 0 1em;
 	margin: 4.6875rem 0;
+}
+
+.product .search--top__h2 {
+	width: 100%;
+	margin: 2em 0;
+	text-align: left;
+}
+
+.product .search--top__input {
+	width: 100%;
+	margin-bottom: 2em;
+}
+
+.product .index-only {
+	display: none;
 }
 
 .list-block h1 {
@@ -873,6 +899,51 @@ h3,
 	margin-bottom: 3rem;
 }
 
+.breadcrumb {
+	border-radius: 7px;
+	width: 100%;
+	display: block;
+	background-color: #2f2f3d;
+	border: 1px solid #c9c9c9;
+	overflow: hidden;
+}
+
+.breadcrumb a {
+	float: left;
+	padding: 0.5em;
+	padding-left: 0;
+	border: 0;
+	color: #c9c9c9;
+	background: #f0f0f0;
+}
+
+.breadcrumb a:before {
+	content: " ";
+	width: 0;
+	height: 0;
+	display: block;
+	border: solid transparent;
+	border-width: 30px;
+	border-color: black;
+	border-left-color: #f0f0f0;
+	margin-right: 0.5em;
+}
+
+.breadcrumb a:first-child:before {
+	content: "";
+	border: none;
+}
+
+.breadcrumb a:last-child {
+	background: transparent;
+	color: #66697f;
+}
+
+.breadcrumb a:last-child:before {
+	border-color: #66697f;
+	border-left-color: #f0f0f0;
+}
+
 /* Non-Modular */
 
 /* ============================ *\
@@ -883,7 +954,7 @@ h3,
 
 /*# sourceMappingURL=styles.css.map */
 
-@media screen and (min-width: 20.0625em) {
+@media screen and (min-width: 37.4375em) {
 
 .t-hide {
 	display: none;
@@ -912,7 +983,7 @@ h3,
 
 }
 
-@media screen and (min-width: 48.0625em) {
+@media screen and (min-width: 56.1875em) {
 
 .d-hide {
 	display: none;
