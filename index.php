@@ -1,6 +1,6 @@
 <?php
 
-	ob_start(); 
+	ob_start();
 	session_start();
 
 	require_once('library/configuration.php');
@@ -12,6 +12,7 @@
 	spl_autoload_register('autoload_controller_class');
 	spl_autoload_register('autoload_model_class');
 	spl_autoload_register('autoload_lib_class');
+	spl_autoload_register('autoload_service_class');
 
 	$application = new Application();
 
@@ -31,6 +32,12 @@
 
 	function autoload_lib_class($class_name) {
 		$file = LIB_DIR . $class_name. '.php';
+	    if (file_exists($file))
+	        require($file);
+	}
+
+	function autoload_service_class($class_name) {
+		$file = APP_DIR . 'services/' . $class_name. '.php';
 	    if (file_exists($file))
 	        require($file);
 	}

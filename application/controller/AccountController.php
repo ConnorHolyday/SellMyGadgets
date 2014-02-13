@@ -71,9 +71,11 @@
 
 		// Helper function to check what is stored in login session. Will be deleted before release.
 		function checkauth() {
-			if(isset($_SESSION['LOGIN']))
-				echo $_SESSION['LOGIN'];
-			else 
-				echo 'Not set';
+			$account = new AccountService();
+
+			if($account->isLoggedIn())
+				echo 'Current User - ' . $account->currentAccount;
+			else
+				echo 'Current User - Not set';
 		}
 	}
