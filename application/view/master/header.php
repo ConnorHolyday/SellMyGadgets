@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="main-logo">
-			<img src="../assets/img/svg/logo.svg">
+			<img src="/assets/img/svg/logo.svg">
 		</div>
 
 		<nav class="nav nav--main">
