@@ -1,4 +1,4 @@
-<h1>Products Page </h1>
+<h1>Products Page - all</h1>
 
 <?php
 foreach ($this->products as $product) {

@@ -4,11 +4,28 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         imagemin: {
-            dynamic: {
+            all: {
                 files: [{
                     expand: true,
                     cwd: 'assets/img/',
-                    src: ['*.{png,jpg,gif}', '**/*.{png,jpg,gif}']
+                    src: ['*.{png,jpg,gif}'],
+                    dest: 'assets/img/'
+                }]
+            },
+            favicons: {
+                files: [{
+                    expand: true,
+                    cwd: 'assets/img/favicons/',
+                    src: ['*.{png,jpg,gif}', '**/*.{png,jpg,gif}'],
+                    dest: 'assets/img/favicons'
+                }]
+            },
+            css: {
+                files: [{
+                    expand: true,
+                    cwd: 'assets/img/css/',
+                    src: ['*.{png,jpg,gif}', '**/*.{png,jpg,gif}'],
+                    dest: 'assets/img/css/'
                 }]
             }
         },
