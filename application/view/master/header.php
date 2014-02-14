@@ -13,6 +13,8 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
+		<script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
+
 		<link rel="stylesheet" href="/assets/css/styles.css" />
 
 		<!--[if lt IE 9]>
@@ -35,7 +37,6 @@
 
 		</script> -->
 
-		<script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
 	</head>
 	<?php flush(); ?>
 	<body class="product">
