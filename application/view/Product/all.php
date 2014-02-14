@@ -5,8 +5,6 @@ foreach ($this->products as $product) {
 ?>
 
 <div class="wrapper">
-	<h1>Products Page - all</h1>
-
 	<nav class="breadcrumb breadcrumb__product">
 		<a href="/">Home</a>
 		<a href="#">Product Search</a>
