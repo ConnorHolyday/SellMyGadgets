@@ -1,9 +1,8 @@
-<?php 	
-	
+<?php
+
 	class AccountModel extends BaseModel {
-		
+
 		function __construct() {
-			require 'library/database.php';
 			$this->db = new Database();
 		}
 
@@ -20,13 +19,13 @@
 			$id = $this->db->insert_return_id($userInsert);
 
 			$detailsInsert = $this->db->prepare_insert(
-				'user_details', 
+				'user_details',
 				'user_id, first_name, surname, address_1, address_2, town_city, county, postcode, contact_number, contact_email',
 				"$id, '{$firstname}', '{$surname}', '{$address1}', '{$address2}', '{$town_city}', '{$county}', '{$postcode}', '{$phonenumber}', '{$email}'"
 			);
 
 			$this->db->execute_query($detailsInsert);
-			
+
 			return $id;
 		}
 

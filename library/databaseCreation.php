@@ -119,7 +119,7 @@
         "user_type",
         "user_products",
         "user_details",
-        "Site_Content",
+        "site_content",
         "products",
         "products_status",
         "product_details",

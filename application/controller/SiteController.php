@@ -1,39 +1,39 @@
-<?php	
+<?php
 	class SiteController extends BaseController {
-		
-		function __construct() {	
+
+		function __construct() {
 			parent::__construct();
 
 			//retrive and create the sitemodel in $this->model
 			require "application/model/SiteModel.php";
 			$this->model = new SiteModel();
 		}
-				
+
 		/* Querys all products to display within the products page
 		this function is accsed via the site_directory/product/all */
 		function about() {
-			$this->view->render('site/about', 'About', true);
+			$this->view->render('site/about', 'About', true, false);
 		}
 
 		function terms () {
-			$this->view->render('site/terms', 'Terms and Conditions', true);
+			$this->view->render('site/terms', 'Terms and Conditions', true, false);
 		}
 
 		function privacy () {
-			$this->view->render('site/privacy', 'Privacy Statement', true);
+			$this->view->render('site/privacy', 'Privacy Statement', true, false);
 		}
 
 		function advertising() {
-			$this->view->render('site/advertising', 'Advertising', true);
+			$this->view->render('site/advertising', 'Advertising', true, false);
 		}
 
 		function cookies() {
-			$this->view->render('site/cookies', 'Cookie Policy', true);
+			$this->view->render('site/cookies', 'Cookie Policy', true, false);
 		}
 
 		function help() {
-			$this->view->render('site/help', 'Help', true);
-		} 
+			$this->view->render('site/help', 'Help', true, false);
+		}
 
 		function map() {
 
@@ -47,7 +47,7 @@
 				"error",
 				"master"
 				);
-		
+
 			//Get all files from application/view directory with filtered array
 			list($links, $dirs) = $this->model->map('application/view', $filter);
 
@@ -70,17 +70,17 @@
 						$trim = str_replace(".php", "", $trimmed);
 						$name = str_replace('/' . $dir . '/',"", $trim);
 
-						//push the file name with no extension to the multidimensional array 
+						//push the file name with no extension to the multidimensional array
 						//where the directory match the files existance
 						array_push($siteMap[$dir], $name);
 					}
 			}
 
 			$this->view->siteMap = $siteMap;
-			$this->view->render('site/map', 'Sitemap', true);
+			$this->view->render('site/map', 'Sitemap', true, false);
 		}
 
 		function contact() {
-			$this->view->render('site/contact', 'Contact', true);
+			$this->view->render('site/contact', 'Contact', true, false);
 		}
 	}

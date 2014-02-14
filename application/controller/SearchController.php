@@ -10,7 +10,7 @@
 		function keyword($keyword){
 			$this->view->productID;
 
-			$this->view->render('search/keyword', 'Searching for ' . $keyword, true);
+			$this->view->render('search/keyword', 'Searching for ' . $keyword, true, true);
 		}
 
 		function location($gps){
