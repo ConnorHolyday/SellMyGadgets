@@ -41,49 +41,55 @@
 	<?php flush(); ?>
 	<body class="product">
 
-	<header class="header header--main bg--light cf">
-		<div class="top-bar bg--dark">
-		<?php if (isset($_SESSION['LOGIN'])): ?>
-			<a href="/account/dashboard" class="top-bar__a">dashboard</a>
-			<a href="/account" class="top-bar__a">account</a>
-			<a href="/account/logout" class="top-bar__a">logout</a>
-		<?php else: ?>
-			<a href="/account/signup" class="top-bar__a">signup</a>
-			<a href="/account/login" class="top-bar__a">login</a>
-		<?php endif ?>
-		</div>
-
-		<div class="main-logo">
-			<img src="/assets/img/svg/logo.svg">
-		</div>
-
-		<nav class="nav nav--main">
-			<ul class="nav--main__ul">
-				<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
-				<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
-				<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
-				<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
-			</ul>
-		</nav>
-	</header>
-
-	<section class="search search--top cf">
-		<div class="wrapper">
-			<h1 class="visuallyhidden">SOME SEO SHIT RIGHT HUR</h1>
-
-			<h2 class="h1 index-only search--top__h2">Hey, you there. Would you like to buy gadgets at low prices?</h2>
-			<p class="index-only search--top__p gamma">I'm sure you could find something you need by searching below.</p>
-
-			<h2 class="h1 search--top__h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, exercitationem, eligendi, ducimus, vero adipisci iure molestiae neque.</h2>
-
-			<h1></h1>
-
-			<div class="symbol--search">
-				<form action="/product/search" method="GET">
-					<label for="search" class="visuallyhidden">search</label>
-					<input type="search" placeholder="E.g. iPhone" name="s" class="search--top__input" autocomplete="off">
-					<input type="submit" text="peen">
-				</form>
+		<header class="header header--main bg--light cf">
+			<div class="top-bar bg--dark">
+				<div class="wrapper">
+				<?php if (isset($_SESSION['LOGIN'])): ?>
+					<a href="/account/dashboard" class="top-bar__a">dashboard</a>
+					<a href="/account" class="top-bar__a">account</a>
+					<a href="/account/logout" class="top-bar__a">logout</a>
+				<?php else: ?>
+					<a href="/account/signup" class="top-bar__a">signup</a>
+					<a href="/account/login" class="top-bar__a">login</a>
+				<?php endif ?>
+				</div>
 			</div>
-		</div>
-	</section>
+
+			<div class="wrapper">
+				<div class="main-logo">
+					<a href="/" title="Sell My Gadgets">
+						<img src="/assets/img/svg/logo.svg">
+					</a>
+				</div>
+
+				<nav class="nav nav--main">
+					<ul class="nav--main__ul">
+						<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
+						<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
+						<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
+						<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<section class="search search--top cf">
+			<div class="wrapper">
+				<h1 class="visuallyhidden">SOME SEO SHIT RIGHT HUR</h1>
+
+				<h2 class="h1 index-only search--top__h2">Hey, you there. Would you like to buy gadgets at low prices?</h2>
+				<p class="index-only search--top__p gamma">I'm sure you could find something you need by searching below.</p>
+
+				<h2 class="h1 search--top__h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, exercitationem, eligendi, ducimus, vero adipisci iure molestiae neque.</h2>
+
+				<h1></h1>
+
+				<div class="symbol--search">
+					<form action="/product/search" method="GET">
+						<label for="search" class="visuallyhidden">search</label>
+						<input type="search" placeholder="E.g. iPhone" name="s" class="search--top__input" autocomplete="off">
+						<input type="submit" text="peen">
+					</form>
+				</div>
+			</div>
+		</section>

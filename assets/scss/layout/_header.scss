@@ -17,12 +17,15 @@
 
     .top-bar__a {
         color: $light-copy;
-        margin-right: 1.25em;
         letter-spacing: .05em;
         border: none;
     }
 
     .main-logo {
         float: left;
-        padding: 1em 0 1em 4em;
+        padding: 1em 0;
+
+        a {
+            border: none;
+        }
     }

@@ -8,7 +8,6 @@
 
 .nav--main {
     float: right;
-    padding-right: 4em;
     margin-top: 2.5em;
     @include font-size(20);
 }
@@ -17,6 +16,10 @@
         @include nobullet;
         float: left;
         margin-right: 1.2em;
+
+        &:last-child {
+            margin: 0;
+        }
     }
 
     .nav--main__a {
