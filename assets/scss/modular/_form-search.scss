@@ -11,6 +11,19 @@
 	color: white;
 }
 
+.search--top__h2 {
+	width: 100%;
+	margin: 2em 0;
+	text-align: left;
+}
+
+.search--top__h2--index {
+	margin: 4.6875rem 0;
+	@include font-size(52);
+	@include body-font(regular);
+	text-align: center;
+}
+
 .search--top__p {
 	letter-spacing: 1px;
 	margin: 0 auto;
@@ -24,13 +37,12 @@
 }
 
 .index {
-	.search--index__h2 {
-		margin: 4.6875rem 0;
-		@include font-size(52);
-		@include body-font(regular);
-		text-align: center;
+	.search--top__h2--index {
+		display: block;
 	}
-
+	.search--top__h2 {
+		display: none;
+	}
 	.search--top__p {
 		max-width: 55%;
 	}
@@ -42,12 +54,12 @@
 }
 
 .product {
-	.search--top__h2 {
-		width: 100%;
-		margin: 2em 0;
-		text-align: left;
+	.search--top__h2--index {
+		display: none;
 	}
-
+	.search--top__h2 {
+		display: block;
+	}
 	.search--top__input {
 		width: 100%;
 		margin-bottom: 2em;

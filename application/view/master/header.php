@@ -39,7 +39,7 @@
 
 	</head>
 	<?php flush(); ?>
-	<body class="product">
+	<body class="index">
 
 		<header class="header header--main bg--light cf">
 			<div class="top-bar bg--dark">
@@ -77,7 +77,7 @@
 			<div class="wrapper">
 				<h1 class="visuallyhidden">SOME SEO SHIT RIGHT HUR</h1>
 
-				<h2 class="h1 index-only search--top__h2">Hey, you there. Would you like to buy gadgets at low prices?</h2>
+				<h2 class="h1 index-only search--top__h2--index">Hey, you there. Would you like to buy gadgets at low prices?</h2>
 				<p class="index-only search--top__p gamma">I'm sure you could find something you need by searching below.</p>
 
 				<h2 class="h1 search--top__h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, exercitationem, eligendi, ducimus, vero adipisci iure molestiae neque.</h2>
