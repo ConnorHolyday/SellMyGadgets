@@ -18,35 +18,67 @@
 	a {
 		float: left;
 		padding: 0.5em;
-		padding-left: 0;
+		padding-right: 2em;
 		border: 0;
 		color: $breadcrumb;
 		background: $module-bg;
+		position: relative;
+		@include font-size(18);
+		letter-spacing: 1px;
 
-		&:before {
-			content: " ";
-			width: 0;
-			height: 0;
-			display: block;
-			border: solid transparent;
-			border-width: 30px;
-			border-color: black;
-			border-left-color: $module-bg;
-			margin-right: 0.5em;
+		&:hover,
+		&:focus,
+		&:active {
+			background: white;
+
+			&:before {
+				border-color: white;
+				border-left-color: transparent;
+			}
 		}
 
-		&:first-child:before {
+		&:before, &:after {
 			content: "";
-			border: none;
+			float: left;
+			border: solid transparent;
+			border-width: 1.1em;
+			border-right-width: .1em;
+			position: absolute;
+			display: block;
+			top: 0;
+			bottom: 0;
+		}
+
+		&:before {
+			border-color: $module-bg;
+			border-left-color: transparent;
+			right: 100%;
+		}
+
+		&:after {
+			border-color: $breadcrumb;
+			border-left-color: transparent;
+			right: 1px;
+		}
+
+		&:first-child {
+			padding-left: 1em;
 		}
 
 		&:last-child {
 			background: transparent;
 			color: $light-blue-bg;
+			pointer-events: none;
+ 			cursor: default;
+ 			padding-right: 0;
 
 			&:before {
-				border-color: $light-blue-bg;
-				border-left-color: $module-bg;
+				border-color: $dark-bg;
+				border-left-color: transparent;
+			}
+
+			&:after {
+				display: none;
 			}
 		}
 	}
