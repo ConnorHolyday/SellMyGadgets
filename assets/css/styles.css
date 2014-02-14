@@ -862,7 +862,8 @@ h3,
 	margin: 4.6875rem 0;
 }
 
-.product .search--top__h2--index {
+.product .search--top__h2--index,
+.product .search--top__p {
 	display: none;
 }
 

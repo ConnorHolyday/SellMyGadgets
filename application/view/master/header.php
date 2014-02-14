@@ -62,12 +62,13 @@
 					</a>
 				</div>
 
-		<nav class="nav nav--main">
-			<ul class="nav--main__ul">
-				<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
-				<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
-				<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
-				<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
-			</ul>
-		</nav>
-	</header>
+				<nav class="nav nav--main">
+					<ul class="nav--main__ul">
+						<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
+						<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
+						<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
+						<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
