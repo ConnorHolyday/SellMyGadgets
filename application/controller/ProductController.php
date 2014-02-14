@@ -15,6 +15,11 @@
          - Need to add a new paramter for page number so the model can update query
          - Domain/catagory/page/query/page
         */
+
+        function index() {
+
+        }
+
         function all() {
             $products = $this->model->loadAllProducts();
 

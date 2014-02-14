@@ -41,4 +41,4 @@
         } else {
             header('Location: /error/' . $error_location);
         }
-  }
+    }
