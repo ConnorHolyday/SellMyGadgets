@@ -7,9 +7,13 @@
 			$this->model = new AccountModel();
 		}
 
+		function index() {
+			$this->dashboard();
+		}
+
 		function login() {
 
-			$this->view->render('account/login', 'Please login to continue', false);
+			$this->view->render('account/login', 'Please login to continue', false, false);
 
 			// Catch the values on postback
 			if(isset($_POST['username']) && isset($_POST['password'])) {
@@ -33,11 +37,11 @@
 		}
 
 		function dashboard() {
-			$this->view->render('account/dashboard', 'Welcome to your personal dashboard', false);
+			$this->view->render('account/dashboard', 'Welcome to your personal dashboard', false, false);
 		}
 
 		function signup() {
-			$this->view->render('account/signup', 'Sign up for an account today', false);
+			$this->view->render('account/signup', 'Sign up for an account today', false, false);
 
 			// Catch the values on postback
 			if(isset($_POST['firstname']) &&

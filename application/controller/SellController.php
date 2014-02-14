@@ -5,4 +5,8 @@
             parent::__construct();
         }
 
+        function index() {
+
+        }
+
     }

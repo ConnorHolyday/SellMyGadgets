@@ -4,11 +4,9 @@
 
 		function __construct() {
 			parent::__construct();
-
-			$this->view->render('index/index', 'Homepage', true);
 		}
 
 		function index() {
-
+			$this->view->render('index/index', 'Homepage', true, true);
 		}
 	}

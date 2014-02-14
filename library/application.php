@@ -6,25 +6,28 @@
             $url = isset($_GET['url']) ? $_GET['url'] : null;
             $url = explode('/', rtrim($url, '/'));
 
-            if(empty($url[0])) {
-                $controller = new IndexController();
-                return false;
+            // if(empty($url[0])) {
+            //     $controller = new IndexController();
+            //     $controller->index();
+            //     return false;
+            // } else {
+            //     $controllerName = $url[0] . 'Controller';
+            // }
+
+            $page = empty($url[0]) ? 'index' : $url[0];
+            $func = empty($url[1]) ? 'index' : $url[1];
+            $controllerName = $page . 'Controller';
+
+            $controller = new $controllerName();
+            $controller->view->page = $page;
+
+            $controllerFunction = str_replace('-', '_', $func);
+
+            if(isset($url[2])) {
+                $controller->{$controllerFunction}($url[2]);
             } else {
-                $controllerName = $url[0] . 'Controller';
+                $controller->{$controllerFunction}();
             }
 
-            $controller = new $controllerName;
-
-            if(isset($url[1])) {
-
-                $controllerFunction = str_replace('-', '_', $url[1]);
-
-                if(isset($url[2])) {
-                    $controller->{$controllerFunction}($url[2]);
-                } else {
-                    $controller->{$controllerFunction}();
-                }
-            }
         }
-
     }

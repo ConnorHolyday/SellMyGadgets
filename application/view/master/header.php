@@ -39,7 +39,7 @@
 
 	</head>
 	<?php flush(); ?>
-	<body class="index">
+	<body class="<?php echo $this->page; ?>">
 
 		<header class="header header--main bg--light cf">
 			<div class="top-bar bg--dark">
@@ -62,32 +62,12 @@
 					</a>
 				</div>
 
-				<nav class="nav nav--main">
-					<ul class="nav--main__ul">
-						<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
-						<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
-						<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
-						<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-
-		<section class="search search--top cf">
-			<div class="wrapper">
-				<h1 class="visuallyhidden">SOME SEO SHIT RIGHT HUR</h1>
-
-				<h2 class="h1 index-only search--top__h2--index">Hey, you there. Would you like to buy gadgets at low prices?</h2>
-				<p class="index-only search--top__p gamma">I'm sure you could find something you need by searching below.</p>
-
-				<h2 class="h1 search--top__h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, exercitationem, eligendi, ducimus, vero adipisci iure molestiae neque.</h2>
-
-				<h1></h1>
-
-				<form action="/product/search" method="GET" class="center">
-					<label for="search" class="visuallyhidden">search</label>
-					<input type="search" placeholder="E.g. iPhone" name="s" class="search--top__input" autocomplete="off">
-					<input type="submit" text="peen">
-				</form>
-			</div>
-		</section>
+		<nav class="nav nav--main">
+			<ul class="nav--main__ul">
+				<li class="nav--main__li"><a href="/" class="nav--main__a selected">home</a></li>
+				<li class="nav--main__li"><a href="/buy" class="nav--main__a">buy</a></li>
+				<li class="nav--main__li"><a href="/sell" class="nav--main__a">sell</a></li>
+				<li class="nav--main__li"><a href="/site/about" class="nav--main__a">about</a></li>
+			</ul>
+		</nav>
+	</header>

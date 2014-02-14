@@ -15,6 +15,11 @@
          - Need to add a new paramter for page number so the model can update query
          - Domain/catagory/page/query/page
         */
+
+        function index() {
+
+        }
+
         function all() {
             $products = $this->model->loadAllProducts();
 
@@ -38,7 +43,7 @@
 
             //store the array in global varible and render the veiw
             $this->view->products = $productLine;
-            $this->view->render('Product/all', 'View all products', true);
+            $this->view->render('Product/all', 'View all products', true, true);
         }
 
         /*
@@ -77,7 +82,7 @@
             }
 
             //render the view page
-            $this->view->render('product/view', 'View product', true);
+            $this->view->render('product/view', 'View product', true, true);
         }
 
         /*
@@ -102,7 +107,7 @@
             }
 
             //render the view page
-            $this->view->render('product/category', 'View product by category', true);
+            $this->view->render('product/category', 'View product by category', true, true);
 
             if(is_numeric($category)){
                 $products = $this->model->getProductByCategoryId($category);
@@ -130,7 +135,7 @@
             } else {
                 //render the view page
                 //$this->view->
-                $this->view->render('product/category');
+                //$this->view->render('product/category');
             }
         }
     }
