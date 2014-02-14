@@ -10,4 +10,4 @@
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'sellmygadgets');
     define('DB_USER', 'root');
-    define('DB_PASSWORD', 'sellmygadgets');
+    define('DB_PASSWORD', 'Miller123');

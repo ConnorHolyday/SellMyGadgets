@@ -16,7 +16,7 @@
 				require APP_DIR . 'view/master/header.php';
 
 			if($inc_search)
-				$this->render_include('master/globalsearchbar');
+				$this->render_include('includes/globalsearchbar');
 
 			require APP_DIR . 'view/' . $name . '.php';
 

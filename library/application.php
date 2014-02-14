@@ -6,14 +6,6 @@
             $url = isset($_GET['url']) ? $_GET['url'] : null;
             $url = explode('/', rtrim($url, '/'));
 
-            // if(empty($url[0])) {
-            //     $controller = new IndexController();
-            //     $controller->index();
-            //     return false;
-            // } else {
-            //     $controllerName = $url[0] . 'Controller';
-            // }
-
             $page = empty($url[0]) ? 'index' : $url[0];
             $func = empty($url[1]) ? 'index' : $url[1];
             $controllerName = $page . 'Controller';
@@ -28,6 +20,5 @@
             } else {
                 $controller->{$controllerFunction}();
             }
-
         }
     }
