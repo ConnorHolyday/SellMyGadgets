@@ -152,7 +152,7 @@ module.exports = function(grunt) {
 
         watch: {
             livereload: {
-                files: ['*.html', '*.php', 'assets/js/**/*.{js,json}', 'assets/css/*.css', 'assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}', 'assets/img/*.{png,jpg,jpeg,gif,webp,svg}'],
+                files: ['*.html', '*.php', 'application/**/*.php', 'assets/js/**/*.{js,json}', 'assets/css/*.css', 'assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}', 'assets/img/*.{png,jpg,jpeg,gif,webp,svg}'],
                 options: {
                     spawn: false,
                     livereload: true,
@@ -168,7 +168,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: ['assets/js/*.js'],
-                tasks: ['modernizr', 'newer:jshint', 'uglify'],
+                tasks: ['newer:jshint', 'uglify', 'modernizr'],
                 options: {
                     spawn: false,
                     livereload: true,
@@ -176,7 +176,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
-                tasks: ['modernizr', 'sass:styles', 'newer:autoprefixer', 'cmq', 'csslint', 'concat:css', 'cssmin'],
+                tasks: ['sass', 'newer:autoprefixer', 'cmq', 'csslint', 'concat', 'cssmin', 'modernizr'],
                 options: {
                     spawn: false,
                     livereload: true,
@@ -199,8 +199,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-newer");
     grunt.loadNpmTasks('grunt-combine-media-queries');
 
-    grunt.registerTask('default', ['imagemin', 'modernizr', 'jshint', 'uglify', 'sass', 'autoprefixer', 'cmq', 'csslint', 'concat:css', 'cssmin']);
-    grunt.registerTask('styles', ['sass', 'autoprefixer', 'cmq', 'csslint', 'concat:css', 'cssmin']);
+    grunt.registerTask('default', ['imagemin', 'modernizr', 'jshint', 'uglify', 'sass', 'autoprefixer', 'cmq', 'csslint', 'concat', 'cssmin']);
+    grunt.registerTask('styles', ['sass', 'autoprefixer', 'cmq', 'csslint', 'concat', 'cssmin']);
     grunt.registerTask('scripts', ['modernizr', 'uglify', 'jshint']);
     grunt.registerTask('auto', ['watch']);
 };
