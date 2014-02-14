@@ -45,7 +45,8 @@
 				".DS_Store",
 				"BaseView.php",
 				"error",
-				"master"
+				"master",
+				"index"
 				);
 		
 			//Get all files from application/view directory with filtered array
