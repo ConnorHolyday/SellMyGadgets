@@ -714,6 +714,12 @@ h3,
 	position: relative;
 }
 
+.page-options {
+	background-color: #f0f0f0;
+	border: 1px solid #c9c9c9;
+	padding: .5em 1em;
+}
+
 /* Modular */
 
 .btn {
@@ -1002,6 +1008,12 @@ h3,
 
 .breadcrumb a:last-child:after {
 	display: none;
+}
+
+.page-options {
+	background-color: #f0f0f0;
+	border: 1px solid #c9c9c9;
+	padding: .5em 1em;
 }
 
 /* Non-Modular */
