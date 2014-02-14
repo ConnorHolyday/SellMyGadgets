@@ -84,12 +84,10 @@
 
 				<h1></h1>
 
-				<div class="symbol--search">
-					<form action="/product/search" method="GET">
-						<label for="search" class="visuallyhidden">search</label>
-						<input type="search" placeholder="E.g. iPhone" name="s" class="search--top__input" autocomplete="off">
-						<input type="submit" text="peen">
-					</form>
-				</div>
+				<form action="/product/search" method="GET" class="center">
+					<label for="search" class="visuallyhidden">search</label>
+					<input type="search" placeholder="E.g. iPhone" name="s" class="search--top__input" autocomplete="off">
+					<input type="submit" text="peen">
+				</form>
 			</div>
 		</section>
