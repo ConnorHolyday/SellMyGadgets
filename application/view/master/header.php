@@ -38,7 +38,7 @@
 		<script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
 	</head>
 	<?php flush(); ?>
-	<body class="">
+	<body class="<?php echo $this->page; ?>">
 
 	<header class="header header--main bg--light cf">
 		<div class="top-bar bg--dark">

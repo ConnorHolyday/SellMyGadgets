@@ -19,6 +19,7 @@
             $controllerName = $page . 'Controller';
 
             $controller = new $controllerName();
+            $controller->view->page = $page;
 
             $controllerFunction = str_replace('-', '_', $func);
 

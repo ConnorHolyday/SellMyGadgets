@@ -2,6 +2,8 @@
 
 	class BaseView {
 
+		public $page;
+
 		function __construct() {
 
 		}
