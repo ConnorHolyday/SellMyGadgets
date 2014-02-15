@@ -26,26 +26,6 @@
 .img img, .block {
 	display: block;
 }
-.inline-block {
-	display: inline-block;
-}
-.inline-links li {
-	display: inline-block;
-	padding-left: .3125em;
-}
-.inline-links--bar li {
-	&:before {
-		content: "|";
-		padding-right: .3125em;
-	}
-	&:first-child {
-		padding-left: 0;
-		&:before {
-			content: "";
-			padding-right: 0;
-		}
-	}
-}
 
 .body {
 	overflow: hidden;
@@ -171,4 +151,41 @@
 .bg--dark {
 	background-color: $dark-bg;
 	color: white;
+}
+
+.module--border {
+	border: 1px solid $module-border;
+	padding: 1.25em;
+}
+
+.inline-block {
+	display: inline-block;
+}
+.inline-links li {
+	display: inline-block;
+	padding-left: .3125em;
+}
+.inline-links--bar li {
+	&:before {
+		content: "|";
+		padding-right: .3125em;
+	}
+	&:first-child {
+		padding-left: 0;
+		&:before {
+			content: "";
+			padding-right: 0;
+		}
+	}
+}
+
+.border__none--hover a {
+	border: none;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.selected {
+		border-bottom: 1px solid;
+	}
 }

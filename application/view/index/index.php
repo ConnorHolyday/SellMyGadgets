@@ -3,7 +3,7 @@
 	<section class="wrapper row list-block">
 		<h1>Alternatively, you could browse our categories.</h1>
 
-		<div class="col d-2 list-block__wrap">
+		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Mobile</h2>
 			<ul class="list-block__list">
 				<li>
@@ -26,7 +26,7 @@
 
 		<div class="col d-1">&nbsp;</div>
 
-		<div class="col d-2 list-block__wrap">
+		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Computer</h2>
 			<ul class="list-block__list">
 				<li>
@@ -49,7 +49,7 @@
 
 		<div class="col d-1">&nbsp;</div>
 
-		<div class="col d-2 list-block__wrap">
+		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Tablet</h2>
 			<ul class="list-block__list">
 				<li>

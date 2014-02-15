@@ -1,0 +1,75 @@
+/* ============================ *\
+//
+//	View Options
+//
+\* ============================ */
+
+
+
+.page-options {
+	background-color: $module-bg;
+	border: 1px solid $breadcrumb;
+	padding: .5em 1em;
+
+	.pagination {
+		line-height: 2;
+	}
+}
+
+.page-options__view {
+	div {
+		margin-right: 1em;
+	}
+	a {
+		margin-right: .5em;
+	}
+	span {
+		margin-right: 1em;
+	}
+}
+
+.page-options__view--sort {
+	position: relative;
+	select {
+		color: lighten($light-blue-bg, 15%);
+		background-color: $dark-bg;
+		-webkit-appearance: none;
+		padding: .3em 1.5em .3em 1em;
+		@include body-font(regular);
+		@include font-size(18);
+		border: none;
+		outline: 1px transparent;
+	}
+
+	&:after {
+		content: "〈";
+		color: lighten($light-blue-bg, 15%);
+		display: inline-block;
+		position: absolute;
+		right: .3em;
+		top: .7em;
+		pointer-events: none;
+		/* Safari */
+		-webkit-transform: rotate(-90deg);
+
+		/* Firefox */
+		-moz-transform: rotate(-90deg);
+
+		/* IE */
+		-ms-transform: rotate(-90deg);
+
+		/* Opera */
+		-o-transform: rotate(-90deg);
+
+		/* Internet Explorer */
+		//filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	}
+}
+
+.page-options__view--grid {
+
+}
+
+.page-options__sidebar {
+
+}

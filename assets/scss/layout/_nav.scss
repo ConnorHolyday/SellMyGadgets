@@ -35,3 +35,27 @@
             border-bottom: 2px solid $copy;
         }
     }
+
+.pagination {
+    a {
+        margin-right: .5em;
+        vertical-align: middle;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &.selected {
+            background-color: $dark-bg;
+            color: $light-blue-bg;
+            padding: 0.2em .5em;
+            border-radius: 5px;
+            border: none;
+        }
+    }
+
+    span {
+        margin-right: .5em;
+        vertical-align: middle;
+    }
+}

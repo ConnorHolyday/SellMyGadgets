@@ -6,16 +6,18 @@
 
 
 
-.page-options {
+.page-options__sidebar {
 	background-color: $module-bg;
-	border: 1px solid $breadcrumb;
-	padding: .5em 1em;
+	//border: 1px solid $breadcrumb;
 }
 
-.view-options--sort {
+.page-options__sidebar-item {
+	padding: 1em;
+	border-color: $breadcrumb;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
 
-}
-
-.view-options--grid {
-
+	&:first-child {
+		border-top: none;
+	}
 }

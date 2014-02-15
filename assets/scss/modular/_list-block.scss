@@ -14,15 +14,6 @@
 }
 .list-block__wrap {
 	background-color: #F0F0F0;
-	border: 1px solid $module-border;
-	padding: 1.25em;
-
-	&:first-child {
-		float: left;
-	}
-	&:last-child {
-		float: right;
-	}
 }
 .list-block__title {
 	letter-spacing: 5px;
