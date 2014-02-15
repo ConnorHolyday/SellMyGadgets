@@ -40,6 +40,8 @@
     a {
         margin-right: .5em;
         vertical-align: middle;
+        color: $dark-bg;
+        @include font-size(18);
 
         &:last-child {
             margin-right: 0;
@@ -56,6 +58,5 @@
 
     span {
         margin-right: .5em;
-        vertical-align: middle;
     }
 }

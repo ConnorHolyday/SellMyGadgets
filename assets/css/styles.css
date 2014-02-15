@@ -718,6 +718,9 @@ h3,
 .pagination a {
 	margin-right: .5em;
 	vertical-align: middle;
+	color: #2f2f3d;
+	font-size: 18px;
+	font-size: 1.125rem;
 }
 
 .pagination a:last-child {
@@ -734,7 +737,6 @@ h3,
 
 .pagination span {
 	margin-right: .5em;
-	vertical-align: middle;
 }
 
 /* ============================ *\
@@ -1051,7 +1053,7 @@ h3,
 .page-options {
 	background-color: #f0f0f0;
 	border: 1px solid #c9c9c9;
-	padding: .5em 1em;
+	padding: .5em 1em 0.3em 1em;
 }
 
 .page-options .pagination {

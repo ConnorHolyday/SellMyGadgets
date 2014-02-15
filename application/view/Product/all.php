@@ -110,7 +110,7 @@ foreach ($this->products as $product) {
 			<nav class="pagination pull-left border__none--hover">
 				<a href="#">&laquo;</a>
 				<a href="#">&lsaquo;</a>
-				<a href="#">10</a>
+				<a href="#" class="selected">1</a>
 				<a href="#">2</a>
 				<a href="#">3</a>
 				<span>&hellip;</span>
