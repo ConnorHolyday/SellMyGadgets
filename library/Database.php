@@ -46,6 +46,10 @@
 			$this->conn->close();
 		}
 
+		public function prepare_basic_select($fields, $table) {
+			return 'SELECT ' . $fields . ' FROM ' . $table . ';';
+		}
+
 		public function prepare_select($fields, $table, $where) {
 			return 'SELECT ' . $fields . ' FROM ' . $table . ' WHERE ' . $where . ';';
 		}

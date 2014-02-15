@@ -93,7 +93,7 @@
             brand_name varchar(20) NOT NULL,
             PRIMARY KEY (id)
         );",
-        "product_condition"=>"CREATE TABLE product_condition(
+        "product_conditions"=>"CREATE TABLE product_conditions(
             id int(3) NOT NULL AUTO_INCREMENT,
             condition_name varchar(20) NOT NULL,
             PRIMARY KEY (id)
@@ -126,7 +126,7 @@
         "product_media",
         "product_categories",
         "product_brands",
-        "product_condition",
+        "product_conditions",
         "product_delivery",
         "product_comments"
      );

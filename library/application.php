@@ -6,14 +6,6 @@
             $url = isset($_GET['url']) ? $_GET['url'] : null;
             $url = explode('/', rtrim($url, '/'));
 
-            // if(empty($url[0])) {
-            //     $controller = new IndexController();
-            //     $controller->index();
-            //     return false;
-            // } else {
-            //     $controllerName = $url[0] . 'Controller';
-            // }
-
             $page = empty($url[0]) ? 'index' : $url[0];
             $func = empty($url[1]) ? 'index' : $url[1];
             $controllerName = $page . 'Controller';
@@ -21,13 +13,18 @@
             $controller = new $controllerName();
             $controller->view->page = $page;
 
-            $controllerFunction = str_replace('-', '_', $func);
+            $controllerMethod = str_replace('-', '_', $func);
 
-            if(isset($url[2])) {
-                $controller->{$controllerFunction}($url[2]);
+            if(method_exists($controller, $controllerMethod)) {
+
+                if(isset($url[2])) {
+                    $controller->{$controllerMethod}($url[2]);
+                } else {
+                    $controller->{$controllerMethod}();
+                }
+
             } else {
-                $controller->{$controllerFunction}();
+                header('Location: /error/page-cannot-be-found');
             }
-
         }
     }
