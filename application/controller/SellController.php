@@ -6,7 +6,15 @@
         }
 
         function index() {
+        	$this->view->render('sell/allitems', 'View all your items currently for sale', true, false);
+        }
 
+        function new_item() {
+
+        }
+
+        function edit_item() {
+        	
         }
 
     }
