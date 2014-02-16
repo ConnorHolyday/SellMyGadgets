@@ -17,7 +17,11 @@
 		// Execute query and return assoc array
 		public function execute_assoc_query($qry) {
 			$result = $this->conn->query($qry);
-			return $result->fetch_assoc();
+			while ($row = $result->fetch_assoc()) {
+				$rows[] = $row;
+			}
+			$result->free();
+			return $rows;
 		}
 
 		// Return ID of newly inserted item
@@ -31,13 +35,13 @@
 			$querys = func_get_args();
 
 			foreach($queries as $qry) {
-				$this->conn->quey($qry);
+				$this->conn->query($qry);
 			}
 		}
 
 		//count rows in query
 		public function count_rows($qry) {
-			$rows = $this->doQuery($qry);
+			$rows = $this->conn->query($qry);
 			return $rows->num_rows;
 		}
 

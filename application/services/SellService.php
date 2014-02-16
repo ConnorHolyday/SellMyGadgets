@@ -6,10 +6,19 @@
 
 		}
 
-		function populateSelectTagByName($name) {
+		function populateSelectTagByName($name, $field) {
 			$db = new Database();
 
-			$db->prepare_basic_select('*', 'product_' . $name);
+			$qry = $db->prepare_basic_select('*', 'product_' . $name);
+			$arr = $db->execute_assoc_query($qry);
+
+			$options = '';
+
+			foreach($arr as $option) {
+				$options .= '<option value="' . $option['id'] . '">' . $option[$field . '_name'] . '</option>';
+			}
+
+			return $options;
 		}
 
 	}

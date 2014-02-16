@@ -12,15 +12,14 @@
 
 		<label for="category">Category:</label>
 		<select name="category">
-			<option value="1">Mobile Phone</option>
-			<option value="2">Computer</option>
+			<?php echo $this->categories; ?>
 		</select>
 
 		<br>
 
 		<label for="brand">Brand:</label>
 		<select name="brand">
-			<option value="1">Apple</option>
+			<?php echo $this->brands; ?>
 		</select>
 
 		<br>
@@ -32,7 +31,7 @@
 
 		<label for="condition">Condition:</label>
 		<select name="condition">
-			<option value="1">New</option>
+			<?php echo $this->conditions; ?>
 		</select>
 
 		<br>

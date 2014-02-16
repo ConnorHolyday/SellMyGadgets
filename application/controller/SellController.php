@@ -10,6 +10,12 @@
         }
 
         function new_item() {
+					$sellservice = new SellService();
+
+					$this->view->categories = $sellservice->populateSelectTagByName('categories', 'category');
+					$this->view->brands = $sellservice->populateSelectTagByName('brands', 'brand');
+					$this->view->conditions = $sellservice->populateSelectTagByName('conditions', 'condition');
+
 					$this->view->render('sell/newitem', 'Add a new item for sale', true, false);
         }
 
