@@ -24,7 +24,8 @@
 
 				if($auth != null) {
 					AccountService::setSession($auth);
-					header('Location: /account/dashboard');
+					$to = isset($_POST['to']) ? $_POST['to'] : '/account/dashboard';
+					header('Location: ' . $to);
 				} else {
 					echo '<p style="color:red;">invalid credentials, please try again.</p>';
 				}

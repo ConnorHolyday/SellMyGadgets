@@ -19,6 +19,12 @@
 			<label for="password">Password:</label>
 			<input type="password" name="password" class="form__input">
 
+			<?php if(isset($_GET['from'])): ?>
+
+			<input type="hidden" name="to" value="<?php echo $_GET['from']; ?>">
+
+			<?php endif ?>
+
 			<input type="submit" class="button button--submit" value="Login">
 
 		</form>

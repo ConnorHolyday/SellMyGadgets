@@ -9,7 +9,7 @@
         }
 
         public static function isLoggedIn() {
-            return AccountService::checkAuth() != null ? true: false;
+            return isset($_SESSION['LOGIN']) ? true: false;
         }
 
         public static function checkAuth() {
@@ -18,6 +18,12 @@
 
         public static function setSession($session) {
             $_SESSION['LOGIN'] = $session;
+        }
+
+        public static function requiresLogin() {
+            if(!AccountService::isLoggedIn()) {
+                header('Location: /account/login?from=' . $_SERVER['REQUEST_URI']);
+            }
         }
 
     }
