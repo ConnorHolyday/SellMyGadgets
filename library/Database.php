@@ -16,12 +16,13 @@
 
 		// Execute query and return assoc array
 		public function execute_assoc_query($qry) {
-			$result = $this->conn->query($qry);
-			while ($row = $result->fetch_assoc()) {
-				$rows[] = $row;
+			if($result = $this->conn->query($qry)) {
+				while ($row = $result->fetch_assoc()) {
+					$rows[] = $row;
+				}
+				$result->free();
+				return $rows;
 			}
-			$result->free();
-			return $rows;
 		}
 
 		// Return ID of newly inserted item

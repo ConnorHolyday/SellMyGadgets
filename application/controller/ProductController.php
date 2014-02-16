@@ -21,28 +21,8 @@
         }
 
         function all() {
-            $products = $this->model->loadAllProducts();
+            $this->view->$products = $this->model->loadAllProducts();
 
-            //loop throug the array and push html out put string to new array to tidy out puts
-            $productLine = array();
-
-            foreach ($products as $product) {
-                array_push ($productLine,
-                    $product['id'] . ' ' .
-                    $product['name'] . ' ' .
-                    $product['price'] . ' ' .
-                    $product['primary_image'] . ' ' .
-                    $product['title'] . ' ' .
-                    $product['delivery_date'] .  ' ' .
-                    $product['delivery_cost'] . ' ' .
-                    $product['condition_name'] . ' ' .
-                    $product['username'] . ' ' .
-                    $product['description'] . '<br>'
-                );
-            }
-
-            //store the array in global varible and render the veiw
-            $this->view->products = $productLine;
             $this->view->render('Product/all', 'View all products', true, true);
         }
 

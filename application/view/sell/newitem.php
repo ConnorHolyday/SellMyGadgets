@@ -10,6 +10,12 @@
 
 		<br>
 
+		<label for="productdescription">Product Description:</label>
+		<textarea name="productdescription">
+		</textarea>
+
+		<br>
+
 		<label for="category">Category:</label>
 		<select name="category">
 			<?php echo $this->categories; ?>
@@ -25,7 +31,7 @@
 		<br>
 
 		<label for="price">Price:</label>
-		<input type="text" name="price" class="form__textbox">
+		£<input type="text" name="price" class="form__textbox">
 
 		<br>
 
@@ -35,7 +41,6 @@
 		</select>
 
 		<br>
-
 
 		<input type="submit" class="form__submit button button--submit" value="Sell Product">
 
