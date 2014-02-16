@@ -22,6 +22,8 @@
 				}
 				$result->free();
 				return $rows;
+			} else {
+				return null;
 			}
 		}
 

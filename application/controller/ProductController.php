@@ -3,26 +3,15 @@
 
         function __construct() {
             parent::__construct();
-
-            //call the model functions to send and recieve querys
-            require "application/model/ProductModel.php";
             $this->model = new ProductModel();
         }
-
-        /*
-        Querys all products to display within the products page
-        this function is accsed via the site_directory/product/all
-         - Need to add a new paramter for page number so the model can update query
-         - Domain/catagory/page/query/page
-        */
 
         function index() {
 
         }
 
         function all() {
-            $this->view->$products = $this->model->loadAllProducts();
-
+            $this->view->products = $this->model->loadAllProducts();
             $this->view->render('Product/all', 'View all products', true, true);
         }
 

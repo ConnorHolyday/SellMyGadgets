@@ -3,18 +3,21 @@
 
   // TODO : Output each product using this loop
   //        using defined HTML structure
-
-  foreach ($this->products as $product) {
-      echo $product['id'] . ' ' .
-      $product['name'] . ' ' .
-      $product['price'] . ' ' .
-      $product['primary_image'] . ' ' .
-      $product['title'] . ' ' .
-      $product['delivery_date'] .  ' ' .
-      $product['delivery_cost'] . ' ' .
-      $product['condition_name'] . ' ' .
-      $product['username'] . ' ' .
-      $product['description'];
+  if($this->products != null) {
+    foreach ($this->products as $product) {
+        echo $product['id'] . ' ' .
+        $product['name'] . ' ' .
+        $product['price'] . ' ' .
+        $product['primary_image'] . ' ' .
+        $product['title'] . ' ' .
+        $product['delivery_date'] .  ' ' .
+        $product['delivery_cost'] . ' ' .
+        $product['condition_name'] . ' ' .
+        $product['username'] . ' ' .
+        $product['description'];
+    }
+  } else {
+    echo '<p>No products to show in this view</p>';
   }
 ?>
 
