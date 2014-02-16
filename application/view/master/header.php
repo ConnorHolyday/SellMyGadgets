@@ -44,7 +44,7 @@
 		<header class="header header--main bg--light cf">
 			<div class="top-bar bg--dark">
 				<div class="wrapper">
-				<?php if (isset($_SESSION['LOGIN'])): ?>
+				<?php if (AccountService::isLoggedIn()): ?>
 					<a href="/account/dashboard" class="top-bar__a">dashboard</a>
 					<a href="/account" class="top-bar__a">account</a>
 					<a href="/account/logout" class="top-bar__a">logout</a>

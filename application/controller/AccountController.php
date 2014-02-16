@@ -23,7 +23,7 @@
 				$auth = $this->model->processLogin($username, $pass);
 
 				if($auth != null) {
-					$_SESSION['LOGIN'] = $auth;
+					AccountService::setSession($auth);
 					header('Location: /account/dashboard');
 				} else {
 					echo '<p style="color:red;">invalid credentials, please try again.</p>';
@@ -68,18 +68,8 @@
 					md5($_POST['password'])
 				);
 
-				$_SESSION['LOGIN'] = $auth;
+				AccountService::setSession($auth);
 				header('Location: /account/dashboard');
 			}
-		}
-
-		// Helper function to check what is stored in login session. Will be deleted before release.
-		function checkauth() {
-			$account = new AccountService();
-
-			if($account->isLoggedIn())
-				echo 'Current User - ' . $account->currentAccount;
-			else
-				echo 'Current User - Not set';
 		}
 	}

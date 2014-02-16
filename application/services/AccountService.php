@@ -5,16 +5,19 @@
         public $currentAccount;
 
         function __construct() {
-
             $this->currentAccount = $this->checkAuth();
         }
 
-        function isLoggedIn() {
-            return $this->currentAccount != null ? true : false;
+        public static function isLoggedIn() {
+            return AccountService::checkAuth() != null ? true: false;
         }
 
-        function checkAuth() {
+        public static function checkAuth() {
             return isset($_SESSION['LOGIN']) ? $_SESSION['LOGIN'] : null;
+        }
+
+        public static function setSession($session) {
+            $_SESSION['LOGIN'] = $session;
         }
 
     }

@@ -10,7 +10,7 @@
 			$qry = $this->db->prepare_select('id', 'users', "username = '{$username}' AND password = '{$password}'");
 			$user = $this->db->execute_assoc_query($qry);
 
-			return $user['id'] != null ? $user['id'] : null;
+			return $user[0]['id'] != null ? $user[0]['id'] : null;
 		}
 
 		function processSignup($firstname, $surname, $address1, $address2, $town_city, $county, $postcode, $phonenumber, $email, $pass) {
