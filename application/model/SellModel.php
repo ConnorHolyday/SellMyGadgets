@@ -27,4 +27,10 @@
 
 			$this->db->execute_query($qry);
 		}
+
+		public function getProductsByUser($user) {
+			$qry = 'SELECT * FROM products p INNER JOIN user_products up ON up.product_id = p.id WHERE up.user_id = ' . $user . ';';
+
+			return $this->db->execute_assoc_query($qry);
+		}
 	}

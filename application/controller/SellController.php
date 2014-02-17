@@ -12,6 +12,7 @@
         }
 
         function your_items() {
+            $this->view->userProducts = $this->model->getProductsByUser(AccountService::checkAuth());
             $this->view->render('sell/allitems', 'View all your items currently for sale', true, false);
         }
 
@@ -43,8 +44,12 @@
             $this->view->render('sell/newitem', 'Add a new item for sale', true, false);
         }
 
-        function edit_item() {
-            $this->view->render('sell/edititem', 'Edit an item you have for sale', true, false);
+        function edit_item($id) {
+            if($id != null) {
+                $this->view->render('sell/edititem', 'Edit an item you have for sale', true, false);
+            } else {
+                header('Location: /sell/your-items');
+            }
         }
 
     }
