@@ -2,7 +2,7 @@
 
 	<h1>Sell new item</h1>
 
-	<form action="/account/signup" method="post" class="form">
+	<form action="/sell/new-item" method="post" class="form">
 
 
 		<label for="productname">Product Name:</label>

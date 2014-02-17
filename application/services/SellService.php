@@ -12,13 +12,16 @@
 			$qry = $db->prepare_basic_select('*', 'product_' . $name);
 			$arr = $db->execute_assoc_query($qry);
 
-			$options = '';
+			if($arr != null) {
 
-			foreach($arr as $option) {
-				$options .= '<option value="' . $option['id'] . '">' . $option[$field . '_name'] . '</option>';
+				$options = '';
+
+				foreach($arr as $option) {
+					$options .= '<option value="' . $option['id'] . '">' . $option[$field . '_name'] . '</option>';
+				}
+
+				return $options;
 			}
-
-			return $options;
 		}
 
 	}

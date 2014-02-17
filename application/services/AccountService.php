@@ -9,7 +9,7 @@
         }
 
         public static function isLoggedIn() {
-            return isset($_SESSION['LOGIN']) ? true: false;
+            return isset($_SESSION['LOGIN']) ? true : false;
         }
 
         public static function checkAuth() {

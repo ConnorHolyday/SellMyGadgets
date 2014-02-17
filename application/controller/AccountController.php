@@ -45,7 +45,7 @@
 			$this->view->render('account/signup', 'Sign up for an account today', false, false);
 
 			// Catch the values on postback
-			if(isset($_POST['firstname']) &&
+			/*if(isset($_POST['firstname']) &&
 				isset($_POST['surname']) &&
 				isset($_POST['address1']) &&
 				isset($_POST['address2']) &&
@@ -54,7 +54,8 @@
 				isset($_POST['postcode']) &&
 				isset($_POST['phonenumber']) &&
 				isset($_POST['email']) &&
-				isset($_POST['password'])) {
+				isset($_POST['password'])) {*/
+			if(sizeof($_POST) > 0) {
 
 				$auth = $this->model->processSignup(
 					$_POST['firstname'],

@@ -67,10 +67,10 @@
         );",
         "product_details"=>"CREATE TABLE product_details(
             product_id bigint NOT NULL,
-            primary_image bigint NOT NULL,
+            primary_image bigint,
             description text NOT NULL,
             condition_id int(3) NOT NULL,
-            delivery_id bigint NOT NULL,
+            delivery_id bigint,
             creation_date datetime NOT NULL,
             created_by bigint NOT NULL,
             modified_date datetime NOT NULL,
@@ -80,7 +80,8 @@
         "product_media"=>"CREATE TABLE product_media(
             id bigint NOT NULL AUTO_INCREMENT,
             product_id bigint NOT NULL,
-            title varchar(50),
+            title varchar(50) NOT NULL,
+            extension varchar(3) NOT NULL,
             PRIMARY KEY(id)
         );",
         "product_categories"=>"CREATE TABLE product_categories(

@@ -16,6 +16,7 @@
 
 		// Execute query and return assoc array
 		public function execute_assoc_query($qry) {
+			//$qry = $this->conn->prepare($qry);
 			if($result = $this->conn->query($qry)) {
 				while ($row = $result->fetch_assoc()) {
 					$rows[] = $row;
@@ -34,7 +35,7 @@
 		}
 
 		//used to insert multiple querys does not out put hence no return statement
-		public function execute_multi_query(){
+		public function execute_multi_query() {
 			$querys = func_get_args();
 
 			foreach($queries as $qry) {
