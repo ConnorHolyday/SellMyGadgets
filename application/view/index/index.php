@@ -6,19 +6,19 @@
 		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Mobile</h2>
 			<ul class="list-block__list">
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Samsung</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Apple</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Nokia</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Blackberry</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">View More...</a>
 				</li>
 			</ul>
@@ -29,19 +29,19 @@
 		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Computer</h2>
 			<ul class="list-block__list">
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Samsung</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Apple</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Nokia</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Blackberry</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">View More...</a>
 				</li>
 			</ul>
@@ -52,19 +52,19 @@
 		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Tablet</h2>
 			<ul class="list-block__list">
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Samsung</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Apple</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Nokia</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Blackberry</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">View More...</a>
 				</li>
 			</ul>

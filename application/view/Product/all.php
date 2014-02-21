@@ -69,19 +69,19 @@
           <div class="page-options__sidebar-item list-block__wrap">
             <h2 class="list-block__title">Categories</h2>
             <ul class="list-block__list border__none--hover">
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">Samsung</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">Apple</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">Nokia</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">Blackberry</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">View More...</a>
               </li>
             </ul>
@@ -90,13 +90,13 @@
           <div class="page-options__sidebar-item list-block__wrap">
             <h2 class="list-block__title">Condition</h2>
             <ul class="list-block__list border__none--hover">
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">New</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">Used</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">Not Specified</a>
               </li>
             </ul>
@@ -105,16 +105,16 @@
           <div class="page-options__sidebar-item list-block__wrap">
             <h2 class="list-block__title">Related</h2>
             <ul class="list-block__list border__none--hover">
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">iPhone 5S</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">iPhone 5C</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">iPhone 5</a>
               </li>
-              <li>
+              <li class="icon-uniE604">
                 <a href="#">iPhone 4S</a>
               </li>
             </ul>
