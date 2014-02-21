@@ -31,7 +31,7 @@
 .page-options__view--sort {
 	position: relative;
 	select {
-		color: lighten($light-blue-bg, 15%);
+		color: white;
 		background-color: $dark-bg;
 		-webkit-appearance: none;
 		padding: .3em 1.5em .3em 1em;
@@ -43,10 +43,10 @@
 
 	&:after {
 		content: "〈";
-		color: lighten($light-blue-bg, 15%);
+		color: white;
 		display: inline-block;
 		position: absolute;
-		right: .3em;
+		right: .7em;
 		top: .7em;
 		pointer-events: none;
 		/* Safari */

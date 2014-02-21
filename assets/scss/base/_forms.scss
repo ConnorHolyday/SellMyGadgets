@@ -8,28 +8,28 @@
 
 
 ::-webkit-input-placeholder {
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;
 }
 
 :-ms-input-placeholder {
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;

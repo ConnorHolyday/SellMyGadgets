@@ -38,6 +38,12 @@ a {
   text-decoration: none;
   color: $link;
   border-bottom: 1px solid $link;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border-bottom: none;
+  }
 }
 a:focus {
   outline: thin dotted;
