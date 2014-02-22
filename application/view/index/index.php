@@ -6,19 +6,19 @@
 		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Mobile</h2>
 			<ul class="list-block__list">
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Samsung</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Apple</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Nokia</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Blackberry</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">View More...</a>
 				</li>
 			</ul>
@@ -29,19 +29,19 @@
 		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Computer</h2>
 			<ul class="list-block__list">
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Samsung</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Apple</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Nokia</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Blackberry</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">View More...</a>
 				</li>
 			</ul>
@@ -52,31 +52,31 @@
 		<div class="col d-2 list-block__wrap module--border">
 			<h2 class="list-block__title">Tablet</h2>
 			<ul class="list-block__list">
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Samsung</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Apple</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Nokia</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">Blackberry</a>
 				</li>
-				<li>
+				<li class="icon-uniE604">
 					<a href="#">View More...</a>
 				</li>
 			</ul>
 		</div>
 
-		<a href="/product/all/" class="pull-right / btn btn--round btn--dark list-block__button">View all Categories</a>
+		<a href="/product/all/" class="pull-right / btn btn--dark list-block__button">View all Categories</a>
 	</section>
 
 	<section class="cta cta--sell bg--dark center">
 		<div class="wrapper">
 			<h1 class="left block">Maybe you have something that you're needing to sell? Click the button below to start the selling process.</h1>
-			<a href="#" class="btn btn--round btn--light btn--large inline-block">Sell My Gadgets</a>
+			<a href="#" class="btn btn--light btn--large inline-block">Sell My Gadgets</a>
 		</div>
 	</section>
 
