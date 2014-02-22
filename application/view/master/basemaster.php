@@ -37,16 +37,14 @@
     })();
 
     </script> -->
-
   </head>
-  <?php flush(); ?>
   <body class="<?php echo $this->page; ?>">
 
     <?php
-
       if($this->inc_master) {
         require APP_DIR . 'view/master/header.php';
       }
+
       if($this->inc_search) {
         $this->render_include('includes/globalsearchbar');
       }
@@ -56,7 +54,6 @@
       if($this->inc_master) {
         require APP_DIR . 'view/master/footer.php';
       }
-
     ?>
 
   </body>

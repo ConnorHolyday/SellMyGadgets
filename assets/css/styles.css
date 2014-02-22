@@ -560,7 +560,7 @@ h3, .gamma {
 :focus:-ms-input-placeholder {
   opacity: 0; }
 
-.form--login {
+.form--login, .form--signup {
   max-width: 37.5em;
   margin: 4em auto;
   padding: 2em;
