@@ -5,31 +5,29 @@
 \* ============================ */
 
 
-
-
 ::-webkit-input-placeholder {
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;
 }
 
 :-ms-input-placeholder {
-   color: lighten($light-copy, 30%);
+   color: $light-copy;
    letter-spacing: 2px;
    @include body-font;
    transition: opacity .3s ease;
@@ -50,3 +48,37 @@
 :focus:-ms-input-placeholder {
    opacity: 0;
 }
+.form {
+
+}
+.form--login {
+   max-width: 37.5em;
+   margin: 4em auto;
+   padding: 2em;
+   border: 1px solid $module-border;
+}
+.form__label {
+   display: block;
+   margin: 1em 0;
+}
+.form__textbox {
+   display: block;
+   width: 100%;
+   height: 2.2em;
+   padding: 0 .6em;
+   margin-bottom: 1em;
+   background: $module-bg;
+   border: 1px solid $module-border;
+}
+.form__textbox:focus {
+   outline: 0;
+   border: 1px solid darken($module-border, 20%);
+}
+.form__textbox--success {
+   outline: 2px solid #70C294;
+}
+.form__textbox--error {
+   outline: 2px solid #EB5353;
+}
+
+

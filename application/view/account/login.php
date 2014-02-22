@@ -3,6 +3,7 @@
 <head>
 	<title><?php echo $this->title; ?></title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
 </head>
 <body>
 
@@ -13,11 +14,16 @@
 				Please Login to continue
 			</h1>
 
-			<label for="username">Username:</label>
-			<input type="text" name="username" class="form__input">
-
-			<label for="password">Password:</label>
-			<input type="password" name="password" class="form__input">
+			<div class="row">
+				<div class="col m-all t-2 d-4">
+					<label for="username" class="form__label">Username:</label>
+					<input type="text" name="username" placeholder="example@example.com" class="form__textbox">
+				</div>
+				<div class="col m-all t-2 d-4">
+					<label for="password" class="form__label">Password:</label>
+					<input type="password" name="password" placeholder="••••••••••" class="form__textbox">
+				</div>
+			</div>
 
 			<?php if(isset($_GET['from'])): ?>
 
@@ -25,7 +31,9 @@
 
 			<?php endif ?>
 
-			<input type="submit" class="button button--submit" value="Login">
+			<a href="/account/forgotten-password">Forgot your password?</a>
+
+			<input type="submit" class="form__submit btn btn--dark pull-right" value="Login">
 
 		</form>
 

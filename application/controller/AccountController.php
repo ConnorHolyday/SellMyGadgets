@@ -32,6 +32,10 @@
 			}
 		}
 
+		function forgotten_password() {
+			$this->view->render('account/passwordreset', 'Reset your password', false, false);
+		}
+
 		function logout() {
 			session_destroy();
 			header('Location: /');
