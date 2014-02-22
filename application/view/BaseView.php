@@ -11,17 +11,12 @@
 		public function render($name, $title, $inc_master, $inc_search) {
 
 			$this->title = 'sellmygadgets. | ' . $title;
+			$this->view = APP_DIR . 'view/' . $name . '.php';
 
-			if($inc_master)
-				require APP_DIR . 'view/master/header.php';
+			$this->inc_master = $inc_master;
+			$this->inc_search = $inc_search;
 
-			if($inc_search)
-				$this->render_include('includes/globalsearchbar');
-
-			require APP_DIR . 'view/' . $name . '.php';
-
-			if($inc_master)
-				require APP_DIR . 'view/master/footer.php';
+			require APP_DIR . 'view/master/basemaster.php';
 		}
 
 		public function render_include($name) {

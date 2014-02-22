@@ -1,46 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title><?php echo $this->title; ?></title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-</head>
-<body>
+  <section class="form form--login">
+    <form action="/account/login" method="post">
+      <h1>
+        Please Login to continue
+      </h1>
 
-	<section class="form form--login">
-		<form action="/account/login" method="post">
+      <div class="row">
+        <div class="col m-all t-2 d-4">
+          <label for="username" class="form__label">Username:</label>
+          <input type="text" name="username" placeholder="example@example.com" class="form__textbox">
+        </div>
+        <div class="col m-all t-2 d-4">
+          <label for="password" class="form__label">Password:</label>
+          <input type="password" name="password" placeholder="••••••••••" class="form__textbox">
+        </div>
+      </div>
 
-			<h1>
-				Please Login to continue
-			</h1>
+      <?php if(isset($_GET['from'])): ?>
 
-			<div class="row">
-				<div class="col m-all t-2 d-4">
-					<label for="username" class="form__label">Username:</label>
-					<input type="text" name="username" placeholder="example@example.com" class="form__textbox">
-				</div>
-				<div class="col m-all t-2 d-4">
-					<label for="password" class="form__label">Password:</label>
-					<input type="password" name="password" placeholder="••••••••••" class="form__textbox">
-				</div>
-			</div>
+      <input type="hidden" name="to" value="<?php echo $_GET['from']; ?>">
 
-			<?php if(isset($_GET['from'])): ?>
+      <?php endif ?>
 
-			<input type="hidden" name="to" value="<?php echo $_GET['from']; ?>">
+      <a href="/account/forgotten-password">Forgot your password?</a>
 
-			<?php endif ?>
+      <input type="submit" class="form__submit btn btn--dark pull-right" value="Login">
 
-			<a href="/account/forgotten-password">Forgot your password?</a>
+    </form>
 
-			<input type="submit" class="form__submit btn btn--dark pull-right" value="Login">
+  </section>
 
-		</form>
-
-	</section>
-
-	<script>
-		document.getElementsByTagName('input')[0].focus();
-	</script>
-</body>
-</html>
+  <script>
+    document.getElementsByTagName('input')[0].focus();
+  </script>

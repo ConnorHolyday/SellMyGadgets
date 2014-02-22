@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><?php echo $this->title; ?></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicons -->
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
+    <link rel="stylesheet" href="http://i.icomoon.io/public/temp/1aa7d47bfc/UntitledProject1/style.css">
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/assets/js/libs/selectivizr-min.js"></script>
+    <![endif]-->
+
+    <!-- Google Analytics <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-********-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script> -->
+
+  </head>
+  <?php flush(); ?>
+  <body class="<?php echo $this->page; ?>">
+
+    <?php
+
+      if($this->inc_master) {
+        require APP_DIR . 'view/master/header.php';
+      }
+      if($this->inc_search) {
+        $this->render_include('includes/globalsearchbar');
+      }
+
+      require $this->view;
+
+      if($this->inc_master) {
+        require APP_DIR . 'view/master/footer.php';
+      }
+
+    ?>
+
+  </body>
+</html>
