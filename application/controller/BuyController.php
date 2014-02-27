@@ -7,37 +7,31 @@
 			$this->model = new buyModel();
 
 			//get user information
-			$this->model->getBuyerDetails();
 		}
 
-
 		function product($id) {
-			$product = $this->model->getProductById($id);	    
-			$seller = $this->model->getSellerDetails();
+			$product = $this->model->getProductById($id);	
+			$buyerDetails = $this->model->getBuyerDetails($_SESSION['USER_NAME']);
+			$sellerDetails = $this->model->getSellerDetails($product[0]['created_by']);
 
-			echo '<pre>';
-			print_r($product);
-			echo '</pre>';
-		    //$price;
-		    //$postge;
-
-		    //$TotalDue = $price + $postage;
+			var_dump($buyerDetails);
+			var_dump($sellerDetails);
+			$productName = $product[0]['name'];
+		    $productPrice = $product[0]['price'];
+		    $productPostge = $product[0]['delivery_cost'];
 
 		    $this->view->render('buy/product', 'Buy' . '', true, true);
 		}
 
 		function payment(){
-
 			//enter payment details
 			//process payment
-
+			//$this->model->preparePayment();
 		}
 
 		function confirmation(){
-
 			//check payment was complete
-
-			//if payment complete update tables
-
+			//if payment complete then update tables
+			//automate paying seller from smg paypal acount
 		}
 	}

@@ -16,8 +16,9 @@
             return isset($_SESSION['LOGIN']) ? $_SESSION['LOGIN'] : null;
         }
 
-        public static function setSession($session) {
+        public static function setSession($session, $userName) {
             $_SESSION['LOGIN'] = $session;
+            $_SESSION['USER_NAME'] = $userName;
         }
 
         public static function requiresLogin() {

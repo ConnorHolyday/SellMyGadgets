@@ -23,7 +23,7 @@
 				$auth = $this->model->processLogin($username, $pass);
 
 				if($auth != null) {
-					AccountService::setSession($auth);
+					AccountService::setSession($auth, $username);
 					$to = isset($_POST['to']) ? $_POST['to'] : '/account/dashboard';
 					header('Location: ' . $to);
 				} else {
