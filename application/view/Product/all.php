@@ -1,3 +1,15 @@
+<?php
+
+  $pageNumber = 20;
+
+  if(isset($_GET['page'])) {
+    $currentPage = $_GET['page'];
+  } else {
+    $currentPage = 1;
+  };
+
+?>
+
 <div class="wrapper">
   <nav class="breadcrumb breadcrumb__product">
     <a href="/">Home</a>
@@ -9,15 +21,34 @@
 
     <div class="page-options cf">
       <nav class="pagination pull-left border__none--hover">
-        <a href="#">&laquo;</a>
-        <a href="#">&lsaquo;</a>
-        <a href="#" class="selected">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <span>&hellip;</span>
-        <a href="#">20</a>
-        <a href="#">&rsaquo;</a>
-        <a href="#">&raquo;</a>
+        <a href="?page=1">&laquo;</a>
+        <a href="?page=<?php echo $currentPage - 1; ?>">&lsaquo;</a>
+
+        <?php if($currentPage == $pageNumber) : ?>
+          <a href="?page=<?php echo $currentPage - 2; ?>"><?php echo $currentPage - 2; ?></a>
+        <?php endif; ?>
+
+        <?php if($currentPage > 1) : ?>
+          <a href="?page=<?php echo $currentPage - 1; ?>"><?php echo $currentPage - 1; ?></a>
+        <?php endif; ?>
+
+        <a href="?page=<?php echo $currentPage; ?>" class="selected"><?php echo $currentPage; ?></a>
+
+        <?php if($currentPage != $pageNumber) : ?>
+          <a href="?page=<?php echo $currentPage + 1; ?>"><?php echo $currentPage + 1; ?></a>
+        <?php endif; ?>
+
+        <?php if($currentPage == 1) : ?>
+          <a href="?page=<?php echo $currentPage + 2; ?>"><?php echo $currentPage + 2; ?></a>
+        <?php endif; ?>
+
+        <?php if($currentPage <= $pageNumber - 2) : ?>
+          <span>&hellip;</span>
+          <a href="?page=<?php echo $pageNumber; ?>"><?php echo $pageNumber; ?></a>
+        <?php endif; ?>
+
+        <a href="?page=<?php echo $currentPage + 1; ?>">&rsaquo;</a>
+        <a href="?page=<?php echo $pageNumber; ?>">&raquo;</a>
       </nav>
 
       <div class="pull-right page-options__view">
@@ -105,7 +136,7 @@
 
           <?php if($this->products != null) : ?>
 
-            <span class="col d-all">Showing 1 - <?php echo "1" //Amount of pages ?> of <?php echo sizeof($this->products); ?> Results</span>
+            <span class="col d-all">Showing 1 - 9 of <?php echo sizeof($this->products); ?> Results</span>
 
             <?php foreach ($this->products as $product) : ?>
               <div class="col d2-2">
