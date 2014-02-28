@@ -31,8 +31,6 @@
 	}
 
 	function getSellerDetails($id){
-		echo '<br> seller id = ' . $id;
-
 		$sellerInfo = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email
 					FROM users
 					INNER JOIN user_details
@@ -43,8 +41,6 @@
 	}
 
 	function getBuyerDetails($userName){
-		echo '<br> buyer username = ' . $userName;
-
 		$userInfo = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email
 					FROM users
 					INNER JOIN user_details

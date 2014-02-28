@@ -16,6 +16,10 @@
 
 			var_dump($buyerDetails);
 			var_dump($sellerDetails);
+			
+			$this->view->buyerName = ;
+			$this->view->sellerName = ;
+
 			$productName = $product[0]['name'];
 		    $productPrice = $product[0]['price'];
 		    $productPostge = $product[0]['delivery_cost'];
