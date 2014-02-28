@@ -17,15 +17,23 @@
                 $currentPage = $_GET['page'];    
             }
 
+
             $pages = ceil($this->model->countAllProducts() / PAGE_ITEMS);
             $last = $currentPage * PAGE_ITEMS;
-            $first = $last - PAGE_ITEMS;
 
+            $first = $last - PAGE_ITEMS;
+            
+            $this->view->productsAmount = $this->model->countAllProducts();
             $this->view->pages = $pages;
             $this->view->firstProduct = $first;
-            $this->view->lastProduct = $last;
+            $this->view->lastProduct = $last - 1;
 
-            $this->view->products = $this->model->loadAllProducts($first, $last);
+            $this->view->products = $this->model->loadAllProducts($first);
+
+            echo PAGE_ITEMS, $currentPage, $pages, $last, $first;
+
+
+
 
             $this->view->render('Product/all', 'View all products', true, true);
         }

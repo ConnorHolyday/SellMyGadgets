@@ -9,7 +9,7 @@
 			parent::__construct();
 		}
 
-		function loadAllProducts($first, $last) {
+		function loadAllProducts($first) {
 			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
@@ -25,7 +25,7 @@
 					INNER JOIN users
 					ON product_details.created_by = users.id
 					ORDER BY name ASC
-					LIMIT ' . $first . ',' . $last;
+					LIMIT ' . $first . ',' . PAGE_ITEMS;
 
 			return $this->db->execute_assoc_query($query);
 		}
