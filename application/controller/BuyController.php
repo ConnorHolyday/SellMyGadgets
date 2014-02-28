@@ -17,8 +17,8 @@
 			var_dump($buyerDetails);
 			var_dump($sellerDetails);
 			
-			$this->view->buyerName = ;
-			$this->view->sellerName = ;
+			$this->view->buyerName = '';
+			$this->view->sellerName = '';
 
 			$productName = $product[0]['name'];
 		    $productPrice = $product[0]['price'];

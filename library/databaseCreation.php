@@ -42,6 +42,8 @@
             postcode varchar(10) NOT NULL,
             contact_number int(12) NOT NULL,
             contact_email varchar(100) NOT NULL,
+            image varchar(100)NOT NULL,
+            paypal varchar(100)NOT NULL,
             PRIMARY KEY (user_id)
         );",
         "site_content"=>"CREATE TABLE site_content(
