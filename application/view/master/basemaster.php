@@ -14,9 +14,10 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
-    <link rel="stylesheet" href="http://i.icomoon.io/public/temp/1aa7d47bfc/UntitledProject1/style.css">
+
 
     <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/fonts/smg-icons/style.css" />
 
     <!--[if lt IE 9]>
     <script type="text/javascript" src="/assets/js/libs/selectivizr-min.js"></script>
