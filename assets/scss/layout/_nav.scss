@@ -20,6 +20,15 @@
         &:last-child {
             margin: 0;
         }
+
+        .index &:first-child,
+        .product &:nth-child(2),
+        .sell &:nth-child(3),
+        .about &:last-child {
+            a {
+                border-bottom: 2px solid $copy;
+            }
+        }
     }
 
     .nav--main__a {
@@ -30,8 +39,7 @@
 
         &:hover,
         &:focus,
-        &:active,
-        &.selected {
+        &:active {
             border-bottom: 2px solid $copy;
         }
     }

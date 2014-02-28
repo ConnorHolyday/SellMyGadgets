@@ -757,6 +757,13 @@ h3,
 	margin: 0;
 }
 
+.index .nav--main__li:first-child a,
+.product .nav--main__li:nth-child(2) a,
+.sell .nav--main__li:nth-child(3) a,
+.about .nav--main__li:last-child a {
+	border-bottom: 2px solid #303030;
+}
+
 .nav--main__a {
 	color: #303030;
 	letter-spacing: .1em;
@@ -766,8 +773,7 @@ h3,
 
 .nav--main__a:hover,
 .nav--main__a:focus,
-.nav--main__a:active,
-.nav--main__a.selected {
+.nav--main__a:active {
 	border-bottom: 2px solid #303030;
 }
 
