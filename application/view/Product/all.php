@@ -33,8 +33,8 @@
 
         <div class="inline-block page-options__view--grid">
           <span>View:</span>
-          <a href="#">Grid</a>
-          <a href="#">List</a>
+          <a href="#" class="view--grid">Grid</a>
+          <a href="#" class="view--list">List</a>
         </div>
       </div>
     </div>
@@ -164,8 +164,8 @@
 
         <div class="inline-block page-options__view--grid">
           <span>View:</span>
-          <a href="#">Grid</a>
-          <a href="#">List</a>
+          <a href="#" class="view--grid">Grid</a>
+          <a href="#" class="view--list">List</a>
         </div>
       </div>
     </div>
