@@ -7,16 +7,42 @@
 
 
 
+.product-meta {
+	padding: 1.25em 1.25em 0 1.25em;
+}
+
 .module__product {
 	background-color: $module-bg-light;
+	@extend .cf;
 
 	img {
 		width: 100%;
 	}
+
+	.btn {
+		display: block;
+		text-align: center;
+		margin: 0 1.25em 1.25em 1.25em;
+	}
 }
 
-.product-meta {
-	padding: 1.25em;
+.display--list {
+	.d2-2 {
+		width: 100%;
+	}
+
+	img {
+		max-width: 170px;
+		float: left;
+	}
+
+	.product-meta, .btn {
+		float: left;
+	}
+
+	.btn {
+		margin-top: 1.25em;
+	}
 }
 
 .tags {

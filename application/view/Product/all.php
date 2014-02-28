@@ -118,9 +118,9 @@
                     <li>Condition - <?php echo $product['condition_name']; ?></li>
 
                     <li class="tags">Tags: iPhone, Apple, Mobile, Phone</li>
-
-                    <li><a href="#" class="btn btn--dark block center">View Product</a></li>
                   </ul>
+
+                  <a href="#" class="btn btn--dark">View Product</a>
                 </div>
               </div>
             <?php endforeach; ?>
