@@ -120,7 +120,7 @@
                     <li class="tags">Tags: iPhone, Apple, Mobile, Phone</li>
                   </ul>
 
-                  <a href="#" class="btn btn--dark">View Product</a>
+                  <a href="/product/view/<?php echo $product['id']; ?>" class="btn btn--dark">View Product</a>
                 </div>
               </div>
             <?php endforeach; ?>
