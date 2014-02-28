@@ -23,7 +23,7 @@
 
       <a href="/account/forgotten-password">Forgot your password?</a>
 
-      <input type="submit" class="form__submit btn btn--dark pull-right" value="Login">
+      <button class="btn btn--dark pull-right">Login</button>
 
     </form>
 

@@ -47,7 +47,7 @@
       <label class="form__label" for="password">Password:</label>
       <input type="password" name="password" class="form__textbox">
 
-      <input type="submit" class="form__submit btn btn--dark pull-right" value="Signup">
+      <button class="btn btn--dark pull-right">Signup</button>
 
     </form>
 

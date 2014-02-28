@@ -29,7 +29,8 @@
 		transform: rotateX(-90deg);
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		transform: rotateX(14deg) translateZ(8px);
 	}
 

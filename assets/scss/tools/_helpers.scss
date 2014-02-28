@@ -42,7 +42,9 @@
 .right {
 	text-align: right;
 }
-
+.capitalize {
+	text-transform: capitalize;
+}
 .boxed {
 	border: 1px solid $breadcrumb;
 }
