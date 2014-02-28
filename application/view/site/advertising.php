@@ -3,3 +3,6 @@
 		<h1>Advertising</h1>
 	</div>
 </div>
+<div class="wrapper">	
+	<?php echo $this->advertising; ?>
+</div>

@@ -4,6 +4,6 @@
 	</div>
 </div>
 
-<div class="wrapper">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, dolore, iure, impedit, veritatis molestiae nam ad distinctio provident beatae magnam odit nesciunt quisquam natus numquam dolor aliquid qui dolorem ex?</p>
+<div class="wrapper">	
+	<?php echo $this->about; ?>
 </div>

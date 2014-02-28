@@ -14,7 +14,7 @@
   <nav class="breadcrumb breadcrumb__product">
     <a href="/">Home</a>
     <a href="#">Products</a>
-    <a href="#">Showing all products</a>
+    <a href="#">Showing all products page <? echo $currentPage; ?></a>
   </nav>
 
   <div class="content">

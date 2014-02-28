@@ -13,39 +13,39 @@
 		function about() {
 			$about = $this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'about\'');
 
-			return $this->db->execute_query($about);
+			return $this->db->execute_assoc_query($about);
 		}
 
 		function terms() {
 			$terms = $this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'terms\'');
 
-			return $this->db->execute_query($terms);
+			return $this->db->execute_assoc_query($terms);
 		}
 
 		function privacy() {
 			$privacy = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'privacy\'');
 
-			return $this->db->execute_query($privacy);
+			return $this->db->execute_assoc_query($privacy);
 		}
 
 		function advertising() {
 			$advertising = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'advertising\'');
 
-			return $this->db->execute_query($advertising);
+			return $this->db->execute_assoc_query($advertising);
 		}
 
 		function cookies() {
 			$cookies = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'cookies\'');
 
-			return $this->db->execute_query($cookies);
+			return $this->db->execute_assoc_query($cookies);
 		}
 
 		function help() {
-			$help = '';
+			$help = $this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'help\'');;
 
 			//contact forms and details etc
 
-			return $this->db->execute_query($help);
+			return $this->db->execute_assoc_query($help);
 		} 
 
 		//detect all files in given directory and store in array
@@ -73,5 +73,12 @@
 				
 			//return an array of results and picked up via the list function in siteController.php	
 			return array($this->links, $this->dirs);				
+		}
+
+		function contact(){
+			$contact = 	$this->db->prepare_select('content', 'site_content', 'active = 1 AND page = \'contact\'');
+
+			return $this->db->execute_assoc_query($contact);
+
 		}
 	}

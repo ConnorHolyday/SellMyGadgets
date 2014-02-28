@@ -13,29 +13,45 @@
 
 		}
 
-		/* Querys all products to display within the products page
-		this function is accsed via the site_directory/product/all */
 		function about() {
+			$about = $this->model->about();
+			$this->view->about = $about[0]['content'];
+
 			$this->view->render('site/about', 'About', true, false);
 		}
 
 		function terms () {
+			$terms = $this->model->terms();
+			$this->view->terms = $terms[0]['content'];
+
 			$this->view->render('site/terms', 'Terms and Conditions', true, false);
 		}
 
 		function privacy () {
+			$privacy = $this->model->privacy();
+			$this->view->privacy = $privacy[0]['content'];
+
 			$this->view->render('site/privacy', 'Privacy Statement', true, false);
 		}
 
 		function advertising() {
+			$advertising = $this->model->advertising();
+			$this->view->advertising = $advertising[0]['content'];
+
 			$this->view->render('site/advertising', 'Advertising', true, false);
 		}
 
 		function cookies() {
+			$cookies = $this->model->cookies();
+			$this->view->cookies = $cookies[0]['content'];
+
 			$this->view->render('site/cookies', 'Cookie Policy', true, false);
 		}
 
 		function help() {
+			$help = $this->model->help();
+			$this->view->help = $help[0]['content'];
+
 			$this->view->render('site/help', 'Help', true, false);
 		}
 
@@ -85,7 +101,10 @@
 			$this->view->render('site/map', 'Sitemap', true, false);
 		}
 
-		function contact() {
+		function contact() {	
+			$contact = $this->model->contact();
+			$this->view->contact = $contact[0]['content'];
+
 			$this->view->render('site/contact', 'Contact', true, false);
 		}
 	}

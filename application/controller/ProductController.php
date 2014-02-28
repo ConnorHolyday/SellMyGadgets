@@ -38,19 +38,12 @@
             $this->view->render('Product/all', 'View all products', true, true);
         }
 
-
-
-
-
-
-
-
         /*
         Querys all products by an id and will only return a single product information
         this function is accsed via the site_diretory/product/single
         */
         function view($id) {
-             if(is_numeric($category)){
+             if(is_numeric($id)){
                 list($products, $images, $comments) = $this->model->getProductById($id);
             } else {
                 list($products, $images, $comments) = $this->model->getProductByName($id);
@@ -59,6 +52,8 @@
 
             //loop throgh query results (should only be 1) store each column data into its own varible for access from the view
             $allMedia = array();
+
+            var_dump($products);
             foreach ($products as $product){
                 $this->view->productId = $product['id'];
                 $this->view->productName = $product['name'];
@@ -77,7 +72,7 @@
                 }
 
                 $this->view->productMedia = $allMedia;
-
+                print_r($comments);
                 foreach ($comments as $comment){
                     array_push ($allComments, '' . $comments['id'] . $comments['comment']);
                 }
