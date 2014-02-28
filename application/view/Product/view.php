@@ -25,7 +25,7 @@
 
 		<aside class="col d-2 sidebar__product">
 
-			<div class="boxed">
+			<div class="boxed module__product">
 				<img src="<?php echo $productImage ?>" alt="<?php $productImageName ?>">
 
 				<div class="slider">
@@ -37,11 +37,11 @@
 					<li>£<?php echo $productPrice ?></li>
 					<li>Condition - <?php echo $productCondition ?></li>
 					<li>Sold by: <a href="#"><?php echo $productSeller ?></a></li>
+					<li class="tags">Tags: iPhone, Apple, Mobile, Phone</li>
+
+					<li><a href="#" class="btn btn--dark block center">Buy Product</a></li>
 				</ul>
 
-				<span class="tags">Tags: iPhone, Apple, Mobile, Phone</span>
-
-				<a href="#" class="btn btn--dark inline-block">Buy Product</a>
 			</div>
 
 		</aside>

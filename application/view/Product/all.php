@@ -1,26 +1,3 @@
-
-<?php
-
-  // TODO : Output each product using this loop
-  //        using defined HTML structure
-  if($this->products != null) {
-    foreach ($this->products as $product) {
-        echo $product['id'] . ' ' .
-        $product['name'] . ' ' .
-        $product['price'] . ' ' .
-        $product['primary_image'] . ' ' .
-        $product['title'] . ' ' .
-        $product['delivery_date'] .  ' ' .
-        $product['delivery_cost'] . ' ' .
-        $product['condition_name'] . ' ' .
-        $product['username'] . ' ' .
-        $product['description'];
-    }
-  } else {
-    echo '<p>No products to show in this view</p>';
-  }
-?>
-
 <div class="wrapper">
   <nav class="breadcrumb breadcrumb__product">
     <a href="/">Home</a>
@@ -120,6 +97,44 @@
             </ul>
           </div>
         </aside>
+      </div>
+
+      <div class="col d-6">
+
+        <div class="row display--grid">
+
+          <?php if($this->products != null) : ?>
+
+            <span class="col d-all">Showing 1 - <?php echo "1" //Amount of pages ?> of <?php echo sizeof($this->products); ?> Results</span>
+
+            <?php foreach ($this->products as $product) : ?>
+              <div class="col d2-2">
+                <div class="boxed module__product">
+                  <img src="<?php echo $product['primary_image']; ?>" alt="">
+
+                  <ul class="product-meta list-block__list">
+                    <li><?php echo $product['name']; ?></li>
+                    <li>£<?php echo $product['price']; ?></li>
+                    <li>Condition - <?php echo $product['condition_name']; ?></li>
+
+                    <li class="tags">Tags: iPhone, Apple, Mobile, Phone</li>
+
+                    <li><a href="#" class="btn btn--dark block center">View Product</a></li>
+                  </ul>
+                </div>
+              </div>
+            <?php endforeach; ?>
+
+          <?php else : ?>
+
+            <div class="col d-all">
+              <p>No products to show in this view</p>
+            </div>
+
+          <?php endif; ?>
+
+        </div>
+
       </div>
     </div>
 

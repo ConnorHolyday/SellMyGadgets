@@ -1,0 +1,24 @@
+/* ============================ *\
+//
+//	Product
+//
+\* ============================ */
+
+
+
+
+.module__product {
+	background-color: $module-bg-light;
+
+	img {
+		width: 100%;
+	}
+}
+
+.product-meta {
+	padding: 1.25em;
+}
+
+.tags {
+	margin: 1em 0;
+}
