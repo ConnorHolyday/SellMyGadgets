@@ -10,18 +10,44 @@
 
         }
 
-        function all() {   
-            $this->view->products = $this->model->loadAllProducts();
-            $this->view->pages = $this->model->countAllProducts();
+        function all() {
+            if(!isset($_GET['page'])) {
+                $currentPage = 1;
+            } else {
+                $currentPage = $_GET['page'];    
+            }
+
+            $pages = ceil($this->model->countAllProducts() / PAGE_ITEMS);
+            $last = $currentPage * PAGE_ITEMS;
+            $first = $last - PAGE_ITEMS;
+
+            $this->view->pages = $pages;
+            $this->view->firstProduct = $first;
+            $this->view->lastProduct = $last;
+
+            $this->view->products = $this->model->loadAllProducts($first, $last);
+
             $this->view->render('Product/all', 'View all products', true, true);
         }
+
+
+
+
+
+
+
 
         /*
         Querys all products by an id and will only return a single product information
         this function is accsed via the site_diretory/product/single
         */
         function view($id) {
-            list($products, $images, $comments) = $this->model->getProductById($id);
+             if(is_numeric($category)){
+                list($products, $images, $comments) = $this->model->getProductById($id);
+            } else {
+                list($products, $images, $comments) = $this->model->getProductByName($id);
+            }
+        
 
             //loop throgh query results (should only be 1) store each column data into its own varible for access from the view
             $allMedia = array();
