@@ -177,6 +177,10 @@
 	text-align: right;
 }
 
+.boxed {
+	border: 1px solid #c9c9c9;
+}
+
 /**
 * Simple floats
 */
@@ -809,6 +813,14 @@ h3,
 
 .page-options__sidebar-item:first-child {
 	border-top: none;
+}
+
+.sidebar__product {
+	background-color: #fcfcfc;
+}
+
+.tags {
+	display: block;
 }
 
 /* Modular */
