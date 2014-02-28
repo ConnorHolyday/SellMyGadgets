@@ -16,6 +16,8 @@
 
 		// Execute query and return assoc array
 		public function execute_assoc_query($qry) {
+			
+			
 			//$qry = $this->conn->prepare($qry);
 			if($result = $this->conn->query($qry)) {
 				while ($row = $result->fetch_assoc()) {

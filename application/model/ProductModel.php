@@ -1,6 +1,10 @@
 <?php
 	class ProductModel extends BaseModel {
 
+		public $pageItems = 9;
+
+
+
 		function __construct() {
 			parent::__construct();
 		}
@@ -87,5 +91,11 @@
 				WHERE product_categories.id = ' . $category;
 
 			return $this->db->execute_query($products);
+		}
+
+		function countAllProducts(){
+			$products = 'SELECT * FROM products';
+
+			return $this->db->count_rows($products);
 		}
 	}

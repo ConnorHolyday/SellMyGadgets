@@ -42,6 +42,8 @@
             postcode varchar(10) NOT NULL,
             contact_number int(12) NOT NULL,
             contact_email varchar(100) NOT NULL,
+            image varchar(100)NOT NULL,
+            paypal varchar(100)NOT NULL,
             PRIMARY KEY (user_id)
         );",
         "site_content"=>"CREATE TABLE site_content(
@@ -73,8 +75,8 @@
             delivery_id bigint,
             creation_date datetime NOT NULL,
             created_by bigint NOT NULL,
-            modified_date datetime NOT NULL,
-            modified_by bigint NOT NULL,
+            modified_date datetime,
+            modified_by bigint,
             PRIMARY KEY (product_id)
         );",
         "product_media"=>"CREATE TABLE product_media(

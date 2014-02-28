@@ -29,4 +29,14 @@
 			return $id;
 		}
 
+		function getUserDetails($username){
+			$user = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_number,  user_details.contact_email
+			FROM USERS
+			INNER JOIN user_details
+			ON users.id = user_details.user_id 
+			WHERE users.username = "'. $username . '" & users.active = 1';
+
+			return $this->db->execute_assoc_query($user);
+		}
+
 	}

@@ -10,8 +10,9 @@
 
         }
 
-        function all() {
+        function all() {   
             $this->view->products = $this->model->loadAllProducts();
+            $this->view->pages = $this->model->countAllProducts();
             $this->view->render('Product/all', 'View all products', true, true);
         }
 
