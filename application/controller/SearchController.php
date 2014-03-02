@@ -3,7 +3,7 @@
 
 		function __construct() {
 			parent::__construct();
-
+ 			$this->model = new SearchModel();
 
 		}
 
@@ -20,9 +20,9 @@
                 $currentPage = $_GET['page'];    
             }
 
-            if(!isset($_GET['sort'])) $sort = 'asc';
+            if(!isset($_GET['sort'])) $_GET['sort'] = 'asc';
 
-            $productCount = $this->model->countAllProducts($keywords) 
+            $productCount = $this->model->countAllProducts($keywords); 
             $pages = ceil($productCount / PAGE_ITEMS);
             $last = $currentPage * PAGE_ITEMS;
 
@@ -35,19 +35,22 @@
 
             switch ($_GET['sort']) {
             	case 'asc':
-            		$this->view->products = $this->model->searchByAlphabeticalAsc($keyword, $first);
+               		$this->view->products = $this->model->searchByAlphabeticalAsc($keywords, $first);
             		break;
     		  	case 'dec':
-	        		$this->view->products = $this->model->searchByalphabeticalDec($keyword, $first);
+	        		$this->view->products = $this->model->searchByalphabeticalDec($keywords, $first);
 	        		break;
     		  	case 'big':
-	        		$this->view->products = $this->model->searchByPriceBigest($keyword, $first);
+	        		$this->view->products = $this->model->searchByPriceBigest($keywords, $first);
 	        		break;
     		  	case 'sml':
-	        		$this->view->products = $this->model->searchByPriceSmallest($keyword, $first);
+	        		$this->view->products = $this->model->searchByPriceSmallest($keywords, $first);
+	        		break;
+	        	case 'basic':
+	        		$this->view->products = $this->model->searchBasic($keywords, $first);
 	        		break;
             	default:
-            		$this->view->products = $this->model->searchByAlphabeticalAsc($keyword, $first);
+            		$this->view->products = $this->model->searchBasic($keywords, $first);
             		break;
             }
             
