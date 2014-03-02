@@ -4,7 +4,6 @@
 		function __construct() {
 			parent::__construct();
  			$this->model = new SearchModel();
-
 		}
 
 		function index() {
