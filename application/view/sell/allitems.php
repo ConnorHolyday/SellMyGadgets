@@ -37,6 +37,6 @@
     <?php else: ?>
     <p>You are currently not selling any items, why don't you</p>
     <?php endif ?>
-    <a href="/sell/new-item">Sell a new item</a>
+    <a href="/sell/item/details">Sell an item</a>
 
 </section>
