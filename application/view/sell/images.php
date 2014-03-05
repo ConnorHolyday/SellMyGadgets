@@ -1,20 +1,35 @@
-<section class="wrapper">
+<style type="text/css">
+  .drop-zone {
+    width: 200px;
+    height: 200px;
+    margin: 40px;
+    border: 4px dashed #34AADC;
+  }
+</style>
 
-  <h1>Sell new item</h1>
+<section>
 
-  <form action="/sell/item/delivery" method="post" class="form">
+  <div class="hero-banner">
+    <div class="wrapper">
+      <h1>Sell an item</h1>
+    </div>
+  </div>
 
+  <div class="wrapper">
 
-      <progress max="100" value="0" class="file-progress"></progress>
-      <div class="drop-zone">
-      </div>
-      <p id="resp"></p>
+    <h2>Images</h2>
 
+    <form action="/sell/item/delivery" method="post" class="form">
 
-    <input type="submit" class="form__submit button button--submit" value="Next Stage">
+        <progress max="100" value="0" class="file-progress"></progress>
+        <div class="drop-zone">
+        </div>
+        <p id="resp"></p>
 
-  </form>
+      <input type="submit" class="form__submit button button--submit" value="Next Stage">
 
+    </form>
+  </div>
 
 </section>
 

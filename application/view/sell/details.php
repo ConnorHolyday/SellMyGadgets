@@ -1,50 +1,57 @@
-<section class="wrapper">
+<section>
 
-  <h1>Sell new item</h1>
+  <div class="hero-banner">
+    <div class="wrapper">
+      <h1>Sell an item</h1>
+    </div>
+  </div>
 
-  <form action="/sell/item/images" method="post" class="form">
+  <div class="wrapper">
 
+    <h2>Details</h2>
 
-    <label for="productname">Product Name:</label>
-    <input type="text" name="productname" class="form__textbox">
+    <form action="/sell/item/images" method="post" class="form">
 
-    <br>
+      <label for="productname">Product Name:</label>
+      <input type="text" name="productname" class="form__textbox">
 
-    <label for="productdescription">Product Description:</label>
-    <textarea name="productdescription">
-    </textarea>
+      <br>
 
-    <br>
+      <label for="productdescription">Product Description:</label>
+      <textarea name="productdescription">
+      </textarea>
 
-    <label for="category">Category:</label>
-    <select name="category">
-      <?php echo $this->categories; ?>
-    </select>
+      <br>
 
-    <br>
+      <label for="category">Category:</label>
+      <select name="category">
+        <?php echo $this->categories; ?>
+      </select>
 
-    <label for="brand">Brand:</label>
-    <select name="brand">
-      <?php echo $this->brands; ?>
-    </select>
+      <br>
 
-    <br>
+      <label for="brand">Brand:</label>
+      <select name="brand">
+        <?php echo $this->brands; ?>
+      </select>
 
-    <label for="price">Price:</label>
-    £<input type="text" name="price" class="form__textbox">
+      <br>
 
-    <br>
+      <label for="price">Price:</label>
+      £<input type="text" name="price" class="form__textbox">
 
-    <label for="condition">Condition:</label>
-    <select name="condition">
-      <?php echo $this->conditions; ?>
-    </select>
+      <br>
 
-    <br>
+      <label for="condition">Condition:</label>
+      <select name="condition">
+        <?php echo $this->conditions; ?>
+      </select>
 
-    <input type="submit" class="form__submit button button--submit" value="Next Stage">
+      <br>
 
-  </form>
+      <input type="submit" class="form__submit button button--submit" value="Next Stage">
 
+    </form>
 
+  </div>
 </section>

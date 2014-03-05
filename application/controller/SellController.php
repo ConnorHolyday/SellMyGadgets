@@ -18,28 +18,57 @@
 
     function item($stage = 'details') {
 
-
-      $sellservice = new SellService();
+      $this->service = new SellService();
 
 
       switch ($stage) {
         case 'details':
 
-          $this->view->categories = $sellservice->populateSelectTagByName('categories', 'category');
-          $this->view->brands = $sellservice->populateSelectTagByName('brands', 'brand');
-          $this->view->conditions = $sellservice->populateSelectTagByName('conditions', 'condition');
+          $this->view->categories = $this->service->populateSelectTagByName('categories', 'category');
+          $this->view->brands = $this->service->populateSelectTagByName('brands', 'brand');
+          $this->view->conditions = $this->service->populateSelectTagByName('conditions', 'condition');
 
           $this->view->render('sell/details', 'Sell Item - Details', true, false);
 
           break;
+
         case 'images':
+
+          if(sizeof($_POST) > 0) {
+
+            $name = $_POST['productname'];
+            $description = $_POST['productdescription'];
+            $category = $_POST['category'];
+            $brand = $_POST['brand'];
+            $price = $_POST['price'];
+            $condition = $_POST['condition'];
+
+            $this->service->addDetailsDataToSession($name, $category, $brand, $price, $description, $condition);
+          }
+
           $this->view->render('sell/images', 'Sell Item - Images', true, false);
+
           break;
+
         case 'delivery':
+
+
+
+
           $this->view->render('sell/delivery', 'Sell Item - Delivery', true, false);
+
           break;
+
         case 'confirm':
+
+          if(sizeof($_POST) > 0) {
+
+          }
+
+
           $this->view->render('sell/confirm', 'Sell Item - Confirm', true, false);
+
+
           break;
 
         default:
@@ -50,17 +79,7 @@
       /*
 
 
-      if(sizeof($_POST) > 0) {
-
-        $name = $_POST['productname'];
-        $description = $_POST['productdescription'];
-        $category = $_POST['category'];
-        $brand = $_POST['brand'];
-        $price = $_POST['price'];
-        $condition = $_POST['condition'];
-
-        $this->model->insertNewProduct($name, $category, $brand, $price, $description, $condition);
-      }*/
+      */
     }
 
     function upload() {
