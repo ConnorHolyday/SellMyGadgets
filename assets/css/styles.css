@@ -1287,6 +1287,10 @@ h3,
 	margin: 1em 0;
 }
 
+.page-info {
+	margin: 1.25em 0;
+}
+
 .hero-banner {
 	background-color: #60a1cc;
 	color: white;

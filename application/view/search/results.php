@@ -13,8 +13,8 @@
 <div class="wrapper">
   <nav class="breadcrumb breadcrumb__product">
     <a href="/">Home</a>
-    <a href="#">Products</a>
-    <a href="#">Showing all products page <? echo $currentPage; ?></a>
+    <a href="/product/all">All Products</a>
+    <a href="#">Showing results for <? echo "CURRENT SEARCH ITEM" ?></a>
   </nav>
 
   <div class="content">

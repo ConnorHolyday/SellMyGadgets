@@ -136,7 +136,7 @@
 
           <?php if($this->products != null) : ?>
 
-            <span class="col d-all">Showing <? echo $this->firstProduct +1; ?> - <? echo $this->lastProduct +1; ?> of <?php echo $this->productsAmount; ?> Results</span>
+            <span class="col d-all / page-info">Showing <? echo $this->firstProduct +1; ?> - <? echo $this->lastProduct +1; ?> of <?php echo $this->productsAmount; ?> Results</span>
 
             <?php foreach ($this->products as $product) : ?>
               <div class="col d2-2">
