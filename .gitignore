@@ -32,3 +32,5 @@ node_modules/
 npm-debug.log
 .tmp
 /bower_components/
+
+library/configuration.php

@@ -1,110 +1,124 @@
 <?php
-	class SiteController extends BaseController {
+  class SiteController extends BaseController {
 
-		function __construct() {
-			parent::__construct();
+    function __construct() {
+      parent::__construct();
 
-			//retrive and create the sitemodel in $this->model
-			require "application/model/SiteModel.php";
-			$this->model = new SiteModel();
-		}
+      //retrive and create the sitemodel in $this->model
+      require "application/model/SiteModel.php";
+      $this->model = new SiteModel();
+    }
 
-		function index() {
+    function index() {
 
-		}
+    }
 
-		function about() {
-			$about = $this->model->about();
-			$this->view->about = $about[0]['content'];
+    function about() {
+      $about = $this->model->about();
 
-			$this->view->render('site/about', 'About', true, false);
-		}
+      $this->view->page_title = $about[0]['title'];
+      $this->view->content = $about[0]['content'];
 
-		function terms () {
-			$terms = $this->model->terms();
-			$this->view->terms = $terms[0]['content'];
+      $this->view->render('site/content', 'About', true, false);
+    }
 
-			$this->view->render('site/terms', 'Terms and Conditions', true, false);
-		}
+    function terms () {
+      $terms = $this->model->terms();
 
-		function privacy () {
-			$privacy = $this->model->privacy();
-			$this->view->privacy = $privacy[0]['content'];
+      $this->view->page_title = $terms[0]['title'];
+      $this->view->content = $terms[0]['content'];
 
-			$this->view->render('site/privacy', 'Privacy Statement', true, false);
-		}
+      $this->view->render('site/content', 'Terms and Conditions', true, false);
+    }
 
-		function advertising() {
-			$advertising = $this->model->advertising();
-			$this->view->advertising = $advertising[0]['content'];
+    function privacy () {
+      $privacy = $this->model->privacy();
 
-			$this->view->render('site/advertising', 'Advertising', true, false);
-		}
+      $this->view->page_title = $privacy[0]['title'];
+      $this->view->content = $privacy[0]['content'];
 
-		function cookies() {
-			$cookies = $this->model->cookies();
-			$this->view->cookies = $cookies[0]['content'];
+      $this->view->render('site/content', 'Privacy Statement', true, false);
+    }
 
-			$this->view->render('site/cookies', 'Cookie Policy', true, false);
-		}
+    function advertising() {
+      $advertising = $this->model->advertising();
 
-		function help() {
-			$help = $this->model->help();
-			$this->view->help = $help[0]['content'];
+      $this->view->page_title = $advertising[0]['title'];
+      $this->view->content = $advertising[0]['content'];
 
-			$this->view->render('site/help', 'Help', true, false);
-		}
+      $this->view->render('site/content', 'Advertising', true, false);
+    }
 
-		function map() {
+    function cookies() {
+      $cookies = $this->model->cookies();
 
-			//set filter parameters put any sensitive files and directorys
-			//that should stay hidden in this array
-			$filter = array(
-				".",
-				"..",
-				".DS_Store",
-				"BaseView.php",
-				"error",
-				"master",
-				"index"
-				);
+      $this->view->page_title = $cookies[0]['title'];
+      $this->view->content = $cookies[0]['content'];
 
-			//Get all files from application/view directory with filtered array
-			list($links, $dirs) = $this->model->map('application/view', $filter);
+      $this->view->render('site/content', 'Cookie Policy', true, false);
+    }
 
-			//create new sitemap array
-			$sitemap = array();
+    function help() {
+      $help = $this->model->help();
 
-			//start a loop for each directory
-			foreach($dirs as $dir){
+      $this->view->page_title = $help[0]['title'];
+      $this->view->content = $help[0]['content'];
 
-				//create a multidimensional array with directory name handles
-				$siteMap[$dir] = array();
+      $this->view->render('site/content', 'Help', true, false);
+    }
 
-					//create a loop of to loop through all page/files
-					foreach($links as $link){
-						//if the directory name doesnt appera in the string skip loop
-						if (strpos($link,$dir) === false) continue;
+    function map() {
 
-						//trim the $link result
-						$trimmed = str_replace("application/view", "", $link);
-						$trim = str_replace(".php", "", $trimmed);
-						$name = str_replace('/' . $dir . '/',"", $trim);
+      //set filter parameters put any sensitive files and directorys
+      //that should stay hidden in this array
+      $filter = array(
+        ".",
+        "..",
+        ".DS_Store",
+        "BaseView.php",
+        "error",
+        "master",
+        "index"
+        );
 
-						//push the file name with no extension to the multidimensional array
-						//where the directory match the files existance
-						array_push($siteMap[$dir], $name);
-					}
-			}
+      //Get all files from application/view directory with filtered array
+      list($links, $dirs) = $this->model->map('application/view', $filter);
 
-			$this->view->siteMap = $siteMap;
-			$this->view->render('site/map', 'Sitemap', true, false);
-		}
+      //create new sitemap array
+      $sitemap = array();
 
-		function contact() {	
-			$contact = $this->model->contact();
-			$this->view->contact = $contact[0]['content'];
+      //start a loop for each directory
+      foreach($dirs as $dir){
 
-			$this->view->render('site/contact', 'Contact', true, false);
-		}
-	}
+        //create a multidimensional array with directory name handles
+        $siteMap[$dir] = array();
+
+          //create a loop of to loop through all page/files
+          foreach($links as $link){
+            //if the directory name doesnt appera in the string skip loop
+            if (strpos($link,$dir) === false) continue;
+
+            //trim the $link result
+            $trimmed = str_replace("application/view", "", $link);
+            $trim = str_replace(".php", "", $trimmed);
+            $name = str_replace('/' . $dir . '/',"", $trim);
+
+            //push the file name with no extension to the multidimensional array
+            //where the directory match the files existance
+            array_push($siteMap[$dir], $name);
+          }
+      }
+
+      $this->view->siteMap = $siteMap;
+      $this->view->render('site/map', 'Sitemap', true, false);
+    }
+
+    function contact() {
+      $contact = $this->model->contact();
+
+      $this->view->page_title = $contact[0]['title'];
+      $this->view->content = $contact[0]['content'];
+
+      $this->view->render('site/content', 'Contact', true, false);
+    }
+  }
