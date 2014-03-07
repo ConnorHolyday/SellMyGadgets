@@ -52,8 +52,8 @@
 
             //loop throgh query results (should only be 1) store each column data into its own varible for access from the view
             $allMedia = array();
+            $allComments = array();
 
-            var_dump($products);
             foreach ($products as $product){
                 $this->view->productId = $product['id'];
                 $this->view->productName = $product['name'];
@@ -72,7 +72,6 @@
                 }
 
                 $this->view->productMedia = $allMedia;
-                print_r($comments);
                 foreach ($comments as $comment){
                     array_push ($allComments, '' . $comments['id'] . $comments['comment']);
                 }

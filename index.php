@@ -5,6 +5,7 @@
 
     require_once('library/configuration.php');
     require_once(LIB_DIR . 'application.php');
+    require_once(LIB_DIR . 'paypal/autoload.php');
     require_once(APP_DIR . 'controller/BaseController.php');
     require_once(APP_DIR . 'model/BaseModel.php');
     require_once(APP_DIR . 'view/BaseView.php');
