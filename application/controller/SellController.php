@@ -20,7 +20,6 @@
 
       $this->service = new SellService();
 
-
       switch ($stage) {
         case 'details':
 
@@ -52,8 +51,38 @@
 
         case 'delivery':
 
+          if(isset($_FILES['uploads'])) {
+
+            $exts = ['png', 'jpg', 'jpeg', 'gif'];
+
+            foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
+
+              if(is_uploaded_file($tmp_name)) {
+
+                $ext = explode('.', $_FILES['uploads']['name'][$key]);
+                $ext = strtolower(end($ext));
 
 
+                if(in_array($ext, $exts) === false) {
+                  // extension not allowed
+                } else {
+
+                  try {
+
+                    $name = md5(uniqid(rand(), true)) . '.' . $ext;
+                    move_uploaded_file($tmp_name, TMP_DIR . $name);
+
+                  } catch (Exception $e) {
+
+                  }
+
+                }
+
+              }
+
+
+            }
+          }
 
           $this->view->render('sell/delivery', 'Sell Item - Delivery', true, false);
 
@@ -65,21 +94,15 @@
 
           }
 
-
           $this->view->render('sell/confirm', 'Sell Item - Confirm', true, false);
-
 
           break;
 
         default:
-
+          header('Location: /sell/item/details');
           break;
       }
 
-      /*
-
-
-      */
     }
 
     function upload() {
@@ -95,3 +118,4 @@
     }
 
   }
+

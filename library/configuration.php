@@ -5,6 +5,7 @@
     define('APP_DIR', 'application/');
     define('LIB_DIR', 'library/');
     define('ASSET_DIR', '/assets/');
+    define('TMP_DIR', 'media/temp/');
 
     // Database connection parameters
 
