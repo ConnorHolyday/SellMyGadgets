@@ -48,9 +48,77 @@
 :focus:-ms-input-placeholder {
    opacity: 0;
 }
-.form {
+
+form {
+   @extend .cf;
+   margin: 1.25em 0;
+}
+
+input,
+textarea {
+   width: 100%;
+   border: 1px solid $breadcrumb;
+   background: none;
+   position: relative;
+   top: 0;
+   left: 0;
+   z-index: 1;
+   padding: .5em .75em;
+   outline: 0;
+
+   &:focus,
+   &:valid {
+      border-color: $light-blue-bg;
+   }
+}
+
+textarea {
+   display: block;
+   resize: vertical;
+}
+
+button {
+   @extend .btn;
+   background-color: $green;
+
+   &:after {
+      background-color: darken($green, 20%);
+   }
+
+   &:active {
+      background-color: darken($green, 10%);
+   }
+}
+
+button[disabled] {
+   background-color: buttonface;
+   transform: none;
+   transform-style: none;
+}
+
+
+.form__block {
+   margin-bottom: 1.25em;
+}
+
+.select__block {
+   label,
+   select {
+      float: left;
+   }
+
+   label {
+      width: 40%;
+   }
+
+   select {
+      width: 60%;
+   }
 
 }
+
+
+
 .form--login, .form--signup {
    max-width: 37.5em;
    margin: 4em auto;
@@ -80,5 +148,4 @@
 .form__textbox--error {
    outline: 2px solid #EB5353;
 }
-
 

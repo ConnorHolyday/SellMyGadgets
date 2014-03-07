@@ -10,46 +10,49 @@
 
     <h2>Details</h2>
 
-    <form action="/sell/item/images" method="post" class="form">
+    <form action="/sell/item/images" method="post" class="form__float-label">
 
-      <label for="productname">Product Name:</label>
-      <input type="text" name="productname" class="form__textbox">
+      <div class="form__block label__bottom">
+        <input type="text" name="productname" class="" required>
+        <label for="productname">Product Name</label>
+      </div>
 
-      <br>
+      <div class="row / form__block">
+        <div class="col m-all t-2 d-2 / label__bottom">
+          <input type="text" name="price" class="" required>
+          <label for="price">Price (£)</label>
+        </div>
 
-      <label for="productdescription">Product Description:</label>
-      <textarea name="productdescription">
-      </textarea>
+        <div class="col m-all t-2 d-2 / select__block">
+          <label for="condition">Condition:</label>
+          <select name="condition">
+            <?php echo $this->conditions; ?>
+          </select>
+        </div>
+      </div>
 
-      <br>
+      <div class="row / form__block">
+        <div class="col m-all t-2 d-2 / select__block">
+          <label for="category">Category:</label>
+          <select name="category">
+            <?php echo $this->categories; ?>
+          </select>
+        </div>
 
-      <label for="category">Category:</label>
-      <select name="category">
-        <?php echo $this->categories; ?>
-      </select>
+        <div class="col m-all t-2 d-2 / select__block">
+          <label for="brand">Brand:</label>
+          <select name="brand">
+            <?php echo $this->brands; ?>
+          </select>
+        </div>
+      </div>
 
-      <br>
+      <div class="form__block label__bottom">
+        <textarea name="productdescription" required></textarea>
+        <label for="productdescription">Product Description</label>
+      </div>
 
-      <label for="brand">Brand:</label>
-      <select name="brand">
-        <?php echo $this->brands; ?>
-      </select>
-
-      <br>
-
-      <label for="price">Price:</label>
-      £<input type="text" name="price" class="form__textbox">
-
-      <br>
-
-      <label for="condition">Condition:</label>
-      <select name="condition">
-        <?php echo $this->conditions; ?>
-      </select>
-
-      <br>
-
-      <input type="submit" class="form__submit button button--submit" value="Next Stage">
+      <button type="submit" class="pull-right / form__submit" disabled>Next Stage</button>
 
     </form>
 

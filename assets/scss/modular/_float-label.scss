@@ -1,0 +1,64 @@
+/* ============================ *\
+//
+// Floated Labels
+//
+\* ============================ */
+
+
+.label__bottom {
+   position: relative;
+   overflow: hidden;
+
+   input,
+   textarea {
+      &:focus + label,
+      &:valid + label {
+         background: $light-blue-bg;
+         color: white;
+         @include font-size(11);
+         padding: .0625em .375em;
+         z-index: 2;
+         text-transform: uppercase;
+      }
+   }
+
+   label {
+      transition:
+         background 0.2s,
+         color 0.2s,
+         bottom 0.2s;
+      position: absolute;
+      color: #999;
+      padding: .4375em .375em;
+   }
+
+   input, textarea {
+      padding: .75em;
+   }
+
+   label {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+   }
+
+   input:focus,
+   input:valid,
+   textarea:focus,
+   textarea:valid {
+      padding: 1.25em .375em .25em .375em;
+   }
+
+   input:focus + label,
+   input:valid + label,
+   textarea:focus + label,
+   textarea:valid + label {
+      bottom: 100%;
+      margin-bottom: -1.454545455em;
+   }
+
+   & + .select__block {
+      transform: translateY(50%);
+   }
+}
