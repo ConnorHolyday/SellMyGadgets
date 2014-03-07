@@ -1144,6 +1144,32 @@ textarea {
 	display: none;
 }
 
+.form--login form {
+	margin-top: 2.5em;
+}
+
+.form--login .label__bottom {
+	overflow: visible;
+}
+
+.form--login .label__bottom label {
+	top: auto;
+	bottom: 100%;
+	color: #303030;
+}
+
+.form--login .label__bottom input:focus + label,
+.form--login .label__bottom input:valid + label {
+	background: #60a1cc;
+	color: white;
+	font-size: 11px;
+	font-size: 0.6875rem;
+	padding: .0625em .375em;
+	z-index: 2;
+	text-transform: uppercase;
+	top: 0;
+}
+
 .label__bottom {
 	position: relative;
 	overflow: hidden;

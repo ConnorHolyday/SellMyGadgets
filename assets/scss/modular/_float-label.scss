@@ -4,6 +4,32 @@
 //
 \* ============================ */
 
+.form--login {
+   form {
+      margin-top: 2.5em;
+   }
+   .label__bottom {
+      overflow: visible;
+      label {
+         top: auto;
+         bottom: 100%;
+         color: $copy;
+      }
+      input {
+         &:focus + label,
+         &:valid + label {
+            background: $light-blue-bg;
+            color: white;
+            @include font-size(11);
+            padding: .0625em .375em;
+            z-index: 2;
+            text-transform: uppercase;
+            top: 0;
+         }
+      }
+   }
+}
+
 
 .label__bottom {
    position: relative;
