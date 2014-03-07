@@ -10,7 +10,7 @@
 
     <h2>Confirm</h2>
 
-    <form action="/sell/item/confirm" method="post" class="form">
+    <form action="/sell/item/processed" method="post" class="form">
 
       <input type="submit" class="form__submit button button--submit" value="Confirm">
 

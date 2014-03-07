@@ -67,6 +67,16 @@
 
           break;
 
+        case 'processed':
+
+          if(sizeof($_POST) > 0) {
+
+          }
+
+          $this->view->render('sell/processed', 'Sell Item - Processed', true, false);
+
+          break;
+
         default:
           header('Location: /sell/item/details');
           break;
@@ -81,8 +91,6 @@
         $exts = ['png', 'jpg', 'jpeg', 'gif'];
 
         foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
-
-          echo $tmp_name;
 
           if(is_uploaded_file($tmp_name)) {
 
@@ -116,7 +124,6 @@
             }
 
           }
-
 
         }
       } else {
