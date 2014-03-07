@@ -38,4 +38,9 @@
 			//if payment complete then update tables
 			//automate paying seller from smg paypal acount
 		}
+
+		function test(){
+			echo 'test';
+			echo $this->model->preparePayment();
+		}
 	}
