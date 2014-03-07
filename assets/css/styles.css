@@ -676,19 +676,19 @@ textarea {
 	resize: vertical;
 }
 
-button {
+.submit-form button {
 	background-color: #4eb05e;
 }
 
-button:after {
+.submit-form button:after {
 	background-color: #2f6938;
 }
 
-button:active {
+.submit-form button:active {
 	background-color: #3e8d4b;
 }
 
-button[disabled] {
+.submit-form button[disabled] {
 	background-color: buttonface;
 	-webkit-transform: none;
 	-ms-transform: none;
@@ -719,7 +719,7 @@ button[disabled] {
 .form--signup {
 	max-width: 37.5em;
 	margin: 4em auto;
-	padding: 2em;
+	padding: 2em 2em 0;
 	border: 1px solid #dfdfdf;
 }
 
@@ -910,7 +910,7 @@ button[disabled] {
 /* Modular */
 
 .btn,
-button {
+.submit-form button {
 	padding: .625em .9375em;
 	color: white;
 	letter-spacing: 1px;
@@ -927,7 +927,7 @@ button {
 }
 
 .btn:after,
-button:after {
+.submit-form button:after {
 	width: 100%;
 	height: 80%;
 	left: 0;
@@ -947,16 +947,16 @@ button:after {
 }
 
 .btn:hover,
-button:hover,
+.submit-form button:hover,
 .btn:focus,
-button:focus {
+.submit-form button:focus {
 	-webkit-transform: rotateX(14deg) translateZ(8px);
 	-ms-transform: rotateX(14deg) translateZ(8px);
 	transform: rotateX(14deg) translateZ(8px);
 }
 
 .btn:active,
-button:active {
+.submit-form button:active {
 	-webkit-transform: rotateX(0deg);
 	-ms-transform: rotateX(0deg);
 	transform: rotateX(0deg);
@@ -1061,6 +1061,10 @@ button:active {
 	margin: 4.6875rem 0;
 }
 
+.search-form input {
+	background: white;
+}
+
 .search-wrap {
 	position: relative;
 	width: 60%;
@@ -1076,6 +1080,7 @@ button:active {
 	font-size: 26px;
 	font-size: 1.625rem;
 	color: #b1b3b6;
+	z-index: 1;
 }
 
 .search--top__h2 {
@@ -1158,8 +1163,8 @@ button:active {
 }
 
 .label__bottom label {
-	-webkit-transition: background 0.2s, color 0.2s, bottom 0.2s;
-	transition: background 0.2s, color 0.2s, bottom 0.2s;
+	-webkit-transition: background 0.2s, color 0.2s, top 0.2s, left 0.2s, bottom 0.2s;
+	transition: background 0.2s, color 0.2s, top 0.2s, left 0.2s, bottom 0.2s;
 	position: absolute;
 	color: #999;
 	padding: .4375em .375em;
@@ -1385,7 +1390,8 @@ button:active {
 }
 
 .module__product .btn,
-.module__product button {
+.module__product .submit-form button,
+.submit-form .module__product button {
 	display: block;
 	text-align: center;
 	margin: 0 1.25em 1.25em 1.25em;
@@ -1398,7 +1404,8 @@ button:active {
 }
 
 .display--grid .btn,
-.display--grid button {
+.display--grid .submit-form button,
+.submit-form .display--grid button {
 	bottom: 0;
 	left: 0;
 }
@@ -1414,12 +1421,14 @@ button:active {
 
 .display--list .product-meta,
 .display--list .btn,
-.display--list button {
+.display--list .submit-form button,
+.submit-form .display--list button {
 	float: left;
 }
 
 .display--list .btn,
-.display--list button {
+.display--list .submit-form button,
+.submit-form .display--list button {
 	margin-top: 1.25em;
 }
 

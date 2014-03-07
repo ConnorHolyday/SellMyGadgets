@@ -77,23 +77,26 @@ textarea {
    resize: vertical;
 }
 
-button {
-   @extend .btn;
-   background-color: $green;
+.submit-form {
+   button {
+      @extend .btn;
+      background-color: $green;
 
-   &:after {
-      background-color: darken($green, 20%);
+      &:after {
+         background-color: darken($green, 20%);
+      }
+
+      &:active {
+         background-color: darken($green, 10%);
+      }
    }
 
-   &:active {
-      background-color: darken($green, 10%);
-   }
-}
 
-button[disabled] {
-   background-color: buttonface;
-   transform: none;
-   transform-style: none;
+   button[disabled] {
+      background-color: buttonface;
+      transform: none;
+      transform-style: none;
+   }
 }
 
 
@@ -122,7 +125,7 @@ button[disabled] {
 .form--login, .form--signup {
    max-width: 37.5em;
    margin: 4em auto;
-   padding: 2em;
+   padding: 2em 2em 0;
    border: 1px solid $module-border;
 }
 .form__label {

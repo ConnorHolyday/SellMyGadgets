@@ -1,51 +1,69 @@
 
-  <section class="form form--signup cf">
+  <section class="form--signup">
 
-    <form action="/account/signup" method="post" class="form">
+  <h1>Signup Process</h1>
 
-      <h1>
-        Signup Process
-      </h1>
+    <form action="/account/signup" method="post">
 
-      <div class="row">
-        <div class="col m-all t-2 d-4">
-          <label class="form__label" for="firstname">First Name:</label>
-          <input type="text" name="firstname" class="form__textbox">
+      <div class="row / form__block">
+        <div class="col m-all t-2 d-4 / label__bottom">
+          <input type="text" name="firstname" required>
+          <label for="firstname">First Name</label>
         </div>
-        <div class="col m-all t-2 d-4">
-          <label class="form__label" for="surname">Surname:</label>
-          <input type="text" name="surname" class="form__textbox">
+        <div class="col m-all t-2 d-4 / label__bottom">
+          <input type="text" name="surname" required>
+          <label for="surname">Surname</label>
         </div>
       </div>
 
-      <label class="form__label" for="email">Email:</label>
-      <input type="email" name="email" class="form__textbox">
 
-      <div class="row">
-        <div class="col m-all t-2 d-4">
-          <label class="form__label" for="address1">Address Line 1:</label>
-          <input type="text" name="address1" class="form__textbox">
+      <div class="form__block label__bottom">
+        <input type="email" name="email" required>
+        <label for="email">Email</label>
+      </div>
+
+      <div class="row / form__block">
+        <div class="col m-all t-2 d-4 / label__bottom">
+
+          <input type="text" name="address1" required>
+          <label for="address1">Address Line 1</label>
         </div>
-        <div class="col m-all t-2 d-4">
-          <label class="form__label" for="address2">Address Line 2:</label>
-          <input type="text" name="address2" class="form__textbox">
+        <div class="col m-all t-2 d-4 / label__bottom">
+
+          <input type="text" name="address2" required>
+          <label for="address2">Address Line 2</label>
         </div>
       </div>
 
-      <label class="form__label" for="town_city">Town / City:</label>
-      <input type="text" name="town_city" class="form__textbox">
 
-      <label class="form__label" for="county">County:</label>
-      <input type="text" name="county" class="form__textbox">
+      <div class="form__block label__bottom">
+        <input type="text" name="town_city" required>
+        <label for="town_city">Town / City</label>
+      </div>
 
-      <label class="form__label" for="postcode">Postcode:</label>
-      <input type="text" name="postcode" class="form__textbox">
 
-      <label class="form__label" for="phonenumber">Phone Number:</label>
-      <input type="tel" name="phonenumber" class="form__textbox">
+      <div class="form__block label__bottom">
+        <input type="text" name="county" required>
+        <label for="county">County</label>
+      </div>
 
-      <label class="form__label" for="password">Password:</label>
-      <input type="password" name="password" class="form__textbox">
+
+      <div class="form__block label__bottom">
+        <input type="text" name="postcode" required>
+        <label for="postcode">Postcode</label>
+      </div>
+
+
+      <div class="form__block label__bottom">
+        <input type="tel" name="phonenumber" required>
+        <label for="phonenumber">Phone Number</label>
+      </div>
+
+
+      <div class="form__block label__bottom">
+        <input type="password" name="password" required>
+        <label for="password">Password</label>
+      </div>
 
       <button class="btn btn--dark pull-right">Signup</button>
 
