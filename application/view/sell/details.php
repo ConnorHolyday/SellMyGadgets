@@ -10,7 +10,7 @@
 
     <h2>Details</h2>
 
-    <form action="/sell/item/images" method="post" class="form__float-label">
+    <form action="/sell/item/images" method="post" class="form__float-label submit-form">
 
       <div class="form__block label__bottom">
         <input type="text" name="productname" class="" required>
@@ -19,7 +19,7 @@
 
       <div class="row / form__block">
         <div class="col m-all t-2 d-2 / label__bottom">
-          <input type="text" name="price" class="" required>
+          <input type="number" name="price" class="" required>
           <label for="price">Price (£)</label>
         </div>
 
