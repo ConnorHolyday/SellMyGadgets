@@ -9,17 +9,39 @@
 			'email' => " ^[0-9a-zA-Z]{}[-@][0-9a-zA-Z][.]",
 	    );
 
-		//strip a string of its tags
+		//strip a string of its tags and special characters
 		function strip($string) {
-			$result = strip_tags ($string), preg_replace($find5, $replace5,$string); 
-			$find5 = array ('/;/', '/+/', '/-/', '/=/', '/"/');
-			$replace5 = array ('','','','','')
+			$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+			$result = (filter_var($string, FILTER_SANITIZE_STRING)); 
 			return $result;
 		}
 
+		 
+
 		//ensure string is a date
 		function aDate($string){
-			// day= 0-3 0-9 --- mounth 0-1 - 0-9 year 1920 - 2000
+		function aDate($string){ // checks that a date is valid
+
+	if (strlen($string) > 10) {  //checks that the date is not longer than 10 characters
+    return FALSE;
+  }
+  else {
+	 $pieces = explode('/', $string); // seperates the string into day/mounth/year
+	 if (count($pieces) != 3) { 	  // checks that there is three sections to the string
+	 	return FALSE;
+	 }
+
+	 else{
+	 	$day = $pieces[0];
+      	$month = $pieces[1];
+      	$year = $pieces[2];
+      	return checkdate($month, $day, $year);	//uses checkdate to validate and returns true/false
+      }
+	} 
+	}
+
+
+
 			return true;
 
 
