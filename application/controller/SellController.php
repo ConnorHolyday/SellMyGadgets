@@ -64,7 +64,7 @@
 
 
                 if(in_array($ext, $exts) === false) {
-                  // extension not allowed
+                  // extension not allowed, do something about it.
                 } else {
 
                   try {
@@ -73,7 +73,7 @@
                     move_uploaded_file($tmp_name, TMP_DIR . $name);
 
                   } catch (Exception $e) {
-
+                    // Something went horribly wrong and the site will crash.
                   }
 
                 }

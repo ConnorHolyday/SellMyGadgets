@@ -52,7 +52,7 @@
         <label for="productdescription">Product Description</label>
       </div>
 
-      <button type="submit" class="pull-right / form__submit" disabled>Next Stage</button>
+      <button class="pull-right / form__submit">Next Stage</button>
 
     </form>
 
