@@ -34,7 +34,7 @@
         'brand' => '',
         'price' => '',
         'condition' => '',
-        'images' => ''
+        'images' => []
       ];
 
     }

@@ -19,12 +19,15 @@
 
     <h2>Images</h2>
 
-    <form action="/sell/item/delivery" method="post" class="form">
+    <form action="/sell/item/delivery" method="post" class="form" enctype="multipart/form-data">
 
-        <progress max="100" value="0" class="file-progress"></progress>
-        <div class="drop-zone">
-        </div>
-        <p id="resp"></p>
+      <!--<progress max="100" value="0" class="file-progress"></progress>
+      <div class="drop-zone">
+      </div>
+      <p id="resp"></p>-->
+
+
+      <input type="file" name="uploads[]" multiple>
 
       <input type="submit" class="form__submit button button--submit" value="Next Stage">
 
@@ -33,8 +36,9 @@
 
 </section>
 
-
 <script type="text/javascript">
+
+  /*
 
   ;(function (w, d, undefined) {
 
@@ -100,5 +104,7 @@
     }, false);
 
   })(window, document);
+
+  //*/
 
 </script>
