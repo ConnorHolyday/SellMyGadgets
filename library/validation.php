@@ -19,8 +19,7 @@
 		 
 
 		//ensure string is a date
-		function aDate($string){
-		function aDate($string){ // checks that a date is valid
+		function aDate($string){ // checks that adate is valid
 
 	if (strlen($string) > 10) {  //checks that the date is not longer than 10 characters
     return FALSE;
@@ -36,16 +35,9 @@
       	$month = $pieces[1];
       	$year = $pieces[2];
       	return checkdate($month, $day, $year);	//uses checkdate to validate and returns true/false
-      }
+    	}
 	} 
 	}
-
-
-
-			return true;
-
-
-		}
 
 		//ensure string is a post code
 		function postCode($string) {
