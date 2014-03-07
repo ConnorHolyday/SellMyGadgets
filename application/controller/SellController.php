@@ -51,38 +51,7 @@
 
         case 'delivery':
 
-          if(isset($_FILES['uploads'])) {
-
-            $exts = ['png', 'jpg', 'jpeg', 'gif'];
-
-            foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
-
-              if(is_uploaded_file($tmp_name)) {
-
-                $ext = explode('.', $_FILES['uploads']['name'][$key]);
-                $ext = strtolower(end($ext));
-
-
-                if(in_array($ext, $exts) === false) {
-                  // extension not allowed, do something about it.
-                } else {
-
-                  try {
-
-                    $name = md5(uniqid(rand(), true)) . '.' . $ext;
-                    move_uploaded_file($tmp_name, TMP_DIR . $name);
-
-                  } catch (Exception $e) {
-                    // Something went horribly wrong and the site will crash.
-                  }
-
-                }
-
-              }
-
-
-            }
-          }
+          $this->upload();
 
           $this->view->render('sell/delivery', 'Sell Item - Delivery', true, false);
 
@@ -106,6 +75,52 @@
     }
 
     function upload() {
+
+      if(isset($_FILES['uploads'])) {
+
+        $exts = ['png', 'jpg', 'jpeg', 'gif'];
+
+        foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
+
+          echo $tmp_name;
+
+          if(is_uploaded_file($tmp_name)) {
+
+            $ext = explode('.', $_FILES['uploads']['name'][$key]);
+            $ext = strtolower(end($ext));
+
+
+            if(in_array($ext, $exts) === false) {
+              // extension not allowed, do something about it.
+            } else {
+
+              try {
+
+                $folder = AccountService::checkAuth();
+
+                if (!file_exists(TMP_DIR . $folder)) {
+                  mkdir(TMP_DIR . $folder, 0777, true);
+                }
+
+                $name = md5(uniqid(rand(), true)) . '.' . $ext;
+                move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name);
+
+                echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
+
+              } catch (Exception $e) {
+                // Something went horribly wrong and the site will crash.
+                echo $_FILES['uploads']['name'][$key] . ' could not be uploaded.';
+              }
+
+            }
+
+          }
+
+
+        }
+      } else {
+        //echo 'not set';
+      }
 
     }
 

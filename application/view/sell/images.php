@@ -21,11 +21,8 @@
 
     <form action="/sell/item/delivery" method="post" class="form" enctype="multipart/form-data">
 
-      <!--<progress max="100" value="0" class="file-progress"></progress>
       <div class="drop-zone">
       </div>
-      <p id="resp"></p>-->
-
 
       <input type="file" name="uploads[]" multiple>
 
@@ -38,59 +35,23 @@
 
 <script type="text/javascript">
 
-  /*
+  //*
 
   ;(function (w, d, undefined) {
 
     var dropZone = d.querySelector('.drop-zone'),
       progressBar = d.querySelector('.file-progress');
 
-    function processUpload(file) {
-      var xhr = new XMLHttpRequest();
-
-      xhr.upload.addEventListener('progress', function (e) {
-
-        if(e.lengthComputable) {
-          progressBar.setAttribute('value', (e.loaded / e.total) * 100);
-        }
-
-      }, false);
-
-      xhr.onload = function() {
-        if (xhr.status >= 200 && xhr.status < 400){
-          // Success
-          d.getElementById('resp').innerText = xhr.responseText;
-        } else {
-          // server returned an error.
-        }
-      }
-
-      xhr.addEventListener('load', function () {
-        //progressBar.setAttribute('value', (100));
-      }, false);
-
-      xhr.open('post', '/sell/upload', true);
-
-      xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-      xhr.setRequestHeader('X-File-Name', file.name);
-      xhr.setRequestHeader('X-File-Size', file.size);
-      xhr.setRequestHeader('X-File-Type', file.type);
-
-      xhr.send(file);
-    }
-
-    function prepareFiles(files) {
-      if (typeof files !== undefined) {
-        for (var i = 0, len = files.length; i < len; i++) {
-          processUpload(files[i]);
-        }
-      }
-    }
-
     dropZone.addEventListener('drop', function(e) {
-      prepareFiles(e.dataTransfer.files);
       e.preventDefault();
       e.stopPropagation();
+
+      var files = e.dataTransfer.files;
+
+      for(var i = 0, len = files.length; i < len; i++) {
+        sendFile(files[i]);
+      }
+
     }, false);
 
     dropZone.addEventListener('dragenter', function(e) {
@@ -102,6 +63,34 @@
       e.preventDefault();
       e.stopPropagation();
     }, false);
+
+    function sendFile(file) {
+
+      var xhr = new XMLHttpRequest(),
+        fd = new FormData();
+
+      xhr.open('POST', '/sell/upload', true);
+
+      fd.append('uploads[]', file);
+
+      xhr.send(fd);
+
+      xhr.addEventListener('load', function () {
+        //progressBar.setAttribute('value', (100));
+
+        if (xhr.status >= 200 && xhr.status < 400){
+          // Success
+          console.log('Success');
+          console.log(xhr.responseText);
+        } else {
+          // server returned an error.
+          console.log('Error');
+          console.log(xhr.responseText);
+        }
+
+      }, false);
+
+    }
 
   })(window, document);
 

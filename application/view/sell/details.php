@@ -13,13 +13,13 @@
     <form action="/sell/item/images" method="post" class="form__float-label submit-form">
 
       <div class="form__block label__bottom">
-        <input type="text" name="productname" class="" required>
+        <input type="text" name="productname" class="">
         <label for="productname">Product Name</label>
       </div>
 
       <div class="row / form__block">
         <div class="col m-all t-2 d-2 / label__bottom">
-          <input type="number" name="price" class="" required>
+          <input type="number" name="price" class="">
           <label for="price">Price (£)</label>
         </div>
 
@@ -48,7 +48,7 @@
       </div>
 
       <div class="form__block label__bottom">
-        <textarea name="productdescription" required></textarea>
+        <textarea name="productdescription"></textarea>
         <label for="productdescription">Product Description</label>
       </div>
 
