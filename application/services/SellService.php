@@ -56,8 +56,13 @@
       $this->addDataToSellSession('condition', $condition);
     }
 
-    function addImagesDataToSession () {
-
+    function addImagesDataToSession($file, $ext) {
+      array_push(
+        $_SESSION['SELL_DATA']['images'], [
+          'file' => $file,
+          'ext' => $ext
+        ]
+      );
     }
 
     function addDeliveryDataToSession() {

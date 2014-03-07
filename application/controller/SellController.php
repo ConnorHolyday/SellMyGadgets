@@ -89,7 +89,6 @@
             $ext = explode('.', $_FILES['uploads']['name'][$key]);
             $ext = strtolower(end($ext));
 
-
             if(in_array($ext, $exts) === false) {
               // extension not allowed, do something about it.
             } else {
@@ -102,8 +101,10 @@
                   mkdir(TMP_DIR . $folder, 0777, true);
                 }
 
-                $name = md5(uniqid(rand(), true)) . '.' . $ext;
-                move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name);
+                $name = md5(uniqid(rand(), true));
+                move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name . '.' . $ext);
+
+                $this->service->addImagesDataToSession($name, $ext);
 
                 echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
 
@@ -133,4 +134,3 @@
     }
 
   }
-
