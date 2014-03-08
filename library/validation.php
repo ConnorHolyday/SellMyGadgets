@@ -13,7 +13,7 @@
 		function strip($string) {
 			$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
 			$result = (filter_var($string, FILTER_SANITIZE_STRING)); 
-			return $result;
+			return $result; 
 		}
 
 		 
@@ -25,7 +25,7 @@
     return FALSE;
   }
   else {
-	 $pieces = explode('/', $string); // seperates the string into day/mounth/year
+	 $pieces = explode('/', $string); // seperates the string into day/month/year
 	 if (count($pieces) != 3) { 	  // checks that there is three sections to the string
 	 	return FALSE;
 	 }
@@ -35,23 +35,41 @@
       	$month = $pieces[1];
       	$year = $pieces[2];
       	return checkdate($month, $day, $year);	//uses checkdate to validate and returns true/false
-    	}
-	} 
+    		}	
+		} 
 	}
 
-		//ensure string is a post code
+		//ensures string is a post code
 		function postCode($string) {
-			//AA9A 9AA - A9A 9AA - A9 9AA- A99 9AA - AA9 9AA - AA99 9AA
+	$formats = array(		// The diffrent valid postcode are in arrays for easyier to read code
+		'format' => 		'/^[A-Z]{1,2}[0-9]{2,3}[A-Z]{2}$/',				
+		'format2' => 		'/^[A-Z]{1,2}[0-9]{1}[A-Z]{1}[0-9]{1}[A-Z]{2}$/', 
+		'UniquePostCode' => '/^GIR0[A-Z]{2}$/'
+		);
 
+	$string = strtoupper(str_replace(' ','',$string)); // removes the space 
+		if(preg_match($formats['format'],$string) || preg_match($formats['format2'],$string) || preg_match($formats['UniquePostCode'],$string)) //Preg_match checks the string against each format to ensure the input is a valid postcode
 			return true;
-
+		else
+			return false;
 		}
 
 		//ensure string is a phone number
 		function phone($string) {
-			return true;
-			// 10-11 total numbers
-		}
+			$numbers = preg_replace("/[^0-9]/","", $string); //removes all non number characters
+			$length = strlen($numbers);  
+			
+			
+			if($length == 10 ){  
+			 	return true;
+			}
+				elseif($length == 11) {
+			 		return true; 
+			}
+				else{
+					return false;
+				}
+			}
 
 		//ensure string is a mobile number
 		function mobile($string) {
