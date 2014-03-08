@@ -72,10 +72,19 @@
 			}
 
 		//ensure string is a mobile number
-		function mobile($string) {
-			return true;
-			// 11numbers total
+			function mobile($string) {
+			$numbers = preg_replace("/[^0-9]/","", $string); //removes all non number characters
+			$length = strlen($numbers);  
+			
+			
+			if($length == 10 ){  
+			 	return true;
+			}
+				else {
+			 		return false; 
+			}
 		}
+		
 
 		//ensure string is an e-mail
 		function eMail($string) {
