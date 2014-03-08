@@ -60,18 +60,28 @@
         case 'confirm':
 
           if(sizeof($_POST) > 0) {
+            $del_type = $_POST['del_type'];
+            $del_price = $_POST['del_price'];
+            $collection = $_POST['collection'];
+            $coll_details = $_POST['coll_details'];
 
+            $this->service->addDeliveryDataToSession($del_type, $del_price, $collection, $coll_details);
           }
 
+          $this->view->confirmData = $this->service->getSellSessionData();
           $this->view->render('sell/confirm', 'Sell Item - Confirm', true, false);
 
           break;
 
         case 'processed':
 
-          if(sizeof($_POST) > 0) {
+          /* !!! =========================
 
-          }
+          Check validity before processing
+
+          ========================= !!! */
+
+          $this->view->processMessage = '<p>This item will now go through an administration process.</p><p>If the item is accepted, it will become visible on this site.</p>';
 
           $this->view->render('sell/processed', 'Sell Item - Processed', true, false);
 

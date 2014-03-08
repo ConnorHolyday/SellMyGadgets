@@ -34,6 +34,10 @@
         'brand' => '',
         'price' => '',
         'condition' => '',
+        'delivery_type' => '',
+        'delivery_price' => '',
+        'collection' => false,
+        'collection_details' => '',
         'images' => []
       ];
 
@@ -65,8 +69,11 @@
       );
     }
 
-    function addDeliveryDataToSession() {
-
+    function addDeliveryDataToSession($del_type, $del_price, $collection, $coll_details) {
+      $this->addDataToSellSession('delivery_type', $del_type);
+      $this->addDataToSellSession('delivery_price', $del_price);
+      $this->addDataToSellSession('collection', $collection);
+      $this->addDataToSellSession('collection_details', $coll_details);
     }
 
     function destroySellSession() {

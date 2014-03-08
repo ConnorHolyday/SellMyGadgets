@@ -7,13 +7,7 @@
   </div>
 
   <div class="wrapper">
-    <p>
-      This item will now go through an administration process.
-    </p>
-    <p>
-      If the item is accepted, it will become visible on this site.
-    </p>
-
+    <?php echo $this->processMessage; ?>
   </div>
 
 </section>
