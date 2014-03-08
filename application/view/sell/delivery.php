@@ -12,13 +12,15 @@
 
       <h2>Delivery Details</h2>
 
-      <input type='radio' name='choices' value='1' id="r1">
+
+      <label>Delivery Type</label>
+      <input type="radio" name="del_type" value="1" id="r1">
       <label for="r1">Royal Mail 1st Class</label>
-      <input type='radio' name='choices' value='2' id="r2">
+      <input type="radio" name="del_type" value="2" id="r2">
       <label for="r2">Royal Mail 2nd Class</label>
-      <input type='radio' name='choices' value='3' id="r3">
+      <input type="radio" name="del_type" value="3" id="r3">
       <label for="r3">Parcelforce Next Day Service</label>
-      <input type='radio' name='choices' value='4' id="r4">
+      <input type="radio" name="del_type" value="4" id="r4">
       <label for="r4">Parcelforce 2 Day Service</label>
 
       <label for="del_price">Delivery Price</label>
