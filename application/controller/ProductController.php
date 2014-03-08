@@ -6,16 +6,15 @@
             $this->model = new ProductModel();
         }
 
-        function index() {
-
-        }
-
         function all() {
+            //get and sort pagination stuff
             if(!isset($_GET['page'])) {
                 $currentPage = 1;
             } else {
                 $currentPage = $_GET['page'];    
             }
+
+            if(!isset($_GET['']))
 
             $pages = ceil($this->model->countAllProducts() / PAGE_ITEMS);
             $last = $currentPage * PAGE_ITEMS;
@@ -27,7 +26,47 @@
             $this->view->firstProduct = $first;
             $this->view->lastProduct = $last - 1;
 
-            $this->view->products = $this->model->loadAllProducts($first);
+            //get catgory id
+            //get condition id
+            //oreder by
+
+            if(!isset($_GET['category'])) {
+                $category = 'product_categories.id BETWEEN 0 AND 999';
+            } else {
+                $category = 'product_categories.id =' . $_GET['category'];
+            }
+
+            if(!isset($_GET['condition'])) {
+                $condition = 'product_condition.id BETWEEN 0 AND 999'; 
+            } else {
+                $category = 'product_categories.id =' . $_GET['condition'];
+            }
+
+            if(!isset($_GET['sort'])) {
+                $sort = 'name ASC';
+            } else {
+                switch ($_GET['sort']) {
+                    case 'asc':
+                            $sort = 'name ASC';
+                        break;
+                    case 'dec':
+                            $sort = 'name DESC';
+                        break;
+                    case 'big':
+                            $sort = 'price ASC';
+                        break;
+                    case 'sml':
+                            $sort = 'price DESC';
+                        break;
+                    default:
+                            $sort = 'name ASC';
+                        break;
+                }
+            }
+
+            $this->view->products = $this->model->loadAllProducts($category ,$condition ,$sort ,$first);
+            $this->view->categories = $this->model->getAllCategories();
+            $this->view->conditions = $this->model->getAllConditions();
 
             $this->view->render('Product/all', 'View all products', true, true);
         }

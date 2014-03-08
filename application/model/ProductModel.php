@@ -1,15 +1,11 @@
 <?php
 	class ProductModel extends BaseModel {
 
-		public $pageItems = 9;
-
-
-
 		function __construct() {
 			parent::__construct();
 		}
 
-		function loadAllProducts($first) {
+		function loadAllProducts($category ,$condition ,$sort ,$first) {
 			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension ,product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
@@ -24,8 +20,11 @@
 					ON product_details.delivery_id = product_delivery.id
 					INNER JOIN users
 					ON product_details.created_by = users.id
-					ORDER BY name ASC
+					WHERE ' .  $category . ' AND ' . $condition . '
+					ORDER BY ' . $sort . '
 					LIMIT ' . $first . ',' . PAGE_ITEMS;
+
+					echo $query;
 
 			return $this->db->execute_assoc_query($query);
 		}
@@ -123,5 +122,17 @@
 			$products = 'SELECT * FROM products';
 
 			return $this->db->count_rows($products);
+		}
+
+		function getAllCategories(){
+			$categories = 'SELECT * FROM product_categories';
+
+			return $this->db->execute_query($categories);
+		}
+
+		function getAllConditions(){
+			$conditions = 'SELECT * FROM product_condition';
+
+			return $this->db->execute_query($conditions);
 		}
 	}

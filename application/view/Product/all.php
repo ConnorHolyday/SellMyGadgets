@@ -77,36 +77,22 @@
           <div class="page-options__sidebar-item list-block__wrap">
             <h2 class="list-block__title">Categories</h2>
             <ul class="list-block__list border__none--hover">
+              <? foreach($this->categories as $Category){ ?>
               <li class="icon-uniE604">
-                <a href="#">Samsung</a>
+                <a href="#"><? echo $Category['category_name'] ?></a>
               </li>
-              <li class="icon-uniE604">
-                <a href="#">Apple</a>
-              </li>
-              <li class="icon-uniE604">
-                <a href="#">Nokia</a>
-              </li>
-              <li class="icon-uniE604">
-                <a href="#">Blackberry</a>
-              </li>
-              <li class="icon-uniE604">
-                <a href="#">View More...</a>
-              </li>
+              <? } ?>
             </ul>
           </div>
 
           <div class="page-options__sidebar-item list-block__wrap">
             <h2 class="list-block__title">Condition</h2>
             <ul class="list-block__list border__none--hover">
+              <? foreach($this->conditions as $condition){ ?>
               <li class="icon-uniE604">
-                <a href="#">New</a>
+                <a href="#"><? echo $condition['condition_name']; ?></a>
               </li>
-              <li class="icon-uniE604">
-                <a href="#">Used</a>
-              </li>
-              <li class="icon-uniE604">
-                <a href="#">Not Specified</a>
-              </li>
+              <? } ?>
             </ul>
           </div>
 
