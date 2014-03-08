@@ -115,44 +115,4 @@
             //render the view page
             $this->view->render('product/view', 'View product', true, true);
         }
-
-        /*
-        Function to select all products in a catagory
-         - Need to add a new paramter for page number so the model can update query
-         - Domain/catagory/page/query/page
-        */
-        function category($category) {
-            if($category == null) $category = 1;
-            
-            if(is_numeric($category)){
-                $products = $this->model->getProductByCategoryId($category);
-                $this->view->category_name = $category;
-            } else {
-                $products = $this->model->getProductByCategory($category);
-                $this->view->category_name = $category;
-            }
-
-            //loop throgh query results (should only be 1) store each column data into its own varible for access from the view
-            if(!isset($_GET['page'])) {
-                $currentPage = 1;
-            } else {
-                $currentPage = $_GET['page'];    
-            }
-
-            $pages = ceil($this->model->countAllProducts() / PAGE_ITEMS);
-            $last = $currentPage * PAGE_ITEMS;
-
-            $first = $last - PAGE_ITEMS;
-            
-            $this->view->productsAmount = $this->model->countAllProducts();
-            $this->view->pages = $pages;
-            $this->view->firstProduct = $first;
-            $this->view->lastProduct = $last - 1;
-
-            $this->view->products = $products;
-
-            //render the view page
-            $this->view->render('product/category', 'View product by category', true, true);
-
-        }
     }
