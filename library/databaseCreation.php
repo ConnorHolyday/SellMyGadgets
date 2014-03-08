@@ -38,8 +38,11 @@
         "product_delivery"=>"   CREATE TABLE `product_delivery` (
                                 `id` bigint(20) NOT NULL AUTO_INCREMENT,
                                 `delivery_status` varchar(20) NOT NULL,
-                                `delivery_date` datetime NOT NULL,
-                                `delivery_cost` decimal(4,2) NOT NULL,
+                                `delivery_type` varchar(75) NOT NULL,
+                                `delivery_cost` varchar(10) NOT NULL,
+                                `delivery_date` datetime,
+                                `collection_available` tinyint(1) NOT NULL,
+                                `collection_details` varchar(100) NOT NULL,
                                 PRIMARY KEY (`id`));",
 
         "product_details"=>"    CREATE TABLE `product_details` (
