@@ -31,6 +31,7 @@
             $this->view->pages = $pages;
             $this->view->firstProduct = $first;
             $this->view->lastProduct = $last - 1;
+            $this->view->searchKeywords = $keywords;
 
             switch ($_GET['sort']) {
             	case 'asc':

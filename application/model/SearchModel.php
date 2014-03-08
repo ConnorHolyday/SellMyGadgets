@@ -12,7 +12,7 @@
 		}
 
 		function searchBasic($keyword, $first){
-			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
 					ON products.id = product_details.product_id
@@ -32,7 +32,7 @@
 		}
 
 		function searchByAlphabeticalAsc($keyword, $first){
-			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
 					ON products.id = product_details.product_id
@@ -53,7 +53,7 @@
 		}
 
 		function searchByalphabeticalDec($keyword, $first){
-			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
 					ON products.id = product_details.product_id
@@ -74,7 +74,7 @@
 		}
 
 		function searchByPriceBigest($keyword, $first){
-			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
 					ON products.id = product_details.product_id
@@ -95,7 +95,7 @@
 		}
 
 		function searchByPriceSmallest($keyword, $first){
-			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
 					ON products.id = product_details.product_id
