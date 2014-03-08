@@ -195,3 +195,9 @@
 		border-bottom: 1px solid;
 	}
 }
+
+.vertical-align {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}

@@ -1,0 +1,109 @@
+/* ============================ *\
+ //
+ // Drag and Drop on the Sell
+ //
+\* ============================ */
+
+
+
+
+.drop-zone__wrapper {
+	text-align: center;
+	text-transform: uppercase;
+
+	h1 { font-weight: 600; }
+}
+.drop-zone__wrapper-inner {
+  width: 9.375em;
+  height: 9.375em;
+  margin: 2.5em auto;
+}
+
+.drop-zone {
+  width: 3.333333333em;
+  height: 3.333333333em;
+  line-height: 3.333333333em;
+  display: inline-block;
+  background-color: #34AADC;
+  border-radius: 50%;
+  color: white;
+  @include font-size(30);
+  position: relative;
+  z-index: 0;
+}
+
+.arrow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	width: 100px;
+	height: 100px;
+	z-index: 1;
+	background-color: $light-blue-bg;
+	border-radius: 50%;
+	color: white;
+	@include font-size(30);
+	z-index: 3;
+}
+
+.anim, .anim2, .anim3 {
+	transform: scale(1);
+	transition: all 1s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.anim {
+	background-color: $light-blue-bg;
+	z-index: 2;
+}
+
+.anim2 {
+	position: absolute;
+	background-color: lighten($light-blue-bg, 20%);
+	z-index: 1;
+}
+
+.anim3 {
+	position: absolute;
+	background-color: white;
+	z-index: 1;
+}
+
+._anim {
+	animation: dragndrop .75s ease 1 forwards;
+	animation-delay: .5s;
+}
+
+._anim2 {
+	animation: drag .75s ease 1 forwards;
+}
+
+._anim3 {
+	animation: drop .75s ease 1 forwards;
+}
+
+.__anim {
+	animation: dragndropOut .75s ease 1 forwards;
+	animation-direction: reverse;
+}
+
+.__anim2 {
+	animation: dragOut .75s ease 1 forwards;
+	animation-direction: reverse;
+}
+
+.__anim3 {
+	animation: dropOut .75s ease 1 forwards;
+	animation-direction: reverse;
+}
