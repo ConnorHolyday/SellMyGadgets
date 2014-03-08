@@ -2,7 +2,7 @@
 	$productID = $this->productId;
 	$productName = $this->productName;
 	$productPrice = $this->productPrice;
-	$productImage = $this->productImage . '.jpg';
+	$productImage = $this->productImage;
 	$productImageName = $this->productImageName;
 	//$productName 'Category = ' . $this->productCatagory;
 	$productDeliveryDate = $this->productDeliveryDate;
@@ -17,7 +17,7 @@
 
 	<nav class="breadcrumb breadcrumb__product">
 		<a href="/">Home</a>
-		<a href="#">Product Search</a>
+		<a href="#">Product</a>
 		<a href="#"><?php echo $productName; ?></a>
 	</nav>
 
@@ -26,7 +26,7 @@
 		<aside class="col d-2 sidebar__product">
 
 			<div class="boxed module__product">
-				<img src="<?php echo $productImage ?>" alt="<?php $productImageName ?>">
+				<? echo $productImage; ?>
 
 				<div class="slider">
 

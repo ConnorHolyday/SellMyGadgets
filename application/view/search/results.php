@@ -14,7 +14,7 @@
   <nav class="breadcrumb breadcrumb__product">
     <a href="/">Home</a>
     <a href="/product/all">All Products</a>
-    <a href="#">Showing results for <? echo "CURRENT SEARCH ITEM" ?></a>
+    <a href="#">Showing results for <? echo $this->searchKeywords; ?></a>
   </nav>
 
   <div class="content">
@@ -141,8 +141,7 @@
             <?php foreach ($this->products as $product) : ?>
               <div class="col d2-2">
                 <div class="boxed module__product">
-                  <img src="<?php echo $product['primary_image']; ?>" alt="">
-
+                  <img src="<?php echo IMG_MED_DIR .  $product['primary_image'] . $product['extension']; ?>" alt="">
                   <ul class="product-meta list-block__list">
                     <li><?php echo $product['name']; ?></li>
                     <li>£<?php echo $product['price']; ?></li>

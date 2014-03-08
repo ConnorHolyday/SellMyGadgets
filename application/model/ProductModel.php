@@ -10,7 +10,7 @@
 		}
 
 		function loadAllProducts($first) {
-			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$query = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension ,product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 					FROM products
 					INNER JOIN product_details
 					ON products.id = product_details.product_id
@@ -31,7 +31,7 @@
 		}
 
 		function getProductById($id) {
-			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 						FROM products
 						INNER JOIN product_details
 						ON products.id = product_details.product_id
@@ -47,7 +47,7 @@
 						ON product_details.created_by = users.id
 						WHERE products.id = ' . $id;
 
-			$Images = $this->db->prepare_select('id, title', 'product_media', 'product_id =' . $id);
+			$Images = $this->db->prepare_select('id, title, extension', 'product_media', 'product_id =' . $id);
 
 			$Comments = $this->db->prepare_select('*', 'product_comments', 'product_id = ' . $id);
 
@@ -55,7 +55,7 @@
 		}
 
 		function getProductByName($id) {
-			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 						FROM products
 						INNER JOIN product_details
 						ON products.id = product_details.product_id
@@ -80,7 +80,7 @@
 
 
 		function getProductByCategory($category){
-			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 				FROM products
 				INNER JOIN product_details
 				ON products.id = product_details.product_id
@@ -100,7 +100,7 @@
 		}
 
 		function getProductByCategoryId($category){
-			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
+			$products = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, users.username, product_details.description
 				FROM products
 				INNER JOIN product_details
 				ON products.id = product_details.product_id

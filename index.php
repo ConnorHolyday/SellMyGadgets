@@ -9,6 +9,7 @@
     require_once(APP_DIR . 'controller/BaseController.php');
     require_once(APP_DIR . 'model/BaseModel.php');
     require_once(APP_DIR . 'view/BaseView.php');
+    
 
     spl_autoload_register('autload_app_class');
 

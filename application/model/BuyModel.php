@@ -62,9 +62,6 @@
 		$oauthCredential = new OAuthTokenCredential(SANDBOX_CLIENTID, SANDBOX_SECRET);
 		$accessToken     = $oauthCredential->getAccessToken(array('mode' => 'sandbox'));
 
-		echo '<pre>';
-		print_r($oauthCredential);
-		echo '</pre>';
 		return $accessToken;
 	}
 
