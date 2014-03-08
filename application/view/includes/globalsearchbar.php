@@ -7,7 +7,7 @@
 
 			<h2 class="h1 search--top__h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, exercitationem, eligendi, ducimus, vero adipisci iure molestiae neque.</h2>
 
-			<form action=<?php echo '"http://' . $_SERVER['HTTP_HOST'] . '/application/services/searchService.php"'; ?>method="POST" class="center search-form">
+			<form action=<?php echo '"http://' . $_SERVER['HTTP_HOST'] . '/product/search"'; ?>method="GET" class="center search-form">
 				<label for="search" class="visuallyhidden">search</label>
 
 				<div class="search-wrap">
