@@ -58,7 +58,7 @@
 
             $first = $last - PAGE_ITEMS;
             
-            $this->view->productsAmount = $this->model->countAllProducts();
+            $this->view->productsAmount = $this->model->countAllFilteredProducts($category ,$condition);
             $this->view->pages = $pages;
             $this->view->firstProduct = $first;
             $this->view->lastProduct = $last - 1;
@@ -162,7 +162,7 @@
                 }
             }
 
-            $productCount = $this->model->countAllProducts($search); 
+            $productCount = $this->model->countAllSearchedProducts($search, $category ,$condition); 
             $pages = ceil($productCount / PAGE_ITEMS);
             $last = $currentPage * PAGE_ITEMS;
 

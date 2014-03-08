@@ -24,8 +24,6 @@
 					ORDER BY ' . $sort . '
 					LIMIT ' . $first . ',' . PAGE_ITEMS;
 
-					echo $query;
-
 			return $this->db->execute_assoc_query($query);
 		}
 
@@ -79,6 +77,34 @@
 			$products = 'SELECT * FROM products';
 
 			return $this->db->count_rows($products);
+		}
+
+		function countAllSearchedProducts($search, $category ,$condition){
+			$query = 'SELECT * 
+						FROM products
+						INNER JOIN product_details
+						ON products.id = product_details.product_id
+						INNER JOIN product_categories
+						ON products.category = product_categories.id
+						INNER JOIN product_condition
+						ON product_details.condition_id = product_condition.id
+						WHERE ' .  $category . ' AND ' . $condition . ' AND products.name LIKE "%' . $search . '%"';
+	
+			return $this->db->count_rows($query);
+		}
+
+		function countAllFilteredProducts($category ,$condition){
+			$query = 	'SELECT * 
+						FROM products
+						INNER JOIN product_details
+						ON products.id = product_details.product_id
+						INNER JOIN product_categories
+						ON products.category = product_categories.id
+						INNER JOIN product_condition
+						ON product_details.condition_id = product_condition.id
+						WHERE ' .  $category . ' AND ' . $condition;
+
+			return $this->db->count_rows($query);
 		}
 
 		function getAllCategories(){
