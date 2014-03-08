@@ -30,6 +30,7 @@
   @include font-size(30);
   position: relative;
   z-index: 0;
+  cursor: copy;
 }
 
 .arrow {
@@ -81,16 +82,16 @@
 }
 
 ._anim {
-	animation: dragndrop .75s ease 1 forwards;
-	animation-delay: .5s;
+	animation: dragndrop .6s ease 1 forwards;
+	animation-delay: .25s;
 }
 
 ._anim2 {
-	animation: drag .75s ease 1 forwards;
+	animation: drag .6s ease 1 forwards;
 }
 
 ._anim3 {
-	animation: drop .75s ease 1 forwards;
+	animation: drop .6s ease 1 forwards;
 }
 
 .__anim {

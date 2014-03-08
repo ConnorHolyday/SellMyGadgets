@@ -72,6 +72,10 @@ textarea {
    }
 }
 
+input[type="file"] {
+   cursor: copy;
+}
+
 textarea {
    display: block;
    resize: vertical;
