@@ -356,6 +356,14 @@ form,
 	border-bottom: 1px solid;
 }
 
+.vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
 /* Base */
 
 * {
@@ -1480,6 +1488,133 @@ textarea {
  //
 \* ============================ */
 
+/* ============================ *\
+ //
+ // Drag and Drop on the Sell
+ //
+\* ============================ */
+
+.drop-zone__wrapper {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.drop-zone__wrapper h1 {
+	font-weight: 600;
+}
+
+.drop-zone__wrapper-inner {
+	width: 9.375em;
+	height: 9.375em;
+	margin: 2.5em auto;
+}
+
+.drop-zone {
+	width: 3.333333333em;
+	height: 3.333333333em;
+	line-height: 3.333333333em;
+	display: inline-block;
+	background-color: #34AADC;
+	border-radius: 50%;
+	color: white;
+	font-size: 30px;
+	font-size: 1.875rem;
+	position: relative;
+	z-index: 0;
+}
+
+.arrow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	width: 100px;
+	height: 100px;
+	z-index: 1;
+	background-color: #60a1cc;
+	border-radius: 50%;
+	color: white;
+	font-size: 30px;
+	font-size: 1.875rem;
+	z-index: 3;
+}
+
+.anim,
+.anim2,
+.anim3 {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.anim {
+	background-color: #60a1cc;
+	z-index: 2;
+}
+
+.anim2 {
+	position: absolute;
+	background-color: #adcfe5;
+	z-index: 1;
+}
+
+.anim3 {
+	position: absolute;
+	background-color: white;
+	z-index: 1;
+}
+
+._anim {
+	-webkit-animation: dragndrop .75s ease 1 forwards;
+	animation: dragndrop .75s ease 1 forwards;
+	-webkit-animation-delay: .5s;
+	animation-delay: .5s;
+}
+
+._anim2 {
+	-webkit-animation: drag .75s ease 1 forwards;
+	animation: drag .75s ease 1 forwards;
+}
+
+._anim3 {
+	-webkit-animation: drop .75s ease 1 forwards;
+	animation: drop .75s ease 1 forwards;
+}
+
+.__anim {
+	-webkit-animation: dragndropOut .75s ease 1 forwards;
+	animation: dragndropOut .75s ease 1 forwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.__anim2 {
+	-webkit-animation: dragOut .75s ease 1 forwards;
+	animation: dragOut .75s ease 1 forwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
+.__anim3 {
+	-webkit-animation: dropOut .75s ease 1 forwards;
+	animation: dropOut .75s ease 1 forwards;
+	-webkit-animation-direction: reverse;
+	animation-direction: reverse;
+}
+
 /*# sourceMappingURL=styles.css.map */
 
 @media screen and (min-width: 37.4375em) {
@@ -1591,6 +1726,340 @@ textarea {
 	display: block;
 	margin-left: 0;
 	width: 100%;
+}
+
+}
+
+@-webkit-keyframes dragndrop {
+
+45% {
+	-webkit-transform: scale(1.7);
+	transform: scale(1.7);
+}
+
+65% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+80% {
+	-webkit-transform: scale(1.65);
+	transform: scale(1.65);
+}
+
+95% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.55);
+	transform: scale(1.55);
+}
+
+}
+
+@keyframes dragndrop {
+
+45% {
+	-webkit-transform: scale(1.7);
+	-ms-transform: scale(1.7);
+	transform: scale(1.7);
+}
+
+65% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+80% {
+	-webkit-transform: scale(1.65);
+	-ms-transform: scale(1.65);
+	transform: scale(1.65);
+}
+
+95% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.55);
+	-ms-transform: scale(1.55);
+	transform: scale(1.55);
+}
+
+}
+
+@-webkit-keyframes drag {
+
+50% {
+	-webkit-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+70% {
+	-webkit-transform: scale(1.8);
+	transform: scale(1.8);
+}
+
+80% {
+	-webkit-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+100% {
+	-webkit-transform: scale(1.85);
+	transform: scale(1.85);
+}
+
+}
+
+@keyframes drag {
+
+50% {
+	-webkit-transform: scale(1.9);
+	-ms-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+70% {
+	-webkit-transform: scale(1.8);
+	-ms-transform: scale(1.8);
+	transform: scale(1.8);
+}
+
+80% {
+	-webkit-transform: scale(1.9);
+	-ms-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+100% {
+	-webkit-transform: scale(1.85);
+	-ms-transform: scale(1.85);
+	transform: scale(1.85);
+}
+
+}
+
+@-webkit-keyframes drop {
+
+50% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+70% {
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4);
+}
+
+80% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.45);
+	transform: scale(1.45);
+}
+
+}
+
+@keyframes drop {
+
+50% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+70% {
+	-webkit-transform: scale(1.4);
+	-ms-transform: scale(1.4);
+	transform: scale(1.4);
+}
+
+80% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.45);
+	-ms-transform: scale(1.45);
+	transform: scale(1.45);
+}
+
+}
+
+@-webkit-keyframes dragndropOut {
+
+45% {
+	-webkit-transform: scale(1.7);
+	transform: scale(1.7);
+}
+
+65% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+80% {
+	-webkit-transform: scale(1.65);
+	transform: scale(1.65);
+}
+
+95% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.55);
+	transform: scale(1.55);
+}
+
+}
+
+@keyframes dragndropOut {
+
+45% {
+	-webkit-transform: scale(1.7);
+	-ms-transform: scale(1.7);
+	transform: scale(1.7);
+}
+
+65% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+80% {
+	-webkit-transform: scale(1.65);
+	-ms-transform: scale(1.65);
+	transform: scale(1.65);
+}
+
+95% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.55);
+	-ms-transform: scale(1.55);
+	transform: scale(1.55);
+}
+
+}
+
+@-webkit-keyframes dragOut {
+
+50% {
+	-webkit-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+70% {
+	-webkit-transform: scale(1.8);
+	transform: scale(1.8);
+}
+
+80% {
+	-webkit-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+100% {
+	-webkit-transform: scale(1.85);
+	transform: scale(1.85);
+}
+
+}
+
+@keyframes dragOut {
+
+50% {
+	-webkit-transform: scale(1.9);
+	-ms-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+70% {
+	-webkit-transform: scale(1.8);
+	-ms-transform: scale(1.8);
+	transform: scale(1.8);
+}
+
+80% {
+	-webkit-transform: scale(1.9);
+	-ms-transform: scale(1.9);
+	transform: scale(1.9);
+}
+
+100% {
+	-webkit-transform: scale(1.85);
+	-ms-transform: scale(1.85);
+	transform: scale(1.85);
+}
+
+}
+
+@-webkit-keyframes dropOut {
+
+50% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+70% {
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4);
+}
+
+80% {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.45);
+	transform: scale(1.45);
+}
+
+}
+
+@keyframes dropOut {
+
+50% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+70% {
+	-webkit-transform: scale(1.4);
+	-ms-transform: scale(1.4);
+	transform: scale(1.4);
+}
+
+80% {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+100% {
+	-webkit-transform: scale(1.45);
+	-ms-transform: scale(1.45);
+	transform: scale(1.45);
 }
 
 }

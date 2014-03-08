@@ -5,3 +5,116 @@
 \* ============================ */
 
 
+@keyframes dragndrop {
+  0% {
+
+  }
+  45% {
+    transform: scale(1.7);
+  }
+  65% {
+    transform: scale(1.5);
+  }
+  80% {
+    transform: scale(1.65);
+  }
+  95% {
+    transform: scale(1.5);
+  }
+  100% {
+	transform: scale(1.55);
+  }
+}
+
+@keyframes drag {
+  0% {
+
+  }
+  50% {
+    transform: scale(1.9);
+  }
+  70% {
+    transform: scale(1.8);
+  }
+  80% {
+    transform: scale(1.9);
+  }
+  100% {
+	transform: scale(1.85);
+  }
+}
+
+@keyframes drop {
+  0% {
+
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  70% {
+    transform: scale(1.4);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+  100% {
+	transform: scale(1.45);
+  }
+}
+
+@keyframes dragndropOut {
+	  0% {
+
+	  }
+	  45% {
+	    transform: scale(1.7);
+	  }
+	  65% {
+	    transform: scale(1.5);
+	  }
+	  80% {
+	    transform: scale(1.65);
+	  }
+	  95% {
+	    transform: scale(1.5);
+	  }
+	  100% {
+		transform: scale(1.55);
+	  }
+}
+
+@keyframes dragOut {
+  0% {
+
+  }
+  50% {
+    transform: scale(1.9);
+  }
+  70% {
+    transform: scale(1.8);
+  }
+  80% {
+    transform: scale(1.9);
+  }
+  100% {
+	transform: scale(1.85);
+  }
+}
+
+@keyframes dropOut {
+  0% {
+
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  70% {
+    transform: scale(1.4);
+  }
+  80% {
+    transform: scale(1.5);
+  }
+  100% {
+	transform: scale(1.45);
+  }
+}

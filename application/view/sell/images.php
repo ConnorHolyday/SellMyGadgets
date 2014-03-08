@@ -1,12 +1,3 @@
-<style type="text/css">
-  .drop-zone {
-    width: 200px;
-    height: 200px;
-    margin: 40px;
-    border: 4px dashed #34AADC;
-  }
-</style>
-
 <section>
 
   <div class="hero-banner">
@@ -19,14 +10,24 @@
 
     <h2>Images</h2>
 
-    <form action="/sell/item/delivery" method="post" class="form" enctype="multipart/form-data">
+    <form action="/sell/item/delivery" method="post" class="submit-form" enctype="multipart/form-data">
 
-      <div class="drop-zone">
+      <div class="drop-zone__wrapper">
+        <h1>Drag 'n' drop</h1>
+
+        <div class="drop-zone__wrapper-inner">
+          <div class="drop-zone vertical-align">
+            <span class="arrow">&#8593;</span>
+            <span class="anim"></span>
+            <span class="anim2"></span>
+            <span class="anim3"></span>
+          </div>
+        </div>
       </div>
 
       <input type="file" name="uploads[]" multiple>
 
-      <input type="submit" class="form__submit button button--submit" value="Next Stage">
+      <button type="submit" class="form__submit pull-right">Next Stage</button>
 
     </form>
   </div>
