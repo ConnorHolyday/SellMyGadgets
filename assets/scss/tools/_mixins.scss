@@ -211,8 +211,8 @@
  */
 
 
-$tablet: 321;
-$desktop: 769;
+$tablet: 599;
+$desktop: 899;
 
 @mixin mq($point, $query1: min, $query2: width, $IE9: false) {
 
@@ -221,13 +221,13 @@ $desktop: 769;
     .lt-ie9 & {
       @content;
     }
-   @media screen and (#{$query1}-#{$query2}: $point / $basefont +em) {
+   @media screen and (#{$query1}-#{$query2}: $point +px) {
       @content;
     }
   }
   @else {
     // if not true (suggest writing - false - for clarity no 'fallback'
-    @media screen and (#{$query1}-#{$query2}: $point / $basefont +em) {
+    @media screen and (#{$query1}-#{$query2}: $point +px) {
       @content;
     }
   }

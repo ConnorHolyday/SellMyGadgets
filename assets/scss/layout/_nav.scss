@@ -7,10 +7,25 @@
 
 
 .nav--main {
-    float: right;
     margin-top: 2.5em;
     @include font-size(20);
+    display: block;
+    text-align: center;
+
+    @include mq($desktop) {
+        float: right;
+    }
 }
+
+    .nav--main__ul {
+        @extend .cf;
+        display: inline-block;
+        margin-bottom: 2.5em;
+
+        @include mq($desktop) {
+            margin-bottom: 0;
+        }
+    }
 
     .nav--main__li {
         @include nobullet;

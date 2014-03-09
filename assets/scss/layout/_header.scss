@@ -27,8 +27,13 @@
     }
 
     .main-logo {
-        float: left;
         padding: 1em 0;
+        display: block;
+        text-align: center;
+
+        @include mq($desktop) {
+            float: left;
+        }
 
         a {
             border: none;

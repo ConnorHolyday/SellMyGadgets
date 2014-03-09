@@ -37,7 +37,11 @@ h2, .beta {
 
 }
 h3, .gamma {
-	@include font-size(24);
+	@include font-size(18);
+
+	@include mq($desktop) {
+		@include font-size(24);
+	}
 }
 h4, .delta {
 

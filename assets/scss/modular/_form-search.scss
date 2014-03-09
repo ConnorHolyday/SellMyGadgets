@@ -21,8 +21,12 @@
 
 .search-wrap {
 	position: relative;
-	width: 60%;
+	width: 100%;
 	margin: 0 auto;
+
+	@include mq($desktop) {
+		width: 60%;
+	}
 }
 
 .search-button {
@@ -44,9 +48,13 @@
 
 .search--top__h2--index {
 	margin: 4.6875rem 0;
-	@include font-size(52);
 	@include body-font(regular);
 	text-align: center;
+	@include font-size(32);
+
+	@include mq($desktop) {
+		@include font-size(52);
+	}
 }
 
 .search--top__p {

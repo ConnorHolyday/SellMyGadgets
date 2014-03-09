@@ -7,8 +7,13 @@
 
 
 .wrapper {
-	max-width: 61.875em; //990px
-	margin: 0 auto;
+	max-width: 59.375em; //950px
+	margin: 0 1.25em;
+
+	@include mq($desktop) {
+		margin: 0 auto;
+	}
+
 	&.relative {
 		position: relative;
 	}

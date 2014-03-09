@@ -6,63 +6,6 @@
 
 /* Tools */
 
-/*
- * THE IDEA BUREAU - GRID
- * https://github.com/theideabureau/grid
- */
-
-.row:before,
-.row:after {
-	content: " "; /* 1 */
-	display: table; /* 2 */
-}
-
-.row:after {
-	clear: both;
-}
-
-.row {
-	*zoom: 1;
-}
-
-.row {
-	margin-left: -20px;
-}
-
-.col {
-	border: 0px solid transparent;
-	float: left;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	background-clip: padding-box !important;
-	border-left-width: 20px;
-	margin-left: 0;
-	padding: 0 0px;
-}
-
-/* m-grid */
-
-.m-hide {
-	display: none;
-}
-
-.m-1 {
-	display: block;
-	width: 50%;
-}
-
-.m-all {
-	display: block;
-	margin-left: 0;
-	width: 100%;
-}
-
-/* t-grid */
-
-/* d2-grid */
-
-/* d-grid */
-
 /* ============================ *\
  //
  //  Mixins
@@ -225,10 +168,12 @@
 .media:after,
 .cf:before,
 form:before,
+.nav--main__ul:before,
 .breadcrumb:before,
 .module__product:before,
 .cf:after,
 form:after,
+.nav--main__ul:after,
 .breadcrumb:after,
 .module__product:after {
 	content: "";
@@ -238,6 +183,7 @@ form:after,
 .media:after,
 .cf:after,
 form:after,
+.nav--main__ul:after,
 .breadcrumb:after,
 .module__product:after {
 	clear: both;
@@ -246,6 +192,7 @@ form:after,
 .media,
 .cf,
 form,
+.nav--main__ul,
 .breadcrumb,
 .module__product {
 	zoom: 1;
@@ -368,6 +315,63 @@ form,
 	text-align: center;
 	margin: 2.5em auto;
 }
+
+/*
+ * THE IDEA BUREAU - GRID
+ * https://github.com/theideabureau/grid
+ */
+
+.row:before,
+.row:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.row:after {
+	clear: both;
+}
+
+.row {
+	*zoom: 1;
+}
+
+.row {
+	margin-left: -20px;
+}
+
+.col {
+	border: 0px solid transparent;
+	float: left;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-clip: padding-box !important;
+	border-left-width: 20px;
+	margin-left: 0;
+	padding: 0 0;
+}
+
+/* m-grid */
+
+.m-hide {
+	display: none;
+}
+
+.m-1 {
+	display: block;
+	width: 50%;
+}
+
+.m-all {
+	display: block;
+	margin-left: 0;
+	width: 100%;
+}
+
+/* t-grid */
+
+/* d2-grid */
+
+/* d-grid */
 
 /* Base */
 
@@ -603,8 +607,8 @@ th {
 
 h3,
 .gamma {
-	font-size: 24px;
-	font-size: 1.5rem;
+	font-size: 18px;
+	font-size: 1.125rem;
 }
 
 /* ==========================================
@@ -797,8 +801,9 @@ textarea {
 }
 
 .main-logo {
-	float: left;
 	padding: 1em 0;
+	display: block;
+	text-align: center;
 }
 
 .main-logo a {
@@ -838,10 +843,16 @@ textarea {
 }
 
 .nav--main {
-	float: right;
 	margin-top: 2.5em;
 	font-size: 20px;
 	font-size: 1.25rem;
+	display: block;
+	text-align: center;
+}
+
+.nav--main__ul {
+	display: inline-block;
+	margin-bottom: 2.5em;
 }
 
 .nav--main__li {
@@ -907,8 +918,8 @@ textarea {
 \* ============================ */
 
 .wrapper {
-	max-width: 61.875em;
-	margin: 0 auto;
+	max-width: 59.375em;
+	margin: 0 1.25em;
 }
 
 .wrapper.relative {
@@ -1100,7 +1111,7 @@ textarea {
 
 .search-wrap {
 	position: relative;
-	width: 60%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -1124,12 +1135,12 @@ textarea {
 
 .search--top__h2--index {
 	margin: 4.6875rem 0;
-	font-size: 52px;
-	font-size: 3.25rem;
 	font-family: "Lato", sans-serif;
 	font-weight: 300;
 	font-style: normal;
 	text-align: center;
+	font-size: 32px;
+	font-size: 2rem;
 }
 
 .search--top__p {
@@ -1774,6 +1785,37 @@ textarea {
 	display: block;
 	margin-left: 0;
 	width: 100%;
+}
+
+h3,
+.gamma {
+	font-size: 24px;
+	font-size: 1.5rem;
+}
+
+.main-logo {
+	float: left;
+}
+
+.nav--main {
+	float: right;
+}
+
+.nav--main__ul {
+	margin-bottom: 0;
+}
+
+.wrapper {
+	margin: 0 auto;
+}
+
+.search-wrap {
+	width: 60%;
+}
+
+.search--top__h2--index {
+	font-size: 52px;
+	font-size: 3.25rem;
 }
 
 }
