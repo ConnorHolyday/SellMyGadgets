@@ -24,4 +24,4 @@
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.js"><\/script>')</script>
-    <script src="/assets/js/main.js"></script>
+    <script src="/<?php echo STATIC_1; ?>js/main.js"></script>
