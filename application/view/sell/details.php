@@ -2,13 +2,11 @@
 
   <div class="hero-banner">
     <div class="wrapper">
-      <h1>Sell an item</h1>
+      <h1>Sell an item - Item Details</h1>
     </div>
   </div>
 
   <div class="wrapper">
-
-    <h2>Details</h2>
 
     <form action="/sell/item/images" method="post" class="form__float-label submit-form">
 
@@ -19,7 +17,7 @@
 
       <div class="row / form__block">
         <div class="col m-all t-2 d-2 / label__bottom">
-          <input type="number" name="price" required>
+          <input type="number" min="0" name="price" required>
           <label for="price">Price (£)</label>
         </div>
 

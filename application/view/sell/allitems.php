@@ -15,12 +15,12 @@
 
   <div class="hero-banner">
     <div class="wrapper">
-      <h1>Your items currently for sale</h1>
+      <h1>Your Items</h1>
     </div>
   </div>
 
   <div class="wrapper">
-    <?php if ($this->userProducts != null): ?>
+    <?php if ($this->userProducts != null) : ?>
     <table>
       <thead>
         <tr>
@@ -40,9 +40,14 @@
       ?>
       </tbody>
     </table>
-    <?php else: ?>
-    <p>You are currently not selling any items, why don't you</p>
-    <?php endif ?>
-    <a href="/sell/item/details">Sell an item</a>
+    <?php else : ?>
+      <div class="center--large">
+        <h2>You aren't selling anything!</h2>
+      </div>
+    <?php endif; ?>
+    <div class="form__block cf">
+      <a href="/sell/item/details" class="pull-right / btn btn--large btn--dark">Sell an item</a>
+    </div>
+
   </div>
 </section>

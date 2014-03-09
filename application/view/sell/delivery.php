@@ -2,38 +2,35 @@
 
   <div class="hero-banner">
     <div class="wrapper">
-      <h1>Sell an item</h1>
+      <h1>Sell an item - Delivery Options</h1>
     </div>
   </div>
 
   <div class="wrapper">
 
-    <form action="/sell/item/confirm" method="post" class="form">
+    <form action="/sell/item/confirm" method="post" class="form submit-form">
 
-      <h2>Delivery Details</h2>
+      <div class="row form__block">
+        <div class="col m-1 t-3 d-4">
+          <input type="radio" name="del_type" value="1" id="r1" required>
+          <label>Delivery</label>
+        </div>
+        <div class="col m-1 t-3 d-4">
+          <input type="radio" name="del_type" value="2" id="r2" required>
+          <label>Collection</label>
+        </div>
+      </div>
 
+      <div class="form__block / label__bottom">
+        <input type="number" min="0" name="del_price" id="del_price" required>
+        <label for="del_price">Delivery Price (£)</label>
+      </div>
+      <div class="form__block / label__bottom">
+        <textarea name="coll_details" id="coll_details" required></textarea>
+        <label for="coll_details">Collection Details</label>
+      </div>
 
-      <label>Delivery Type</label>
-      <input type="radio" name="del_type" value="1" id="r1">
-      <label for="r1">Royal Mail 1st Class</label>
-      <input type="radio" name="del_type" value="2" id="r2">
-      <label for="r2">Royal Mail 2nd Class</label>
-      <input type="radio" name="del_type" value="3" id="r3">
-      <label for="r3">Parcelforce Next Day Service</label>
-      <input type="radio" name="del_type" value="4" id="r4">
-      <label for="r4">Parcelforce 2 Day Service</label>
-
-      <label for="del_price">Delivery Price</label>
-      <input type="text" name="del_price" id="del_price">
-      <h2>Collection Details</h2>
-      <input type="checkbox" name="collection" id="collection">
-      <label for="collection">
-        Available for Collection
-      </label>
-      <label for="coll_details">Other Collection details</label>
-      <textarea name="coll_details" id="coll_details"></textarea>
-
-      <input type="submit" class="form__submit button button--submit" value="Next Stage">
+      <button type="submit" class="pull-right / form__submit">Next Stage</button>
 
     </form>
   </div>

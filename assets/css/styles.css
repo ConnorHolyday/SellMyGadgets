@@ -364,6 +364,11 @@ form,
 	transform: translateY(-50%);
 }
 
+.center--large {
+	text-align: center;
+	margin: 2.5em auto;
+}
+
 /* Base */
 
 * {
@@ -545,6 +550,8 @@ input[type="radio"] {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 0;
+	width: auto;
+	margin-right: .5em;
 }
 
 input[type="search"] {
@@ -656,7 +663,7 @@ h3,
 }
 
 form {
-	margin: 1.25em 0;
+	margin: 2.5em 0;
 }
 
 input,
@@ -711,7 +718,7 @@ textarea {
 }
 
 .form__block {
-	margin-bottom: 1.25em;
+	margin-bottom: 2.5em;
 }
 
 .select__block label,
@@ -1425,6 +1432,8 @@ textarea {
 
 .module__product img {
 	width: 100%;
+	max-width: 14.375em;
+	max-height: 14.375em;
 }
 
 .module__product .btn,
@@ -1504,7 +1513,10 @@ textarea {
 }
 
 .drop-zone__wrapper h1 {
+	font-size: 34px;
+	font-size: 2.125rem;
 	font-weight: 600;
+	margin-top: .588235294em;
 }
 
 .drop-zone__wrapper-inner {
@@ -1619,6 +1631,12 @@ textarea {
 	-webkit-animation-direction: reverse;
 	animation-direction: reverse;
 }
+
+/* ============================ *\
+ //
+ // Sell Pages
+ //
+\* ============================ */
 
 /*# sourceMappingURL=styles.css.map */
 

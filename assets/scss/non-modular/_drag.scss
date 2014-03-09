@@ -11,7 +11,11 @@
 	text-align: center;
 	text-transform: uppercase;
 
-	h1 { font-weight: 600; }
+	h1 {
+		@include font-size(34);
+		font-weight: 600;
+		margin-top: .588235294em;
+	}
 }
 .drop-zone__wrapper-inner {
   width: 9.375em;

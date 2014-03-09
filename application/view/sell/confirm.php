@@ -2,17 +2,15 @@
 
   <div class="hero-banner">
     <div class="wrapper">
-      <h1>Sell an item</h1>
+      <h1>Sell an item - Review Details</h1>
     </div>
   </div>
 
   <div class="wrapper">
 
-    <h2>Confirm</h2>
+    <form action="/sell/item/processed" method="post" class="submit-form">
 
-    <form action="/sell/item/processed" method="post" class="form">
-
-      <input type="submit" class="form__submit button button--submit" value="Confirm">
+      <button type="submit" class="pull-right / form__submit">Confirm</button>
 
     </form>
   </div>

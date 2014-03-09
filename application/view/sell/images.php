@@ -2,18 +2,17 @@
 
   <div class="hero-banner">
     <div class="wrapper">
-      <h1>Sell an item</h1>
+      <h1>Sell an item - Upload Images</h1>
     </div>
   </div>
 
   <div class="wrapper">
 
-    <h2>Images</h2>
-
     <form action="/sell/item/delivery" method="post" class="submit-form" enctype="multipart/form-data">
 
       <div class="drop-zone__wrapper">
         <h1>Drag 'n' drop</h1>
+        <small>For the best output please upload a square image with minimum dimensions: 230x230px</small>
 
         <div class="drop-zone__wrapper-inner">
           <div class="drop-zone vertical-align">
@@ -25,7 +24,9 @@
         </div>
       </div>
 
-      <input type="file" name="uploads[]" multiple>
+      <div class="form__block">
+        <input type="file" name="uploads[]" multiple>
+      </div>
 
       <button type="submit" class="form__submit pull-right">Next Stage</button>
 
