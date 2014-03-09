@@ -107,38 +107,46 @@
 
             if(is_uploaded_file($tmp_name)) {
 
-              $ext = explode('.', $_FILES['uploads']['name'][$key]);
-              $ext = strtolower(end($ext));
 
-              if(in_array($ext, $exts) === false) {
-                // extension not allowed, do something about it.
-              } else {
+              if ($_FILES['file']['size']['key'] < 1000000) {
 
-                try {
+                $ext = explode('.', $_FILES['uploads']['name'][$key]);
+                $ext = strtolower(end($ext));
 
-                  $folder = AccountService::checkAuth();
+                if(in_array($ext, $exts) === false) {
+                  // extension not allowed, do something about it.
+                } else {
 
-                  if (!file_exists(TMP_DIR . $folder)) {
-                    mkdir(TMP_DIR . $folder, 0777, true);
+                  try {
+
+                    $folder = AccountService::checkAuth();
+
+                    if (!file_exists(TMP_DIR . $folder)) {
+                      mkdir(TMP_DIR . $folder, 0777, true);
+                    }
+
+                    $name = md5(uniqid(rand(), true));
+                    move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name . '.' . $ext);
+
+                    $this->service->addImagesDataToSession($name, $ext);
+
+                    echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
+
+                  } catch (Exception $e) {
+                    // Something went horribly wrong and the site will crash.
+                    echo $_FILES['uploads']['name'][$key] . ' could not be uploaded.';
                   }
 
-                  $name = md5(uniqid(rand(), true));
-                  move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name . '.' . $ext);
-
-                  $this->service->addImagesDataToSession($name, $ext);
-
-                  echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
-
-                } catch (Exception $e) {
-                  // Something went horribly wrong and the site will crash.
-                  echo $_FILES['uploads']['name'][$key] . ' could not be uploaded.';
                 }
 
+              } else {
+                // File size is too big
               }
 
             }
 
           }
+
         } else {
           // User has reached upload limit
           echo 'You have reached the upload limit of 5';
