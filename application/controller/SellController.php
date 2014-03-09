@@ -5,6 +5,7 @@
       parent::__construct();
       AccountService::requiresLogin();
       $this->model = new SellModel();
+      $this->service = new SellService();
     }
 
     function index() {
@@ -18,7 +19,7 @@
 
     function item($stage = 'details') {
 
-      $this->service = new SellService();
+      $this->service->checkSellSession();
 
       switch ($stage) {
         case 'details':
@@ -45,7 +46,7 @@
             $this->service->addDetailsDataToSession($name, $category, $brand, $price, $description, $condition);
           }
 
-          $this->view->render('sell/images', 'Sell Item - Images', true, false);
+          $this->view->render('sell/images', 'Sell Item - Images', true, false, ['upload']);
 
           break;
 
@@ -98,44 +99,59 @@
 
       if(isset($_FILES['uploads'])) {
 
-        $exts = ['png', 'jpg', 'jpeg', 'gif'];
+        if($this->service->checkUploadAmount() < 5) {
 
-        foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
+          $exts = ['png', 'jpg', 'jpeg', 'gif'];
 
-          if(is_uploaded_file($tmp_name)) {
+          foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
 
-            $ext = explode('.', $_FILES['uploads']['name'][$key]);
-            $ext = strtolower(end($ext));
+            if(is_uploaded_file($tmp_name)) {
 
-            if(in_array($ext, $exts) === false) {
-              // extension not allowed, do something about it.
-            } else {
 
-              try {
+              if ($_FILES['file']['size'][$key] < 1000000) {
 
-                $folder = AccountService::checkAuth();
+                $ext = explode('.', $_FILES['uploads']['name'][$key]);
+                $ext = strtolower(end($ext));
 
-                if (!file_exists(TMP_DIR . $folder)) {
-                  mkdir(TMP_DIR . $folder, 0777, true);
+                if(in_array($ext, $exts) === false) {
+                  // extension not allowed, do something about it.
+                } else {
+
+                  try {
+
+                    $folder = AccountService::checkAuth();
+
+                    if (!file_exists(TMP_DIR . $folder)) {
+                      mkdir(TMP_DIR . $folder, 0777, true);
+                    }
+
+                    $name = md5(uniqid(rand(), true));
+                    move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name . '.' . $ext);
+
+                    $this->service->addImagesDataToSession($name, $ext);
+
+                    echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
+
+                  } catch (Exception $e) {
+                    // Something went horribly wrong and the site will crash.
+                    echo $_FILES['uploads']['name'][$key] . ' could not be uploaded.';
+                  }
+
                 }
 
-                $name = md5(uniqid(rand(), true));
-                move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name . '.' . $ext);
-
-                $this->service->addImagesDataToSession($name, $ext);
-
-                echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
-
-              } catch (Exception $e) {
-                // Something went horribly wrong and the site will crash.
-                echo $_FILES['uploads']['name'][$key] . ' could not be uploaded.';
+              } else {
+                // File size is too big
               }
 
             }
 
           }
 
+        } else {
+          // User has reached upload limit
+          echo 'You have reached the upload limit of 5';
         }
+
       } else {
         //echo 'not set';
       }

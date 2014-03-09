@@ -88,9 +88,14 @@
 
 		//ensure string is an e-mail
 		function eMail($string) {
-			
+			if(filter_var($string,FILTER_VALIDATE_EMAIL)){ // checks that input is a valid email{
 			return true;
-			//Some amount of characters - @ symbol .character 2-3 characters
+		}
+			else{
+			return false;
+			}
+			
+		}
 		}
 
 		//encrypt a string
@@ -99,10 +104,12 @@
 			return $result;
 
 		}
-		function fileType($string){
-				//not allowed .css .html .php etc also allowed list 
-
+		function fileCheck($string){ //checks files against an allowed list of extensions
+			if(preg_match("/\.(gif|png|jpg|jpeg)$/", $string)){ // ensures $string ends in one of the file names in conditions
 			return true;
-
+		}
+			else{
+				return false;
+			}	
 		}
 	}

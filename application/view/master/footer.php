@@ -22,3 +22,4 @@
         </div>
       </div>
     </footer>
+    <script src="/<?php echo STATIC_1; ?>js/main.js"></script>

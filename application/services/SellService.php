@@ -24,6 +24,13 @@
       }
     }
 
+    function checkSellSession() {
+      if(!isset($_SESSION['SELL_DATA'])) {
+        $this->buildSellSession();
+      }
+
+      print_r($_SESSION['SELL_DATA']);
+    }
 
     function buildSellSession() {
 
@@ -40,7 +47,6 @@
         'collection_details' => '',
         'images' => []
       ];
-
     }
 
     function getSellSessionData() {
@@ -61,12 +67,13 @@
     }
 
     function addImagesDataToSession($file, $ext) {
-      array_push(
-        $_SESSION['SELL_DATA']['images'], [
-          'file' => $file,
-          'ext' => $ext
-        ]
-      );
+      $arr = $_SESSION['SELL_DATA']['images'];
+      $arr[] = ['file' => $file, 'ext' => $ext];
+      $_SESSION['SELL_DATA']['images'] = $arr;
+    }
+
+    function checkUploadAmount() {
+      return count($_SESSION['SELL_DATA']['images']);
     }
 
     function addDeliveryDataToSession($del_type, $del_price, $collection, $coll_details) {
@@ -81,4 +88,3 @@
     }
 
   }
-
