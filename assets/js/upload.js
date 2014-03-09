@@ -10,9 +10,10 @@
       e.preventDefault();
       e.stopPropagation();
 
-      var files = e.dataTransfer.files;
+      var files = e.dataTransfer.files,
+        len = files.length > 5 ? 5 : files.length;
 
-      for(var i = 0, len = files.length; i < len; i++) {
+      for(var i = 0; i < len; i++) {
         sendFile(files[i]);
       }
     }, false);
@@ -83,16 +84,17 @@
 
       xhr.open('POST', '/sell/upload', true);
       fd.append('uploads[]', file);
+      fd.append('isAsync', 'true');
       xhr.send(fd);
 
       xhr.addEventListener('load', function () {
         if (xhr.status >= 200 && xhr.status < 400){
           // Success
-          console.log('Success');
+          //console.log('Success');
           console.log(xhr.responseText);
         } else {
           // server returned an error.
-          console.log('Error');
+          //console.log('Error');
           console.log(xhr.responseText);
         }
       }, false);
