@@ -74,41 +74,43 @@
         */
         function view($id) {
              if(is_numeric($id)){
-                list($products, $images, $comments) = $this->model->getProductById($id);
+                $products = $this->model->getProductById($id);
             } else {
-                list($products, $images, $comments) = $this->model->getProductByName($id);
+                $products = $this->model->getProductByName($id);
             }
-        
 
-            //loop throgh query results (should only be 1) store each column data into its own varible for access from the view
+            $images = $this->model->getAllImages($id);
+            $comments = $this->model->getAllComments($id);
+        
             $allMedia = array();
             $allComments = array();
 
-            foreach ($products as $product){
-                $this->view->productId = $product['id'];
-                $this->view->productName = $product['name'];
-                $this->view->productPrice = $product['price'];
-                $this->view->productImage = '<img src="' . IMG_MED_DIR . $product['primary_image'] . $product['extension'] . '" alt="' . $product['title'] .'" >';
-                $this->view->productImageName = $product['title'];
-                $this->view->productDeliveryDate = $product['delivery_date'];
-                $this->view->productDeliveryCost = $product['delivery_cost'];
-                $this->view->productCondition = $product['condition_name'];
-                $this->view->productSeller = $product['username'];
-                $this->view->productDescription = $product['description'];
+            $this->view->productId = $products[0]['id'];
+            $this->view->productName = $products[0]['name'];
+            $this->view->productPrice = $products[0]['price'];
+            $this->view->productImage = '<img src="' . IMG_MED_DIR . $products[0]['primary_image'] . $products[0]['extension'] . '" alt="' . $products[0]['title'] .'" >';
+            $this->view->productImageName = $products[0]['title'];
+            $this->view->productDeliveryDate = $products[0]['delivery_date'];
+            $this->view->productDeliveryCost = $products[0]['delivery_cost'];
+            $this->view->productCondition = $products[0]['condition_name'];
+            $this->view->productSeller = $products[0]['username'];
+            $this->view->productDescription = $products[0]['description'];
 
-                //images and comments to be updated still
-                foreach ($images as $media){
-                    array_push ($allMedia, '<img src="' . IMG_MED_DIR . $media['id'] . $media['extension'] . '" alt="' . $media['title'] . '" >');
-                }
-
-                $this->view->productMedia = $allMedia;
-                foreach ($comments as $comment){
-                    array_push ($allComments, '' . $comments['id'] . $comments['comment']);
-                }
-
-                $this->view->productComments = $allComments;
+            //images and comments to be updated still
+            var_dump($images);
+            echo '<br>';
+            var_dump($comments);
+            foreach ($images as $media){
+                array_push ($allMedia, '<img src="' . IMG_MED_DIR . $media['id'] . $media['extension'] . '" alt="' . $media['title'] . '" >');
             }
 
+            $this->view->productMedia = $allMedia;
+            foreach ($comments as $comment){
+                array_push ($allComments, '' . $comments['id'] . $comments['comment']);
+            }
+
+            $this->view->productComments = $allComments;
+            
             //render the view page
             $this->view->render('product/view', 'View product', true, true);
         }
