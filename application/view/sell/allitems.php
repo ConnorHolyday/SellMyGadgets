@@ -1,16 +1,3 @@
- <style type="text/css">
-  table {
-    text-align: left;
-    border: 1px solid #d5d5d5;
-  }
-  td, th {
-    padding: .5em;
-    border: 1px solid #d5d5d5;
-  }
-
-</style>
-
-
 <section>
 
   <div class="hero-banner">
