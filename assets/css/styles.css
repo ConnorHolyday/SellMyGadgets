@@ -1355,7 +1355,8 @@ textarea {
 	padding-left: 1em;
 }
 
-.breadcrumb a:last-child {
+.breadcrumb__product a:last-child,
+.breadcrumb__sell a.selected {
 	background: transparent;
 	color: white;
 	pointer-events: none;
@@ -1363,12 +1364,22 @@ textarea {
 	padding-right: 0;
 }
 
-.breadcrumb a:last-child:before {
+.breadcrumb__product a:last-child:before,
+.breadcrumb__sell a.selected:before {
 	border-color: #28333f;
 	border-left-color: transparent;
 }
 
-.breadcrumb a:last-child:after {
+.breadcrumb__product a:last-child:after,
+.breadcrumb__sell a.selected:after {
+	display: none;
+}
+
+.breadcrumb__sell a {
+	width: 25%;
+}
+
+.breadcrumb__sell a:last-child:after {
 	display: none;
 }
 

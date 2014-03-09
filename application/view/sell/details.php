@@ -8,6 +8,13 @@
 
   <div class="wrapper">
 
+    <nav class="breadcrumb breadcrumb__sell">
+      <a href="/sell/item/details" class="selected">Details</a>
+      <a href="/sell/item/images">Images</a>
+      <a href="/sell/item/delivery">Delivery</a>
+      <a href="/sell/item/confirm">Review</a>
+    </nav>
+
     <form action="/sell/item/images" method="post" class="form__float-label submit-form">
 
       <div class="form__block label__bottom">

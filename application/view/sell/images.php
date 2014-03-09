@@ -8,6 +8,13 @@
 
   <div class="wrapper">
 
+  <nav class="breadcrumb breadcrumb__sell">
+    <a href="/sell/item/details">Details</a>
+    <a href="/sell/item/images" class="selected">Images</a>
+    <a href="/sell/item/delivery">Delivery</a>
+    <a href="/sell/item/confirm">Review</a>
+  </nav>
+
     <form action="/sell/item/delivery" method="post" class="submit-form" enctype="multipart/form-data">
 
       <div class="drop-zone__wrapper">

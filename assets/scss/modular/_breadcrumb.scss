@@ -65,22 +65,33 @@
 		&:first-child {
 			padding-left: 1em;
 		}
+	}
+}
+
+.breadcrumb__product a:last-child,
+.breadcrumb__sell a.selected {
+	background: transparent;
+	color: white;
+	pointer-events: none;
+		cursor: default;
+		padding-right: 0;
+
+	&:before {
+		border-color: $dark-bg;
+		border-left-color: transparent;
+	}
+
+	&:after {
+		display: none;
+	}
+}
+
+.breadcrumb__sell {
+	a {
+		width: 25%;
 
 		&:last-child {
-			background: transparent;
-			color: white;
-			pointer-events: none;
- 			cursor: default;
- 			padding-right: 0;
-
-			&:before {
-				border-color: $dark-bg;
-				border-left-color: transparent;
-			}
-
-			&:after {
-				display: none;
-			}
+			&:after { display: none; }
 		}
 	}
 }
