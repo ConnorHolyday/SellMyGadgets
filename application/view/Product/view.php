@@ -28,9 +28,9 @@
 			<div class="boxed module__product">
 				<? echo $productImage; ?>
 
-				<div class="slider">
+				<!-- <div class="slider">
 
-				</div>
+				</div> -->
 
 				<ul class="product-meta list-block__list">
 					<li><?php echo $productName ?></li>

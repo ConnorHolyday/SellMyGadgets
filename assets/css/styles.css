@@ -922,6 +922,12 @@ textarea {
 	border-top: none;
 }
 
+.sidebar__product .module__product .btn,
+.sidebar__product .module__product .submit-form button,
+.submit-form .sidebar__product .module__product button {
+	position: relative;
+}
+
 .tags {
 	display: block;
 }

@@ -23,7 +23,9 @@
 }
 
 .sidebar__product {
-
+	.module__product .btn {
+		position: relative;
+	}
 }
 .tags {
 	display: block;
