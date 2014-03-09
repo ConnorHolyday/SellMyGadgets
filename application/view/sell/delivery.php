@@ -13,17 +13,23 @@
       <div class="row form__block">
         <div class="col m-1 t-3 d-4">
           <input type="radio" name="del_type" value="1" id="r1" required>
-          <label>Delivery</label>
+          <label for="r1">Delivery</label>
         </div>
         <div class="col m-1 t-3 d-4">
           <input type="radio" name="del_type" value="2" id="r2" required>
-          <label>Collection</label>
+          <label for="r2">Collection</label>
         </div>
       </div>
 
-      <div class="form__block / label__bottom">
-        <input type="number" min="0" name="del_price" id="del_price" required>
-        <label for="del_price">Delivery Price (£)</label>
+      <div class="row / form__block">
+        <div class="col m-all t-3 d-4 / label__bottom">
+          <input type="number" min="0" name="del_price" id="del_price" required>
+          <label for="del_price">Delivery Price (£)</label>
+        </div>
+        <div class="col m-all t-3 d-4 / label__bottom">
+          <input type="text" min="0" name="del_details" id="del_details" required>
+          <label for="del_details">Delivery Details - E.g. First Class</label>
+        </div>
       </div>
       <div class="form__block / label__bottom">
         <textarea name="coll_details" id="coll_details" required></textarea>
