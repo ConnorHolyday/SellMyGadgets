@@ -58,7 +58,7 @@
 
       if($this->scripts != NULL) {
         foreach($this->scripts as $script) {
-          echo '<script type="text/javascript" src="/' . STATIC_1 . 'js/' . script . '.js"></script>';
+          echo '<script type="text/javascript" src="/' . STATIC_1 . 'js/' . $script . '.js"></script>';
         }
       }
     ?>
