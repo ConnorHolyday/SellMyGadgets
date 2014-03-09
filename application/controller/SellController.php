@@ -46,7 +46,7 @@
             $this->service->addDetailsDataToSession($name, $category, $brand, $price, $description, $condition);
           }
 
-          $this->view->render('sell/images', 'Sell Item - Images', true, false);
+          $this->view->render('sell/images', 'Sell Item - Images', true, false, ['upload']);
 
           break;
 
