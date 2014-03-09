@@ -6,9 +6,9 @@
     define('LIB_DIR', 'library/');
     define('ASSET_DIR', '/assets/');
     define('TMP_DIR', 'media/temp/');
-    define('IMG_SML_DIR', 'http://' . $_SERVER['HTTP_HOST'] . '/assets/CDN/UserContent/Small/');
-    define('IMG_MED_DIR', 'http://' . $_SERVER['HTTP_HOST'] . '/assets/CDN/UserContent/Medium/');
-    define('IMG_LRG_DIR', 'http://' . $_SERVER['HTTP_HOST'] . '/assets/CDN/UserContent/Large/');
+
+    define('STATIC_1', ''); // static1.sellmygadgets.co.uk - Site static content (css, images, js)
+    define('STATIC_2', ''); // static2.sellmygadgets.co.uk - User generated content (product images)
 
     // Database connection parameters
 

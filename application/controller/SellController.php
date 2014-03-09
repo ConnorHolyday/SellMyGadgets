@@ -108,7 +108,7 @@
             if(is_uploaded_file($tmp_name)) {
 
 
-              if ($_FILES['file']['size']['key'] < 1000000) {
+              if ($_FILES['file']['size'][$key] < 1000000) {
 
                 $ext = explode('.', $_FILES['uploads']['name'][$key]);
                 $ext = strtolower(end($ext));
