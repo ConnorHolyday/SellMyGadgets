@@ -6,19 +6,19 @@
 			<h2 itemscope itemtype="http://schema.org/Product"class="list-block__title">Mobile</h2>
 			<ul class="list-block__list">
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Samsung</a>
+					<a itemprop="url" href="#">Samsung</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Apple</a>
+					<a itemprop="url" href="#">Apple</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Nokia</a>
+					<a itemprop="url" href="#">Nokia</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Blackberry</a>
+					<a itemprop="url" href="#">Blackberry</a>
 				</li>
 				<li class="icon-uniE604">
-					<a href="#">View More...</a>
+					<a itemprop="url" href="#">View More...</a>
 				</li>
 			</ul>
 		</div>
@@ -31,19 +31,19 @@
 			<h2 itemscope itemtype="http://schema.org/Product" class="list-block__title">Computer</h2>
 			<ul class="list-block__list">
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Samsung</a>
+					<a itemprop="url" href="#">Samsung</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Apple</a>
+					<a itemprop="url" href="#">Apple</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Nokia</a>
+					<a itemprop="url" href="#">Nokia</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Blackberry</a>
+					<a itemprop="url" href="#">Blackberry</a>
 				</li>
 				<li class="icon-uniE604">
-					<a href="#">View More...</a>
+					<a itemprop="url" href="#">View More...</a>
 				</li>
 			</ul>
 		</div>
@@ -56,19 +56,19 @@
 			<h2 itemscope itemtype="http://schema.org/Product" class="list-block__title">Tablet</h2>
 			<ul class="list-block__list">
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Samsung</a>
+					<a itemprop="url" href="#">Samsung</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Apple</a>
+					<a itemprop="url" href="#">Apple</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Nokia</a>
+					<a itemprop="url" href="#">Nokia</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a itemprop="name">href="#">Blackberry</a>
+					<a itemprop="url" href="#">Blackberry</a>
 				</li>
 				<li itemscope itemtype="http://schema.org/Brand" class="icon-uniE604">
-					<a href="#">View More...</a>
+					<a itemprop="url" href="#">View More...</a>
 				</li>
 			</ul>
 		</div>
