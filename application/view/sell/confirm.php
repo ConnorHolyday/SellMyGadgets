@@ -8,11 +8,11 @@
 
   <div class="wrapper">
 
-  <nav class="breadcrumb breadcrumb__sell">
-    <a href="/sell/item/details">Details</a>
-    <a href="/sell/item/images">Images</a>
-    <a href="/sell/item/delivery">Delivery</a>
-    <a href="/sell/item/confirm" class="selected">Review</a>
+  <nav itemscope itemtype ="https://schema.org/breadcrumb"class="breadcrumb breadcrumb__sell">
+    <a itemprop="url" href="/sell/item/details">Details</a>
+    <a itemprop="url" href="/sell/item/images">Images</a>
+    <a itemprop="url" href="/sell/item/delivery">Delivery</a>
+    <a itemprop="url" href="/sell/item/confirm" class="selected">Review</a>
   </nav>
 
     <form action="/sell/item/processed" method="post" class="submit-form">
