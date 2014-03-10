@@ -99,6 +99,8 @@
 
       if(isset($_FILES['uploads'])) {
 
+        $async = (!isset($_POST['isAsync'])) ? false : true;
+
         if($this->service->checkUploadAmount() < 5) {
 
           $exts = ['png', 'jpg', 'jpeg', 'gif'];
@@ -107,14 +109,16 @@
 
             if(is_uploaded_file($tmp_name)) {
 
+              $uploadedName = $_FILES['uploads']['name'][$key];
 
-              if ($_FILES['file']['size'][$key] < 1000000) {
+              if ($_FILES['uploads']['size'][$key] < 1000000) {
 
-                $ext = explode('.', $_FILES['uploads']['name'][$key]);
+                $ext = explode('.', $uploadedName);
                 $ext = strtolower(end($ext));
 
                 if(in_array($ext, $exts) === false) {
                   // extension not allowed, do something about it.
+                  $messages[] = 'That file extension of ' . $uploadedName . ' is not allowed. Please upload one of the following: ' . implode(', ', $exts);
                 } else {
 
                   try {
@@ -130,30 +134,34 @@
 
                     $this->service->addImagesDataToSession($name, $ext);
 
-                    echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
+                    $messages[] = $uploadedName . ' was successfully uploaded.';
 
                   } catch (Exception $e) {
                     // Something went horribly wrong and the site will crash.
-                    echo $_FILES['uploads']['name'][$key] . ' could not be uploaded.';
+                    $messages[] = $uploadedName . ' could not be uploaded. Please try again.';
                   }
-
                 }
 
               } else {
                 // File size is too big
+                $messages[] = 'The file :' . $uploadedName . ' was too large, please reduce the file size.';
               }
-
             }
-
           }
 
         } else {
           // User has reached upload limit
-          echo 'You have reached the upload limit of 5';
+          $messages[] = 'You have reached the upload limit of 5';
         }
 
       } else {
-        //echo 'not set';
+        $messages[] = 'No files were sent';
+      }
+
+      if($async) {
+        echo json_encode($messages);
+      } else {
+        return $messages;
       }
 
     }
