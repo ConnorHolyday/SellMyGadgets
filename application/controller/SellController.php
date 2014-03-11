@@ -46,14 +46,13 @@
             $this->service->addDetailsDataToSession($name, $category, $brand, $price, $description, $condition);
           }
 
-          $this->view->render('sell/images', 'Sell Item - Images', true, false, ['upload']);
+          $this->view->render('sell/images', 'Sell Item - Images', true, false, [['file', 'upload'], ['inline', 'console.log(\'init upload\');']]);
 
           break;
 
         case 'delivery':
 
           $this->upload();
-
           $this->view->render('sell/delivery', 'Sell Item - Delivery', true, false);
 
           break;

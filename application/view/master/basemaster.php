@@ -40,7 +40,6 @@
     </script> -->
   </head>
   <body class="<?php echo $this->page; ?>">
-
     <?php
       if($this->inc_master) {
         require APP_DIR . 'view/master/header.php';
@@ -58,10 +57,13 @@
 
       if($this->scripts != NULL) {
         foreach($this->scripts as $script) {
-          echo '<script type="text/javascript" src="/' . STATIC_1 . 'js/' . $script . '.js"></script>';
+          if($script[0] == 'file') {
+            echo '<script src="/' . STATIC_1 . 'js/' . $script[1] . '.js"></script>';
+          } else if($script[0] == 'inline') {
+            echo '<script>' . $script[1] . '</script>';
+          }
         }
       }
     ?>
-
   </body>
 </html>
