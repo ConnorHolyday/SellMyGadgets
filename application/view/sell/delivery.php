@@ -43,7 +43,7 @@
         <label for="coll_details">Collection Details</label>
       </div>
 
-      <button type="submit" class="pull-right / form__submit">Next Stage</button>
+      <button class="pull-right / form__submit">Next Stage</button>
 
     </form>
   </div>

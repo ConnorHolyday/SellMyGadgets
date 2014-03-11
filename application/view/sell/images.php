@@ -28,7 +28,7 @@
       <div class="form__block">
         <input type="file" name="uploads[]" multiple>
       </div>
-      <button type="submit" class="form__submit pull-right">Next Stage</button>
+      <button class="form__submit pull-right">Next Stage</button>
     </form>
   </div>
 </section>
