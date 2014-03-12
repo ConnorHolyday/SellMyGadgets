@@ -13,14 +13,14 @@
 
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
-    <script type="text/javascript" src="/assets/js/libs/modernizr.js"></script>
+    <script type="text/javascript" src="/<?php echo STATIC_1; ?>js/libs/modernizr.js"></script>
 
-    <link rel="stylesheet" href="<?php echo ASSET_DIR; ?>/css/styles.css" />
-    <link rel="stylesheet" href="/assets/fonts/smg-icons/style.css" />
+    <link rel="stylesheet" href="/<?php echo STATIC_1; ?>css/styles.css" />
+    <link rel="stylesheet" href="/<?php echo STATIC_1; ?>fonts/smg-icons/style.css" />
 
 
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="/assets/js/libs/selectivizr-min.js"></script>
+    <script type="text/javascript" src="/<?php echo STATIC_1; ?>/js/libs/selectivizr-min.js"></script>
     <![endif]-->
 
     <!-- Google Analytics <script type="text/javascript">
@@ -40,7 +40,6 @@
     </script> -->
   </head>
   <body class="<?php echo $this->page; ?>">
-
     <?php
       if($this->inc_master) {
         require APP_DIR . 'view/master/header.php';
@@ -55,7 +54,16 @@
       if($this->inc_master) {
         require APP_DIR . 'view/master/footer.php';
       }
-    ?>
 
+      if($this->scripts != NULL) {
+        foreach($this->scripts as $script) {
+          if($script[0] == 'file') {
+            echo '<script src="/' . STATIC_1 . 'js/' . $script[1] . '.js"></script>';
+          } else if($script[0] == 'inline') {
+            echo '<script>' . $script[1] . '</script>';
+          }
+        }
+      }
+    ?>
   </body>
 </html>

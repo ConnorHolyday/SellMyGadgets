@@ -36,27 +36,50 @@
         $productData['delivery_type'],
         $productData['delivery_price'],
         $productData['collection'],
-        $productData['collection_details']
+        $productData['collection_details'],
+        $id
       );
 
-      $this->insertProductMedia($productData['images']);
+      $this->insertProductMedia($productData['images'], $id);
     }
 
 
-    private function insertProductDeliveryDetails($del_type, $del_price, $collection, $coll_details) {
+    private function insertProductDeliveryDetails($del_type, $del_price, $collection, $coll_details, $productId) {
 
     }
 
-    private function insertProductMedia($media) {
+    private function insertProductMedia($media, $productId) {
 
+      foreach ($media['file'] as $key => $file) {
+
+        $ext = $media['ext'][$key];
+
+        $qry = $this->db->prepare_insert('product_media',
+          'product_id, title, extension',
+          "'$productId', '$file', '$ext'"
+        );
+
+        $id = $this->db->insert_return_id($qry);
+        $fileName = str_pad($id, 8, '0', STR_PAD_LEFT);
+        $tempFile = TMP_DIR . $file . '.' . $ext;
+
+        $img = new ResizeImage($tempFile);
+
+        $img->resizeImage(230, 230, 'crop');
+        $img->saveImage(STATIC_2 . 'med/' . $fileName . '.' . $ext, 100);
+
+        $img->resizeImage(115, 115, 'crop');
+        $img->saveImage(STATIC_2 . 'sml/' . $fileName . '.' . $ext, 100);
+
+        rename($tempFile, STATIC_2 . 'original/' . $fileName . '.' . $ext);
+
+      }
     }
-
 
     public function getProductsByUser($user) {
       $qry = 'SELECT * FROM products p INNER JOIN user_products up ON up.product_id = p.id WHERE up.user_id = ' . $user . ';';
 
       return $this->db->execute_assoc_query($qry);
     }
-
 
   }

@@ -5,6 +5,7 @@
       parent::__construct();
       AccountService::requiresLogin();
       $this->model = new SellModel();
+      $this->service = new SellService();
     }
 
     function index() {
@@ -18,7 +19,7 @@
 
     function item($stage = 'details') {
 
-      $this->service = new SellService();
+      $this->service->checkSellSession();
 
       switch ($stage) {
         case 'details':
@@ -45,14 +46,13 @@
             $this->service->addDetailsDataToSession($name, $category, $brand, $price, $description, $condition);
           }
 
-          $this->view->render('sell/images', 'Sell Item - Images', true, false);
+          $this->view->render('sell/images', 'Sell Item - Images', true, false, [['file', 'upload'], ['inline', 'console.log(\'init upload\');']]);
 
           break;
 
         case 'delivery':
 
           $this->upload();
-
           $this->view->render('sell/delivery', 'Sell Item - Delivery', true, false);
 
           break;
@@ -98,46 +98,69 @@
 
       if(isset($_FILES['uploads'])) {
 
-        $exts = ['png', 'jpg', 'jpeg', 'gif'];
+        $async = (!isset($_POST['isAsync'])) ? false : true;
 
-        foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
+        if($this->service->checkUploadAmount() < 5) {
 
-          if(is_uploaded_file($tmp_name)) {
+          $exts = ['png', 'jpg', 'jpeg', 'gif'];
 
-            $ext = explode('.', $_FILES['uploads']['name'][$key]);
-            $ext = strtolower(end($ext));
+          foreach ($_FILES['uploads']['tmp_name'] as $key => $tmp_name) {
 
-            if(in_array($ext, $exts) === false) {
-              // extension not allowed, do something about it.
-            } else {
+            if(is_uploaded_file($tmp_name)) {
 
-              try {
+              $uploadedName = $_FILES['uploads']['name'][$key];
 
-                $folder = AccountService::checkAuth();
+              if ($_FILES['uploads']['size'][$key] < 1000000) {
 
-                if (!file_exists(TMP_DIR . $folder)) {
-                  mkdir(TMP_DIR . $folder, 0777, true);
+                $ext = explode('.', $uploadedName);
+                $ext = strtolower(end($ext));
+
+                if(in_array($ext, $exts) === false) {
+                  // extension not allowed, do something about it.
+                  $messages[] = 'That file extension of ' . $uploadedName . ' is not allowed. Please upload one of the following: ' . implode(', ', $exts);
+                } else {
+
+                  try {
+
+                    $folder = AccountService::checkAuth();
+
+                    if (!file_exists(TMP_DIR . $folder)) {
+                      mkdir(TMP_DIR . $folder, 0777, true);
+                    }
+
+                    $name = md5(uniqid(rand(), true));
+                    move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name . '.' . $ext);
+
+                    $this->service->addImagesDataToSession($name, $ext);
+
+                    $messages[] = $uploadedName . ' was successfully uploaded.';
+
+                  } catch (Exception $e) {
+                    // Something went horribly wrong and the site will crash.
+                    $messages[] = $uploadedName . ' could not be uploaded. Please try again.';
+                  }
                 }
 
-                $name = md5(uniqid(rand(), true));
-                move_uploaded_file($tmp_name, TMP_DIR . $folder . '/' . $name . '.' . $ext);
-
-                $this->service->addImagesDataToSession($name, $ext);
-
-                echo $_FILES['uploads']['name'][$key] . ' was successfully uploaded.';
-
-              } catch (Exception $e) {
-                // Something went horribly wrong and the site will crash.
-                echo $_FILES['uploads']['name'][$key] . ' could not be uploaded.';
+              } else {
+                // File size is too big
+                $messages[] = 'The file :' . $uploadedName . ' was too large, please reduce the file size.';
               }
-
             }
-
           }
 
+        } else {
+          // User has reached upload limit
+          $messages[] = 'You have reached the upload limit of 5';
         }
+
       } else {
-        //echo 'not set';
+        $messages[] = 'No files were sent';
+      }
+
+      if($async) {
+        echo json_encode($messages);
+      } else {
+        return $messages;
       }
 
     }
