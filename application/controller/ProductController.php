@@ -97,18 +97,18 @@
             $this->view->productDescription = $products[0]['description'];
 
             //images and comments to be updated still
-            var_dump($images);
-            echo '<br>';
-            var_dump($comments);
+
             foreach ($images as $media){
                 array_push ($allMedia, '<img src="' . IMG_MED_DIR . $media['id'] . $media['extension'] . '" alt="' . $media['title'] . '" >');
             }
 
-            $this->view->productMedia = $allMedia;
             foreach ($comments as $comment){
                 array_push ($allComments, '' . $comments['id'] . $comments['comment']);
             }
 
+            print_r($allComments);
+
+            $this->view->productMedia = $allMedia;
             $this->view->productComments = $allComments;
             
             //render the view page

@@ -1,21 +1,21 @@
 <?php
-	use PayPal\Auth\OAuthTokenCredential;	
+	use PayPal\Auth\OAuthTokenCredential;
+	use PayPal\Api\Amount;
+	use PayPal\Api\Details;
+	use PayPal\Api\Item;
+	use PayPal\Api\ItemList;
+	use PayPal\Api\Payer;
+	use PayPal\Api\Payment;
+	use PayPal\Api\RedirectUrls;
+	use PayPal\Api\Transaction;
+	use PayPal\Rest\ApiContext;
 	
 	class BuyModel extends BaseModel {
 
 	function __construct() {	
 		parent::__construct();
 
-		//set sandbox information
-		Define('SANDBOX_ACOUNT', 'pay-facilitator@sellmygadgets.co.uk');
-		Define('SANDBOX_ENDPOINT','api.sandbox.paypal.com');
-		Define('SANDBOX_CLIENTID','AZrkPxDtZbc4s8IMHocfXrI496hmPdec8tK_SLKRQGmfjuH_1kGG78I2K0vO');
-		Define('SANDBOX_SECRET','EMNG5hDa4dDe2jD_UkFpmZdeulXkR04wxKohEs58UeWep2dkct5O46tTqkg5');
-
-		//set paypall information
-		Define('API_USERNAME',	'pay_api1.sellmygadgets.co.uk');
-		Define('API_PASSWORD',	'Z7NGPB99XNVCPVQ8');
-		Define('API_SIGNATURE',	'AFcWxV21C7fd0v3bYYYRCpSSRl31AJWo5DsJ5VSvwtJYMULsWaXzE7MS');	
+			
 	}	
 
 	function getProductById($id){
@@ -58,19 +58,108 @@
 		return $this->db->execute_assoc_query($userInfo);			
 	}
 
-	function preparePayment(){
-		$oauthCredential = new OAuthTokenCredential(SANDBOX_CLIENTID, SANDBOX_SECRET);
-		$accessToken     = $oauthCredential->getAccessToken(array('mode' => 'sandbox'));
+	function getAccessToken($clientID, $clientSecret){
+		$apiContext = new ApiContext(new OAuthTokenCredential($clientID,$clientSecret));
 
-		return $accessToken;
+		$apiContext->setConfig(
+		array(
+			'mode' => 'sandbox',
+			'http.ConnectionTimeOut' => 30,
+			'log.LogEnabled' => true,
+			'log.FileName' => '../PayPal.log',
+			'log.LogLevel' => 'FINE'
+			)
+		);
+
+		return $apiContext;
 	}
 
-	function processPayment(){
-		//send payment to sellmygadgets
+	function processPayment($itemName, $itemPrice, $itemPostage, $itemDescription, $paymentDescription){
+
+		$apiContext = $this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET);
+
+		$percent = ($itemPrice / 100) * 3;
+		$fees = $percent + 0.30;
+
+
+		$payer = new Payer();
+		$payer 			->setPaymentMethod("paypal");
+
+		$item = new Item();
+		$item 			->setName($itemName)
+						->setCurrency(PAYPAL_CURRENCY)
+						->setQuantity(1)
+						->setPrice($itemPrice);
+
+		$itemList = new ItemList();
+		$itemList 		->setItems(array($item));
+
+		$details = new Details();
+		$details 		->setShipping($itemPostage)
+						->setTax(0)
+						->setSubtotal($itemPrice);
+
+		$amount = new Amount();
+		$amount 		->setCurrency(PAYPAL_CURRENCY)
+						->setTotal($itemPostage + $fees + $itemPrice)
+						->setDetails($itemDescription);
+
+		$transaction = new Transaction();
+		$transaction 	->setAmount($amount)
+						->setItemList($itemList)
+						->setDescription($paymentDescription);
+
+		$redirectUrls = new RedirectUrls();
+		$redirectUrls 	->setReturnUrl("/buy/completion?success=true")
+					 	->setCancelUrl("/but/completion?success=false");
+
+		$payment = new Payment();
+		$payment 		->setIntent("sale")
+						->setPayer($payer)
+						->setRedirectUrls($redirectUrls)
+						->setTransactions(array($transaction));
+
+		try {
+			$payment->create($apiContext);
+		} catch (PayPal\Exception\PPConnectionException $ex) {
+			echo "Exception: " . $ex->getMessage() . PHP_EOL;
+			var_dump($ex->getData());	
+			exit(1);
+		}
+
+		foreach($payment->getLinks() as $link) {
+			if($link->getRel() == 'approval_url') {
+				$redirectUrl = $link->getHref();
+				break;
+			}
+		}
+
+		$_SESSION['paymentId'] = $payment->getId();
+		if(isset($redirectUrl)) {
+			header("Location: $redirectUrl");
+			exit;
+		}
 	}
 
 	function getPaymentConfimrmation(){
-		//get paypall confirmation
+
+		$apiContext = $this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET);
+
+		if(isset($_GET['success']) && $_GET['success'] == 'true') {
+
+			$paymentId = $_SESSION['paymentId'];
+			$payment = Payment::get($paymentId, $apiContext);
+
+			$execution = new PaymentExecution();
+			$execution->setPayerId($_GET['PayerID']);
+
+			$result = $payment->execute($execution, $apiContext);
+
+		} else {
+			$result = "User cancelled payment.";
+		}
+
+		return $result;
 	}
 
 	function updateProducts($id){
