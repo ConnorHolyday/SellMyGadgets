@@ -24,9 +24,6 @@
 		    $this->view->productDescription = $product[0]['description'];
 		    $this->view->productImage = $product[0]['primary_image'];
 
-		    $this->view->sellerName = '';
-		    $this->view->sellerEmail = '';
-
 		    $this->view->render('buy/product', 'Buy' . $product[0]['name'], true, true);
 		}
 
@@ -37,7 +34,7 @@
 				//echo $product[0]['name'] . ' ' . $product[0]['price'] . ' ' . $product[0]['delivery_cost'] . ' ' . $product[0]['description'] . 'Test Payment';	
 
 				$this->view->payment = $this->model->processPayment($product[0]['name'], $product[0]['price'], $product[0]['delivery_cost'], $product[0]['description'], 'Test Payment');
-
+				//$this->view->payment = $this->model->testPayment();
 				$this->view->render('buy/payment', 'Procesing payment for' . $product[0]['name'], true, true);
 			}
 		}

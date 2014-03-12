@@ -8,6 +8,8 @@
 	use PayPal\Api\Payment;
 	use PayPal\Api\RedirectUrls;
 	use PayPal\Api\Transaction;
+	use PayPal\Api\ExecutePayment;
+	use PayPal\Api\PaymentExecution;
 	use PayPal\Rest\ApiContext;
 	
 	class BuyModel extends BaseModel {
@@ -80,44 +82,44 @@
 
 		$percent = ($itemPrice / 100) * 3;
 		$fees = $percent + 0.30;
-
+		$totalPrice = $itemPostage + $fees + $itemPrice;
 
 		$payer = new Payer();
-		$payer 			->setPaymentMethod("paypal");
+		$payer->setPaymentMethod("paypal");
 
 		$item = new Item();
-		$item 			->setName($itemName)
-						->setCurrency(PAYPAL_CURRENCY)
-						->setQuantity(1)
-						->setPrice($itemPrice);
+		$item->setName($itemName)
+			->setCurrency('USD')
+			->setQuantity(1)
+			->setPrice($itemPrice);
 
 		$itemList = new ItemList();
-		$itemList 		->setItems(array($item));
+		$itemList->setItems(array($item));
 
 		$details = new Details();
-		$details 		->setShipping($itemPostage)
-						->setTax(0)
-						->setSubtotal($itemPrice);
+		$details->setShipping($itemPostage)
+				->setTax('0')
+				->setSubtotal($itemPrice);
 
 		$amount = new Amount();
-		$amount 		->setCurrency(PAYPAL_CURRENCY)
-						->setTotal($itemPostage + $fees + $itemPrice)
-						->setDetails($itemDescription);
+		$amount->setCurrency("USD")
+			->setTotal($itemPrice + $itemPostage)
+			->setDetails($details);
 
 		$transaction = new Transaction();
-		$transaction 	->setAmount($amount)
-						->setItemList($itemList)
-						->setDescription($paymentDescription);
+		$transaction->setAmount($amount)
+			->setItemList($itemList)
+			->setDescription("Payment description");
 
 		$redirectUrls = new RedirectUrls();
-		$redirectUrls 	->setReturnUrl("/buy/completion?success=true")
-					 	->setCancelUrl("/but/completion?success=false");
+		$redirectUrls->setReturnUrl("http://sellmygadgets.local//buy/completion?success=true")
+					 ->setCancelUrl("http://sellmygadgets.local//but/completion?success=false");
 
 		$payment = new Payment();
-		$payment 		->setIntent("sale")
-						->setPayer($payer)
-						->setRedirectUrls($redirectUrls)
-						->setTransactions(array($transaction));
+		$payment->setIntent("sale")
+			->setPayer($payer)
+			->setRedirectUrls($redirectUrls)
+			->setTransactions(array($transaction));
 
 		try {
 			$payment->create($apiContext);
