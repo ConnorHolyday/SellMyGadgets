@@ -1,13 +1,19 @@
 
 var sellmygadgets = (function (smg, w, d, undefined) {
 
-  var _xhrFactories = [
-    function () {return new XMLHttpRequest()},
-    function () {return new ActiveXObject("Msxml2.XMLHTTP")},
-    function () {return new ActiveXObject("Msxml3.XMLHTTP")},
-    function () {return new ActiveXObject("Microsoft.XMLHTTP")}
-  ],
-  _feedback = d.querySelector('.feedback-container');
+  var _feedback = d.querySelector('.feedback-container'),
+    _xhrFactories = [
+      function () {return new XMLHttpRequest()},
+      function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+      function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+      function () {return new ActiveXObject("Microsoft.XMLHTTP")}
+    ], _errors = [
+      'This is a required field',
+      'This field contains too many characters. The maximum is ',
+      'This is not a valid email address',
+      'This contains characters that are not allowed',
+      ''
+    ];
 
   // Request  animation frame polyfills
   w.requestAnimationFrame = (function() {
@@ -28,10 +34,44 @@ var sellmygadgets = (function (smg, w, d, undefined) {
       };
   })();
 
+  smg.cssClass = (function() {
+    var _apiSupport = 'classList' in document.documentElement,
+      c = {
+        add: function(el, cls) {
+          if (_apiSupport) {
+            el.classList.add(cls);
+          } else {
+            if (!this.has(el, cls)) {
+              el.className += " " + cls;
+              el.className.replace(/ +/g, ' ');
+            }
+          }
+        },
+        remove: function(el, cls) {
+          if (_apiSupport) {
+            el.classList.remove(cls);
+          } else {
+            if (hasClass(el, cls)) {
+              var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+              el.className = el.className.replace(reg, ' ');
+            }
+          }
+        },
+        has: function(el, cls) {
+          if (_apiSupport) {
+            return el.classList.contains(cls);
+          } else {
+            return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+          }
+        }
+      };
+    return c;
+  })();
+
   // Cross browser XMLHttp object
   smg.xhr = function() {
     var xhr = false;
-    for (var i = 0; i < _xhrFactories.length; i++) {
+    for (var i = 0, len = _xhrFactories.length; i < len; i++) {
       try {
         xhr = _xhrFactories[i]();
       } catch (e) {
@@ -39,8 +79,7 @@ var sellmygadgets = (function (smg, w, d, undefined) {
       }
       break;
     }
-
-    if(!xhr){
+    if(!xhr) {
       throw new Error('Browser does not support XMLHttpRequest');
     } else {
       return xhr;
@@ -48,7 +87,6 @@ var sellmygadgets = (function (smg, w, d, undefined) {
   };
 
   smg.upload = function(files, path) {
-
     var len = files.length > 5 ? 5 : files.length;
 
     for(var i = 0; i < len; i++) {
@@ -87,8 +125,8 @@ var sellmygadgets = (function (smg, w, d, undefined) {
   // XHR include file - (file path, container element to add to)
   smg.include = function(path, el) {
     if(el != undefined) {
-      var xhr = smg.xhr();
 
+      var xhr = smg.xhr();
       smg.addEvent(xhr, 'load', function() {
         el.innerHTML = this.responseText;
       });
@@ -143,48 +181,37 @@ var sellmygadgets = (function (smg, w, d, undefined) {
   };
 
   smg.validate = (function () {
-    var _errors = [
-        'This is a required field',
-        'This field contains too many characters. The maximum is ',
-        'This is not a valid email address',
-        'This contains characters that are not allowed',
-        ''
-      ],
-      e = 'error',
+    var e = 'error',
       v = {
+        isEmpty : function(el) {
+          if(el.value.length < 1) {
+            smg.cssClass.add(el, e);
+            return _errors[0];
+          } else {
 
-      isEmpty : function(el) {
-        if(el.value.length < 1) {
-          el.classList.add(e);
-          return _errors[0];
-        } else {
-          if(el.classList.contains(e)) {
-            el.classList.remove(e);
+          }
+        },
+        length : function(el, len) {
+          if(el.value.length > len) {
+            return _errors[1] + len;
+          }
+        },
+        email : function(el) {
+          var val = el.value.replace(/^\s+|\s+$/, ''),
+            email = /^[^@]+@[^@.]+\.[^@]*\w\w$/,
+            illegal = /[\(\)\<\>\,\;\:\\\"\[\]]/;
+
+          if(val == '') {
+            return _errors[0];
+          } else if(!email.test(val)) {
+            return _errors[2]
+          } else if(el.val.match(illegal)) {
+            return _errors[3];
           }
         }
-      },
-      length : function(el, len) {
-        if(el.value.length > len) {
-          return _errors[1] + len;
-        }
-      },
-      email : function(el) {
-        var val = el.value.replace(/^\s+|\s+$/, ''),
-          email = /^[^@]+@[^@.]+\.[^@]*\w\w$/,
-          illegal = /[\(\)\<\>\,\;\:\\\"\[\]]/;
-
-        if(val == '') {
-          return _errors[0];
-        } else if(!email.test(val)) {
-          return _errors[2]
-        } else if(el.val.match(illegal)) {
-          return _errors[3];
-        }
-      }
-    };
-
+      };
     return v;
-  }());
+  })();
 
   return (window.sellmygadgets = window._ = smg);
 
