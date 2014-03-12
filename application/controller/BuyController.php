@@ -13,34 +13,39 @@
 			$product = $this->model->getProductById($id);	
 			$buyerDetails = $this->model->getBuyerDetails($_SESSION['USER_NAME']);
 			$sellerDetails = $this->model->getSellerDetails($product[0]['created_by']);
-
-			var_dump($buyerDetails);
-			var_dump($sellerDetails);
 			
-			$this->view->buyerName = '';
-			$this->view->sellerName = '';
+			$this->view->buyerName = $buyerDetails[0]['username'];
+			$this->view->sellerName = $sellerDetails[0]['username'];
 
-			$productName = $product[0]['name'];
-		    $productPrice = $product[0]['price'];
-		    $productPostge = $product[0]['delivery_cost'];
+			$this->view->productID = $id;
+			$this->view->productName = $product[0]['name'];
+		    $this->view->productPrice = $product[0]['price'];
+		    $this->view->productPostge = $product[0]['delivery_cost'];
+		    $this->view->productDescription = $product[0]['description'];
+		    $this->view->productImage = $product[0]['primary_image'];
 
-		    $this->view->render('buy/product', 'Buy' . '', true, true);
+		    $this->view->render('buy/product', 'Buy' . $product[0]['name'], true, true);
 		}
 
-		function payment(){
-			//enter payment details
-			//process payment
-			//$this->model->preparePayment();
+		function payment($id){
+			if($_GET['confirmation'] == 'yes'){
+				$product = $this->model->getProductById($id);
+
+				//echo $product[0]['name'] . ' ' . $product[0]['price'] . ' ' . $product[0]['delivery_cost'] . ' ' . $product[0]['description'] . 'Test Payment';	
+
+				$this->view->payment = $this->model->processPayment($product[0]['name'], $product[0]['price'], $product[0]['delivery_cost'], $product[0]['description'], 'Test Payment');
+				//$this->view->payment = $this->model->testPayment();
+				$this->view->render('buy/payment', 'Procesing payment for' . $product[0]['name'], true, true);
+			}
 		}
 
-		function confirmation(){
-			//check payment was complete
-			//if payment complete then update tables
-			//automate paying seller from smg paypal acount
+		function completion(){
+			$this->view->completion = $this->model->getPaymentConfimrmation();
+
+			$this->view->render('buy/completion', 'Completed payment for', true, true);						
 		}
 
 		function test(){
-			echo 'test';
-			echo $this->model->preparePayment();
+			//echo $this->model->updateDatabase();
 		}
 	}

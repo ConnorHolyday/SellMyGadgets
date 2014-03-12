@@ -48,6 +48,54 @@
         }
       }
 
+<<<<<<< HEAD
+        /*
+        Querys all products by an id and will only return a single product information
+        this function is accsed via the site_diretory/product/single
+        */
+        function view($id) {
+             if(is_numeric($id)){
+                $products = $this->model->getProductById($id);
+            } else {
+                $products = $this->model->getProductByName($id);
+            }
+
+            $images = $this->model->getAllImages($id);
+            $comments = $this->model->getAllComments($id);
+        
+            $allMedia = array();
+            $allComments = array();
+
+            $this->view->productId = $products[0]['id'];
+            $this->view->productName = $products[0]['name'];
+            $this->view->productPrice = $products[0]['price'];
+            $this->view->productImage = '<img src="' . IMG_MED_DIR . $products[0]['primary_image'] . $products[0]['extension'] . '" alt="' . $products[0]['title'] .'" >';
+            $this->view->productImageName = $products[0]['title'];
+            $this->view->productDeliveryDate = $products[0]['delivery_date'];
+            $this->view->productDeliveryCost = $products[0]['delivery_cost'];
+            $this->view->productCondition = $products[0]['condition_name'];
+            $this->view->productSeller = $products[0]['username'];
+            $this->view->productDescription = $products[0]['description'];
+
+            //images and comments to be updated still
+
+            foreach ($images as $media){
+                array_push ($allMedia, '<img src="' . IMG_MED_DIR . $media['id'] . $media['extension'] . '" alt="' . $media['title'] . '" >');
+            }
+
+            foreach ($comments as $comment){
+                array_push ($allComments, '' . $comments['id'] . $comments['comment']);
+            }
+
+            print_r($allComments);
+
+            $this->view->productMedia = $allMedia;
+            $this->view->productComments = $allComments;
+            
+            //render the view page
+            $this->view->render('product/view', 'View product', true, true);
+        }
+=======
       $pages = ceil($this->model->countAllProducts() / PAGE_ITEMS);
       $last = $currentPage * PAGE_ITEMS;
 
@@ -62,6 +110,7 @@
 
       $this->view->render('Product/all', 'View all products', true, true, ['productview']);
     }
+>>>>>>> FETCH_HEAD
 
     /*
     Querys all products by an id and will only return a single product information
