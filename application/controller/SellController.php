@@ -14,7 +14,7 @@
 
     function your_items() {
       $this->view->userProducts = $this->model->getProductsByUser(AccountService::checkAuth());
-      $this->view->render('sell/allitems', 'View all your items currently for sale', true, false);
+      $this->view->render('sell/allitems', 'View all your items currently for sale', '', true, false);
     }
 
     function item($stage = 'details') {
@@ -28,7 +28,7 @@
           $this->view->brands = $this->service->populateSelectTagByName('brands', 'brand');
           $this->view->conditions = $this->service->populateSelectTagByName('conditions', 'condition');
 
-          $this->view->render('sell/details', 'Sell Item - Details', true, false);
+          $this->view->render('sell/details', 'Sell Item - Details', '', true, false);
 
           break;
 
@@ -46,14 +46,14 @@
             $this->service->addDetailsDataToSession($name, $category, $brand, $price, $description, $condition);
           }
 
-          $this->view->render('sell/images', 'Sell Item - Images', true, false, [['file', 'upload'], ['inline', 'console.log(\'init upload\');']]);
+          $this->view->render('sell/images', 'Sell Item - Images', '', true, false, [['file', 'upload'], ['inline', 'console.log(\'init upload\');']]);
 
           break;
 
         case 'delivery':
 
           $this->upload();
-          $this->view->render('sell/delivery', 'Sell Item - Delivery', true, false);
+          $this->view->render('sell/delivery', 'Sell Item - Delivery', '', true, false);
 
           break;
 
@@ -69,7 +69,7 @@
           }
 
           $this->view->confirmData = $this->service->getSellSessionData();
-          $this->view->render('sell/confirm', 'Sell Item - Confirm', true, false);
+          $this->view->render('sell/confirm', 'Sell Item - Confirm', '', true, false);
 
           break;
 
@@ -83,7 +83,7 @@
 
           $this->view->processMessage = '<h1 class="center--large">Your item will now go through an administration process.</h1><h2 class="center--large">If your item is accepted, it will become visible on the site.</h2>';
 
-          $this->view->render('sell/processed', 'Sell Item - Processed', true, false);
+          $this->view->render('sell/processed', 'Sell Item - Processed', '', true, false);
 
           break;
 
@@ -167,7 +167,7 @@
 
     function edit_item($id) {
       if($id != null) {
-        $this->view->render('sell/edititem', 'Edit an item you have for sale', true, false);
+        $this->view->render('sell/edititem', 'Edit an item you have for sale', '', true, false);
       } else {
         header('Location: /sell/your-items');
       }

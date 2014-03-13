@@ -19,7 +19,7 @@
       $this->view->page_title = $about[0]['title'];
       $this->view->content = $about[0]['content'];
 
-      $this->view->render('site/content', 'About', true, false);
+      $this->view->render('site/content', 'About', '', true, false);
     }
 
     function terms () {
@@ -28,7 +28,7 @@
       $this->view->page_title = $terms[0]['title'];
       $this->view->content = $terms[0]['content'];
 
-      $this->view->render('site/content', 'Terms and Conditions', true, false);
+      $this->view->render('site/content', 'Terms and Conditions', '', true, false);
     }
 
     function privacy () {
@@ -37,7 +37,7 @@
       $this->view->page_title = $privacy[0]['title'];
       $this->view->content = $privacy[0]['content'];
 
-      $this->view->render('site/content', 'Privacy Statement', true, false);
+      $this->view->render('site/content', 'Privacy Statement', '', true, false);
     }
 
     function advertising() {
@@ -46,7 +46,7 @@
       $this->view->page_title = $advertising[0]['title'];
       $this->view->content = $advertising[0]['content'];
 
-      $this->view->render('site/content', 'Advertising', true, false);
+      $this->view->render('site/content', 'Advertising', '', true, false);
     }
 
     function cookies() {
@@ -55,7 +55,7 @@
       $this->view->page_title = $cookies[0]['title'];
       $this->view->content = $cookies[0]['content'];
 
-      $this->view->render('site/content', 'Cookie Policy', true, false);
+      $this->view->render('site/content', 'Cookie Policy', '', true, false);
     }
 
     function help() {
@@ -64,7 +64,7 @@
       $this->view->page_title = $help[0]['title'];
       $this->view->content = $help[0]['content'];
 
-      $this->view->render('site/content', 'Help', true, false);
+      $this->view->render('site/content', 'Help', '', true, false);
     }
 
     function map() {
@@ -110,7 +110,7 @@
       }
 
       $this->view->siteMap = $siteMap;
-      $this->view->render('site/map', 'Sitemap', true, false);
+      $this->view->render('site/map', 'Sitemap', '', true, false);
     }
 
     function contact() {
@@ -119,6 +119,6 @@
       $this->view->page_title = $contact[0]['title'];
       $this->view->content = $contact[0]['content'];
 
-      $this->view->render('site/content', 'Contact', true, false);
+      $this->view->render('site/content', 'Contact', '', true, false);
     }
   }

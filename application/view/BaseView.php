@@ -8,7 +8,7 @@
 
 		}
 
-		public function render($name, $title, $inc_master, $inc_search, $optionalScripts = NULL) {
+		public function render($name, $title, $description, $inc_master, $inc_search, $optionalScripts = NULL) {
 
 			$this->title = 'sellmygadgets. | ' . $title;
 			$this->view = APP_DIR . 'view/' . $name . '.php';

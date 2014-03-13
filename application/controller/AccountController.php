@@ -12,9 +12,6 @@
     }
 
     function login() {
-
-      $this->view->render('account/login', 'Please login to continue', false, false);
-
       // Catch the values on postback
       if(isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
@@ -30,10 +27,11 @@
           echo '<p style="color:red;">invalid credentials, please try again.</p>';
         }
       }
+      $this->view->render('account/login', 'Please login to continue', '', false, false);
     }
 
     function forgotten_password() {
-      $this->view->render('account/passwordreset', 'Reset your password', false, false);
+      $this->view->render('account/passwordreset', 'Reset your password', '', false, false);
     }
 
     function logout() {
@@ -42,12 +40,10 @@
     }
 
     function dashboard() {
-      $this->view->render('account/dashboard', 'Welcome to your personal dashboard', false, false);
+      $this->view->render('account/dashboard', 'Welcome to your personal dashboard', '', false, false);
     }
 
     function signup() {
-      $this->view->render('account/signup', 'Sign up for an account today', false, false);
-
       // Catch the values on postback
       if(sizeof($_POST) > 0) {
 
@@ -67,6 +63,7 @@
         AccountService::setSession($auth);
         header('Location: /account/dashboard');
       }
+      $this->view->render('account/signup', 'Sign up for an account today', '', false, false);
     }
 
     function view($userName){
@@ -84,6 +81,6 @@
       $this->view->userPhone = $user[0]['contact_number'];
       $this->view->userEmail = $user[0]['contact_email'];
 
-      $this->view->render('account/view', $username .' profile page', false, false);
+      $this->view->render('account/view', $username . ' profile page', '', false, false);
     }
   }
