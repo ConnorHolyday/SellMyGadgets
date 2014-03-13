@@ -15,9 +15,7 @@
 	class BuyModel extends BaseModel {
 
 	function __construct() {	
-		parent::__construct();
-
-			
+		parent::__construct();	
 	}	
 
 	function getProductById($id){
@@ -37,7 +35,7 @@
 						ON product_details.created_by = users.id
 						WHERE products.id = ' . $id;
 
-			return $this->db->execute_assoc_query($product);
+		return $this->db->execute_assoc_query($product);
 	}
 
 	function getSellerDetails($id){
@@ -51,7 +49,7 @@
 	}
 
 	function getBuyerDetails($userName){
-		$userInfo = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email
+		$userInfo = 'SELECT users.id, users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email
 					FROM users
 					INNER JOIN user_details
 					ON users.id = user_details.user_id
@@ -76,7 +74,38 @@
 		return $apiContext;
 	}
 
-	function processPayment($itemName, $itemPrice, $itemPostage, $itemDescription, $paymentDescription){
+	function storeTransaction($id){
+		$product = $this->getProductById($id);
+
+		echo '<pre>';
+		print_r($product);
+		echo '</pre>';
+
+		$buyer = $this->getBuyerDetails($_SESSION['USER_NAME']);
+
+		$percent = ($product[0]['price'] / 100) * 3;
+		$fees = $percent + 0.30;
+
+		$date = date('m/d/Y h:i:s a');
+		$cost = $product[0]['price'] + $fees + $product[0]['delivery_cost'];
+
+		$query = 'INSERT INTO `transactions` (`buyer_id`, `seller_id`, `product_id`, `Cost`, `status_id`)
+					VALUES (' . $buyer[0]['id'] . ',' . $product[0]['created_by'] . ',' . $id . ',' . $cost . ', 2);';
+
+		echo $query;
+
+		$this->db->execute_query($query);
+	}
+
+	function updateTables($id){
+		$this->db->execute_query('UPDATE `products`
+									SET `status` = 3
+									WHERE `id` =' . $id);
+
+		
+	}
+
+	function processPayment($itemName, $itemPrice, $itemPostage, $itemDescription, $paymentDescription, $id){
 
 		$apiContext = $this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET);
 
@@ -112,8 +141,8 @@
 			->setDescription("Payment description");
 
 		$redirectUrls = new RedirectUrls();
-		$redirectUrls->setReturnUrl("http://sellmygadgets.local//buy/completion?success=true")
-					 ->setCancelUrl("http://sellmygadgets.local//but/completion?success=false");
+		$redirectUrls->setReturnUrl("http://sellmygadgets.local/buy/completion/" . $id . "?success=true")
+					 ->setCancelUrl("http://sellmygadgets.local/but/completion/" . $id . "?success=false");
 
 		$payment = new Payment();
 		$payment->setIntent("sale")
@@ -164,7 +193,36 @@
 		return $result;
 	}
 
-	function updateProducts($id){
-			$update = 'UPDATE ';
+	function setPaySeller(){
+
+		$logger = new PPLoggingManager('MassPay');
+
+		$massPayReq = new MassPayReq();
+		$massPayItemArray = array();
+
+		$amount1 = new BasicAmountType("USD","40.00");
+		$massPayRequestItem1 = new MassPayRequestItemType($amount1);
+
+		$massPayRequestItem1->ReceiverEmail = "andy@hotmail.com";
+
+		$massPayItemArray[0] = $massPayRequestItem1;
+
+		$massPayRequest = new MassPayRequestType($massPayItemArray);
+		$massPayReq->MassPayRequest = $massPayRequest;
+
+		$service = new PayPalAPIInterfaceServiceService($this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET));
+
+		try {
+			$response = $service->MassPay($massPayReq);
+		} catch (Exception $ex) {
+			$logger->error("Error Message : " + $ex->getMessage());
+		}
+		if ($response->Ack == "Success") {
+			$logger->log("Mass Pay successful");
+		}
+		else {
+			$logger->error("API Error Message : ". $response->Errors[0]->LongMessage);
+		}
+		return $response;
 	}
 }
