@@ -17,7 +17,7 @@
 			$this->view->buyerName = $buyerDetails[0]['username'];
 			$this->view->sellerName = $sellerDetails[0]['username'];
 
-			$this->view->productID = $id;
+			$this->view->productID = $product[0]['id'];
 			$this->view->productName = $product[0]['name'];
 		    $this->view->productPrice = $product[0]['price'];
 		    $this->view->productPostge = $product[0]['delivery_cost'];
@@ -31,17 +31,17 @@
 			if($_GET['confirmation'] == 'yes'){
 				$product = $this->model->getProductById($id);
 
-				//echo $product[0]['name'] . ' ' . $product[0]['price'] . ' ' . $product[0]['delivery_cost'] . ' ' . $product[0]['description'] . 'Test Payment';	
-
-				$this->view->payment = $this->model->processPayment($product[0]['name'], $product[0]['price'], $product[0]['delivery_cost'], $product[0]['description'], 'Test Payment');
-				//$this->view->payment = $this->model->testPayment();
+				$this->view->payment = $this->model->processPayment($product[0]['name'], $product[0]['price'], $product[0]['delivery_cost'], $product[0]['description'], 'Test Payment', $id);
 				$this->view->render('buy/payment', 'Procesing payment for' . $product[0]['name'], true, true);
 			}
 		}
 
-		function completion(){
-			$this->view->completion = $this->model->getPaymentConfimrmation();
+		function completion($id){
+			$this->view->completion = $this->model->getPaymentConfimrmation($id);
 
+			$this->model->updateTables($id);
+			$this->model->storeTransaction($id);
+			$this->model->setPaySeller();
 			$this->view->render('buy/completion', 'Completed payment for', true, true);						
 		}
 
