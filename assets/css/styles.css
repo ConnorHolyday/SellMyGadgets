@@ -1156,19 +1156,19 @@ textarea {
 	padding: 0 1em;
 }
 
-.index .search--top__h2--index {
+.home .search--top__h2--index {
 	display: block;
 }
 
-.index .search--top__h2 {
+.home .search--top__h2 {
 	display: none;
 }
 
-.index .search--top__p {
+.home .search--top__p {
 	max-width: 55%;
 }
 
-.index .search--top__input {
+.home .search--top__input {
 	width: 100%;
 }
 
