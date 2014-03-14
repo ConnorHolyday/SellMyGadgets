@@ -11,12 +11,6 @@
 	use PayPal\Api\ExecutePayment;
 	use PayPal\Api\PaymentExecution;
 
-	use PayPal\Api\PPLoggingManager;
-	use PayPal\Api\MassPayReq;
-	use PayPal\Api\PayPalAPIInterfaceServiceService;
-	use PayPal\Api\BasicAmountType;
-	use PayPal\Api\MassPayRequestItemType;
-
 	use PayPal\Rest\ApiContext;
 	
 	class BuyModel extends BaseModel {
@@ -125,7 +119,7 @@
 
 		$item = new Item();
 		$item->setName($itemName)
-			->setCurrency('USD')
+			->setCurrency(PAYPAL_CURRENCY)
 			->setQuantity(1)
 			->setPrice($itemPrice);
 
@@ -138,7 +132,7 @@
 				->setSubtotal($itemPrice);
 
 		$amount = new Amount();
-		$amount->setCurrency("USD")
+		$amount->setCurrency(PAYPAL_CURRENCY)
 			->setTotal($itemPrice + $itemPostage)
 			->setDetails($details);
 
@@ -200,17 +194,17 @@
 		return $result;
 	}
 
-	function setPaySeller(){
+	function setPaySeller($amount, $payee){
 
 		$logger = new PPLoggingManager('MassPay');
 
 		$massPayReq = new MassPayReq();
 		$massPayItemArray = array();
 
-		$amount1 = new BasicAmountType("USD","40.00");
+		$amount1 = new BasicAmountType(PAYPAL_CURRENCY ,$amount);
 		$massPayRequestItem1 = new MassPayRequestItemType($amount1);
 
-		$massPayRequestItem1->ReceiverEmail = "email@mail.com";
+		$massPayRequestItem1->ReceiverEmail = $payee;
 
 		$massPayItemArray[0] = $massPayRequestItem1;
 

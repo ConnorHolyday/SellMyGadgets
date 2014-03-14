@@ -32,7 +32,7 @@
 				$product = $this->model->getProductById($id);
 
 				$this->view->payment = $this->model->processPayment($product[0]['name'], $product[0]['price'], $product[0]['delivery_cost'], $product[0]['description'], 'Test Payment', $id);
-				$this->view->render('buy/payment', 'Procesing payment for' . $product[0]['name'], true, true);
+				$this->view->render('buy/payment', 'Procesing payment for' . $product[0]['name'], '',true, true);
 			}
 		}
 
@@ -41,12 +41,12 @@
 
 			$this->model->updateTables($id);
 			$this->model->storeTransaction($id);
-			$this->view->render('buy/completion', 'Completed payment for', true, true);						
+			$this->view->render('buy/completion', 'Completed payment for', '',true, true);						
 		}
 
 		function test(){
-			$this->model->setPaySeller();
+			$this->view->paymentResponse = $this->model->setPaySeller();
 			
-			$this->view->render('buy/test', 'test page', true, true);	
+			$this->view->render('buy/test', 'test page', '',true, true);	
 		}
 	}

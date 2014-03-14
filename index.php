@@ -6,12 +6,12 @@
     require_once('library/configuration.php');
     require_once(LIB_DIR . 'application.php');
     require_once(LIB_DIR . 'paypal/autoload.php');
+    //require_once(LIB_DIR . 'paypal/PPAutoloader.php');
+    require_once(LIB_DIR . 'paypal/PPBootstrap.php');
     require_once(APP_DIR . 'controller/BaseController.php');
     require_once(APP_DIR . 'model/BaseModel.php');
     require_once(APP_DIR . 'view/BaseView.php');
 
-    //require(LIB_DIR . 'paypal/paypal/paypal-merchant-sdk-php-4f570f5/lib/services/PayPalAPIInterfaceService/PayPalAPIInterfaceService.php');
-    //require(LIB_DIR . 'paypal/paypal/paypal-merchant-sdk-php-4f570f5/lib/services/PayPalAPIInterfaceService/paypalAPIInterfaceServiceService.php');    
 
     spl_autoload_register('autload_app_class');
 
