@@ -12,22 +12,26 @@
     }
 
     function login() {
-      // Catch the values on postback
-      if(isset($_POST['username']) && isset($_POST['password'])) {
-        $username = $_POST['username'];
-        $pass = md5($_POST['password']);
+      if(!AccountService::isLoggedIn()) {
+        // Catch the values on postback
+        if(isset($_POST['username']) && isset($_POST['password'])) {
+          $username = $_POST['username'];
+          $pass = md5($_POST['password']);
+          $auth = $this->model->processLogin($username, $pass);
 
-        $auth = $this->model->processLogin($username, $pass);
-
-        if($auth != null) {
-          AccountService::setSession($auth, $username);
-          $to = isset($_POST['to']) ? $_POST['to'] : '/account/dashboard';
-          header('Location: ' . $to);
-        } else {
-          echo '<p style="color:red;">invalid credentials, please try again.</p>';
+          if($auth != null) {
+            AccountService::setSession($auth, $username);
+            $to = isset($_POST['to']) ? $_POST['to'] : '/account/dashboard';
+            header('Location: ' . $to);
+          } else {
+            echo '<p style="color:red;">invalid credentials, please try again.</p>';
+          }
         }
+        $this->view->render('account/login', 'Please login to continue', '', false, false);
+
+      } else {
+        header('Location: /account/dashboard');
       }
-      $this->view->render('account/login', 'Please login to continue', '', false, false);
     }
 
     function forgotten_password() {
@@ -40,7 +44,8 @@
     }
 
     function dashboard() {
-      $this->view->render('account/dashboard', 'Welcome to your personal dashboard', '', false, false);
+      AccountService::requiresLogin();
+      $this->view->render('account/dashboard', 'Welcome to your personal dashboard', '', false, false, [['file', 'smg'], ['file', 'dashboard']]);
     }
 
     function signup() {

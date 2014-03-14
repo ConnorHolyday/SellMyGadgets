@@ -7,7 +7,7 @@
     }
 
     function index() {
-      $this->view->render('home/index', 'Homepage', '', true, true, [['file', 'smg'], ['inline', '(function(d){sellmygadgets.include(\'/home/stats\',d.querySelector(\'.js-stats\'));sellmygadgets.include(\'/home/star-seller\',d.querySelector(\'.js-star\'));})(document);']]);
+      $this->view->render('home/index', 'Homepage', '', true, true, [['file', 'smg'], ['inline', 'var sell=document.querySelector(\'.js-seller\'),stats=document.querySelector(\'.js-stats\');_.addEvent(window,\'scroll\',function(){if(_.inViewport(sell)){_.include(\'/home/star-seller\',sell);}if(_.inViewport(stats)){_.include(\'/home/stats\',stats);}});']]);
     }
 
     function star_seller() {
