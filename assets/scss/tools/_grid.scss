@@ -16,8 +16,8 @@ $gutter_pc: 0;
 $grids: (
 	(m, 2),
 	(t, 4, 599),
-	(d2, 6, 899),
-	(d, 8, 899)
+	(d2, 6, 990),
+	(d, 8, 990)
 );
 
 // media query variables
@@ -88,13 +88,13 @@ $old_ie_support: false;
             @content;
         }
 
-        @media screen and (#{$query1}-#{$query2}: $point / $doc_font_size +em) {
+        @media screen and (#{$query1}-#{$query2}: $point +px) {
             @content;
         }
 
     } @else {
 
-        @media screen and (#{$query1}-#{$query2}: $point / $doc_font_size +em) {
+        @media screen and (#{$query1}-#{$query2}: $point +px) {
             @content;
         }
 
