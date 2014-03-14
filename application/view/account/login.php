@@ -1,6 +1,6 @@
   <section class="form form--login">
 
-  <h1>Please Login to continue</h1>
+  <h1>Please login to continue</h1>
 
     <form action="/account/login" method="post">
 
