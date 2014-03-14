@@ -13,12 +13,18 @@
 	$productDescription = $this->productDescription;
 ?>
 
+<div class="hero-banner">
+	<div class="wrapper">
+		<h1><?php echo $productName; ?></h1>
+	</div>
+</div>
+
 <div class="wrapper">
 
 	<nav itemscope itemtype ="https://schema.org/breadcrumb"class="breadcrumb breadcrumb__product">
 		<a itemprop="url" href="/">Home</a>
-		<a itemprop="url" href="#">Product</a>
-		<a itemprop="url" href="#"><?php echo $productName; ?></a>
+		<a itemprop="url" href="/product/all">Product</a>
+		<a itemprop="url"><?php echo $productName; ?></a>
 	</nav>
 
 	<div class="row">
@@ -40,7 +46,7 @@
 					<li class="tags">Tags: iPhone, Apple, Mobile, Phone</li>
 				</ul>
 
-				<a href="#" class="btn btn--dark">Buy Product</a>
+				<a href="/buy/product/<?php echo $productID; ?>" class="btn btn--dark">Buy Product</a>
 
 			</div>
 
