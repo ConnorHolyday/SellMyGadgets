@@ -127,7 +127,7 @@
             <?php foreach ($this->products as $product) : ?>
               <div class="col d2-2">
                 <div class="boxed module__product">
-                  <img src="<?php echo IMG_MED_DIR .  $product['primary_image'] . $product['extension']; ?>" alt="">
+                  <img src="<?php echo '/' . STATIC_2 . 'medium/' . $product['primary_image'] . $product['extension']; ?>" alt="">
 
                   <ul class="product-meta list-block__list">
                     <li><?php echo $product['name']; ?></li>
@@ -209,37 +209,3 @@
 
   </div>
 </div>
-
-<script type="text/javascript">
-
-  //*
-
-  ;(function (w, d, undefined) {
-
-    var viewList = d.querySelector('.view--list'),
-        viewGrid = d.querySelector('.view--grid'),
-        display = d.querySelector('.display--grid');
-
-    function toggleDisplay() {
-      display.classList.toggle('display--list');
-      display.classList.toggle('display--grid');
-    }
-
-    viewList.addEventListener('click', function(e){
-      e.preventDefault();
-      if ( display.classList.contains('display--grid') )
-        toggleDisplay();
-    });
-
-    viewGrid.addEventListener('click', function(e){
-      e.preventDefault();
-      if ( display.classList.contains('display--list') )
-        toggleDisplay();
-    });
-
-  })(window, document);
-
-  //*/
-
-</script>
-

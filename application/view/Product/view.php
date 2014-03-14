@@ -15,10 +15,10 @@
 
 <div class="wrapper">
 
-	<nav class="breadcrumb breadcrumb__product">
-		<a href="/">Home</a>
-		<a href="#">Product</a>
-		<a href="#"><?php echo $productName; ?></a>
+	<nav itemscope itemtype ="https://schema.org/breadcrumb"class="breadcrumb breadcrumb__product">
+		<a itemprop="url" href="/">Home</a>
+		<a itemprop="url" href="#">Product</a>
+		<a itemprop="url" href="#"><?php echo $productName; ?></a>
 	</nav>
 
 	<div class="row">
@@ -32,10 +32,10 @@
 
 				</div> -->
 
-				<ul class="product-meta list-block__list">
-					<li><?php echo $productName ?></li>
-					<li>£<?php echo $productPrice ?></li>
-					<li>Condition - <?php echo $productCondition ?></li>
+				<ul itemscope itemtype="http://schema.org/Product"class="product-meta list-block__list">
+					<li itemprop="name"><?php echo $productName ?></li>
+					<li itemprop="price">£<?php echo $productPrice ?></li>
+					<li itemprop="itemCondition">Condition - <?php echo $productCondition ?></li>
 					<li>Sold by: <a href="#"><?php echo $productSeller ?></a></li>
 					<li class="tags">Tags: iPhone, Apple, Mobile, Phone</li>
 				</ul>
@@ -46,12 +46,12 @@
 
 		</aside>
 
-		<section class="col d-6">
+		<section itemscope itemtype="http://schema.org/Product"class="col d-6">
 
-			<h1><?php echo $productName; ?></h1>
+			<h1 itemprop="name"><?php echo $productName; ?></h1>
 			<span>Sold by: <a href="#"><?php echo $productSeller; ?></a></span>
 
-			<p><?php echo $productDescription; ?></p>
+			<p itemprop"description"><?php echo $productDescription; ?></p>
 
 			<div class="comments">
 				<h2>Comments</h2>

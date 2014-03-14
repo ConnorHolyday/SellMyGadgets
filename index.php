@@ -9,7 +9,9 @@
     require_once(APP_DIR . 'controller/BaseController.php');
     require_once(APP_DIR . 'model/BaseModel.php');
     require_once(APP_DIR . 'view/BaseView.php');
-    
+
+    //require(LIB_DIR . 'paypal/paypal/paypal-merchant-sdk-php-4f570f5/lib/services/PayPalAPIInterfaceService/PayPalAPIInterfaceService.php');
+    //require(LIB_DIR . 'paypal/paypal/paypal-merchant-sdk-php-4f570f5/lib/services/PayPalAPIInterfaceService/paypalAPIInterfaceServiceService.php');    
 
     spl_autoload_register('autload_app_class');
 

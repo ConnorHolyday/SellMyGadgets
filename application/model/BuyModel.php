@@ -1,21 +1,28 @@
 <?php
-	use PayPal\Auth\OAuthTokenCredential;	
+	use PayPal\Auth\OAuthTokenCredential;
+	use PayPal\Api\Amount;
+	use PayPal\Api\Details;
+	use PayPal\Api\Item;
+	use PayPal\Api\ItemList;
+	use PayPal\Api\Payer;
+	use PayPal\Api\Payment;
+	use PayPal\Api\RedirectUrls;
+	use PayPal\Api\Transaction;
+	use PayPal\Api\ExecutePayment;
+	use PayPal\Api\PaymentExecution;
+
+	use PayPal\Api\PPLoggingManager;
+	use PayPal\Api\MassPayReq;
+	use PayPal\Api\PayPalAPIInterfaceServiceService;
+	use PayPal\Api\BasicAmountType;
+	use PayPal\Api\MassPayRequestItemType;
+
+	use PayPal\Rest\ApiContext;
 	
 	class BuyModel extends BaseModel {
 
 	function __construct() {	
-		parent::__construct();
-
-		//set sandbox information
-		Define('SANDBOX_ACOUNT', 'pay-facilitator@sellmygadgets.co.uk');
-		Define('SANDBOX_ENDPOINT','api.sandbox.paypal.com');
-		Define('SANDBOX_CLIENTID','AZrkPxDtZbc4s8IMHocfXrI496hmPdec8tK_SLKRQGmfjuH_1kGG78I2K0vO');
-		Define('SANDBOX_SECRET','EMNG5hDa4dDe2jD_UkFpmZdeulXkR04wxKohEs58UeWep2dkct5O46tTqkg5');
-
-		//set paypall information
-		Define('API_USERNAME',	'pay_api1.sellmygadgets.co.uk');
-		Define('API_PASSWORD',	'Z7NGPB99XNVCPVQ8');
-		Define('API_SIGNATURE',	'AFcWxV21C7fd0v3bYYYRCpSSRl31AJWo5DsJ5VSvwtJYMULsWaXzE7MS');	
+		parent::__construct();	
 	}	
 
 	function getProductById($id){
@@ -35,7 +42,7 @@
 						ON product_details.created_by = users.id
 						WHERE products.id = ' . $id;
 
-			return $this->db->execute_assoc_query($product);
+		return $this->db->execute_assoc_query($product);
 	}
 
 	function getSellerDetails($id){
@@ -49,7 +56,7 @@
 	}
 
 	function getBuyerDetails($userName){
-		$userInfo = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email
+		$userInfo = 'SELECT users.id, users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email
 					FROM users
 					INNER JOIN user_details
 					ON users.id = user_details.user_id
@@ -58,22 +65,171 @@
 		return $this->db->execute_assoc_query($userInfo);			
 	}
 
-	function preparePayment(){
-		$oauthCredential = new OAuthTokenCredential(SANDBOX_CLIENTID, SANDBOX_SECRET);
-		$accessToken     = $oauthCredential->getAccessToken(array('mode' => 'sandbox'));
+	function getAccessToken($clientID, $clientSecret){
+		$apiContext = new ApiContext(new OAuthTokenCredential($clientID,$clientSecret));
 
-		return $accessToken;
+		$apiContext->setConfig(
+		array(
+			'mode' => 'sandbox',
+			'http.ConnectionTimeOut' => 30,
+			'log.LogEnabled' => true,
+			'log.FileName' => '../PayPal.log',
+			'log.LogLevel' => 'FINE'
+			)
+		);
+
+		return $apiContext;
 	}
 
-	function processPayment(){
-		//send payment to sellmygadgets
+	function storeTransaction($id){
+		$product = $this->getProductById($id);
+
+		echo '<pre>';
+		print_r($product);
+		echo '</pre>';
+
+		$buyer = $this->getBuyerDetails($_SESSION['USER_NAME']);
+
+		$percent = ($product[0]['price'] / 100) * 3;
+		$fees = $percent + 0.30;
+
+		$date = date('m/d/Y h:i:s a');
+		$cost = $product[0]['price'] + $fees + $product[0]['delivery_cost'];
+
+		$query = 'INSERT INTO `transactions` (`buyer_id`, `seller_id`, `product_id`, `Cost`, `status_id`)
+					VALUES (' . $buyer[0]['id'] . ',' . $product[0]['created_by'] . ',' . $id . ',' . $cost . ', 2);';
+
+		echo $query;
+
+		$this->db->execute_query($query);
+	}
+
+	function updateTables($id){
+		$this->db->execute_query('UPDATE `products`
+									SET `status` = 3
+									WHERE `id` =' . $id);
+
+		
+	}
+
+	function processPayment($itemName, $itemPrice, $itemPostage, $itemDescription, $paymentDescription, $id){
+
+		$apiContext = $this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET);
+
+		$percent = ($itemPrice / 100) * 3;
+		$fees = $percent + 0.30;
+		$totalPrice = $itemPostage + $fees + $itemPrice;
+
+		$payer = new Payer();
+		$payer->setPaymentMethod("paypal");
+
+		$item = new Item();
+		$item->setName($itemName)
+			->setCurrency('USD')
+			->setQuantity(1)
+			->setPrice($itemPrice);
+
+		$itemList = new ItemList();
+		$itemList->setItems(array($item));
+
+		$details = new Details();
+		$details->setShipping($itemPostage)
+				->setTax('0')
+				->setSubtotal($itemPrice);
+
+		$amount = new Amount();
+		$amount->setCurrency("USD")
+			->setTotal($itemPrice + $itemPostage)
+			->setDetails($details);
+
+		$transaction = new Transaction();
+		$transaction->setAmount($amount)
+			->setItemList($itemList)
+			->setDescription("Payment description");
+
+		$redirectUrls = new RedirectUrls();
+		$redirectUrls->setReturnUrl("http://sellmygadgets.local/buy/completion/" . $id . "?success=true")
+					 ->setCancelUrl("http://sellmygadgets.local/but/completion/" . $id . "?success=false");
+
+		$payment = new Payment();
+		$payment->setIntent("sale")
+			->setPayer($payer)
+			->setRedirectUrls($redirectUrls)
+			->setTransactions(array($transaction));
+
+		try {
+			$payment->create($apiContext);
+		} catch (PayPal\Exception\PPConnectionException $ex) {
+			echo "Exception: " . $ex->getMessage() . PHP_EOL;
+			var_dump($ex->getData());	
+			exit(1);
+		}
+
+		foreach($payment->getLinks() as $link) {
+			if($link->getRel() == 'approval_url') {
+				$redirectUrl = $link->getHref();
+				break;
+			}
+		}
+
+		$_SESSION['paymentId'] = $payment->getId();
+		if(isset($redirectUrl)) {
+			header("Location: $redirectUrl");
+			exit;
+		}
 	}
 
 	function getPaymentConfimrmation(){
-		//get paypall confirmation
+
+		$apiContext = $this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET);
+
+		if(isset($_GET['success']) && $_GET['success'] == 'true') {
+
+			$paymentId = $_SESSION['paymentId'];
+			$payment = Payment::get($paymentId, $apiContext);
+
+			$execution = new PaymentExecution();
+			$execution->setPayerId($_GET['PayerID']);
+
+			$result = $payment->execute($execution, $apiContext);
+
+		} else {
+			$result = "User cancelled payment.";
+		}
+
+		return $result;
 	}
 
-	function updateProducts($id){
-			$update = 'UPDATE ';
+	function setPaySeller(){
+
+		$logger = new PPLoggingManager('MassPay');
+
+		$massPayReq = new MassPayReq();
+		$massPayItemArray = array();
+
+		$amount1 = new BasicAmountType("USD","40.00");
+		$massPayRequestItem1 = new MassPayRequestItemType($amount1);
+
+		$massPayRequestItem1->ReceiverEmail = "email@mail.com";
+
+		$massPayItemArray[0] = $massPayRequestItem1;
+
+		$massPayRequest = new MassPayRequestType($massPayItemArray);
+		$massPayReq->MassPayRequest = $massPayRequest;
+
+		$service = new PayPalAPIInterfaceServiceService();
+
+		try {
+			$response = $service->MassPay($massPayReq);
+		} catch (Exception $ex) {
+			$logger->error("Error Message : " + $ex->getMessage());
+		}
+		if ($response->Ack == "Success") {
+			$logger->log("Mass Pay successful");
+		}
+		else {
+			$logger->error("API Error Message : ". $response->Errors[0]->LongMessage);
+		}
+		return $response;
 	}
 }

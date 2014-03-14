@@ -5,11 +5,11 @@
     </div>
   </div>
   <div class="wrapper">
-    <nav class="breadcrumb breadcrumb__sell">
-      <a href="/sell/item/details">Details</a>
-      <a href="/sell/item/images" class="selected">Images</a>
-      <a href="/sell/item/delivery">Delivery</a>
-      <a href="/sell/item/confirm">Review</a>
+    <nav itemscope itemtype ="https://schema.org/breadcrumb" class="breadcrumb breadcrumb__sell">
+      <a itemprop="url" href="/sell/item/details">Details</a>
+      <a itemprop="url" href="/sell/item/images" class="selected">Images</a>
+      <a itemprop="url" href="/sell/item/delivery">Delivery</a>
+      <a itemprop="url" href="/sell/item/confirm">Review</a>
     </nav>
     <form action="/sell/item/delivery" method="post" class="submit-form" enctype="multipart/form-data">
       <div class="drop-zone__wrapper">
@@ -28,7 +28,7 @@
       <div class="form__block">
         <input type="file" name="uploads[]" multiple>
       </div>
-      <button type="submit" class="form__submit pull-right">Next Stage</button>
+      <button class="form__submit pull-right">Next Stage</button>
     </form>
   </div>
 </section>

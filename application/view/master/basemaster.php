@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?php echo $this->title; ?></title>
-    <meta name="description" content="">
+    <meta name="description" content="<?php echo $this->description; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Favicons -->
@@ -40,7 +40,6 @@
     </script> -->
   </head>
   <body class="<?php echo $this->page; ?>">
-
     <?php
       if($this->inc_master) {
         require APP_DIR . 'view/master/header.php';
@@ -58,10 +57,13 @@
 
       if($this->scripts != NULL) {
         foreach($this->scripts as $script) {
-          echo '<script type="text/javascript" src="/' . STATIC_1 . 'js/' . $script . '.js"></script>';
+          if($script[0] == 'file') {
+            echo '<script src="/' . STATIC_1 . 'js/' . $script[1] . '.js"></script>';
+          } else if($script[0] == 'inline') {
+            echo '<script>' . $script[1] . '</script>';
+          }
         }
       }
     ?>
-
   </body>
 </html>
