@@ -1133,7 +1133,11 @@ textarea {
 }
 
 .search-form {
-	margin: 4.6875rem 0;
+	margin: 2em 0;
+}
+
+.home .search-form {
+	margin: 4.6875em 0;
 }
 
 .search-form input {
@@ -1160,8 +1164,8 @@ textarea {
 
 .search--top__h2 {
 	width: 100%;
-	margin: 2em 0;
-	text-align: left;
+	margin-top: 2em;
+	text-align: center;
 }
 
 .search--top__h2--index {

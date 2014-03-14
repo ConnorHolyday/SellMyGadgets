@@ -5,7 +5,7 @@
 			<h2 class="h1 search--top__h2--index">Hey, you there. Would you like to buy gadgets at low prices?</h2>
 			<p class="search--top__p gamma">I'm sure you could find something you need by searching below.</p>
 
-			<h2 class="h1 search--top__h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, exercitationem, eligendi, ducimus, vero adipisci iure molestiae neque.</h2>
+			<h2 class="h1 search--top__h2">Can't find what you're looking for? Search below.</h2>
 
 			<form action=<?php echo '"http://' . $_SERVER['HTTP_HOST'] . '/product/search"'; ?>method="GET" class="center search-form">
 				<label for="search" class="visuallyhidden">search</label>
