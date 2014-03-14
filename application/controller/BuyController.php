@@ -41,11 +41,12 @@
 
 			$this->model->updateTables($id);
 			$this->model->storeTransaction($id);
-			$this->model->setPaySeller();
 			$this->view->render('buy/completion', 'Completed payment for', true, true);						
 		}
 
 		function test(){
-			//echo $this->model->updateDatabase();
+			$this->model->setPaySeller();
+			
+			$this->view->render('buy/test', 'test page', true, true);	
 		}
 	}

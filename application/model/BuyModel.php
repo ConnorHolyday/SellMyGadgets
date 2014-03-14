@@ -10,6 +10,13 @@
 	use PayPal\Api\Transaction;
 	use PayPal\Api\ExecutePayment;
 	use PayPal\Api\PaymentExecution;
+
+	use PayPal\Api\PPLoggingManager;
+	use PayPal\Api\MassPayReq;
+	use PayPal\Api\PayPalAPIInterfaceServiceService;
+	use PayPal\Api\BasicAmountType;
+	use PayPal\Api\MassPayRequestItemType;
+
 	use PayPal\Rest\ApiContext;
 	
 	class BuyModel extends BaseModel {
@@ -203,14 +210,14 @@
 		$amount1 = new BasicAmountType("USD","40.00");
 		$massPayRequestItem1 = new MassPayRequestItemType($amount1);
 
-		$massPayRequestItem1->ReceiverEmail = "andy@hotmail.com";
+		$massPayRequestItem1->ReceiverEmail = "email@mail.com";
 
 		$massPayItemArray[0] = $massPayRequestItem1;
 
 		$massPayRequest = new MassPayRequestType($massPayItemArray);
 		$massPayReq->MassPayRequest = $massPayRequest;
 
-		$service = new PayPalAPIInterfaceServiceService($this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET));
+		$service = new PayPalAPIInterfaceServiceService();
 
 		try {
 			$response = $service->MassPay($massPayReq);
