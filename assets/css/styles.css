@@ -811,6 +811,7 @@ textarea {
 }
 
 .footer__main {
+	margin-top: 1.25em;
 	padding: 2.5em 0;
 	color: #b1b3b6;
 }
@@ -1676,7 +1677,7 @@ textarea {
 
 /*# sourceMappingURL=styles.css.map */
 
-@media screen and (min-width: 37.4375em) {
+@media screen and (min-width: 599px) {
 
 .t-hide {
 	display: none;
@@ -1705,7 +1706,7 @@ textarea {
 
 }
 
-@media screen and (min-width: 56.1875em) {
+@media screen and (min-width: 990px) {
 
 .d2-hide {
 	display: none;
