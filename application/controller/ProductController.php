@@ -61,7 +61,7 @@
 
             $images = $this->model->getAllImages($id);
             $comments = $this->model->getAllComments($id);
-        
+
             $allMedia = array();
             $allComments = array();
 
@@ -90,7 +90,7 @@
 
             $this->view->productMedia = $allMedia;
             $this->view->productComments = $allComments;
-            
+
             //render the view page
             $this->view->render('product/view', 'View product', true, true);
         }
@@ -107,7 +107,7 @@
 
       $this->view->products = $this->model->loadAllProducts($category, $condition, $sort, $first);
 
-      $this->view->render('Product/all', 'View all products', true, true, ['productview']);
+      $this->view->render('Product/all', 'View all products', true, true, [['file', 'productview'], ['file', 'sidebar'], ['inline', 'console.log(\'Test\');']]);
     }
 
     /*

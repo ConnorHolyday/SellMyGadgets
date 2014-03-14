@@ -959,13 +959,13 @@ textarea {
 
 .page-options__sidebar {
 	background-color: #f0f0f0;
+	border-left: 1px solid #c9c9c9;
+	border-right: 1px solid #c9c9c9;
 }
 
 .page-options__sidebar-item {
 	padding: 1em;
-	border-color: #c9c9c9;
-	border-width: 1px 1px 0 1px;
-	border-style: solid;
+	border-bottom: 1px solid #c9c9c9;
 }
 
 .page-options__sidebar-item:first-child {
