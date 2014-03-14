@@ -8,7 +8,6 @@
 
 .breadcrumb {
 	@extend .cf;
-	border-radius: 7px;
 	width: 100%;
 	display: block;
 	background-color: $dark-bg;
@@ -16,16 +15,28 @@
 	overflow: hidden;
 	margin: 1em 0;
 
+	@include mq($tablet) {
+		border-radius: 7px;
+
+		a:first-child {
+			padding-left: 1em;
+		}
+	}
+
 	a {
-		float: left;
+		display: block;
 		padding: 0.5em;
-		padding-right: 2em;
 		border: 0;
 		color: $breadcrumb;
 		background: $module-bg;
 		position: relative;
 		@include font-size(18);
 		letter-spacing: 1px;
+
+		@include mq($tablet) {
+			float: left;
+			padding-right: 2em;
+		}
 
 		&:hover,
 		&:focus,
@@ -45,9 +56,13 @@
 			border-width: 1.1em;
 			border-right-width: .1em;
 			position: absolute;
-			display: block;
+			display: none;
 			top: 0;
 			bottom: 0;
+
+			@include mq($tablet) {
+				display: block;
+			}
 		}
 
 		&:before {
@@ -59,11 +74,11 @@
 		&:after {
 			border-color: $breadcrumb;
 			border-left-color: transparent;
-			right: 1px;
-		}
+			right: 0;
 
-		&:first-child {
-			padding-left: 1em;
+			@include mq($tablet) {
+				right: 1px;
+			}
 		}
 	}
 }

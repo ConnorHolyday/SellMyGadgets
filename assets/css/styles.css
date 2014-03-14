@@ -1341,7 +1341,6 @@ textarea {
 }
 
 .breadcrumb {
-	border-radius: 7px;
 	width: 100%;
 	display: block;
 	background-color: #28333f;
@@ -1351,9 +1350,8 @@ textarea {
 }
 
 .breadcrumb a {
-	float: left;
+	display: block;
 	padding: 0.5em;
-	padding-right: 2em;
 	border: 0;
 	color: #c9c9c9;
 	background: #f0f0f0;
@@ -1384,7 +1382,7 @@ textarea {
 	border-width: 1.1em;
 	border-right-width: .1em;
 	position: absolute;
-	display: block;
+	display: none;
 	top: 0;
 	bottom: 0;
 }
@@ -1398,11 +1396,7 @@ textarea {
 .breadcrumb a:after {
 	border-color: #c9c9c9;
 	border-left-color: transparent;
-	right: 1px;
-}
-
-.breadcrumb a:first-child {
-	padding-left: 1em;
+	right: 0;
 }
 
 .breadcrumb__product a:last-child,
@@ -1793,6 +1787,28 @@ textarea {
 .nav--main__a:focus,
 .nav--main__a:active {
 	border-bottom: 2px solid #303030;
+}
+
+.breadcrumb {
+	border-radius: 7px;
+}
+
+.breadcrumb a:first-child {
+	padding-left: 1em;
+}
+
+.breadcrumb a {
+	float: left;
+	padding-right: 2em;
+}
+
+.breadcrumb a:before,
+.breadcrumb a:after {
+	display: block;
+}
+
+.breadcrumb a:after {
+	right: 1px;
 }
 
 .module__product img {
