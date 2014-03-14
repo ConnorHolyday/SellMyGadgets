@@ -70,7 +70,7 @@
     </div>
 
     <div class="row">
-      <div class="col d-2">
+      <div class="col m-all t-1 d-2">
         <aside class="page-options__sidebar">
 
           <div class="page-options__sidebar-item list-block__wrap">
@@ -115,16 +115,16 @@
         </aside>
       </div>
 
-      <div class="col d-6">
+      <div class="col m-all t-3 d-6">
 
         <div class="row display--grid">
 
           <?php if($this->products != null) : ?>
 
-            <span class="col d-all / page-info">Showing <? echo $this->firstProduct +1; ?> - <? echo $this->lastProduct +1; ?> of <?php echo $this->productsAmount; ?> Results</span>
+            <span class="col m-all t-all d-all / page-info">Showing <? echo $this->firstProduct +1; ?> - <? echo $this->lastProduct +1; ?> of <?php echo $this->productsAmount; ?> Results</span>
 
             <?php foreach ($this->products as $product) : ?>
-              <div class="col d2-2">
+              <div class="col m-all t-2 d2-2">
                 <div class="boxed module__product">
                   <img src="<?php echo '/' . STATIC_2 . 'medium/' . $product['primary_image'] . $product['extension']; ?>" alt="">
 
