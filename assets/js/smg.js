@@ -37,12 +37,19 @@ var sellmygadgets = (function (smg, w, d, undefined) {
   smg.cssClass = (function() {
     var _apiSupport = 'classList' in document.documentElement,
       c = {
+        has: function(el, cls) {
+          if (_apiSupport) {
+            return el.classList.contains(cls);
+          } else {
+            return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+          }
+        },
         add: function(el, cls) {
           if (_apiSupport) {
             el.classList.add(cls);
           } else {
             if (!this.has(el, cls)) {
-              el.className += " " + cls;
+              el.className += ' ' + cls;
               el.className.replace(/ +/g, ' ');
             }
           }
@@ -51,17 +58,17 @@ var sellmygadgets = (function (smg, w, d, undefined) {
           if (_apiSupport) {
             el.classList.remove(cls);
           } else {
-            if (hasClass(el, cls)) {
+            if (this.has(el, cls)) {
               var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
               el.className = el.className.replace(reg, ' ');
             }
           }
         },
-        has: function(el, cls) {
-          if (_apiSupport) {
-            return el.classList.contains(cls);
+        toggle: function(el, cls) {
+          if(_apiSupport) {
+            el.classList.toggle(cls);
           } else {
-            return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+            this.has(el, cls) ? this.remove(el, cls) : this.add(el, cls);
           }
         }
       };
@@ -84,6 +91,14 @@ var sellmygadgets = (function (smg, w, d, undefined) {
     } else {
       return xhr;
     }
+  };
+
+  smg.loadScript = function (path) {
+    var h = d.querySelector('head'),
+      s = d.createElement('script');
+
+    s.src = path;
+    h.appendChild(s);
   };
 
   smg.upload = function(files, path) {
@@ -124,15 +139,19 @@ var sellmygadgets = (function (smg, w, d, undefined) {
 
   // XHR include file - (file path, container element to add to)
   smg.include = function(path, el) {
-    if(el != undefined) {
-
+    if(el != undefined && 'included' in el.dataset === false) {
       var xhr = smg.xhr();
+      smg.cssClass.add(el, 'loading');
+
       smg.addEvent(xhr, 'load', function() {
+        smg.fade('in', el, 800);
         el.innerHTML = this.responseText;
+        smg.cssClass.remove(el, 'loading');
       });
 
       xhr.open('GET', path, true);
       xhr.send();
+      el.dataset.included = 'true';
     }
   };
 
