@@ -4,7 +4,6 @@
  * hands out appropriate config params to other classes
  */
 
-
 class PPConfigManager {
 
 	public $config;
@@ -20,12 +19,14 @@ class PPConfigManager {
 	
 	private static $instance;
 
+
+
 	private function __construct(){
 		if(defined('PP_CONFIG_PATH')) {
 			$configFile = constant('PP_CONFIG_PATH') . '/sdk_config.ini';
 		} else {		
 			$configFile = implode(DIRECTORY_SEPARATOR,
-				array(dirname(__FILE__), "..", "config", "sdk_config.ini"));
+				array(dirname(__FILE__), "config", "sdk_config.ini"));
 		}
 		$this->load($configFile);
 	}
