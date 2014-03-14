@@ -2,18 +2,20 @@
     <div class="top-bar bg--dark">
         <div class="wrapper">
 
-        <?php if (AccountService::isLoggedIn()): ?>
+          <?php if (AccountService::isLoggedIn()): ?>
 
             <a href="/account/dashboard" class="top-bar__a">dashboard</a>
             <a href="/account" class="top-bar__a">account</a>
             <a itemprop="url" href="/account/logout" class="top-bar__a">logout</a>
 
-        <?php else: ?>
+          <?php else: ?>
 
             <a itemprop="url" href="/account/signup" class="top-bar__a">signup</a>
             <a itemprop="url" href="/account/login" class="top-bar__a">login</a>
 
-        <?php endif ?>
+          <?php endif ?>
+
+          <span class="mobile-menu"></span>
         </div>
     </div>
 
@@ -26,6 +28,7 @@
                         <img itemprop="logo" src="/assets/img/svg/logo.svg">
                     </a>
                 </div>
+
             </div>
 
             <div class="col m-all t-all d-4">

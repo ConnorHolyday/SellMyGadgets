@@ -6,58 +6,113 @@
 
 
 
+
+.mobile__nav {
+  position: relative;
+  left: 0;
+  transition: left .3s ease;
+
+  &.active {
+    left: -240px;
+
+    .nav--main {
+      right: 0;
+    }
+  }
+}
+
 .nav--main {
+  position: fixed;
+  width: 240px;
+  height: 100%;
+  right: -240px;
+  top: 0;
+  border-left: 4px solid white;
+  background-color: #60A1CC;
+  transition: right .3s ease;
+
+  @include mq($tablet) {
+    position: relative;
+    width: auto;
+    height: auto;
+    right: 0;
+    border: none;
+    background-color: white;
     margin-top: 2.5em;
     @include font-size(20);
     display: block;
     text-align: center;
+  }
 
-    @include mq($desktop) {
-        float: right;
-    }
+  @include mq($desktop) {
+      float: right;
+  }
 }
 
-    .nav--main__ul {
-        @extend .cf;
-        display: inline-block;
-        margin-bottom: 2.5em;
+  .nav--main__ul {
+    display: block;
+    @extend .cf;
 
-        @include mq($desktop) {
-            margin-bottom: 0;
-        }
+    @include mq($tablet) {
+      display: inline-block;
+      margin-bottom: 2.5em;
     }
 
-    .nav--main__li {
-        @include nobullet;
-        float: left;
-        margin-right: 1.2em;
-
-        &:last-child {
-            margin: 0;
-        }
-
-        .index &:first-child,
-        .product &:nth-child(2),
-        .sell &:nth-child(3),
-        .about &:last-child {
-            a {
-                border-bottom: 2px solid $copy;
-            }
-        }
+    @include mq($desktop) {
+        margin-bottom: 0;
     }
+  }
 
-    .nav--main__a {
-        color: $copy;
-        letter-spacing: .1em;
-        padding-bottom: .3125em;
-        border-bottom: 2px solid transparent;
+  .nav--main__li {
+    @include nobullet;
+    display: block;
 
-        &:hover,
-        &:focus,
-        &:active {
+    @include mq($tablet) {
+      float: left;
+      margin-right: 1.2em;
+
+      &:last-child {
+          margin: 0;
+      }
+
+      .home &:first-child,
+      .product &:nth-child(2),
+      .sell &:nth-child(3),
+      .site &:last-child {
+        a {
             border-bottom: 2px solid $copy;
         }
+      }
     }
+  }
+
+  .nav--main__a {
+    display: block;
+    border-bottom: 4px solid white;
+    color: white;
+    font-weight: 600;
+    padding: 2em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+
+
+    @include mq($tablet) {
+      display: inline-block;
+      color: $copy;
+      padding: 0 0 .3125em 0;
+      border-bottom: 2px solid transparent;
+      text-transform: none;
+      font-weight: 300;
+
+      &:hover,
+      &:focus,
+      &:active {
+          border-bottom: 2px solid $copy;
+      }
+    }
+  }
+
+
 
 .pagination {
     a {

@@ -39,7 +39,7 @@
 
     </script> -->
   </head>
-  <body class="<?php echo $this->page; ?>">
+  <body class="<?php echo $this->page; ?> mobile__nav">
     <?php
       if($this->inc_master) {
         require APP_DIR . 'view/master/header.php';
