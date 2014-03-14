@@ -19,8 +19,12 @@
 
 	img {
 		width: 100%;
-		max-width: 14.375em;
-		max-height: 14.375em;
+		max-width: 100%;
+
+		@include mq($tablet) {
+			max-width: 14.375em;
+			max-height: 14.375em;
+		}
 	}
 
 	.btn {
