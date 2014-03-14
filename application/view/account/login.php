@@ -4,12 +4,12 @@
 
     <form action="/account/login" method="post">
 
-      <div class="row form__block">
-        <div class="col m-all t-2 d-4 / label__bottom">
+      <div class="row">
+        <div class="col m-all t-2 d-4 / label__bottom form__block">
           <input type="text" name="username" placeholder="example@example.com" required>
           <label for="username">Username:</label>
         </div>
-        <div class="col m-all t-2 d-4 / label__bottom">
+        <div class="col m-all t-2 d-4 / label__bottom form__block">
           <input type="password" name="password" placeholder="••••••••••" required>
           <label for="password">Password:</label>
         </div>
@@ -21,6 +21,8 @@
 
       <?php endif ?>
 
+      <a href="/account/signup">Signup</a>
+      <span>|</span>
       <a href="/account/forgotten-password">Forgot your password?</a>
 
       <button type="sbumit" class="btn btn--dark pull-right">Login</button>
