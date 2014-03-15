@@ -52,7 +52,7 @@
         Querys all products by an id and will only return a single product information
         this function is accsed via the site_diretory/product/single
         */
-        function view($id) {
+        /*function view($id) {
              if(is_numeric($id)){
                 $products = $this->model->getProductById($id);
             } else {
@@ -93,7 +93,7 @@
 
             //render the view page
             $this->view->render('product/view', 'View product', true, true);
-        }
+        }*/
 
       $pages = ceil($this->model->countAllProducts() / PAGE_ITEMS);
       $last = $currentPage * PAGE_ITEMS;
@@ -107,7 +107,7 @@
 
       $this->view->products = $this->model->loadAllProducts($category, $condition, $sort, $first);
 
-      $this->view->render('Product/all', 'View all products', true, true, [['file', 'productview'], ['file', 'sidebar'], ['inline', 'console.log(\'Test\');']]);
+      $this->view->render('Product/all', 'View all products', '', true, true, [['file', 'smg'], ['file', 'productview']]);
     }
 
     /*
