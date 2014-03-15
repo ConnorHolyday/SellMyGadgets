@@ -1,6 +1,16 @@
-<h2>Payee </h2>
-<pre>
-<? print_r($this->payer); ?>
-</pre>
+<? 
+echo '<br>' . $this->payerFirstName;
+echo '<br>' . $this->payerSecondName; 
+echo '<br>' . $this->payerPayPalId; 
+echo '<br>' . $this->payerEmail; 
+echo '<br>' . $this->payerShippingAddress->getLine1(); 
+echo '<br>' . $this->payerShippingAddress->getLine2(); 
+echo '<br>' . $this->payerShippingAddress->getCity(); 
+echo '<br>' . $this->payerShippingAddress->getCountryCode(); 
+echo '<br>' . $this->payerShippingAddress->getPostalCode(); 
 
-<? echo $this->payer->_propMap:PayPal\Common\PPModel:private['payment_method']; ?>
+
+
+
+
+

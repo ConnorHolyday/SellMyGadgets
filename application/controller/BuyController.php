@@ -45,7 +45,14 @@
 			if(!isset($id)) {  header('Location: /'); }
 
 			$completion = $this->model->getPaymentConfimrmation($id);
-			$this->view->completion = $completion;
+			
+			$payer = $completion->payer->getPayerInfo();
+			$this->view->payerFirstName = $payer->getFirstName();
+			$this->view->payerSecondName = $payer->getLastName();
+			$this->view->payerPayPalId = $payer->getPayerId();
+			$this->view->payerEmail = $payer->getEmail();
+			$this->view->payerShippingAddress = $payer->getShippingAddress();
+
 			//if payment was succesfull
 			//update products and store transaction data
 			$this->model->updateTables($id);
@@ -56,8 +63,7 @@
 			//$this->model->updateTransaction($id);
 
 
-			$this->view->payer = $completion->payer;
-			$this->view->transaction = $completion->transactions;
+			
 
 
 
