@@ -10,6 +10,9 @@
 		}
 
 		function product($id) {
+			if(!isset($id)) {  header('Location: /'); }
+
+
 			$product = $this->model->getProductById($id);	
 			$buyerDetails = $this->model->getBuyerDetails($_SESSION['USER_NAME']);
 			$sellerDetails = $this->model->getSellerDetails($product[0]['created_by']);
@@ -24,10 +27,12 @@
 		    $this->view->productDescription = $product[0]['description'];
 		    $this->view->productImage = $product[0]['primary_image'];
 
-		    $this->view->render('buy/product', 'Buy' . $product[0]['name'], true, true);
+		    $this->view->render('buy/product', 'Buy' . $product[0]['name'], '',true, true);
 		}
 
 		function payment($id){
+			if(!isset($id)) {  header('Location: /'); }
+
 			if($_GET['confirmation'] == 'yes'){
 				$product = $this->model->getProductById($id);
 
@@ -37,16 +42,25 @@
 		}
 
 		function completion($id){
-			$this->view->completion = $this->model->getPaymentConfimrmation($id);
+			if(!isset($id)) {  header('Location: /'); }
 
+			$completion = $this->model->getPaymentConfimrmation($id);
+			$this->view->completion = $completion;
+			//if payment was succesfull
+			//update products and store transaction data
 			$this->model->updateTables($id);
 			$this->model->storeTransaction($id);
-			$this->view->render('buy/completion', 'Completed payment for', '',true, true);						
-		}
 
-		function test(){
-			$this->view->paymentResponse = $this->model->setPaySeller();
-			
-			$this->view->render('buy/test', 'test page', '',true, true);	
+			//$this->model->setPaySeller($amount, $payee);
+			//if transaction was sucsessfull
+			//$this->model->updateTransaction($id);
+
+
+			$this->view->payer = $completion->payer;
+			$this->view->transaction = $completion->transactions;
+
+
+
+			$this->view->render('buy/completion', 'Completed payment for', '',true, true);						
 		}
 	}
