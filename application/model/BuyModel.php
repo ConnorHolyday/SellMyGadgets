@@ -20,7 +20,7 @@
 	}	
 
 	function getProductById($id){
-			$product = 'SELECT products.id, products.name, products.price ,product_details.primary_image, product_media.title, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, product_details.created_by ,users.username, product_details.description
+			$product = 'SELECT products.id, products.name, products.price, products.status, product_details.primary_image, product_media.title, product_media.extension, product_categories.category_name, product_delivery.delivery_date, Product_delivery.delivery_cost, product_condition.condition_name, product_details.created_by ,users.username, product_details.description
 						FROM products
 						INNER JOIN product_details
 						ON products.id = product_details.product_id
@@ -40,7 +40,7 @@
 	}
 
 	function getSellerDetails($id){
-		$sellerInfo = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email
+		$sellerInfo = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_email, user_details.PPEmail
 					FROM users
 					INNER JOIN user_details
 					ON users.id = user_details.user_id
