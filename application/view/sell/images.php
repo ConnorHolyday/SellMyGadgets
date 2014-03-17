@@ -13,8 +13,7 @@
     </nav>
     <form action="/sell/item/delivery" method="post" class="submit-form" enctype="multipart/form-data">
       <div class="drop-zone__wrapper">
-        <h1>Drag 'n' drop</h1>
-        <small>For the best output please upload a square image with minimum dimensions: 230x230px</small>
+        <h1>Drag files here to upload</h1>
 
         <div class="drop-zone__wrapper-inner">
           <div class="drop-zone vertical-align">
@@ -25,6 +24,10 @@
           </div>
         </div>
       </div>
+      OR
+      <p>
+        Use the upload control below
+      </p>
       <div class="form__block">
         <input type="file" name="uploads[]" multiple>
       </div>
