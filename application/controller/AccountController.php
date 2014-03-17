@@ -85,21 +85,56 @@
       $this->view->render('account/signup', 'Sign up for an account today', '', false, false);
     }
 
-    function view($userName){
-      $user = $this->model->getUserDetails($userName);
+    function view($id = NULL) {
 
-      $this->view->userPicture = '<img src="' . $user[0]['image'] . '" alt="Profile picture for ' . $user[0]['username'] . '">';
-      $this->view->userName = $user[0]['username'];
-      $this->view->userFirstName = $user[0]['first_name'];
-      $this->view->userSurname = $user[0]['surname'];
-      $this->view->userAdress1 = $user[0]['adress_1'];
-      $this->view->userAdress2 = $user[0]['adress_2'];
-      $this->view->userCity = $user[0]['town_city'];
-      $this->view->userCounty = $user[0]['county'];
-      $this->view->userPostcode = $user[0]['postcode'];
-      $this->view->userPhone = $user[0]['contact_number'];
-      $this->view->userEmail = $user[0]['contact_email'];
+      if($id == null) {
+        $id = AccountService::checkAuth();
+      }
 
-      $this->view->render('account/view', $username . ' profile page', '', false, false);
+      $user = $this->model->getUserDetailsById($id);
+
+      $this->view->firstName = $user[0]['first_name'];
+      $this->view->surname = $user[0]['surname'];
+      $this->view->address1 = $user[0]['address_1'];
+      $this->view->address2 = $user[0]['address_2'];
+      $this->view->city = $user[0]['town_city'];
+      $this->view->county = $user[0]['county'];
+      $this->view->postcode = $user[0]['postcode'];
+      $this->view->phone = $user[0]['contact_number'];
+
+      $this->view->render('account/view', 'User Profile - ' . $this->view->firstName . ' ' . $this->view->surname, '', true, false);
     }
+
+    function edit() {
+      $id = AccountService::checkAuth();
+
+      if(sizeof($_POST) > 0) {
+        $this->model->updateUserDetailsById(
+          $id,
+          $_POST['firstname'],
+          $_POST['surname'],
+          $_POST['address1'],
+          $_POST['address2'],
+          $_POST['town_city'],
+          $_POST['county'],
+          $_POST['postcode'],
+          $_POST['phonenumber']
+        );
+        $this->view->message = '<p style="color: green;">Account details successfully updated</p>';
+      }
+
+      $user = $this->model->getUserDetailsById($id);
+
+      $this->view->firstName = $user[0]['first_name'];
+      $this->view->surname = $user[0]['surname'];
+      $this->view->address1 = $user[0]['address_1'];
+      $this->view->address2 = $user[0]['address_2'];
+      $this->view->city = $user[0]['town_city'];
+      $this->view->county = $user[0]['county'];
+      $this->view->postcode = $user[0]['postcode'];
+      $this->view->phone = $user[0]['contact_number'];
+
+      $this->view->render('account/edit', 'Edit your account details', '', false, false);
+    }
+
   }

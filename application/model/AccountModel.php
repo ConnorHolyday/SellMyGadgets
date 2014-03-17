@@ -29,16 +29,6 @@
       return $id;
     }
 
-    function getUserDetails($username){
-      $user = 'SELECT users.username, user_details.first_name, user_details.surname, user_details.adress_1, user_details.adress_2, user_details.town_city, user_details.county, user_details.postcode, user_details.contact_number,  user_details.contact_email
-      FROM USERS
-      INNER JOIN user_details
-      ON users.id = user_details.user_id
-      WHERE users.username = "'. $username . '" & users.active = 1';
-
-      return $this->db->execute_assoc_query($user);
-    }
-
     function resetPassword($username) {
       $qry = $this->db->prepare_select('id', 'users', "username = '{$username}'");
       $user = $this->db->execute_assoc_query($qry);
@@ -64,4 +54,23 @@
       return $pass;
     }
 
+    function getUserDetailsById($id) {
+      $qry = $this->db->prepare_select(
+        '*',
+        'users u, user_details ud',
+        'u.id = ' . $id . ' AND u.active = 1'
+      );
+
+      return $this->db->execute_assoc_query($qry);
+    }
+
+    function updateUserDetailsById($id, $firstname, $surname, $address1, $address2, $town_city, $county, $postcode, $phonenumber) {
+      $qry = $this->db->prepare_update(
+        'user_details',
+        "first_name = '{$firstname}', surname = '{$surname}', address_1 = '{$address1}', address_2 = '{$address2}', town_city = '{$town_city}', county = '{$county}', postcode = '{$postcode}', contact_number = '{$phonenumber}'",
+        'user_id = ' . $id
+      );
+
+      $this->db->execute_query($qry);
+    }
   }
