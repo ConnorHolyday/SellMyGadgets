@@ -45,7 +45,7 @@
           MailService::sendMail($username, 'Your Password has been reset', 'Your new password is: ' . $newPass);
 
         } else {
-          // Account not found
+          $this->view->error = '<p style="color:red;">Invalid email address</p>';
         }
       }
 

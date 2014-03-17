@@ -10,7 +10,11 @@
         <label for="username">Email Address:</label>
       </div>
     </div>
-
+    <?php
+      if($this->error != null) {
+        echo $this->error;
+      }
+    ?>
     <button type="sbumit" class="btn btn--dark pull-right">Reset Password</button>
   </form>
 
