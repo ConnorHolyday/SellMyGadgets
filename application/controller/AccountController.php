@@ -24,7 +24,7 @@
             $to = isset($_POST['to']) ? $_POST['to'] : '/account/dashboard';
             header('Location: ' . $to);
           } else {
-            echo '<p style="color:red;">invalid credentials, please try again.</p>';
+            $this->view->error = '<p style="color:red;">invalid credentials, please try again.</p>';
           }
         }
         $this->view->render('account/login', 'Please login to continue', '', false, false);

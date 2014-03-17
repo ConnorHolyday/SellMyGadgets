@@ -21,6 +21,12 @@
 
       <?php endif ?>
 
+      <?php
+        if(isset($this->error)) {
+          echo $this->error;
+        }
+      ?>
+
       <a href="/account/signup">Signup</a>
       <span>|</span>
       <a href="/account/forgotten-password">Forgot your password?</a>
