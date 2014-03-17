@@ -9,19 +9,18 @@
     public static function sendMail($to, $subj, $message) {
 
       $sendTo = $to;
-      $subject = $subj;
+      $subject = 'sellmygadgets. | ' . $subj;
       $body = $message;
 
       $headers =
-        'From: webmaster@sellmygadgets.co.uk' . "\r\n" .
-        'Reply-To: webmaster@example.co.uk' . "\r\n" .
+        'From: webmaster@sellmygadgets.co.uk' . '\r\n' .
+        'Reply-To: webmaster@sellmygadgets.co.uk' . '\r\n' .
         'X-Mailer: PHP/' . phpversion();
 
       mail($to, $subject, $body, $headers);
     }
 
     function getEmailTemplateById($id) {
-
 
       return $template;
     }
@@ -32,6 +31,5 @@
       }
       return $template;
     }
-
 
   }

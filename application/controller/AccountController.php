@@ -35,6 +35,20 @@
     }
 
     function forgotten_password() {
+
+      if(isset($_POST['username'])) {
+        $username = $_POST['username'];
+        $newPass = $this->model->resetPassword($username);
+
+        if($newPass != null) {
+
+          MailService::sendMail($username, 'Your Password has been reset', 'Your new password is: ' . $newPass);
+
+        } else {
+          // Account not found
+        }
+      }
+
       $this->view->render('account/passwordreset', 'Reset your password', '', false, false);
     }
 
