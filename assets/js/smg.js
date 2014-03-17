@@ -93,12 +93,47 @@ var sellmygadgets = (function (smg, w, d, undefined) {
     }
   };
 
-  smg.loadScript = function (path) {
-    var h = d.querySelector('head'),
-      s = d.createElement('script');
+  /*
+   smg.loadScript = function(src, fn) {
 
-    s.src = path;
-    h.appendChild(s);
+    var script = document.createElement("script");
+
+    script.type = "text/javascript";
+
+    if (script.readyState) {  //IE
+      script.onreadystatechange = function () {
+        if (script.readyState == "loaded" || script.readyState == "complete") {
+          script.onreadystatechange = null;
+          fn();
+        }
+      };
+    } else {  //Others
+      script.onload = function () {
+        fn();
+      };
+    }
+
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  };
+  */
+
+  smg.loadScript = function(src, fn) {
+    var head = d.getElementsByTagName('head')[0],
+      script = d.createElement('script'),
+      done = false;
+    script.onload = script.onreadystatechange = function() {
+      if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {
+        done = true;
+        if (typeof fn == 'function') {
+          fn();
+        }
+        script.onload = script.onreadystatechange = null;
+        head.removeChild(script);
+      }
+    };
+    script.src = src;
+    head.appendChild(script);
   };
 
   smg.upload = function(files, path) {
@@ -121,7 +156,6 @@ var sellmygadgets = (function (smg, w, d, undefined) {
       });
 
       xhr.open('POST', path, true);
-
       fd.append('uploads[]', file);
       fd.append('isAsync', 'true');
       xhr.send(fd);
@@ -158,7 +192,6 @@ var sellmygadgets = (function (smg, w, d, undefined) {
   // IE7+ check if element is within viewport
   smg.inViewport = function(el) {
     var r = el.getBoundingClientRect();
-
     return (
       r.top >= 0 &&
       r.left >= 0 &&
@@ -182,6 +215,10 @@ var sellmygadgets = (function (smg, w, d, undefined) {
         } else {
           opacity -= (new Date() - last) / dur;
         }
+
+        /*var val = (new Date() - last) / dur;
+        opacity = (i) ? opacity + val : opacity - val;*/
+
         el.style.opacity = opacity;
         el.style.filter = 'alpha(opacity=' + (100 * opacity)|0 + ')';
         last = +new Date();

@@ -4,3 +4,7 @@
 <h1>
   Welcome to your personal Dashboard
 </h1>
+
+<div class="chart js-chart1">
+
+</div>
