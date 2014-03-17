@@ -110,6 +110,21 @@
                                 `user_type` int(10) NOT NULL,
                                 `active` tinyint(1) NOT NULL,
                                 PRIMARY KEY (`id`));",
+
+        "transactions"=>"       CREATE TABLE `transactions` (
+                                `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                                `buyer_id` bigint(20) NOT NULL,
+                                `seller_id` bigint(20) NOT NULL,
+                                `product_id` bigint(20) NOT NULL,
+                                `Cost` int(7) NOT NULL,
+                                `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                `status_id` int(3) NOT NULL,
+                                PRIMARY KEY (`id`));",
+
+        "transactions_status"=>"CREATE TABLE `transactions_status` (
+                                `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                                `status` varchar(50) NOT NULL,
+                                PRIMARY KEY (`id`));"
     );
 
     $tableContent = array (
@@ -334,7 +349,9 @@
         "site_content",
         "user_details",
         "user_type",
-        "users"
+        "users",
+        "transactions",
+        "transactions_status"
      );
 
     echo '<h1>Generating Tables</h1><br>'; 

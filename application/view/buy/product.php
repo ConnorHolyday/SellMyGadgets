@@ -6,7 +6,8 @@ if(isset($this->productID)){
 	echo 'seller name = ' . $this->sellerName . '<br>';
 	echo 'Product name =' . $this->productName . '<br>';
 	echo 'Product price = ' . $this->productPrice . '<br>';
-	echo 'Postage Cost = ' . $this->productPostge . '<br>';
+	echo 'Postage Cost = ' . $this->productPostage . '<br>';
+	echo 'Total Price = ' . ($this->productPostage+$this->productPrice) . '<br>'; 
 	echo 'Product Description = ' . $this->productDescription . '<br>';
 	echo $this->productImage;
 
