@@ -8,7 +8,7 @@
 
   <div class="wrapper">
 
-    <nav itemscope itemtype ="https://schema.org/breadcrumb"class="breadcrumb breadcrumb__sell">
+    <nav itemscope itemtype="https://schema.org/breadcrumb" class="breadcrumb breadcrumb__sell">
       <a itemprop="url" href="/sell/item/details" class="selected">Details</a>
       <a itemprop="url" href="/sell/item/images">Images</a>
       <a itemprop="url" href="/sell/item/delivery">Delivery</a>
