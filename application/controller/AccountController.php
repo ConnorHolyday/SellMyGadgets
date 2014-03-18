@@ -137,4 +137,34 @@
       $this->view->render('account/edit', 'Edit your account details', '', false, false);
     }
 
+    function charts($type) {
+
+      if(isset($type)) {
+        switch($type) {
+          case 'products-by-category':
+
+            $arr = [
+              'columns' => [
+                ['string', 'Topping'],
+                ['number', 'Slices']
+              ],
+              'rows' => [
+                ['Mushrooms', 3],
+                ['Onions', 1],
+                ['Olives', 1],
+                ['Zucchini', 1],
+                ['Pepperoni', 2]
+              ]
+            ];
+
+            $json = json_encode($arr);
+
+            echo $json;
+
+            break;
+        }
+      }
+
+    }
+
   }
