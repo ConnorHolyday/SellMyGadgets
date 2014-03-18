@@ -106,6 +106,7 @@
                                 `postcode` varchar(10) NOT NULL,
                                 `contact_number` varchar(12) NOT NULL,
                                 `contact_email` varchar(100) NOT NULL,
+                                `PPEmail` varchar(100) NOT NULL,
                                 PRIMARY KEY (`user_id`));",
 
         "user_type"=>"          CREATE TABLE `user_type` (
@@ -351,7 +352,7 @@
                                     ('Claudia@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1);"
 
         "transactions"=>"",
-        
+
         "transactions_status"=>""
     );
 

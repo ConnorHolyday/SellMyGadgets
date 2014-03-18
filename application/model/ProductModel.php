@@ -20,7 +20,7 @@
 						ON product_details.delivery_id = product_delivery.id
 						INNER JOIN users
 						ON product_details.created_by = users.id
-						WHERE ' .  $category . ' AND ' . $condition . '
+						WHERE products.status = 1 AND ' .  $category . ' AND ' . $condition . '
 						ORDER BY ' . $sort . '
 						LIMIT ' . $first . ',' . PAGE_ITEMS;
 
@@ -42,7 +42,7 @@
 						ON product_details.delivery_id = product_delivery.id
 						INNER JOIN users
 						ON product_details.created_by = users.id
-						WHERE products.id = ' . $id;
+						WHERE products.status = 1 AND products.id = ' . $id;
 
 			return $this->db->execute_assoc_query($query);
 		}
@@ -62,7 +62,7 @@
 						ON product_details.delivery_id = product_delivery.id
 						INNER JOIN users
 						ON product_details.created_by = users.id
-						WHERE ' .  $category . ' AND ' . $condition . ' AND products.name LIKE "%' . $search . '%"
+						WHERE products.status = 1 AND ' .  $category . ' AND ' . $condition . ' AND products.name LIKE "%' . $search . '%"
 						ORDER BY ' . $sort . '
 						LIMIT ' . $first . ',' . PAGE_ITEMS;
 
@@ -84,7 +84,7 @@
 						ON products.category = product_categories.id
 						INNER JOIN product_condition
 						ON product_details.condition_id = product_condition.id
-						WHERE ' .  $category . ' AND ' . $condition . ' AND products.name LIKE "%' . $search . '%"';
+						WHERE products.status = 1 AND ' .  $category . ' AND ' . $condition . ' AND products.name LIKE "%' . $search . '%"';
 	
 			return $this->db->count_rows($query);
 		}
@@ -98,7 +98,7 @@
 						ON products.category = product_categories.id
 						INNER JOIN product_condition
 						ON product_details.condition_id = product_condition.id
-						WHERE ' .  $category . ' AND ' . $condition;
+						WHERE products.status = 1 AND ' .  $category . ' AND ' . $condition;
 
 			return $this->db->count_rows($query);
 		}
