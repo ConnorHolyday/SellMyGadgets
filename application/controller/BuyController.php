@@ -12,8 +12,8 @@
 			//if(!isset($id)) {  header('Location: /'); }
 
 			$getProduct = $this->model->getProductById($id);
-			if($getProduct[0]['status'] != 1) {header('Location: /'); }	
-		
+			if($getProduct[0]['status'] != 1) {header('Location: /'); }
+
 			$buyerDetails = $this->model->getBuyerDetails($_SESSION['USER_NAME']);
 			$sellerDetails = $this->model->getSellerDetails($getProduct[0]['created_by']);
 
@@ -30,7 +30,7 @@
 			$this->view->product = $product;
 			$this->view->buyerName = $buyerDetails[0]['username'];
 			$this->view->sellerName = $sellerDetails[0]['username'];
-		    $this->view->render('buy/product', 'Buy' . $getProduct[0]['name'], '',true, true);
+		    $this->view->render('buy/product', 'Buy' . $getProduct[0]['name'], '',true, false);
 		}
 
 		//process payment with paypal
@@ -47,7 +47,7 @@
 
 
 		/*
-		Checks payment was succsesfull 
+		Checks payment was succsesfull
 		stores transaction data in database t
 		transfers payment to seller
 		renders confirmation page
@@ -60,7 +60,7 @@
 			$payer = $completion->payer->getPayerInfo();
 			$address = $payer->getShippingAddress();
 
-			$payerDetails = array( 
+			$payerDetails = array(
 				'FirstName' => $payer->getFirstName(),
 				'LastName' => $payer->getLastName(),
 				'PayPalId' => $payer->getPayerId(),
@@ -71,7 +71,7 @@
 				'AddressCountryCode' => $address->getCountryCode(),
 				'AddressPostalCode' => $address->getPostalCode()
 			);
-			
+
 			$auth = array(
 				'state' => $completion->getState(),
 			);
@@ -87,7 +87,7 @@
 				$this->view->payerDetails = $payerDetails;
 
 				$this->model->updateTables($id);
-				$this->model->storeTransaction($id, $payerDetails['PayPalId']);		
+				$this->model->storeTransaction($id, $payerDetails['PayPalId']);
 
 				echo '<br> product created by : ' . $product[0]['created_by'] . '<br>';
 				echo '<br> Sellers email = : ' . $seller[0]['PPEmail'] . '<br>';
@@ -98,6 +98,6 @@
 				$this->view->errorMessage = 'Payment Was Not Approved';
 			}
 
-			$this->view->render('buy/completion', 'Completed payment for', '',true, true);						
+			$this->view->render('buy/completion', 'Completed payment for', '',true, true);
 		}
 	}

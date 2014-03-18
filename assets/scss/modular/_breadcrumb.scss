@@ -84,7 +84,8 @@
 }
 
 .breadcrumb__product a:last-child,
-.breadcrumb__sell a.selected {
+.breadcrumb__sell a.selected,
+.breadcrumb__buy a.selected{
 	background: transparent;
 	color: white;
 	pointer-events: none;
@@ -106,6 +107,19 @@
 		width: 25%;
 
 		&:last-child {
+			&:after { display: none; }
+		}
+	}
+}
+
+
+.breadcrumb__buy {
+	a {
+		width: 33%;
+
+		&:last-child {
+			width: 34%;
+
 			&:after { display: none; }
 		}
 	}
