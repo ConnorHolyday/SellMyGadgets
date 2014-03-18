@@ -1,3 +1,9 @@
+<?php
+	$productID = $this->product['id'];
+	$productPrice = $this->product['price'];
+	$productPostage = $this->product['postage'];
+?>
+
 <div class="hero-banner">
 	<div class="wrapper">
 		<h1>Purchase Review - Item Details</h1>
@@ -8,10 +14,10 @@
 
 	<? if(isset($this->product['id'])){ ?>
 
-		<nav itemscope itemtype="https://schema.org/breadcrumb/<?php echo $this->product['id']; ?>" class="breadcrumb breadcrumb__buy">
-			<a itemprop="url" href="/buy/product/<?php echo $this->product['id']; ?>" class="selected">Details</a>
-			<a itemprop="url" href="/buy/shipping/<?php echo $this->product['id']; ?>">Shipping</a>
-			<a itemprop="url" href="/buy/total/<?php echo $this->product['id']; ?>">Total</a>
+		<nav itemscope itemtype="https://schema.org/breadcrumb/<?php echo $productID; ?>" class="breadcrumb breadcrumb__buy">
+			<a itemprop="url" href="/buy/product/<?php echo $productID; ?>" class="selected">Details</a>
+			<a itemprop="url" href="/buy/shipping/<?php echo $productID; ?>">Shipping</a>
+			<a itemprop="url" href="/buy/total/<?php echo $productID; ?>">Total</a>
 		</nav>
 
 		<div class="row">
@@ -32,7 +38,7 @@
 
 		</div>
 
-		<form action="/buy/shipping/<?php echo $this->product['id']; ?>" class="submit-form">
+		<form action="/buy/shipping/<?php echo $productID; ?>" class="submit-form">
 
 			<button class="pull-right / form__submit">Next Stage</button>
 
@@ -47,7 +53,7 @@
 
 				<p>Please choose your desired shipping address.</p>
 
-				<form action="/buy/total/<?php echo $this->product['id']; ?>" class="submit-form">
+				<form action="/buy/total/<?php echo $productID; ?>" class="submit-form">
 
 					<input type="radio" name="shipping" value="paypal">
 					<label>Paypal Address</label>
@@ -97,17 +103,17 @@
 
 	  	<ul class="list-block__list">
 
-	  		<li>Product - £<? echo $this->product['price']; ?></li>
+	  		<li>Product - £<? echo $productPrice; ?></li>
 
-	  		<li>Postage - £<? echo $this->product['postage']; ?></li>
+	  		<li>Postage - £<? echo $productPostage; ?></li>
 
-				<li>Total - £<? echo ($this->product['postage']+$this->product['price']); ?></li>
+				<li>Total - £<? echo ($productPostage+$productPrice); ?></li>
 
 			</ul>
 
 	  </div>
 
-		<form action="/buy/payment/<?php echo $this->product['id']; ?>" class="submit-form">
+		<form action="/buy/payment/<?php echo $productID; ?>" class="submit-form">
 
 			<button class="pull-right / form__submit">Confirm Purchase</button>
 
