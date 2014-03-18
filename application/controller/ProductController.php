@@ -140,9 +140,6 @@
       $this->view->productDescription = $products[0]['description'];
 
       //images and comments to be updated still
-      var_dump($images);
-      echo '<br>';
-      var_dump($comments);
       foreach ($images as $media){
         array_push ($allMedia, '<img src="/' . STATIC_2 . 'medium/' . $media['id'] . $media['extension'] . '" alt="' . $media['title'] . '" >');
       }

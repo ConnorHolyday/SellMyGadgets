@@ -46,8 +46,6 @@
 					ON users.id = user_details.user_id
 					WHERE users.id =' . $id;
 
-		echo $sellerInfo;
-
 		return $this->db->execute_assoc_query($sellerInfo);
 	}
 
