@@ -22,9 +22,9 @@ class Configuration
   {
     $config = array(
         // Signature Credential
-        "acct1.UserName" => "jb-us-seller_api1.paypal.com",
-        "acct1.Password" => "WX4WTU3S8MY44S7F",
-        "acct1.Signature" => "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy",
+        "acct1.UserName" => "pay-facilitator_api1.sellmygadgets.co.uk",
+        "acct1.Password" => "1392906026",
+        "acct1.Signature" => "An5ns1Kso7MWUdW4ErQKJJJ4qi4-AxxhsvQEsrqQyS.D--a.TmSKIFYH",
         // Subject is optional and is required only in case of third party authorization
         //"acct1.Subject" => "",        
     

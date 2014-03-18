@@ -46,6 +46,8 @@
 					ON users.id = user_details.user_id
 					WHERE users.id =' . $id;
 
+		echo $sellerInfo;
+
 		return $this->db->execute_assoc_query($sellerInfo);
 	}
 
@@ -77,11 +79,6 @@
 
 	function storeTransaction($id){
 		$product = $this->getProductById($id);
-
-		echo '<pre>';
-		print_r($product);
-		echo '</pre>';
-
 		$buyer = $this->getBuyerDetails($_SESSION['USER_NAME']);
 
 		$percent = ($product[0]['price'] / 100) * 3;
@@ -93,8 +90,6 @@
 		$query = 'INSERT INTO `transactions` (`buyer_id`, `seller_id`, `product_id`, `Cost`, `status_id`)
 					VALUES (' . $buyer[0]['id'] . ',' . $product[0]['created_by'] . ',' . $id . ',' . $cost . ', 2);';
 
-		echo $query;
-
 		$this->db->execute_query($query);
 	}
 
@@ -104,6 +99,17 @@
 									WHERE `id` =' . $id);
 
 		
+	}
+
+	function updateTransaction($id){
+		$product = $this->getProductById($id);
+		$buyer = $this->getBuyerDetails($_SESSION['USER_NAME']);
+
+		//$query = 'INSERT INTO `transactions` (`buyer_id`, `seller_id`, `product_id`, `Cost`, `status_id`)
+		//		 VALUES (' . $buyer[0]['id'] . ',' . $product[0]['created_by'] . ',' . $id . ',' . $cost . ', 2);';
+
+		//$this->db->execute_query($query);
+
 	}
 
 	function processPayment($itemName, $itemPrice, $itemPostage, $itemDescription, $paymentDescription, $id){

@@ -1,20 +1,18 @@
-<? 
-$this->payerDetails = $payerDetails;
+<div class="wrapper">
+	<h1> Congratulations You have just purchased $product </h1>
+	<p> This should arrive in the post via royal mail within 2 weeks </p>
+	<p> If you are unhappy with your purchase or it does not meet the description please contact support imidietly if this is not dealt with within 30 days of purchase we assume the product was fit for sale </p>
+	<?
+	echo '<br>';
 
-print_r($this->payerDetails);
-
-echo '<h1> Buyer Details </h1>';
-echo '<br>' . $payerDetails['FirstName'];
-echo '<br>' . $payerDetails['LastName'];
-echo '<br>' . $payerDetails['PayPalId'];
-echo '<br>' . $payerDetails['Email'];
-
-echo '<h1> Delivery Address </h1>';
-echo '<br>' . $payerDetails['AddressLine1'];
-echo '<br>' . $payerDetails['AddressLine2'];
-echo '<br>' . $payerDetails['AddressCity'];
-echo '<br>' . $payerDetails['AddressCountryCode'];
-echo '<br>' . $payerDetails['AddressPostalCode'];
+	echo '<h1> Response </h1>';
+	print_r($this->PaySeller);
+	echo '<h1> SOAP </h1>';
+	print_r($this->PaySeller->toSOAP());
+	echo '<h1> XML STRING </h1>';
+	print_r($this->PaySeller->toXMLString());
+	?>
+</div>
 
 
 
