@@ -4,7 +4,30 @@
  //
 \* ============================ */
 
-.sell {
 
+.sell-divider {
+  @include font-size(24);
+  font-weight: bold;
+  position: relative;
+  width: 100%;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2.5em 0 2em 0;
 
+  &:before,
+  &:after {
+    display: inline-block;
+    content: '';
+    width: 40%;
+    margin: .333333333em 2%;
+    height: 1px;
+    background-color: $light-blue-bg;
+  }
+}
+
+.sell-divider__p {
+  display: block;
+  text-align: center;
+  margin-bottom: 2em;
 }
