@@ -38,7 +38,7 @@
 		</ul>
 		
     </div>
-     <a href="/buy/payment/<?php echo $this->product['id']; ?>" class="btn btn--dark">Confirm</a>
+     <a href="/buy/payment/<?php echo $this->product['id']; ?>?confirmation=yes" class="btn btn--dark">Confirm</a>
 	<?
 	} else {
 		echo '<h1>Sorry!!</h1>';

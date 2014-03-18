@@ -75,7 +75,7 @@
 		return $apiContext;
 	}
 
-	function storeTransaction($id){
+	function setTransaction($id){
 		$product = $this->getProductById($id);
 		$buyer = $this->getBuyerDetails($_SESSION['USER_NAME']);
 
@@ -91,23 +91,16 @@
 		$this->db->execute_query($query);
 	}
 
-	function updateTables($id){
+	function setProductPurchased($id){
 		$this->db->execute_query('UPDATE `products`
 									SET `status` = 3
 									WHERE `id` =' . $id);
-
-		
 	}
 
-	function updateTransaction($id){
-		$product = $this->getProductById($id);
-		$buyer = $this->getBuyerDetails($_SESSION['USER_NAME']);
-
-		//$query = 'INSERT INTO `transactions` (`buyer_id`, `seller_id`, `product_id`, `Cost`, `status_id`)
-		//		 VALUES (' . $buyer[0]['id'] . ',' . $product[0]['created_by'] . ',' . $id . ',' . $cost . ', 2);';
-
-		//$this->db->execute_query($query);
-
+	function setTransactionComplete($id){
+		$this->db->execute_query('UPDATE `transactions` 
+									SET `status_id` = 3
+									WHERE producr_id =' . $id);
 	}
 
 	function processPayment($itemName, $itemPrice, $itemPostage, $itemDescription, $paymentDescription, $id){

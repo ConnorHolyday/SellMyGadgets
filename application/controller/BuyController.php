@@ -86,14 +86,15 @@
 
 				$this->view->payerDetails = $payerDetails;
 
-				$this->model->updateTables($id);
-				$this->model->storeTransaction($id, $payerDetails['PayPalId']);		
+				$this->model->setProductPurchased($id);
+				$this->model->setTransaction($id, $payerDetails['PayPalId']);		
 
-				echo '<br> product created by : ' . $product[0]['created_by'] . '<br>';
-				echo '<br> Sellers email = : ' . $seller[0]['PPEmail'] . '<br>';
+				$paySeller = $this->model->setPaySeller($total, $seller[0]['PPEmail']);
 
-				$this->view->PaySeller = $this->model->setPaySeller($total, $seller[0]['PPEmail']);
-				$this->model->updateTransaction($id);
+				$ack = strpos($paySeller->toXMLString(), 'success');
+			
+				if($ack !== false) { $this->model->setTransactionComplete($id);}
+
 			} else {
 				$this->view->errorMessage = 'Payment Was Not Approved';
 			}
