@@ -1206,20 +1206,20 @@ textarea {
 	width: 100%;
 }
 
-.product .search--top__h2--index,
-.product .search--top__p {
+.search--top__h2--index,
+.search--top__p {
 	display: none;
 }
 
-.product .search--top__h2 {
+.search--top__h2 {
 	display: block;
 }
 
-.product .search--top__input {
+.search--top__input {
 	width: 100%;
 }
 
-.product .index-only {
+.index-only {
 	display: none;
 }
 
