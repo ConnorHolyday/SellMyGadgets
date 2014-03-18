@@ -14,9 +14,9 @@
 			<a itemprop="url" href="/buy/total/<?php echo $this->product['id']; ?>">Total</a>
 		</nav>
 
-		<div class="row / module__product">
+		<div class="row">
 
-			<div class="col m-all t-1 d-2">
+			<div class="col m-all t-1 d-2 / module__product">
 				<?php echo $this->product['image']; ?>
 			</div>
 
@@ -39,7 +39,7 @@
 		</form>
 
 
-		<div class="module__product">
+		<div>
 
 			<h1>Purchase Review - Shipping</h1>
 
@@ -91,7 +91,7 @@
 		</div>
 
 
-		<div class="module__product">
+		<div>
 
 	    <h1>Purchase Review - Total Cost</h1>
 
