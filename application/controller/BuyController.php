@@ -9,25 +9,28 @@
 
 		//gather product information to confirm sale
 		function product($id) {
-			if(!isset($id)) {  header('Location: /'); }
+			//if(!isset($id)) {  header('Location: /'); }
 
-			$product = $this->model->getProductById($id);
-			if($product[0]['status'] != 1) {header('Location: /'); }	
+			$getProduct = $this->model->getProductById($id);
+			if($getProduct[0]['status'] != 1) {header('Location: /'); }	
 		
 			$buyerDetails = $this->model->getBuyerDetails($_SESSION['USER_NAME']);
-			$sellerDetails = $this->model->getSellerDetails($product[0]['created_by']);
-			
+			$sellerDetails = $this->model->getSellerDetails($getProduct[0]['created_by']);
+
+			$product = array(
+				'id' => $getProduct[0]['id'],
+				'name' => $getProduct[0]['name'],
+				'price' => $getProduct[0]['price'],
+				'postage' => $getProduct[0]['delivery_cost'],
+				'description' => $getProduct[0]['description'],
+				'condition' => $getProduct[0]['condition_name'],
+				'image' => '<img src="/' . STATIC_2 . 'medium/' . $getProduct[0]['primary_image'] . $getProduct[0]['extension'] . '" alt="' . $getProduct[0]['title'].'">'
+			);
+
+			$this->view->product = $product;
 			$this->view->buyerName = $buyerDetails[0]['username'];
 			$this->view->sellerName = $sellerDetails[0]['username'];
-
-			$this->view->productID = $product[0]['id'];
-			$this->view->productName = $product[0]['name'];
-		    $this->view->productPrice = $product[0]['price'];
-		    $this->view->productPostage = $product[0]['delivery_cost'];
-		    $this->view->productDescription = $product[0]['description'];
-		    $this->view->productImage = '<img src="/' . STATIC_2 . 'medium/' . $product[0]['primary_image'] . $product[0]['extension'] . '" alt="' . $product[0]['title'].'">';
-
-		    $this->view->render('buy/product', 'Buy' . $product[0]['name'], '',true, true);
+		    $this->view->render('buy/product', 'Buy' . $getProduct[0]['name'], '',true, true);
 		}
 
 		//process payment with paypal
@@ -74,18 +77,22 @@
 			);
 
 			if($auth['state'] == 'approved'){
+				$product = $this->model->getProductById($id);
+				$seller = $this->model->getSellerDetails($product[0]['created_by']);
 
 				$amount = ($product[0]['price'] + $product[0]['delivery_cost']);
 				$fee = (($amount / 100) * 5) + 0.30;
 				$total = $amount + $fee;
 
 				$this->view->payerDetails = $payerDetails;
-				$this->model->updateTables($id);
-				$this->model->storeTransaction($id, $payerDetails['PayPalId']);
 
-				$product = $this->model->getProductById($id);
-				$seller = $this->model->getSellerDetails($product[0]['created_by']);
-				$this->model->setPaySeller($total, $seller[0]['PPEmail']);
+				$this->model->updateTables($id);
+				$this->model->storeTransaction($id, $payerDetails['PayPalId']);		
+
+				echo '<br> product created by : ' . $product[0]['created_by'] . '<br>';
+				echo '<br> Sellers email = : ' . $seller[0]['PPEmail'] . '<br>';
+
+				$this->view->PaySeller = $this->model->setPaySeller($total, $seller[0]['PPEmail']);
 				$this->model->updateTransaction($id);
 			} else {
 				$this->view->errorMessage = 'Payment Was Not Approved';
