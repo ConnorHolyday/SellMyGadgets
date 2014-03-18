@@ -94,7 +94,7 @@
                                 `town_city` varchar(50) NOT NULL,
                                 `county` varchar(50) NOT NULL,
                                 `postcode` varchar(10) NOT NULL,
-                                `contact_number` int(12) NOT NULL,
+                                `contact_number` varchar(12) NOT NULL,
                                 `contact_email` varchar(100) NOT NULL,
                                 PRIMARY KEY (`user_id`));",
 
