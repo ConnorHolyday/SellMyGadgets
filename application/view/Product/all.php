@@ -19,7 +19,7 @@
   <div class="content">
 
     <div class="page-options cf">
-      <nav class="pagination pull-left border__none--hover">
+      <nav class="pagination border__none--hover">
         <a href="?page=1">&laquo;</a>
         <a href="?page=<?php echo $currentPage - 1; ?>">&lsaquo;</a>
 
@@ -50,7 +50,7 @@
         <a href="?page=<?php echo $pageNumber; ?>">&raquo;</a>
       </nav>
 
-      <div class="pull-right page-options__view">
+      <div class="page-options__view">
         <div class="inline-block page-options__view--sort">
           <span>Sort:</span>
           <select name="sort">
@@ -67,10 +67,16 @@
           <a href="#" class="view--list">List</a>
         </div>
       </div>
+
+      <div class="page-options__categories page-options__view--sort">
+        <select>
+          <?php //echo $categories; ?>
+        </select>
+      </div>
     </div>
 
     <div class="row">
-      <div class="col m-all t-1 d-2">
+      <div class="col m-hide t-1 d-2">
         <aside class="page-options__sidebar">
 
           <div class="page-options__sidebar-item list-block__wrap">
@@ -155,7 +161,7 @@
     </div>
 
     <div class="page-options cf">
-     <nav class="pagination pull-left border__none--hover">
+     <nav class="pagination border__none--hover">
         <a href="?page=1">&laquo;</a>
         <a href="?page=<?php echo $currentPage - 1; ?>">&lsaquo;</a>
 
@@ -187,7 +193,7 @@
       </nav>
 
 
-      <div class="pull-right page-options__view">
+      <div class="page-options__view">
         <div class="inline-block page-options__view--sort">
           <span>Sort:</span>
           <select name="sort">
@@ -202,6 +208,12 @@
           <span>View:</span>
           <a href="#" class="view--grid">Grid</a>
           <a href="#" class="view--list">List</a>
+        </div>
+
+        <div class="page-options__categories page-options__view--sort">
+          <select>
+            <?php echo $this->categories; ?>
+          </select>
         </div>
       </div>
     </div>

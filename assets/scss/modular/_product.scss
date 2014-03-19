@@ -31,8 +31,11 @@
 		display: block;
 		text-align: center;
 		margin: 0 1.25em 1.25em 1.25em;
-		position: absolute;
 		right: 0;
+
+		@include mq($tablet) {
+			position: absolute;
+		}
 	}
 }
 

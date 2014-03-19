@@ -7,16 +7,25 @@
 
 
 .page-options {
+	text-align: center;
 	background-color: $module-bg;
 	border: 1px solid $breadcrumb;
 	padding: .5em 1em 0.3em 1em;
 
 	.pagination {
 		line-height: 2;
+
+		@include mq($tablet) {
+			float: left;
+		}
 	}
 }
 
 .page-options__view {
+	@include mq($tablet) {
+		float: right;
+	}
+
 	div {
 		margin-right: 1em;
 	}
@@ -30,6 +39,12 @@
 
 .page-options__view--sort {
 	position: relative;
+	margin: .75em 0;
+
+	@include mq($tablet) {
+		margin: 0;
+	}
+
 	select {
 		color: white;
 		background-color: $dark-bg;
@@ -66,10 +81,23 @@
 	}
 }
 
-.page-options__view--grid {
+.page-options__view--grid,
+.page-options__view--list {
+	display: none;
 
+	@include mq($tablet) {
+		display: inline-block;
+	}
 }
 
 .page-options__sidebar {
 
+}
+
+.page-options__categories {
+	display: block;
+
+	@include mq($tablet) {
+		display: none;
+	}
 }
