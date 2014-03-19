@@ -320,6 +320,10 @@ form,
 	margin: 2.5em auto;
 }
 
+.margin-bottom {
+	margin-bottom: 2.5em;
+}
+
 /*
  * THE IDEA BUREAU - GRID
  * https://github.com/theideabureau/grid

@@ -32,7 +32,7 @@
 <section class="wrapper row list-block">
   <h1>Alternatively, you could browse our categories.</h1>
 
-  <div class="col m-all t-2 d-2">
+  <div class="col m-all t-2 d-2 / margin-bottom">
     <div class="list-block__wrap module--border">
       <h2 class="list-block__title">Mobile</h2>
       <ul class="list-block__list">
@@ -57,7 +57,7 @@
 
   <div class="col m-hide t-hide d-1">&nbsp;</div>
 
-  <div class="col m-all t-2 d-2">
+  <div class="col m-all t-2 d-2 / margin-bottom">
     <div class="list-block__wrap module--border">
       <h2 class="list-block__title">Computer</h2>
       <ul class="list-block__list">
@@ -82,7 +82,7 @@
 
   <div class="col m-hide t-hide d-1">&nbsp;</div>
 
-  <div class="col m-all t-2 d-2">
+  <div class="col m-all t-2 d-2 / margin-bottom">
     <div class="list-block__wrap module--border">
       <h2 class="list-block__title">Tablet</h2>
       <ul class="list-block__list">
@@ -105,7 +105,7 @@
     </div>
   </div>
 
-  <a href="/product/all/" class="pull-right / btn btn--dark list-block__button">View all Categories</a>
+  <a href="/product/all/" class="pull-right / btn btn--dark margin-bottom">View all Categories</a>
 </section>
 
 <section class="cta cta--sell bg--dark center">
