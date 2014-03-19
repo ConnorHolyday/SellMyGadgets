@@ -123,11 +123,13 @@
 
 		@include mq($tablet) {
 			width: 33%;
+
+			&:last-child {
+				width: 34%;
+			}
 		}
 
 		&:last-child {
-			width: 34%;
-
 			&:after { display: none; }
 		}
 	}

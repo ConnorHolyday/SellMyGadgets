@@ -1440,10 +1440,6 @@ textarea {
 	width: 100%;
 }
 
-.breadcrumb__buy a:last-child {
-	width: 34%;
-}
-
 .breadcrumb__buy a:last-child:after {
 	display: none;
 }
@@ -1882,6 +1878,10 @@ textarea {
 
 .breadcrumb__buy a {
 	width: 33%;
+}
+
+.breadcrumb__buy a:last-child {
+	width: 34%;
 }
 
 .page-options .pagination {
