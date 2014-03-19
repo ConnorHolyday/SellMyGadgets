@@ -104,7 +104,11 @@
 
 .breadcrumb__sell {
 	a {
-		width: 25%;
+		width: 100%;
+
+		@include mq($tablet) {
+			width: 25%;
+		}
 
 		&:last-child {
 			&:after { display: none; }
@@ -115,7 +119,11 @@
 
 .breadcrumb__buy {
 	a {
-		width: 33%;
+		width: 100%;
+
+		@include mq($tablet) {
+			width: 33%;
+		}
 
 		&:last-child {
 			width: 34%;

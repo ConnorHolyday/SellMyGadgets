@@ -22,13 +22,13 @@
         <label for="productname">Product Name</label>
       </div>
 
-      <div class="row / form__block">
-        <div class="col m-all t-2 d-2 / label__bottom">
+      <div class="row">
+        <div class="col m-all t-2 d-2 / form__block label__bottom">
           <input type="number" min="0" name="price" required>
           <label for="price">Price (£)</label>
         </div>
 
-        <div class="col m-all t-2 d-2 / select__block">
+        <div class="col m-all t-2 d-2 / form__block select__block">
           <label for="condition">Condition:</label>
           <select name="condition">
             <?php echo $this->conditions; ?>
@@ -36,15 +36,15 @@
         </div>
       </div>
 
-      <div class="row / form__block">
-        <div class="col m-all t-2 d-2 / select__block">
+      <div class="row">
+        <div class="col m-all t-2 d-2 / form__block select__block">
           <label for="category">Category:</label>
           <select name="category">
             <?php echo $this->categories; ?>
           </select>
         </div>
 
-        <div class="col m-all t-2 d-2 / select__block">
+        <div class="col m-all t-2 d-2 / form__block select__block">
           <label for="brand">Brand:</label>
           <select name="brand">
             <?php echo $this->brands; ?>

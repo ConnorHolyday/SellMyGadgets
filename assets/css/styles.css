@@ -1306,12 +1306,6 @@ textarea {
 	margin-bottom: -1.454545455em;
 }
 
-.label__bottom + .select__block {
-	-webkit-transform: translateY(50%);
-	-ms-transform: translateY(50%);
-	transform: translateY(50%);
-}
-
 .list-block h1 {
 	margin: 2.5rem 0;
 }
@@ -1431,7 +1425,7 @@ textarea {
 }
 
 .breadcrumb__sell a {
-	width: 25%;
+	width: 100%;
 }
 
 .breadcrumb__sell a:last-child:after {
@@ -1439,7 +1433,7 @@ textarea {
 }
 
 .breadcrumb__buy a {
-	width: 33%;
+	width: 100%;
 }
 
 .breadcrumb__buy a:last-child {
@@ -1840,6 +1834,12 @@ textarea {
 	border-bottom: 2px solid #303030;
 }
 
+.label__bottom + .select__block {
+	-webkit-transform: translateY(50%);
+	-ms-transform: translateY(50%);
+	transform: translateY(50%);
+}
+
 .breadcrumb {
 	border-radius: 7px;
 }
@@ -1860,6 +1860,14 @@ textarea {
 
 .breadcrumb a:after {
 	right: 1px;
+}
+
+.breadcrumb__sell a {
+	width: 25%;
+}
+
+.breadcrumb__buy a {
+	width: 33%;
 }
 
 .module__product img {
