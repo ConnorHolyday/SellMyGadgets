@@ -70,6 +70,16 @@
                                 `status` varchar(50) NOT NULL,
                                 PRIMARY KEY (`id`));",
 
+        "product_shiping"=>"    CREATE TABLE `product_shiping` (
+                                `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                `product_id` bigint(20) NOT NULL,
+                                `Line1` int(11) NOT NULL,
+                                `Line2` int(11) DEFAULT NULL,
+                                `City` int(11) NOT NULL,
+                                `County` int(11) DEFAULT NULL,
+                                `Postcode` int(11) DEFAULT NULL,
+                                PRIMARY KEY (`id`));",
+
         "products"=>"           CREATE TABLE `products` (
                                 `id` bigint(20) NOT NULL AUTO_INCREMENT,
                                 `category` int(3) NOT NULL,
@@ -96,6 +106,7 @@
                                 `postcode` varchar(10) NOT NULL,
                                 `contact_number` varchar(12) NOT NULL,
                                 `contact_email` varchar(100) NOT NULL,
+                                `PPEmail` varchar(100) NOT NULL,
                                 PRIMARY KEY (`user_id`));",
 
         "user_type"=>"          CREATE TABLE `user_type` (
@@ -125,6 +136,9 @@
                                 `id` bigint(20) NOT NULL AUTO_INCREMENT,
                                 `status` varchar(50) NOT NULL,
                                 PRIMARY KEY (`id`));"
+
+
+
     );
 
     $tableContent = array (
@@ -260,6 +274,8 @@
                                     ('Dispatched'),
                                     ('Complete');",
 
+        "product_shiping"=>"",
+
         "products"=>"           INSERT INTO `products` (`category`, `name`, `price`, `status`)
                                 VALUES
                                     (1,'Iphone 4s',200.00,1),
@@ -325,7 +341,7 @@
                                     ('Moderator'),
                                     ('Admin');",
 
-                                "users"=>"   INSERT INTO `users` (`username`, `password`, `user_type`, `active`)
+        "users"=>"   INSERT INTO `users` (`username`, `password`, `user_type`, `active`)
                                 VALUES
                                     ('andy@hotmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
                                     ('Ryan@sellmygadgets.co.uk','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
@@ -333,7 +349,11 @@
                                     ('Alice@msn.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
                                     ('Becky@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
                                     ('Connor@aol.net','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
-                                    ('Claudia@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1);",
+                                    ('Claudia@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1);"
+
+        "transactions"=>"",
+
+        "transactions_status"=>""
     );
 
     $tables = array(
@@ -345,6 +365,7 @@
         "product_details",
         "product_media",
         "product_status",
+        "product_shiping",
         "products",
         "site_content",
         "user_details",

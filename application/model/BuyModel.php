@@ -103,6 +103,17 @@
 									WHERE producr_id =' . $id);
 	}
 
+	function setShippingAddress($id, $line1, $line2, $city, $county, $postCode){
+		if(!isset($line2)){
+			$line2 = " ";
+		}
+
+		$query = 'INSERT INTO product_shipping (product_id, line1, line2, city, county, postcode)
+					VALUES (' . $id . ',' . $line1 . ',' . $line2 . ','  . $city . ',' . $county . ',' . $postCode . ');'; 
+
+		$this->db->execute_query($query);
+	}
+
 	function processPayment($itemName, $itemPrice, $itemPostage, $itemDescription, $paymentDescription, $id){
 
 		$apiContext = $this->getAccessToken(SANDBOX_CLIENTID, SANDBOX_SECRET);

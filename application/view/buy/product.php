@@ -113,11 +113,11 @@
 
 	  </div>
 
-		<form action="/buy/payment/<?php echo $productID; ?>?confirmation=yes" class="submit-form">
+	
 
-			<button class="pull-right / form__submit">Confirm Purchase</button>
+			<a href="/buy/payment/<?php echo $productID; ?>?confirmation=yes" class="btn btn--dark">Complete</a>
 
-		</form>
+
 
 
 	<? } else { ?>

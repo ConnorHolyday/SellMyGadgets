@@ -66,7 +66,7 @@
 				'PayPalId' => $payer->getPayerId(),
 				'Email' => $payer->getEmail(),
 				'AddressLine1' => $address->getLine1(),
-				'AddressLine2' => $address->getLine2(),
+				'AddressLine2' => $line2,
 				'AddressCity' => $address->getCity(),
 				'AddressCountryCode' => $address->getCountryCode(),
 				'AddressPostalCode' => $address->getPostalCode()
@@ -87,12 +87,12 @@
 				$this->view->payerDetails = $payerDetails;
 
 				$this->model->setProductPurchased($id);
-				$this->model->setTransaction($id, $payerDetails['PayPalId']);		
+				$this->model->setTransaction($id, $payerDetails['PayPalId']);
+				$this->model->setShippingAddress($id, $payerDetails['AddressLine1'], $payerDetails['AddressLine2'], $payerDetails['AddressCity'], $payerDetails['AddressCountryCode'], $payerDetails['AddressPostalCode']);		
 
 				$paySeller = $this->model->setPaySeller($total, $seller[0]['PPEmail']);
 
 				$ack = strpos($paySeller->toXMLString(), 'success');
-			
 				if($ack !== false) { $this->model->setTransactionComplete($id);}
 
 			} else {
