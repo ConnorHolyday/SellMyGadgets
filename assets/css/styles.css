@@ -1580,6 +1580,27 @@ textarea {
 	padding: 2em 0;
 }
 
+.loading:after {
+	position: absolute;
+	content: '';
+	width: 40px;
+	height: 40px;
+	left: 50%;
+	top: 50%;
+	-webkit-animation: load .6s infinite linear;
+	animation: load .6s infinite linear;
+	border-top: 6px solid #60A1CC;
+	border-bottom: 6px solid #f6f6f6;
+	border-left: 6px solid #f6f6f6;
+	border-right: 6px solid #f6f6f6;
+	border-radius: 100%;
+}
+
+.stat-module {
+	min-height: 400px;
+	position: relative;
+}
+
 /* Non-Modular */
 
 /* ============================ *\
@@ -2363,6 +2384,32 @@ h3,
 	-webkit-transform: scale(1.45);
 	-ms-transform: scale(1.45);
 	transform: scale(1.45);
+}
+
+}
+
+@-webkit-keyframes load {
+
+from {
+	-webkit-transfrom: rotate(0deg);
+}
+
+to {
+	-webkit-transform: rotate(359deg);
+}
+
+}
+
+@keyframes load {
+
+from {
+	transfrom: rotate(0deg);
+}
+
+to {
+	-webkit-transform: rotate(359deg);
+	-ms-transform: rotate(359deg);
+	transform: rotate(359deg);
 }
 
 }

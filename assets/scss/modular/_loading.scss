@@ -1,0 +1,29 @@
+/* ============================ *\
+//
+//	Animations
+//
+\* ============================ */
+
+
+.loading:after {
+	position: absolute;
+	content: '';
+	width: 40px;
+	height: 40px;
+	left: 50%;
+	top: 50%;
+	-webkit-animation: load .6s infinite linear;
+	-moz-animation: load .6s infinite linear;
+	animation: load .6s infinite linear;
+	border-top: 6px solid #60A1CC;
+	border-bottom: 6px solid #f6f6f6;
+	border-left: 6px solid #f6f6f6;
+	border-right: 6px solid #f6f6f6;
+	border-radius: 100%;
+}
+
+
+.stat-module {
+	min-height: 400px;
+	position: relative;
+}

@@ -1,34 +1,3 @@
-<style type="text/css">
-  .loading:after {
-    position: absolute;
-    content: '';
-    width: 40px;
-    height: 40px;
-    left: 50%;
-    top: 50%;
-    -webkit-animation: load .6s infinite linear;
-    -moz-animation: load .6s infinite linear;
-    animation: load .6s infinite linear;
-    border-top: 6px solid #60A1CC;
-    border-bottom: 6px solid #f6f6f6;
-    border-left: 6px solid #f6f6f6;
-    border-right: 6px solid #f6f6f6;
-    border-radius: 100%;
-  }
-  @-webkit-keyframes load {
-    from { -webkit-transfrom: rotate(0deg); }
-    to { -webkit-transform: rotate(359deg); }
-  }
-  @-moz-keyframes load {
-    from { -moz-transfrom: rotate(0deg); }
-    to { -moz-transform: rotate(359deg); }
-  }
-  @keyframes load {
-    from { transfrom: rotate(0deg); }
-    to { transform: rotate(359deg); }
-  }
-</style>
-
 <section class="wrapper row list-block">
   <h1>Alternatively, you could browse our categories.</h1>
 
@@ -115,11 +84,11 @@
   </div>
 </section>
 
-<section class="star-seller js-seller" style="min-height: 400px; position: relative;">
+<section class="stat-module star-seller js-seller">
 
 </section>
 
-<section class="site-stats js-stats" style="min-height: 400px; position: relative;">
+<section class="stat-module site-stats js-stats">
 
 </section>
 

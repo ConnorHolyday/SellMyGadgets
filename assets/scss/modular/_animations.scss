@@ -118,3 +118,16 @@
 	transform: scale(1.45);
   }
 }
+
+@-webkit-keyframes load {
+  from { -webkit-transfrom: rotate(0deg); }
+  to { -webkit-transform: rotate(359deg); }
+}
+@-moz-keyframes load {
+  from { -moz-transfrom: rotate(0deg); }
+  to { -moz-transform: rotate(359deg); }
+}
+@keyframes load {
+  from { transfrom: rotate(0deg); }
+  to { transform: rotate(359deg); }
+}
