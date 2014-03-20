@@ -182,7 +182,15 @@
                                     ('Phone Accesories'),
                                     ('Other');",
 
-        "product_comments"=>" ",
+        "product_comments"=>"   INSERT INTO `product_comments` (`product_id`, `comment_id`, `user_id`, `comment`)
+                                VALUES
+                                    (1,0,7,'This is the first question can you awsner it'),
+                                    (1,1,1,'This is a reply to questoin 1 :D\n'),
+                                    (1,0,6,'This is anouther question :D \n'),
+                                    (1,1,1,'so you want to buy my product ?'),
+                                    (1,1,7,'Yes Please\n'),
+                                    (1,1,1,'Click the buy button then unless there is any other questions you wish to ask ?\n'),
+                                    (1,3,1,'oh realy what would you like to ask >\n');",
 
         "product_conditions"=>" INSERT INTO `product_condition` (`condition_name`)
                                 VALUES

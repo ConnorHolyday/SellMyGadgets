@@ -76,10 +76,34 @@
       }
 
       $images = $this->model->getAllImages($id);
-      $comments = $this->model->getAllComments($id);
 
       $allMedia = array();
-      $allComments = array();
+      $comments = array();
+
+      foreach ($images as $media){
+        array_push ($allMedia, '<img src="/' . STATIC_2 . 'small/' . $media['id'] . $media['extension'] . '" alt="' . $media['title'] . '" >');
+      }
+
+      foreach($this->model->getQuestion($id) as $question) {
+          $array = array(
+            'question' => 1,
+            'id' => $question['id'],
+            'UserName' => $question['user_id'],
+            'userImage' => 'to be done',
+            'comment' => $question['comment']
+          );
+          array_push($comments, $array);
+          foreach($this->model->getComments($id, $question['id']) as $reply) {
+            $array = array(
+              'question' => 0,
+              'id' => $reply['id'],
+              'userName' => $reply['user_id'],
+              'userImage' => 'to be done',
+              'comment' => $reply['comment']
+            );
+            array_push($comments, $array);
+          }
+      }
 
       $this->view->productId = $products[0]['id'];
       $this->view->productName = $products[0]['name'];
@@ -91,18 +115,8 @@
       $this->view->productCondition = $products[0]['condition_name'];
       $this->view->productSeller = $products[0]['username'];
       $this->view->productDescription = $products[0]['description'];
-
-      //images and comments to be updated still
-      foreach ($images as $media){
-        array_push ($allMedia, '<img src="/' . STATIC_2 . 'medium/' . $media['id'] . $media['extension'] . '" alt="' . $media['title'] . '" >');
-      }
-
       $this->view->productMedia = $allMedia;
-      foreach ($comments as $comment){
-        array_push ($allComments, '' . $comments['id'] . $comments['comment']);
-      }
-
-      $this->view->productComments = $allComments;
+      $this->view->productComments = $comments;
 
       //render the view page
       $this->view->render('product/view', 'View product', '', true, true);

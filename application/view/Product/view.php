@@ -11,6 +11,7 @@
 	$productSeller = $this->productSeller;
 	//$productSellerID = $this->productSeller;
 	$productDescription = $this->productDescription;
+	$comments = $this->productComments;
 ?>
 
 <div class="hero-banner">
@@ -61,6 +62,26 @@
 
 			<div class="comments">
 				<h2>Comments</h2>
+					<? 
+					foreach($comments as $comment) {
+						if($comment['question'] == 1) {
+					?>
+						<div class=''>
+							<img src=''>
+							<h1><? //$comment['userName']?> Asked : </h1>
+							<p><? echo $comment['comment']; ?></p>
+							<a href='#'>reply</a>
+						</div>
+					<?	} else { ?>
+						<div class=''>
+							<img src=''>
+							<h1><? //$comment['userName']?> Replied : </h1>
+							<p><? echo $comment['comment']; ?></p>
+						</div>
+					<? 
+						} 
+					}
+					?>
 			</div>
 
 		</section>
