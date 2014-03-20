@@ -109,7 +109,9 @@
 		}
 
 		$query = 'INSERT INTO product_shipping (product_id, line1, line2, city, county, postcode)
-					VALUES (' . $id . ',' . $line1 . ',' . $line2 . ','  . $city . ',' . $county . ',' . $postCode . ');'; 
+					VALUES (' . $id . ',"' . $line1 . '","' . $line2 . '","'  . $city . '","' . $county . '","' . $postCode . '");'; 
+
+		echo $query;
 
 		$this->db->execute_query($query);
 	}
