@@ -84,11 +84,11 @@
   </div>
 </section>
 
-<section class="stat-module star-seller js-seller">
+<section class="star-seller js-seller">
 
 </section>
 
-<section class="stat-module site-stats js-stats">
+<section class="site-stats js-stats">
 
 </section>
 

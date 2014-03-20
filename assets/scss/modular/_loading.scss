@@ -5,6 +5,11 @@
 \* ============================ */
 
 
+.loading {
+	min-height: 400px;
+	position: relative;
+}
+
 .loading:after {
 	position: absolute;
 	content: '';
@@ -20,10 +25,4 @@
 	border-left: 6px solid #f6f6f6;
 	border-right: 6px solid #f6f6f6;
 	border-radius: 100%;
-}
-
-
-.stat-module {
-	min-height: 400px;
-	position: relative;
 }
