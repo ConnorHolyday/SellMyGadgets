@@ -212,7 +212,7 @@
 
         <div class="page-options__categories page-options__view--sort">
           <select>
-            <?php echo $this->categories; ?>
+            <?php //echo $this->categories; ?>
           </select>
         </div>
       </div>

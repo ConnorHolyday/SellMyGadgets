@@ -5,7 +5,7 @@
           <?php if (AccountService::isLoggedIn()): ?>
 
             <a href="/account/dashboard" class="top-bar__a">dashboard</a>
-            <a href="/account" class="top-bar__a">account</a>
+            <a href="/account/view" class="top-bar__a">account</a>
             <a itemprop="url" href="/account/logout" class="top-bar__a">logout</a>
 
           <?php else: ?>

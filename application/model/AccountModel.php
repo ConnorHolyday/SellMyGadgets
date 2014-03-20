@@ -58,7 +58,7 @@
       $qry = $this->db->prepare_select(
         '*',
         'users u, user_details ud',
-        'u.id = ' . $id . ' AND u.active = 1'
+        'u.id = ' . $id . ' AND u.active = 1 AND u.id = ud.user_id'
       );
 
       return $this->db->execute_assoc_query($qry);

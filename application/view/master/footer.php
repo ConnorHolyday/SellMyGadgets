@@ -22,3 +22,14 @@
     </div>
   </div>
 </footer>
+<script type="text/javascript" charset="utf-8">
+  var body = document.querySelector("body"),
+      mobileMenu = document.querySelector(".mobile-menu");
+
+  mobileMenu.addEventListener("click", function(){
+    if ( body.classList.contains('active') )
+      body.classList.remove('active');
+    else
+      body.classList.add('active');
+  }, false);
+</script>
