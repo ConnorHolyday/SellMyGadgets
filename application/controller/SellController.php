@@ -46,7 +46,7 @@
             $this->service->addDetailsDataToSession($name, $category, $brand, $price, $description, $condition);
           }
 
-          $this->view->render('sell/images', 'Sell Item - Images', '', true, false, [['file', 'upload'], ['inline', 'console.log(\'init upload\');']]);
+          $this->view->render('sell/images', 'Sell Item - Images', '', true, false, [['file', 'smg'], ['file', 'upload']]);
 
           break;
 

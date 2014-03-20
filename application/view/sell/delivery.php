@@ -18,13 +18,9 @@
     <form action="/sell/item/confirm" method="post" class="form submit-form">
 
       <div class="row">
-        <div class="col m-1 t-3 d-4 / form__block">
+        <div class="col m-all t-all d-all / form__block">
           <input type="radio" name="del_type" value="1" id="r1" required>
           <label for="r1">Delivery</label>
-        </div>
-        <div class="col m-1 t-3 d-4 / form__block">
-          <input type="radio" name="del_type" value="2" id="r2" required>
-          <label for="r2">Collection</label>
         </div>
       </div>
 
@@ -38,7 +34,14 @@
           <label for="del_details">Delivery Details - E.g. First Class</label>
         </div>
       </div>
-      
+
+      <div class="row">
+        <div class="col m-all t-all d-all / form__block">
+          <input type="radio" name="del_type" value="2" id="r2" required>
+          <label for="r2">Collection</label>
+        </div>
+      </div>
+
       <div class="form__block / label__bottom">
         <textarea name="coll_details" id="coll_details" required></textarea>
         <label for="coll_details">Collection Details</label>
