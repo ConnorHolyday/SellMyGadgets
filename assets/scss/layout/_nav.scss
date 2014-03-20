@@ -32,7 +32,7 @@
   transition: right .3s ease;
 
   @include mq($tablet) {
-    position: relative;
+    position: static;
     width: auto;
     height: auto;
     right: 0;

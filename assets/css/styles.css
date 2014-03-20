@@ -1795,7 +1795,7 @@ textarea {
 }
 
 .nav--main {
-	position: relative;
+	position: static;
 	width: auto;
 	height: auto;
 	right: 0;
