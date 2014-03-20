@@ -1,3 +1,10 @@
+<div class="hero-banner">
+  <div class="wrapper">
+    <h1>Your Profile</h1>
+  </div>
+</div>
+
+<div class="wrapper">
 
   <p>
     <?php echo $this->firstName; ?>
@@ -24,3 +31,4 @@
   <p>
     <?php echo $this->phone ?>
   </p>
+</div>
