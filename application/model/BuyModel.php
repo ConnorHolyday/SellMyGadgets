@@ -10,7 +10,6 @@
 	use PayPal\Api\Transaction;
 	use PayPal\Api\ExecutePayment;
 	use PayPal\Api\PaymentExecution;
-
 	use PayPal\Rest\ApiContext;
 	
 	class BuyModel extends BaseModel {
@@ -109,7 +108,7 @@
 		}
 
 		$query = 'INSERT INTO product_shipping (product_id, line1, line2, city, county, postcode)
-					VALUES (' . $id . ',' . $line1 . ',' . $line2 . ','  . $city . ',' . $county . ',' . $postCode . ');'; 
+					VALUES (' . $id . ',"' . $line1 . '","' . $line2 . '","'  . $city . '","' . $county . '","' . $postCode . '");'; 
 
 		$this->db->execute_query($query);
 	}

@@ -121,9 +121,17 @@
 			return $this->db->execute_query($query);
 		}
 
-		function getAllComments($id){
-			$query =  $this->db->prepare_select('*', 'product_comments', 'product_id = ' . $id);
+		function getQuestion($id){
+			$query =  $this->db->prepare_select('*', 'product_comments', 'product_id = ' . $id . ' AND comment_id = 0');
 
+			//echo '<br> getQuestion = : ' . $query . '<br>';
+			return $this->db->execute_query($query);
+		}
+
+		function getComments($product_id, $comment_id){
+			$query =  $this->db->prepare_select('*', 'product_comments', 'product_id = ' . $product_id . ' AND comment_id = ' . $comment_id);
+
+			//echo '<br> getCommetns = : ' . $query . '<br>';
 			return $this->db->execute_query($query);
 		}
 	}
