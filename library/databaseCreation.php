@@ -70,7 +70,7 @@
                                 `status` varchar(50) NOT NULL,
                                 PRIMARY KEY (`id`));",
 
-        "product_shiping"=>"    CREATE TABLE `product_shiping` (
+        "product_shipping"=>"    CREATE TABLE `product_shipping` (
                                 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
                                 `product_id` bigint(20) NOT NULL,
                                 `Line1` int(11) NOT NULL,
@@ -99,8 +99,8 @@
                                 `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
                                 `first_name` varchar(50) NOT NULL,
                                 `surname` varchar(50) NOT NULL,
-                                `adress_1` varchar(255) NOT NULL,
-                                `adress_2` varchar(255) DEFAULT NULL,
+                                `address_1` varchar(255) NOT NULL,
+                                `address_2` varchar(255) DEFAULT NULL,
                                 `town_city` varchar(50) NOT NULL,
                                 `county` varchar(50) NOT NULL,
                                 `postcode` varchar(10) NOT NULL,
@@ -184,21 +184,21 @@
 
         "product_comments"=>"   INSERT INTO `product_comments` (`product_id`, `comment_id`, `user_id`, `comment`)
                                 VALUES
-                                    (1,0,7,'This is the first question can you awsner it'),
-                                    (1,1,1,'This is a reply to questoin 1 :D\n'),
-                                    (1,0,6,'This is anouther question :D \n'),
-                                    (1,1,1,'so you want to buy my product ?'),
+                                    (1,0,7,'This is the first question can you answer it'),
+                                    (1,1,1,'This is a reply to questoin 1\n'),
+                                    (1,0,6,'This is anouther question\n'),
+                                    (1,1,1,'So you want to buy my product?'),
                                     (1,1,7,'Yes Please\n'),
-                                    (1,1,1,'Click the buy button then unless there is any other questions you wish to ask ?\n'),
-                                    (1,3,1,'oh realy what would you like to ask >\n');",
+                                    (1,1,1,'Click the buy button unless there is any other questions you wish to ask?\n'),
+                                    (1,3,1,'Oh realy what would you like to ask?\n');",
 
         "product_conditions"=>" INSERT INTO `product_condition` (`condition_name`)
                                 VALUES
                                     ('New'),
                                     ('Like new'),
                                     ('Referbished'),
-                                    ('Used Good condition'),
-                                    ('Used bad condition'),
+                                    ('Used - Good Condition'),
+                                    ('Used - Bad Condition'),
                                     ('Broken');",
 
         "product_delivery"=>"   INSERT INTO `product_delivery` (`delivery_status`, `delivery_date`, `delivery_cost`)
@@ -282,7 +282,7 @@
                                     ('Dispatched'),
                                     ('Complete');",
 
-        "product_shiping"=>"",
+        "product_shipping"=>"",
 
         "products"=>"           INSERT INTO `products` (`category`, `name`, `price`, `status`)
                                 VALUES
@@ -323,9 +323,9 @@
                                     ('terms','<h1>Terms & Conditions</h1>',1),
                                     ('privacy','<h1>Our Privacy Agrement</h1>',1),
                                     ('advertising','<h1>Want to advertise with us?</h1>',1),
-                                    ('Cookies','<h1>What are cookies store</h1>',1),
+                                    ('Cookies','<h1>Cookie Policy</h1>',1),
                                     ('help','<h1>FAQ</h1>',1),
-                                    ('contact','<h1>Contact Us!!!</h1>\n',1);",
+                                    ('contact','<h1>Contact Us!</h1>\n',1);",
 
         "user_details"=>"       INSERT INTO `user_details` (`first_name`, `surname`, `adress_1`, `adress_2`, `town_city`, `county`, `postcode`, `contact_number`, `contact_email`)
                                 VALUES
@@ -334,18 +334,12 @@
                                     ('George','Best','20 Duck road',NULL,'taunton','somerset','ta1 2bg',2147483647,'Georgegmail.com'),
                                     ('Alice','Durp','1 new hill',NULL,'taunton','somerset','ta1 2bg',2147483647,'Alice@msn.com'),
                                     ('Becky','Lord','888 bingo close',NULL,'taunton','somerset','ta1 2bg',2147483647,'Becky@gmail.com'),
-                                    ('Connor','Holiday','7 lucky mues',NULL,'taunton','somerset','ta1 2bg',2147483647,'Connor@aol.net'),
+                                    ('Connor','Holyday','7 lucky mues',NULL,'taunton','somerset','ta1 2bg',2147483647,'Connor@aol.net'),
                                     ('Claudia','Smith','81 iron street',NULL,'taunton','somerset','ta1 2bg',2147483647,'Claudia@gmail.com');",
 
         "user_type"=>"          INSERT INTO `user_type` (`type`)
                                 VALUES
-                                    ('Active'),
-                                    ('Deactive'),
                                     ('User'),
-                                    ('Advanced User'),
-                                    ('Experianced User'),
-                                    ('Senior User'),
-                                    ('Subscriber'),
                                     ('Moderator'),
                                     ('Admin');",
 
@@ -357,7 +351,8 @@
                                     ('Alice@msn.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
                                     ('Becky@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
                                     ('Connor@aol.net','5f4dcc3b5aa765d61d8327deb882cf99',1,1),
-                                    ('Claudia@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1);"
+                                    ('admin','5f4dcc3b5aa765d61d8327deb882cf99',3,1),
+                                    ('Claudia@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1);",
 
         "transactions"=>"",
 
@@ -373,7 +368,7 @@
         "product_details",
         "product_media",
         "product_status",
-        "product_shiping",
+        "product_shipping",
         "products",
         "site_content",
         "user_details",
@@ -383,14 +378,14 @@
         "transactions_status"
      );
 
-    echo '<h1>Generating Tables</h1><br>'; 
+    echo '<h1>Generating Tables</h1><br>';
 
     foreach ($tables as $table) {
         $db->execute_query($tableStructure[$table]);
         echo 'Created Table : ' . $table . '<br>';
     }
 
-    echo '<h1>Generating Content </h1><br>';
+    echo '<h1>Generating Content</h1><br>';
 
     foreach ($tables as $table) {
         $db->execute_query($tableContent[$table]);
