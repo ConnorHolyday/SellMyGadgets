@@ -33,7 +33,8 @@
 		<aside class="col m-all t-1 d-2 sidebar__product">
 
 			<div class="boxed module__product">
-				<? echo $productImage; ?>
+				<? //echo $productImage; ?>
+				<img src="http://placehold.it/220x230" alt="" />
 
 				<!-- <div class="slider">
 
@@ -42,7 +43,7 @@
 				<ul itemscope itemtype="http://schema.org/Product"class="product-meta list-block__list">
 					<li itemprop="name"><?php echo $productName ?></li>
 					<li itemprop="price">£<?php echo $productPrice ?></li>
-					<li itemprop="itemCondition">Condition - <?php echo $productCondition ?></li>
+					<li itemprop="itemCondition">Condition: <?php echo $productCondition ?></li>
 					<li>Sold by: <a href="#"><?php echo $productSeller ?></a></li>
 					<li class="tags">Tags: iPhone, Apple, Mobile, Phone</li>
 				</ul>
@@ -62,7 +63,7 @@
 
 			<div class="comments">
 				<h2>Comments</h2>
-					<? 
+					<?
 					foreach($comments as $comment) {
 						if($comment['question'] == 1) {
 					?>
@@ -78,8 +79,8 @@
 							<h1><? //$comment['userName']?> Replied : </h1>
 							<p><? echo $comment['comment']; ?></p>
 						</div>
-					<? 
-						} 
+					<?
+						}
 					}
 					?>
 			</div>

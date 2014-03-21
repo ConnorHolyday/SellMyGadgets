@@ -132,7 +132,7 @@
             <?php foreach ($this->products as $product) : ?>
               <div class="col m-all t-2 d2-2">
                 <div class="boxed module__product">
-                  <img src="<?php echo '/' . STATIC_2 . 'medium/' . $product['primary_image'] . $product['extension']; ?>" alt="">
+                  <img src="<?php //echo '/' . STATIC_2 . 'medium/' . $product['primary_image'] . $product['extension']; ?>http://placehold.it/220x230" alt="">
 
                   <ul class="product-meta list-block__list">
                     <li><?php echo $product['name']; ?></li>
