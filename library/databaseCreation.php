@@ -197,8 +197,8 @@
                                     ('New'),
                                     ('Like new'),
                                     ('Referbished'),
-                                    ('Used - Good Condition'),
-                                    ('Used - Bad Condition'),
+                                    ('Used - Good'),
+                                    ('Used - Bad'),
                                     ('Broken');",
 
         "product_delivery"=>"   INSERT INTO `product_delivery` (`delivery_status`, `delivery_date`, `delivery_cost`)
