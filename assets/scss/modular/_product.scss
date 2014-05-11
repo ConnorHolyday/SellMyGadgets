@@ -21,7 +21,7 @@
 		width: 100%;
 		max-width: 100%;
 
-		@include mq($tablet) {
+		@include mq($desktop) {
 			max-width: 14.375em;
 			max-height: 14.375em;
 		}
@@ -33,7 +33,7 @@
 		margin: 0 1.25em 1.25em 1.25em;
 		right: 0;
 
-		@include mq($tablet) {
+		@include mq($desktop) {
 			position: absolute;
 		}
 	}
@@ -75,4 +75,13 @@
 
 .page-info {
 	margin: 1.25em 0;
+}
+
+.product__content {
+	h1,
+	span,
+	p {
+		margin-bottom: 20px;
+		display: block;
+	}
 }

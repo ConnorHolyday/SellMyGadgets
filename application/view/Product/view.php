@@ -54,7 +54,7 @@
 
 		</aside>
 
-		<section itemscope itemtype="http://schema.org/Product"class="col m-all t-3 d-6">
+		<section itemscope itemtype="http://schema.org/Product" class="col m-all t-3 d-6 / product__content">
 
 			<h1 itemprop="name"><?php echo $productName; ?></h1>
 			<span>Sold by: <a href="#"><?php echo $productSeller; ?></a></span>

@@ -34,23 +34,24 @@ video {
 
 
 a {
-  background: transparent;
-  text-decoration: none;
-  color: $link;
-  border-bottom: 1px solid $link;
+	background: transparent;
+	text-decoration: none;
+	color: $link;
+	border-bottom: 1px solid $link;
+	word-wrap: break-word;
 
-  &:hover,
-  &:active,
-  &:focus {
-    border-bottom: none;
-  }
+	&:hover,
+	&:active,
+	&:focus {
+		border-bottom: none;
+	}
 }
 a:focus {
-  outline: thin dotted;
+	outline: thin dotted;
 }
 a:active,
 a:hover {
-  outline: 0;
+	outline: 0;
 }
 
 h1, .h1,
@@ -60,27 +61,8 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
 	@include heading-font;
+	word-wrap: break-word;
 }
-
-h1, .h1 {
-
-}
-h2, .h2 {
-
-}
-h3, .h3 {
-
-}
-h4, .h4 {
-
-}
-h5, .h5 {
-
-}
-h6, .h6 {
-
-}
-
 
 b,
 strong {
