@@ -85,24 +85,26 @@
       }
 
       foreach($this->model->getQuestion($id) as $question) {
+
           $array = array(
             'question' => 1,
             'id' => $question['id'],
-            'UserName' => $question['user_id'],
+            'userName' => $question['username'],
             'userImage' => 'to be done',
             'comment' => $question['comment']
           );
           array_push($comments, $array);
-          foreach($this->model->getComments($id, $question['id']) as $reply) {
-            $array = array(
-              'question' => 0,
-              'id' => $reply['id'],
-              'userName' => $reply['user_id'],
-              'userImage' => 'to be done',
-              'comment' => $reply['comment']
-            );
-            array_push($comments, $array);
-          }
+
+            foreach($this->model->getComments($id, $question['id']) as $reply) {
+              $array = array(
+                'question' => 0,
+                'id' => $reply['id'],
+                'userName' => $reply['username'],
+                'userImage' => 'to be done',
+                'comment' => $reply['comment']
+              );
+              array_push($comments, $array);
+            }
       }
 
       $this->view->productId = $products[0]['id'];

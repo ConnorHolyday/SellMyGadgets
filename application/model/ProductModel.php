@@ -122,16 +122,15 @@
 		}
 
 		function getQuestion($id){
-			$query =  $this->db->prepare_select('*', 'product_comments', 'product_id = ' . $id . ' AND comment_id = 0');
+			$query =  'SELECT product_comments.id, product_comments.product_id, product_comments.comment_id, product_comments.comment, users.username FROM product_comments INNER JOIN users ON product_comments.user_id = users.id WHERE product_id =' . $id . ' AND comment_id = 0';
 
-			//echo '<br> getQuestion = : ' . $query . '<br>';
-			return $this->db->execute_query($query);
+			return $this->db->execute_assoc_query($query);
 		}
 
-		function getComments($product_id, $comment_id){
-			$query =  $this->db->prepare_select('*', 'product_comments', 'product_id = ' . $product_id . ' AND comment_id = ' . $comment_id);
+		function getComments($id, $comment_id){
+			$query =  'SELECT product_comments.id, product_comments.product_id, product_comments.comment_id, product_comments.comment, users.username FROM product_comments INNER JOIN users ON product_comments.user_id = users.id WHERE product_id =' . $id . ' AND comment_id = ' . $comment_id;
 
-			//echo '<br> getCommetns = : ' . $query . '<br>';
-			return $this->db->execute_query($query);
+			
+			return $this->db->execute_assoc_query($query);
 		}
 	}

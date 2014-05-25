@@ -67,24 +67,27 @@
 					foreach($comments as $comment) {
 						if($comment['question'] == 1) {
 					?>
-						<div class=''>
-							<img src=''>
-							<h1><? //$comment['userName']?> Asked : </h1>
+						<div class='comment-question'>
+							<img src="http://placehold.it/120x120">
+							<h1><? echo $comment['userName']?> Asked : </h1>
 							<p><? echo $comment['comment']; ?></p>
-							<a href='#'>reply</a>
+							<a href='#comment-reply'>reply</a>
 						</div>
 					<?	} else { ?>
-						<div class=''>
-							<img src=''>
-							<h1><? //$comment['userName']?> Replied : </h1>
+						<div class='comment-reply'>
+							<h1><? echo $comment['userName']?> Replied : </h1>
 							<p><? echo $comment['comment']; ?></p>
+							<a href='#comment-reply'>reply</a>
 						</div>
 					<?
 						}
 					}
 					?>
 			</div>
-
+			<form id='comment-reply' class="coments-form" action"" method="post">
+				<input name="question" type="textarea">
+				<input name="submit" type="submit" value="Ask">
+			</form>
 		</section>
 
 	</div>
