@@ -144,22 +144,27 @@
           case 'products-by-category':
 
             $arr = [
+              'title' => 'Products by category',
               'columns' => [
-                ['string', 'Topping'],
-                ['number', 'Slices']
+                ['string', 'Test Data 1'],
+                ['number', 'Test Data 2']
               ],
               'rows' => [
-                ['Mushrooms', 3],
-                ['Onions', 1],
-                ['Olives', 1],
-                ['Zucchini', 1],
-                ['Pepperoni', 2]
+                ['Test 1', 3],
+                ['Test 2', 1],
+                ['Test 3', 1],
+                ['Test 4', 1],
+                ['Test 5', 2]
               ]
             ];
 
             $json = json_encode($arr);
 
             echo $json;
+
+            break;
+
+          case '':
 
             break;
         }

@@ -3,7 +3,11 @@ _.addEvent(window, 'load', function () {
   _.loadScript('//www.google.com/jsapi', function () {
     google.load('visualization', '1.0', { 'callback': 'init_charts()', 'packages': ['corechart'] });
   });
-}, false);
+});
+
+_.addEvent(window, 'resize', function() {
+  init_charts();
+});
 
 function init_charts() {
 
@@ -11,9 +15,9 @@ function init_charts() {
     data = new google.visualization.DataTable(),
     xhr = _.xhr();
 
+  //_.cssClass.add(c, 'loading');
   xhr.open('GET', '/account/charts/products-by-category', true);
   xhr.send();
-
 
   _.addEvent(xhr, 'load', function() {
     var obj = JSON.parse(this.responseText);
@@ -27,13 +31,18 @@ function init_charts() {
     data.addRows(obj.rows);
 
     var options = {
-      'title': 'How Much Pizza I Ate Last Night',
-      'width': 400,
-      'height': 300
+      'title': obj.title,
+      'width': '100%',
+      'height': 400,
+      fontName: 'Lato',
+      titleTextStyle: {bold: false},
+      colors: ['#60A1CC', '#28333F', '#C13534', '#355899', '#4EB05E']
     },
     chart = new google.visualization.PieChart(c);
 
     chart.draw(data, options);
+
+    //_.cssClass.remove(c, 'loading');
   });
 
 }
