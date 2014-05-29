@@ -25,7 +25,7 @@
             <div class="col m-all t-all d-4">
                 <div itemscope itemtype="http//schema.org/Organization"class="main-logo">
                     <a href="/" title="Sell My Gadgets">
-                        <img itemprop="logo" src="/assets/img/svg/logo.svg">
+                        <img itemprop="logo" src="/assets/img/svg/logo.svg" style="max-width:100%;">
                     </a>
                 </div>
 

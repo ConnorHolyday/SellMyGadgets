@@ -16,8 +16,8 @@
     function about() {
       $about = $this->model->about();
 
-      $this->view->page_title = $about[0]['title'];
-      $this->view->content = $about[0]['content'];
+      $this->view->page_title = $about['title'];
+      $this->view->content = $about['content'];
 
       $this->view->render('site/content', 'About', '', true, false);
     }
@@ -25,8 +25,8 @@
     function terms () {
       $terms = $this->model->terms();
 
-      $this->view->page_title = $terms[0]['title'];
-      $this->view->content = $terms[0]['content'];
+      $this->view->page_title = $terms['title'];
+      $this->view->content = $terms['content'];
 
       $this->view->render('site/content', 'Terms and Conditions', '', true, false);
     }
@@ -34,8 +34,8 @@
     function privacy () {
       $privacy = $this->model->privacy();
 
-      $this->view->page_title = $privacy[0]['title'];
-      $this->view->content = $privacy[0]['content'];
+      $this->view->page_title = $privacy['title'];
+      $this->view->content = $privacy['content'];
 
       $this->view->render('site/content', 'Privacy Statement', '', true, false);
     }
@@ -43,8 +43,8 @@
     function advertising() {
       $advertising = $this->model->advertising();
 
-      $this->view->page_title = $advertising[0]['title'];
-      $this->view->content = $advertising[0]['content'];
+      $this->view->page_title = $advertising['title'];
+      $this->view->content = $advertising['content'];
 
       $this->view->render('site/content', 'Advertising', '', true, false);
     }
@@ -52,8 +52,8 @@
     function cookies() {
       $cookies = $this->model->cookies();
 
-      $this->view->page_title = $cookies[0]['title'];
-      $this->view->content = $cookies[0]['content'];
+      $this->view->page_title = $cookies['title'];
+      $this->view->content = $cookies['content'];
 
       $this->view->render('site/content', 'Cookie Policy', '', true, false);
     }
@@ -61,8 +61,8 @@
     function help() {
       $help = $this->model->help();
 
-      $this->view->page_title = $help[0]['title'];
-      $this->view->content = $help[0]['content'];
+      $this->view->page_title = $help['title'];
+      $this->view->content = $help['content'];
 
       $this->view->render('site/content', 'Help', '', true, false);
     }

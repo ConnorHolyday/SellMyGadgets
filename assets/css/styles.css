@@ -819,6 +819,16 @@ textarea {
 	margin-right: 0;
 }
 
+.top-bar__a:hover,
+.top-bar__a:active,
+.top-bar__a:focus {
+	color: white;
+}
+
+.top-bar--dash {
+	padding: 1em 2em;
+}
+
 .mobile-menu {
 	cursor: pointer;
 	padding: 1em;
@@ -900,7 +910,7 @@ textarea {
 	width: 240px;
 	height: 100%;
 	right: -240px;
-	top: 0;
+	top: 55px;
 	border-left: 4px solid white;
 	background-color: #60A1CC;
 	-webkit-transition: right .3s ease;
@@ -918,7 +928,7 @@ textarea {
 	display: block;
 }
 
-.nav--main__a {
+a.nav--main__a {
 	display: block;
 	border-bottom: 4px solid white;
 	color: white;
@@ -926,6 +936,12 @@ textarea {
 	padding: 2em;
 	text-transform: uppercase;
 	letter-spacing: .1em;
+}
+
+a.nav--main__a:hover,
+a.nav--main__a:focus,
+a.nav--main__a:active {
+	border-bottom: 4px solid white !important;
 }
 
 .pagination a {
@@ -993,6 +1009,45 @@ textarea {
 }
 
 /* Modular */
+
+.dash-wrap {
+	padding: 2em;
+}
+
+.dash-wrap > h1 {
+	margin-bottom: 2em;
+}
+
+.dash-wrap .col {
+	margin-bottom: 20px;
+}
+
+.dash-wrap ul,
+.dash-wrap ol {
+	list-style-position: inside;
+}
+
+.module--dashboard {
+	border: 1px solid #dfdfdf;
+	padding: 1em;
+	min-height: 402px;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.currently-selling {
+	text-align: center;
+	padding-top: 89px;
+	line-height: 109px;
+}
+
+.currently-selling h2,
+.currently-selling h3 {
+	font-weight: bold;
+	color: #355899;
+}
 
 .btn,
 .submit-form button {
@@ -1784,6 +1839,38 @@ textarea {
 	margin-bottom: 2em;
 }
 
+.star-seller {
+	padding: 2em 0;
+}
+
+.star-seller--wrap {
+	position: relative;
+	display: block;
+	text-align: center;
+	margin-top: 2em;
+}
+
+.star-seller--wrap h2,
+.star-seller--wrap .star-seller-images {
+	display: inline-block;
+}
+
+.star-seller--wrap h2 {
+	position: relative;
+	top: -110px;
+	margin-right: 3em;
+}
+
+.star-seller--wrap .star-seller-images {
+	position: relative;
+}
+
+.reward-icon {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+}
+
 /*# sourceMappingURL=styles.css.map */
 
 @media screen and (min-width: 599px) {
@@ -1830,6 +1917,7 @@ textarea {
 	width: auto;
 	height: auto;
 	right: 0;
+	top: 0;
 	border: none;
 	background-color: white;
 	margin-top: 2.5em;
@@ -1860,7 +1948,7 @@ textarea {
 	border-bottom: 2px solid #303030;
 }
 
-.nav--main__a {
+a.nav--main__a {
 	display: inline-block;
 	color: #303030;
 	padding: 0 0 .3125em 0;
@@ -1869,10 +1957,10 @@ textarea {
 	font-weight: 300;
 }
 
-.nav--main__a:hover,
-.nav--main__a:focus,
-.nav--main__a:active {
-	border-bottom: 2px solid #303030;
+a.nav--main__a:hover,
+a.nav--main__a:focus,
+a.nav--main__a:active {
+	border-bottom: 2px solid #303030 !important;
 }
 
 .label__bottom + .select__block {

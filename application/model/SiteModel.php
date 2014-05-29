@@ -30,9 +30,14 @@
     }
 
     function advertising() {
-      $advertising =  $this->db->prepare_select('title, content', 'site_content', 'active = 1 AND page = \'advertising\'');
+      //$advertising =  $this->db->prepare_select('title, content', 'site_content', 'active = 1 AND page = \'advertising\'');
 
-      return $this->db->execute_assoc_query($advertising);
+      //return $this->db->execute_assoc_query($advertising);
+
+      $advertising['title'] = 'Advertising';
+      $advertising['content'] = '<p>Ads appearing on our site may be delivered to Users by advertising partners, who may set cookies. These cookies allow the ad server to recognise your computer each time they send you an online advertisement to compile non personal identification information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This privacy policy does not cover the use of cookies by any advertisers.</p><br><p>Some of the ads may be served by Google. Google\'s use of the DART cookie enables it to serve ads to Users based on their visit to our Site and other sites on the Internet. DART uses "non personally identifiable information" and does NOT track personal information about you, such as your name, email address, physical address, etc. You may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy at <a href="http://www.google.com/privacy_ads.html">http://www.google.com/privacy_ads.html</a></p>';
+
+      return $advertising;
     }
 
     function cookies() {

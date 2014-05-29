@@ -13,16 +13,16 @@
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'sellmygadgets');
     define('DB_USER', 'root');
-    define('DB_PASSWORD', 'sellmygadgets');
+    define('DB_PASSWORD', 'wordpress');
 
     //pagination
     define('PAGE_ITEMS', 9);
 
-    //paypal 
+    //paypal
     define('PAYPAL_CURRENCY', 'USD');
     define('PAYPAL_FEE', 0.30);
     define('PAYPAL_PERCENT', 5);
-    
+
     //set sandbox information
     Define('SANDBOX_ACOUNT', 'pay-facilitator@sellmygadgets.co.uk');
     Define('SANDBOX_ENDPOINT','api.sandbox.paypal.com');
@@ -33,7 +33,3 @@
     Define('API_USERNAME',  'pay_api1.sellmygadgets.co.uk');
     Define('API_PASSWORD',  'Z7NGPB99XNVCPVQ8');
     Define('API_SIGNATURE', 'AFcWxV21C7fd0v3bYYYRCpSSRl31AJWo5DsJ5VSvwtJYMULsWaXzE7MS');
-
-    
-
-   

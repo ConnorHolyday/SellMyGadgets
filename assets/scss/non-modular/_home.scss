@@ -1,0 +1,30 @@
+.star-seller {
+	padding: 2em 0;
+}
+
+.star-seller--wrap {
+	position: relative;
+	display: block;
+	text-align: center;
+	margin-top: 2em;
+
+	h2, .star-seller-images {
+		display: inline-block;
+	}
+
+	h2 {
+		position: relative;
+		top: -110px;
+		margin-right: 3em;
+	}
+
+	.star-seller-images {
+		position: relative;
+	}
+}
+
+.reward-icon {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+}

@@ -26,7 +26,7 @@
   width: 240px;
   height: 100%;
   right: -240px;
-  top: 0;
+  top: 55px;
   border-left: 4px solid white;
   background-color: #60A1CC;
   transition: right .3s ease;
@@ -36,6 +36,7 @@
     width: auto;
     height: auto;
     right: 0;
+    top: 0;
     border: none;
     background-color: white;
     margin-top: 2.5em;
@@ -86,7 +87,7 @@
     }
   }
 
-  .nav--main__a {
+  a.nav--main__a {
     display: block;
     border-bottom: 4px solid white;
     color: white;
@@ -94,6 +95,12 @@
     padding: 2em;
     text-transform: uppercase;
     letter-spacing: .1em;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-bottom: 4px solid white!important;
+    }
 
 
     @include mq($tablet) {
@@ -107,7 +114,7 @@
       &:hover,
       &:focus,
       &:active {
-          border-bottom: 2px solid $copy;
+          border-bottom: 2px solid $copy!important;
       }
     }
   }

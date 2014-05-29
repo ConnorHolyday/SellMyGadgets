@@ -38,6 +38,16 @@
     &:last-child {
         margin-right: 0;
     }
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: white;
+    }
+  }
+
+  .top-bar--dash {
+    padding: 1em 2em;
   }
 
   .mobile-menu {

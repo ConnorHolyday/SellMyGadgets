@@ -70,7 +70,9 @@
 
       <div class="page-options__categories page-options__view--sort">
         <select>
-          <?php //echo $categories; ?>
+          <? foreach($this->categories as $Category) : ?>
+            <option><? echo $Category['category_name'] ?></option>
+          <? endforeach; ?>
         </select>
       </div>
     </div>
@@ -101,7 +103,7 @@
             </ul>
           </div>
 
-          <div class="page-options__sidebar-item list-block__wrap">
+          <?php /*<div class="page-options__sidebar-item list-block__wrap">
             <h2 class="list-block__title">Related</h2>
             <ul class="list-block__list border__none--hover">
               <li class="icon-uniE604">
@@ -117,7 +119,7 @@
                 <a href="#">iPhone 4S</a>
               </li>
             </ul>
-          </div>
+          </div> */ ?>
         </aside>
       </div>
 
@@ -212,7 +214,9 @@
 
         <div class="page-options__categories page-options__view--sort">
           <select>
-            <?php //echo $this->categories; ?>
+            <? foreach($this->categories as $Category) : ?>
+              <option><? echo $Category['category_name'] ?></option>
+            <? endforeach; ?>
           </select>
         </div>
       </div>
