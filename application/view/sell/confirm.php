@@ -17,6 +17,8 @@
 
     <form action="/sell/item/processed" method="post" class="submit-form">
 
+      <?php //print_r($this->confirmData); ?>
+
       <button class="pull-right / form__submit">Confirm</button>
 
     </form>

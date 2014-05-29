@@ -86,5 +86,4 @@
     function destroySellSession() {
       unset($_SESSION['SELL_DATA']);
     }
-
   }

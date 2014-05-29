@@ -12,8 +12,17 @@
       $brand = $productData['brand'];
       $price = $productData['price'];
       $description = $productData['description'];
+
       $condition = $productData['condition'];
       $user = AccountService::checkAuth();
+
+      $delivery_id = $this->insertProductDeliveryDetails(
+        $productData['delivery_type'],
+        $productData['delivery_price'],
+        $productData['collection'],
+        $productData['collection_details'],
+        $id
+      );
 
       $qry = $this->db->prepare_insert('products',
         'name, category, brand, price, status',
@@ -23,8 +32,8 @@
       $id = $this->db->insert_return_id($qry);
 
       $qry = $this->db->prepare_insert('product_details',
-        'product_id, primary_image, description, condition_id, creation_date, created_by, modified_date, modified_by',
-        "$id, 0, '$description', $condition, CURDATE(), $user, CURDATE(), $user"
+        'product_id, primary_image, description, delivery_id, condition_id, creation_date, created_by, modified_date, modified_by',
+        "$id, 0, '$description', $delivery_id, $condition, CURDATE(), $user, CURDATE(), $user"
       );
 
       $this->db->execute_query($qry);
@@ -32,20 +41,19 @@
       $qry = $this->db->prepare_insert('user_products', 'user_id, product_id', "$user, $id");
       $this->db->execute_query($qry);
 
-      $this->insertProductDeliveryDetails(
-        $productData['delivery_type'],
-        $productData['delivery_price'],
-        $productData['collection'],
-        $productData['collection_details'],
-        $id
-      );
-
       $this->insertProductMedia($productData['images'], $id);
     }
 
+    private function insertProductDeliveryDetails($del_type, $del_price, $collection, $coll_details) {
+      $qry = $this->db->prepare_insert(
+        'product_delivery',
+        'delivery_status, delivery_cost, collection_available, collection_details',
+        "'$del_type', $del_price, $collection, '$collection_details'"
+      );
 
-    private function insertProductDeliveryDetails($del_type, $del_price, $collection, $coll_details, $productId) {
+      $id = $this->db->insert_return_id($qry);
 
+      return $id;
     }
 
     private function insertProductMedia($media, $productId) {
