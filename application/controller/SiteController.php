@@ -24,7 +24,7 @@
 
     function terms () {
       $terms = $this->model->terms();
-
+      
       $this->view->page_title = $terms[0]['title'];
       $this->view->content = $terms[0]['content'];
 

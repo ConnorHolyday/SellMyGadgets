@@ -51,7 +51,7 @@
                                 `description` text NOT NULL,
                                 `condition_id` int(3) NOT NULL,
                                 `delivery_id` bigint(20) NOT NULL,
-                                `cration_date` datetime NOT NULL,
+                                `creation_date` datetime NOT NULL,
                                 `created_by` bigint(20) NOT NULL,
                                 `modified_date` datetime NOT NULL,
                                 `modified_by` bigint(20) NOT NULL,
@@ -93,6 +93,7 @@
                                 `page` varchar(20) NOT NULL,
                                 `content` text NOT NULL,
                                 `active` tinyint(1) NOT NULL,
+                                `title` varchar(20) NOT NULL,
                                 PRIMARY KEY (`id`));",
 
         "user_details"=>"       CREATE TABLE `user_details` (
@@ -121,6 +122,13 @@
                                 `user_type` int(10) NOT NULL,
                                 `active` tinyint(1) NOT NULL,
                                 PRIMARY KEY (`id`));",
+
+        "user_products"=>"      CREATE TABLE `user_products`(
+                                `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                                `user_id` bigint(20) NOT NULL,
+                                `product_id` bigint(20) NOT NULL,
+                                PRIMARY KEY (`id`));" 
+                                
 
         "transactions"=>"       CREATE TABLE `transactions` (
                                 `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -317,15 +325,15 @@
                                     (4,'Microsoft Surface Pro',600.00,1),
                                     (4,'Kindle Fire Hd',100.00,1);",
 
-        "site_content"=>"       INSERT INTO `site_content` (`page`, `content`, `active`)
+        "site_content"=>"       INSERT INTO `site_content` (`page`, `content`, `active`, `title`)
                                 VALUES
-                                    ('about','<h1>About Sell My Gadgets!!</h1>',1),
-                                    ('terms','<h1>Terms & Conditions</h1>',1),
-                                    ('privacy','<h1>Our Privacy Agrement</h1>',1),
-                                    ('advertising','<h1>Want to advertise with us?</h1>',1),
-                                    ('Cookies','<h1>Cookie Policy</h1>',1),
-                                    ('help','<h1>FAQ</h1>',1),
-                                    ('contact','<h1>Contact Us!</h1>\n',1);",
+                                    ('about','<h1>About Sell My Gadgets!!</h1>',1,''),
+                                    ('terms','<h1>Terms & Conditions</h1>',1,''),
+                                    ('privacy','<h1>Our Privacy Agrement</h1>',1,''),
+                                    ('advertising','<h1>Want to advertise with us?</h1>',1,''),
+                                    ('Cookies','<h1>Cookie Policy</h1>',1,''),
+                                    ('help','<h1>FAQ</h1>',1,''),
+                                    ('contact','<h1>Contact Us!</h1>\n',1,'');",
 
         "user_details"=>"       INSERT INTO `user_details` (`first_name`, `surname`, `adress_1`, `adress_2`, `town_city`, `county`, `postcode`, `contact_number`, `contact_email`)
                                 VALUES
@@ -354,6 +362,8 @@
                                     ('admin','5f4dcc3b5aa765d61d8327deb882cf99',3,1),
                                     ('Claudia@gmail.com','5f4dcc3b5aa765d61d8327deb882cf99',1,1);",
 
+        "user_products"=>"",
+
         "transactions"=>"",
 
         "transactions_status"=>""
@@ -374,6 +384,7 @@
         "user_details",
         "user_type",
         "users",
+        "user_products",
         "transactions",
         "transactions_status"
      );
