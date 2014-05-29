@@ -60,7 +60,7 @@
         case 'confirm':
 
           if(sizeof($_POST) > 0) {
-            $del_type = $_POST['del_type'];
+            $del_type = $_POST['del_details'];
             $del_price = $_POST['del_price'];
             $collection = $_POST['collection'];
             $coll_details = $_POST['coll_details'];

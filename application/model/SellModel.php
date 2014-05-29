@@ -19,13 +19,13 @@
       $delivery_id = $this->insertProductDeliveryDetails(
         $productData['delivery_type'],
         $productData['delivery_price'],
-        $productData['collection'],
+        0,
         $productData['collection_details']
       );
 
       $qry = $this->db->prepare_insert('products',
-        'name, category, brand, price, status',
-        "'$name', $category, $brand, $price, 1"
+        'name, category, price, status',
+        "'$name', $category, $price, 1"
       );
 
       $id = $this->db->insert_return_id($qry);
