@@ -84,7 +84,6 @@
           $data = $this->service->getSellSessionData();
 
           if($data != null) {
-
             $this->model->insertNewProduct($data);
             $this->view->processMessage = '<h1 class="center--large">Your item will now go through an administration process.</h1><h2 class="center--large">If your item is accepted, it will become visible on the site.</h2>';
             $this->view->render('sell/processed', 'Sell Item - Processed', '', true, false);
