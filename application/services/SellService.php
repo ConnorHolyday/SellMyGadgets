@@ -29,7 +29,7 @@
         $this->buildSellSession();
       }
 
-      print_r($_SESSION['SELL_DATA']);
+      //print_r($_SESSION['SELL_DATA']);
     }
 
     function buildSellSession() {
@@ -86,5 +86,4 @@
     function destroySellSession() {
       unset($_SESSION['SELL_DATA']);
     }
-
   }

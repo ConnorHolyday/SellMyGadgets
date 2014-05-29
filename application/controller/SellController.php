@@ -26,7 +26,7 @@
 
           $this->view->categories = $this->service->populateSelectTagByName('categories', 'category');
           $this->view->brands = $this->service->populateSelectTagByName('brands', 'brand');
-          $this->view->conditions = $this->service->populateSelectTagByName('conditions', 'condition');
+          $this->view->conditions = $this->service->populateSelectTagByName('condition', 'condition');
 
           $this->view->render('sell/details', 'Sell Item - Details', '', true, false);
 
@@ -60,7 +60,7 @@
         case 'confirm':
 
           if(sizeof($_POST) > 0) {
-            $del_type = $_POST['del_type'];
+            $del_type = $_POST['del_details'];
             $del_price = $_POST['del_price'];
             $collection = $_POST['collection'];
             $coll_details = $_POST['coll_details'];
@@ -81,9 +81,13 @@
 
           ========================= !!! */
 
-          $this->view->processMessage = '<h1 class="center--large">Your item will now go through an administration process.</h1><h2 class="center--large">If your item is accepted, it will become visible on the site.</h2>';
+          $data = $this->service->getSellSessionData();
 
-          $this->view->render('sell/processed', 'Sell Item - Processed', '', true, false);
+          if($data != null) {
+            $this->model->insertNewProduct($data);
+            $this->view->processMessage = '<h1 class="center--large">Your item will now go through an administration process.</h1><h2 class="center--large">If your item is accepted, it will become visible on the site.</h2>';
+            $this->view->render('sell/processed', 'Sell Item - Processed', '', true, false);
+          }
 
           break;
 

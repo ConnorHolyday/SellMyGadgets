@@ -68,12 +68,19 @@
     this function is accsed via the site_diretory/product/single
     */
     function view($id) {
-
+     
       if(is_numeric($id)){
         $products = $this->model->getProductById($id);
       } else {
         $products = $this->model->getProductByName($id);
       }
+
+
+     if(isset($_POST['question'])){
+        $user = $this->model->getUserID($_SESSION['USER_NAME']);
+        $this->model->setComment($user[0]['id'], $products[0]['id'], $_GET['commentID'], $_POST['question']);
+      };
+
 
       $images = $this->model->getAllImages($id);
 

@@ -133,4 +133,19 @@
 			
 			return $this->db->execute_assoc_query($query);
 		}
+
+		function setComment($UserID, $productID, $commentID,  $comment){
+			$query = 'INSERT INTO product_comments (product_id, comment_id, user_id, comment)
+				VALUES (' . $productID . ',"' . $commentID . '","' . $UserID . '","'  . $comment . '");'; 
+
+			$this->db->execute_query($query);
+		}
+
+		function getUserID($userName){
+			$userInfo = 'SELECT users.id, users.username 
+						FROM users
+						WHERE users.username ="' . $userName . '"';
+
+			return $this->db->execute_assoc_query($userInfo);			
+		}
 	}

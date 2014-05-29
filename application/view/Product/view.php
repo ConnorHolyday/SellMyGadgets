@@ -71,20 +71,20 @@
 							<img src="http://placehold.it/120x120">
 							<h1><? echo $comment['userName']?> Asked : </h1>
 							<p><? echo $comment['comment']; ?></p>
-							<a href='#comment-reply'>reply</a>
+							<a href="<? echo '?commentID=' . $comment['id'];?>">reply</a>
 						</div>
 					<?	} else { ?>
 						<div class='comment-reply'>
 							<h1><? echo $comment['userName']?> Replied : </h1>
 							<p><? echo $comment['comment']; ?></p>
-							<a href='#comment-reply'>reply</a>
+							<a href="<? echo '?commentID=' . $comment['id'];?>">reply</a>
 						</div>
 					<?
 						}
 					}
 					?>
 			</div>
-			<form id='comment-reply' class="coments-form" action"" method="post">
+			<form id='comment-reply' class="coments-form" action"<? echo $_SERVER['HTTP_HOST']; ?>" method="post">
 				<input name="question" type="textarea">
 				<input name="submit" type="submit" value="Ask">
 			</form>
